@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		562A3B8927C36B7500AB0A80 /* Army.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A3B8827C36B7500AB0A80 /* Army.swift */; };
+		562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A3B8A27C36C1800AB0A80 /* armyView.swift */; };
 		56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56883D0E27A5DF9F00349E69 /* armybuilderApp.swift */; };
 		56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56883D1027A5DF9F00349E69 /* ContentView.swift */; };
 		56883D1327A5DFA000349E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1227A5DFA000349E69 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		562A3B8827C36B7500AB0A80 /* Army.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Army.swift; sourceTree = "<group>"; };
+		562A3B8A27C36C1800AB0A80 /* armyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armyView.swift; sourceTree = "<group>"; };
 		56883D0B27A5DF9F00349E69 /* armybuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = armybuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56883D0E27A5DF9F00349E69 /* armybuilderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armybuilderApp.swift; sourceTree = "<group>"; };
 		56883D1027A5DF9F00349E69 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,7 +57,9 @@
 			children = (
 				56883D0E27A5DF9F00349E69 /* armybuilderApp.swift */,
 				56883D1027A5DF9F00349E69 /* ContentView.swift */,
+				562A3B8A27C36C1800AB0A80 /* armyView.swift */,
 				56883D1227A5DFA000349E69 /* Assets.xcassets */,
+				562A3B8827C36B7500AB0A80 /* Army.swift */,
 				56883D1427A5DFA000349E69 /* Preview Content */,
 			);
 			path = armybuilder;
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562A3B8927C36B7500AB0A80 /* Army.swift in Sources */,
+				562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */,
 				56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */,
 				56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */,
 			);
