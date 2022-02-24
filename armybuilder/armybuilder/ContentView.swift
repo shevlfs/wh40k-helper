@@ -2,10 +2,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ScrollView(.vertical){
-            VStack(){
-                armyView()
-                armyView()
+        NavigationView{
+            ScrollView(.vertical){
+                VStack(){
+                    armyView()
+                    armyView()
+                }
+            
+            }.navigationTitle("Your armies:").toolbar {
+                ToolbarItemGroup(placement: .primaryAction) {
+            Button() {
+                Label("Add",systemImage:"plus.app")
+            } label:{}
+                }
             }
         }
     }
