@@ -1,9 +1,21 @@
-txt="charming quick-tempered conscientious chauvinistic courageous tends to get carried away obliging sentimental affectionate intuitive stingy diligent placid over-anxious witty magnetic personality distrustful shrewd industrious shrewd extravagant down-to-earth altruistic morose sharp-tongued materialistic unstinting resolute dogged thrifty frugal immoderate obstinate parsimonious dogmatic inflexible astute pithy chatty cunning sly sullen brusque terse unscrupulous verbose garrulous "
-txt2="очаровательный вспыльчивый добросовестный шовинистический смелый имеет тенденцию увлекаться услужливый сентиментальный любящий интуитивно понятный скупой прилежный спокойный чрезмерно озабоченный остроумный магнетическая личность недоверчивый проницательный трудолюбивый проницательный экстравагантный приземленный альтруистический угрюмый острый на язык материалистический неустанный решительный упорный бережливый скромный неумеренный упрямый бережливый догматический непреклонный проницательный содержательный болтливый хитрость хитрый угрюмый резкий краткий недобросовестный подробный словоохотливый"
-l1=txt.split()
-l2=txt2.split()
-for i in range(len(l2)):
-    try:
-        print(l1[i], " ", l2[i])
-    except IndexError:
-        pass
+import mongoengine as me
+from mongoengine import Document, StringField, IntField, ListField
+me.connect(host="mongodb+srv://admin:ff7777@lycwine2.57swz.mongodb.net/warhammer")
+class Unit(Document):
+    unit_id = IntField()
+    name = StringField()
+    cost = IntField()
+    mr = StringField()
+    ws = IntField()
+    bs = IntField()
+    sth = IntField()
+    tcs = IntField()
+    wpn = IntField()
+    agility = IntField()
+    ldship = IntField()
+a = Unit()
+unitObjects = Unit.objects
+units = {k.unit_id: k for k in unitObjects}
+units[0] = Unit()
+units[0].name = "test"
+units[0].save()
