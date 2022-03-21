@@ -71,7 +71,7 @@ for b in boxes.splitlines():
     b = b.split(' ')
     img = cv2.rectangle(img, (int(b[1]), h - int(b[2])), (int(b[3]), h - int(b[4])), (0, 255, 0), 2)
 
-#cv2.imshow('img', img)
+cv2.imshow('img', img)
 cv2.waitKey(0)
 img = cv2.imread('img.png')
 gray = get_grayscale(img)
@@ -81,4 +81,6 @@ canny = canny(gray)
 
 # Adding custom options
 custom_config = r'--oem 3 --psm 6'
-print(pytesseract.image_to_string(img, config=custom_config))
+out=pytesseract.image_to_string(img, config=custom_config)
+x=out.split()
+print()

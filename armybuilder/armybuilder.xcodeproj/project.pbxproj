@@ -10,6 +10,10 @@
 		5601F63627C6FF9600262E92 /* armyDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5601F63527C6FF9600262E92 /* armyDetailedView.swift */; };
 		562A3B8927C36B7500AB0A80 /* Army.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A3B8827C36B7500AB0A80 /* Army.swift */; };
 		562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A3B8A27C36C1800AB0A80 /* armyView.swift */; };
+		562A87A727E8D9C40076FB6A /* haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87A627E8D9C30076FB6A /* haptic.swift */; };
+		562A87A927E8EF850076FB6A /* editArmy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87A827E8EF850076FB6A /* editArmy.swift */; };
+		562A87AB27E8FB1B0076FB6A /* appSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87AA27E8FB1B0076FB6A /* appSettings.swift */; };
+		562A87AD27E8FB470076FB6A /* addArmyDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87AC27E8FB470076FB6A /* addArmyDialog.swift */; };
 		56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56883D0E27A5DF9F00349E69 /* armybuilderApp.swift */; };
 		56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56883D1027A5DF9F00349E69 /* ContentView.swift */; };
 		56883D1327A5DFA000349E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1227A5DFA000349E69 /* Assets.xcassets */; };
@@ -20,6 +24,10 @@
 		5601F63527C6FF9600262E92 /* armyDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armyDetailedView.swift; sourceTree = "<group>"; };
 		562A3B8827C36B7500AB0A80 /* Army.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Army.swift; sourceTree = "<group>"; };
 		562A3B8A27C36C1800AB0A80 /* armyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armyView.swift; sourceTree = "<group>"; };
+		562A87A627E8D9C30076FB6A /* haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haptic.swift; sourceTree = "<group>"; };
+		562A87A827E8EF850076FB6A /* editArmy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editArmy.swift; sourceTree = "<group>"; };
+		562A87AA27E8FB1B0076FB6A /* appSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appSettings.swift; sourceTree = "<group>"; };
+		562A87AC27E8FB470076FB6A /* addArmyDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addArmyDialog.swift; sourceTree = "<group>"; };
 		56883D0B27A5DF9F00349E69 /* armybuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = armybuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56883D0E27A5DF9F00349E69 /* armybuilderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armybuilderApp.swift; sourceTree = "<group>"; };
 		56883D1027A5DF9F00349E69 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,10 +65,14 @@
 		56883D0D27A5DF9F00349E69 /* armybuilder */ = {
 			isa = PBXGroup;
 			children = (
+				562A87AC27E8FB470076FB6A /* addArmyDialog.swift */,
+				562A87AA27E8FB1B0076FB6A /* appSettings.swift */,
 				56883D0E27A5DF9F00349E69 /* armybuilderApp.swift */,
 				56883D1027A5DF9F00349E69 /* ContentView.swift */,
+				562A87A627E8D9C30076FB6A /* haptic.swift */,
 				562A3B8A27C36C1800AB0A80 /* armyView.swift */,
 				5601F63527C6FF9600262E92 /* armyDetailedView.swift */,
+				562A87A827E8EF850076FB6A /* editArmy.swift */,
 				56883D1227A5DFA000349E69 /* Assets.xcassets */,
 				562A3B8827C36B7500AB0A80 /* Army.swift */,
 				56883D1427A5DFA000349E69 /* Preview Content */,
@@ -149,8 +161,12 @@
 				5601F63627C6FF9600262E92 /* armyDetailedView.swift in Sources */,
 				562A3B8927C36B7500AB0A80 /* Army.swift in Sources */,
 				562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */,
+				562A87A927E8EF850076FB6A /* editArmy.swift in Sources */,
 				56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */,
+				562A87A727E8D9C40076FB6A /* haptic.swift in Sources */,
+				562A87AB27E8FB1B0076FB6A /* appSettings.swift in Sources */,
 				56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */,
+				562A87AD27E8FB470076FB6A /* addArmyDialog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

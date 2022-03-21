@@ -9,16 +9,16 @@ import SwiftUI
 
 struct armyView: View {
     @StateObject var army = Army()
+    @State var id = Int()
+    @State var faction = String()
+    
         var body: some View {
             VStack {
                 Group {
-                    Button(action: {
-                        army.addPoints(100)
-                    }) {
                         VStack(alignment: .center,spacing: 4) {
                             HStack {
                                 Spacer()
-                                Text("Army 1")
+                                Text("Army \(id)")
                                     .font(.title)
                                     .foregroundColor(.white)
                                 .bold()
@@ -47,7 +47,6 @@ struct armyView: View {
                     .padding(32)
                     }
                     .buttonStyle(ScaleableButtonStyle())
-                }
             }
         }
     }
