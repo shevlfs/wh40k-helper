@@ -9,7 +9,15 @@ import SwiftUI
 
 struct appSettings: View {
     var body: some View {
-        Text("app settings")
+        VStack(alignment: .leading){
+            HStack(){
+                Text("Settings").font(.title).fontWeight(.semibold).padding()
+                Spacer()
+            }.padding(.top, 20)
+        
+            Spacer()
+        }
+
     }
 }
 

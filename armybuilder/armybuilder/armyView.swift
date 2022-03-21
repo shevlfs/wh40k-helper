@@ -30,7 +30,7 @@ struct armyView: View {
                                     .frame(width: 0.5, height: 20)
                                 HStack(spacing: 6) {
                                     Image(systemName: "bolt.horizontal.fill")
-                                    Text("Faction")
+                                    Text(army.faction)
                                 }
                             }.foregroundColor(.white)
                         }

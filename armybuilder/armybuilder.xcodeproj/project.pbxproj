@@ -18,6 +18,7 @@
 		56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56883D1027A5DF9F00349E69 /* ContentView.swift */; };
 		56883D1327A5DFA000349E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1227A5DFA000349E69 /* Assets.xcassets */; };
 		56883D1627A5DFA000349E69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1527A5DFA000349E69 /* Preview Assets.xcassets */; };
+		56CD644627E92F40008478CD /* JSONstructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD644527E92F40008478CD /* JSONstructs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		56883D1027A5DF9F00349E69 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		56883D1227A5DFA000349E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56883D1527A5DFA000349E69 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		56CD644527E92F40008478CD /* JSONstructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONstructs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				56883D1227A5DFA000349E69 /* Assets.xcassets */,
 				562A3B8827C36B7500AB0A80 /* Army.swift */,
 				56883D1427A5DFA000349E69 /* Preview Content */,
+				56CD644527E92F40008478CD /* JSONstructs.swift */,
 			);
 			path = armybuilder;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				562A87A727E8D9C40076FB6A /* haptic.swift in Sources */,
 				562A87AB27E8FB1B0076FB6A /* appSettings.swift in Sources */,
 				56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */,
+				56CD644627E92F40008478CD /* JSONstructs.swift in Sources */,
 				562A87AD27E8FB470076FB6A /* addArmyDialog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

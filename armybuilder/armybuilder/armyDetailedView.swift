@@ -14,6 +14,7 @@ struct armyDetailedView: View {
     
     var body: some View {
             VStack(){
+                
                 VStack{
                     HStack(){
                         VStack(alignment: .leading){
@@ -30,6 +31,7 @@ struct armyDetailedView: View {
     
                     }.padding([.leading, .bottom, .trailing], 19.0)
                     Spacer()
+                    
                 }
             
                 
