@@ -9,7 +9,7 @@ import SwiftUI
 
 struct editArmy: View {
     var body: some View {
-        Text("edit army")
+        Text(factions[0].file)
     }
 }
 

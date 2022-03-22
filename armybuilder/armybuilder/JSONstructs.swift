@@ -8,7 +8,7 @@
 import Foundation
 
 struct faction: Identifiable,Decodable {
-    var id: Int
+    let id: Int
     let name: String
     let file: String
 }
@@ -36,3 +36,20 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
+
+
+struct unit: Identifiable,Decodable {
+    var id: Int
+    let name: String
+    let m: String
+    let ws: String
+    let bs: String
+    let s: Int
+    let t: Int
+    let w: Int
+    let a: Int
+    let ld: Int
+    let sv: String
+}
+var greyknightsunits: [unit] = load(factions[0].file)
+var spacewolvesunits: [unit] = load(factions[1].file)

@@ -25,12 +25,14 @@ struct addArmyDialog: View {
             VStack(alignment: .center){
                 ScrollView(.vertical){
                 ForEach(factions){faction in
-                    Button(action:{}){
+                    Button(action:{self.factionSelected.toggle()}){
                         ZStack(){
                             Rectangle().fill(Color(UIColor.systemGray4)).frame(width: 370.0, height: 55.0).cornerRadius(10).padding(.all,10.0)
                             Text(faction.name)
                                 .font(.headline)
                             .foregroundColor(Color.black)}
+                    }.sheet(isPresented:$factionSelected){
+                        Text("hello")
                     }
                 }
                         
