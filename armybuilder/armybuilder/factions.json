@@ -1,6 +1,12 @@
-{
-  "factions": [{
-    "Gray Knights" : "greyknightsstats.json",
-    "Space Wolves" : "spacewolvesstats.json"
-  }]
-}
+[{
+        "id": 0,
+        "name": "Gray Knights",
+        "file": "greyknightsstats.json"
+
+    },
+    {
+        "id": 1,
+        "name": "Space Wolves",
+        "file": "spacewolvesstats.json"
+    }
+]

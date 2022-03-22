@@ -17,7 +17,11 @@ struct armyDetailedView: View {
                 
                 VStack{
                     HStack(){
+                        ZStack{
+                            Rectangle().fill(Color(UIColor.systemGray3))
+                            .frame(width: 190, height: 70, alignment: .leading).cornerRadius(15)
                         VStack(alignment: .leading){
+                            
                     Text("Faction: \(army.faction)")
                         .font(.title2)
                         .fontWeight(.semibold)
@@ -26,12 +30,18 @@ struct armyDetailedView: View {
                         .font(.title3)
                         .fontWeight(.regular)
                         .multilineTextAlignment(.leading)
-                        }.padding(.bottom)
+                        }}
                         Spacer()
     
                     }.padding([.leading, .bottom, .trailing], 19.0)
                     Spacer()
                     
+                    }
+                .frame(width: 415.0, height: 90.0)
+                Spacer()
+                VStack(){
+                    Text("Troop Name")
+                Spacer()
                 }
             
                 

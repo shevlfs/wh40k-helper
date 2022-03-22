@@ -1,8 +1,8 @@
 import Foundation
 
 class Army: ObservableObject {
-    @Published var points: Int = 100
-    @Published var id = 2
+    @Published var points: Int = 0
+    @Published var id = Int()
     @Published var faction = "Default"
     @Published var troops = [Int]()
     func addPoints(_ amount: Int) {
