@@ -9,13 +9,15 @@ import SwiftUI
 
 struct appSettings: View {
     var body: some View {
+        NavigationView{
         VStack(alignment: .leading){
             HStack(){
-                Text("Settings").font(.title).fontWeight(.semibold).padding()
+                Text("Settings").font(.headline).fontWeight(.regular).padding()
                 Spacer()
             }.padding(.top, 20)
         
             Spacer()
+        }.navigationTitle("Settings")
         }
 
     }

@@ -16,6 +16,7 @@ struct faction: Identifiable,Decodable {
 var factions: [faction] = load("factions.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
+    
     let data: Data
 
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
@@ -50,6 +51,40 @@ struct unit: Identifiable,Decodable {
     let a: Int
     let ld: Int
     let sv: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, name = "Name",m="M",ws="WS",bs="BS",s="S",t="T",w="W",a="A",ld="Ld",sv="Sv"
+    }
+    init(from decoder: Decoder) throws
+            {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                
+                do
+                {
+                    m = try String(container.decode(Int.self, forKey: .m))
+                }
+                catch
+                {
+                    m = try container.decode(String.self, forKey: .m)
+                }
+                self.id = try container.decode(Int.self, forKey: .id)
+                self.name = try container.decode(String.self, forKey: .name)
+                self.ws = try container.decode(String.self, forKey: .ws)
+                self.bs = try container.decode(String.self, forKey: .bs)
+                self.s = try container.decode(Int.self, forKey: .s)
+                self.t = try container.decode(Int.self, forKey: .t)
+                self.w = try container.decode(Int.self, forKey: .w)
+                self.a = try container.decode(Int.self, forKey: .a)
+                self.ld = try container.decode(Int.self, forKey: .ld)
+                self.sv = try container.decode(String.self, forKey: .sv)
+        }
+
 }
-var greyknightsunits: [unit] = load(factions[0].file)
-var spacewolvesunits: [unit] = load(factions[1].file)
+struct stats: Identifiable, Decodable{
+    var id: Int
+    let units: [unit]
+    private enum CodingKeys : String, CodingKey {
+        case units, id = "factid"
+    }
+}
+var globalstats: [stats] = load("stats.json")
