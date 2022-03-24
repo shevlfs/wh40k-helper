@@ -24,9 +24,7 @@ struct selectTroops: View {
             VStack(alignment: .center){
                 ForEach(globalstats[factionfile].units){unit in
                     ZStack(){
-                        Rectangle().fill(Color(UIColor.systemTeal)).frame(width: 370.0, height: 55.0).cornerRadius(10).padding(.all,10.0)
-                        Text(unit.name)
-                            .foregroundColor(Color.white).fontWeight(.bold).font(.headline)
+                        troopCountSelect(unitcount: 0, unitname: unit.name)
                     }
                 }
                 }
