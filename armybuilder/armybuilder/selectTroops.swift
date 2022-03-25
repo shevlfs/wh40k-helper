@@ -9,33 +9,38 @@ import SwiftUI
 
 struct selectTroops: View {
     @State var factionID = Int()
+    @EnvironmentObject var rootData: AddArmyViewModel
     var body: some View {
-        NavigationView{
-            ScrollView(.vertical){
+        ScrollView(.vertical){
         VStack(alignment: .center){
-        VStack(alignment: .leading){
-            HStack(){
-                    Text("Select troops for your army ").fontWeight(.regular).padding([.leading, .bottom, .trailing],14).font(.title3)
+            HStack {
+                    Text("Select troops for your army ")
+                    .fontWeight(.regular)
+                    .font(.title3)
                 Spacer()
             }
-
-            Spacer()
-        }.navigationTitle("Add a new army!").padding([.top,.bottom]).frame(width: 400,height:50,alignment: .center)
-            VStack(alignment: .center){
-                ForEach(globalstats[factionID].units){unit in
-                    ZStack(){
-                        troopCountSelect(unitcount: 0, unitname: unit.name)
-                    }
+            VStack(alignment: .center, spacing: 20){
+                ForEach(rootData.units){ unit in
+                    troopCountSelect(unitcount: Binding(get: {
+                        return rootData.unitCount[unit] ?? 0
+                    }, set: { v in
+                        rootData.unitCount[unit] = v
+                    }), unitname: unit.name)
                 }
                 }
             }
-        }
-        }.navigationBarHidden(true)
+        .padding(.horizontal, 20)
+        }.navigationBarBackButtonHidden(true)
+            .navigationTitle("Add a new army!")
+            .onAppear {
+                rootData.factionID = Int16(factionID)
+            }
 }
 }
 
 struct selectTroops_Previews: PreviewProvider {
     static var previews: some View {
         selectTroops()
+            .environmentObject(AddArmyViewModel(context: DataController().container.viewContext))
     }
 }

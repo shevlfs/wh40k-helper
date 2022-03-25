@@ -8,40 +8,47 @@
 import SwiftUI
 
 struct troopCountSelect: View {
-    @State var unitcount = 0
+    @Binding var unitcount: Int
     @State var unitname = String()
     var body: some View {
-        ZStack{
-            Rectangle().fill(Color(UIColor.systemGray6)).frame(width: 400.0, height: 145.0).cornerRadius(10).padding(.all,10.0)
-            
-        VStack(alignment: .center){
-            VStack(alignment: .center){
-                
-                    ZStack(){
-                        Rectangle().fill(Color(UIColor.systemTeal)).frame(width: 370.0, height: 55.0).cornerRadius(10).padding(.all,10.0)
-                        Text("\(unitname)")
-                            .foregroundColor(Color.white).fontWeight(.bold).font(.headline)
+        VStack(alignment: .trailing) {
+            Text(unitname)
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.teal)
+                )
+            pickerView()
+        }
+        .padding()
+        .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.systemGray6)))
+    }
+}
 
-                }
-                
+extension troopCountSelect {
+    @ViewBuilder
+    private func pickerView() -> some View {
+        HStack {
+            Button(action: {
+                unitcount -= 1
+            }) {
+                Text("-")
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(RoundedRectangle(cornerRadius: 5).fill(.teal))
             }
-            HStack(){
-                Spacer()
-                Button(action:{}){
-                ZStack(){
-                    Rectangle().fill(Color(UIColor.systemTeal)).frame(width: 25.0, height: 25.0).cornerRadius(5).padding(.all,10.0)
-                    Text("-")
-                        .foregroundColor(Color.white).fontWeight(.bold).font(.headline)
-            }
-                }
-                Text("\(unitcount)")
-                Button(action: {}){
-                ZStack(){
-                    Rectangle().fill(Color(UIColor.systemTeal)).frame(width: 25.0, height: 25.0).cornerRadius(5).padding(.all,10.0)
-                    Text("+")
-                        .foregroundColor(Color.white).fontWeight(.bold).font(.headline)
-                }
-            }}.ignoresSafeArea().offset(x: -20, y: -10)
+            Text("\(unitcount)")
+            Button(action: {
+                unitcount += 1
+            }) {
+                Text("+")
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(RoundedRectangle(cornerRadius: 5).fill(.teal))
             }
         }
     }
@@ -49,6 +56,6 @@ struct troopCountSelect: View {
 
 struct troopCountSelect_Previews: PreviewProvider {
     static var previews: some View {
-        troopCountSelect()
+        troopCountSelect(unitcount: .constant(0), unitname: "gogas")
     }
 }

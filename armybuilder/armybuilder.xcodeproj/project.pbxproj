@@ -26,6 +26,7 @@
 		56883D1627A5DFA000349E69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1527A5DFA000349E69 /* Preview Assets.xcassets */; };
 		56A0C60927EE207E00C0A358 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0C60827EE207E00C0A358 /* DataController.swift */; };
 		56A0C60C27EE234400C0A358 /* Army.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56A0C60A27EE234400C0A358 /* Army.xcdatamodeld */; };
+		56A0C60E27EE2CF200C0A358 /* addArmyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0C60D27EE2CF200C0A358 /* addArmyViewModel.swift */; };
 		56CD644627E92F40008478CD /* JSONstructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD644527E92F40008478CD /* JSONstructs.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		56883D1527A5DFA000349E69 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56A0C60827EE207E00C0A358 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		56A0C60B27EE234400C0A358 /* Army.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Army.xcdatamodel; sourceTree = "<group>"; };
+		56A0C60D27EE2CF200C0A358 /* addArmyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addArmyViewModel.swift; sourceTree = "<group>"; };
 		56CD644527E92F40008478CD /* JSONstructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONstructs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 				56883D1027A5DF9F00349E69 /* ContentView.swift */,
 				562A87A627E8D9C30076FB6A /* haptic.swift */,
 				562A3B8A27C36C1800AB0A80 /* armyView.swift */,
+				56A0C60D27EE2CF200C0A358 /* addArmyViewModel.swift */,
 				5601F63527C6FF9600262E92 /* armyDetailedView.swift */,
 				562A87A827E8EF850076FB6A /* editArmy.swift */,
 				566C244227ED1176008C1362 /* troopCountSelect.swift */,
@@ -198,6 +201,7 @@
 				56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */,
 				566C244327ED1176008C1362 /* troopCountSelect.swift in Sources */,
 				562A87A727E8D9C40076FB6A /* haptic.swift in Sources */,
+				56A0C60E27EE2CF200C0A358 /* addArmyViewModel.swift in Sources */,
 				562A87AB27E8FB1B0076FB6A /* appSettings.swift in Sources */,
 				56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */,
 				56CD644627E92F40008478CD /* JSONstructs.swift in Sources */,

@@ -39,7 +39,7 @@ func load<T: Decodable>(_ filename: String) -> T {
 }
 
 
-struct unit: Identifiable,Decodable {
+struct unit: Identifiable,Decodable, Hashable {
     var id: Int
     let name: String
     let m: String
