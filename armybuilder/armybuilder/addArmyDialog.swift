@@ -29,12 +29,16 @@ struct addArmyDialog: View {
             VStack(alignment: .center){
                 ForEach(factions){faction in
                     NavigationLink(destination: selectTroops(factionID: faction.id).environmentObject(viewModel)){
-                        ZStack(){
-                            Rectangle().fill(Color(UIColor.systemGray4)).frame(width: 370.0, height: 55.0).cornerRadius(10).padding(.all,10.0)
                             Text(faction.name)
                                 .font(.headline)
-                            .foregroundColor(Color.black)}
-                    }
+                            .foregroundColor(Color.black)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 10).fill(.gray))
+                            .padding([.top, .horizontal])
+                        
+                    } 
+                    
                 }
                         
             }
