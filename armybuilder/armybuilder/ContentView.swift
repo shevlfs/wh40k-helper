@@ -1,15 +1,19 @@
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
     @State var showAppSettings = false
     @State var showAddDialog = false
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var armies: FetchedResults<Army>
+    
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
                 VStack(){
-                    ForEach((1...10),id: \.self){num in
-                        NavigationLink(destination: armyDetailedView(id: num).onAppear(perform:{ Haptics.shared.play(.light)})) {
-                            armyView(id: num)
+                    ForEach(armies, id: \.id){ army in
+                        NavigationLink(destination: armyDetailedView(army: army).onAppear(perform:{ Haptics.shared.play(.light)})) {
+                            armyView(army: army)
                         }
                         
                     }

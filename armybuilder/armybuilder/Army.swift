@@ -1,25 +1,40 @@
 import Foundation
 
-class Army: ObservableObject {
-    @Published var points: Int = 0
-    @Published var id = Int()
-    @Published var faction = "Default"
-    @Published var troops = [Int]()
-    func addPoints(_ amount: Int) {
-        self.points += amount
-    }
-    func addTroops(_ id: Int) {
-        self.troops.append(id)
-    }
-    func changeFaction(_ fctn: String){
-        self.faction = fctn
+//struct Army: Identifiable {
+//    var points: Int = 0
+//    var id = Int()
+//    var faction = "Default"
+//    var troops = [Int]()
+//
+//    mutating func addPoints(_ amount: Int) {
+//        self.points += amount
+//    }
+//    mutating func addTroops(_ id: Int) {
+//        self.troops.append(id)
+//    }
+//    mutating func changeFaction(_ fctn: String){
+//        self.faction = fctn
+//    }
+//}
+//
+class ArmyViewModel: ObservableObject {
+    @Published var armies = [Int]()
+
+    func getArmies() {
+        self.armies = [1,2,3]
     }
 }
 
-class ArmyViewModel: ObservableObject {
-    @Published var armies = [Int]()
+extension Army {
+
     
-    func getArmies() {
-        self.armies = [1,2,3]
+    func addPoints(_ amount: Int) {
+        self.points += Int16(amount)
+    }
+    func addTroops(_ id: Int16,_ count: Int16) {
+        self.troops![id]! += count
+    }
+    func changeFaction(_ fctn: Int){
+        self.factionID = Int16(fctn)
     }
 }

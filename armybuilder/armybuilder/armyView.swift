@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct armyView: View {
-    @StateObject var army = Army()
+    var army: Army
     @State var id = Int()
     @State var faction = String()
     
@@ -30,7 +30,7 @@ struct armyView: View {
                                     .frame(width: 0.5, height: 20)
                                 HStack(spacing: 6) {
                                     Image(systemName: "bolt.horizontal.fill")
-                                    Text(army.faction)
+                                    Text("\(army.factionID)")
                                 }
                             }.foregroundColor(.white)
                         }
@@ -61,6 +61,6 @@ struct ScaleableButtonStyle: ButtonStyle {
 
 struct armyView_Previews: PreviewProvider {
     static var previews: some View {
-        armyView()
+        armyView(army: Army(context: DataController().container.viewContext))
     }
 }

@@ -24,6 +24,8 @@
 		56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56883D1027A5DF9F00349E69 /* ContentView.swift */; };
 		56883D1327A5DFA000349E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1227A5DFA000349E69 /* Assets.xcassets */; };
 		56883D1627A5DFA000349E69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1527A5DFA000349E69 /* Preview Assets.xcassets */; };
+		56A0C60927EE207E00C0A358 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0C60827EE207E00C0A358 /* DataController.swift */; };
+		56A0C60C27EE234400C0A358 /* Army.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56A0C60A27EE234400C0A358 /* Army.xcdatamodeld */; };
 		56CD644627E92F40008478CD /* JSONstructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD644527E92F40008478CD /* JSONstructs.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		56883D1027A5DF9F00349E69 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		56883D1227A5DFA000349E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56883D1527A5DFA000349E69 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		56A0C60827EE207E00C0A358 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		56A0C60B27EE234400C0A358 /* Army.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Army.xcdatamodel; sourceTree = "<group>"; };
 		56CD644527E92F40008478CD /* JSONstructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONstructs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +67,8 @@
 		56883D0227A5DF9F00349E69 = {
 			isa = PBXGroup;
 			children = (
+				56A0C60A27EE234400C0A358 /* Army.xcdatamodeld */,
+				56A0C60827EE207E00C0A358 /* DataController.swift */,
 				56883D0D27A5DF9F00349E69 /* armybuilder */,
 				56883D0C27A5DF9F00349E69 /* Products */,
 			);
@@ -185,6 +191,7 @@
 			files = (
 				5601F63627C6FF9600262E92 /* armyDetailedView.swift in Sources */,
 				562A3B8927C36B7500AB0A80 /* Army.swift in Sources */,
+				56A0C60C27EE234400C0A358 /* Army.xcdatamodeld in Sources */,
 				562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */,
 				562A87A927E8EF850076FB6A /* editArmy.swift in Sources */,
 				5672C37227EB540A00524033 /* selectTroops.swift in Sources */,
@@ -194,6 +201,7 @@
 				562A87AB27E8FB1B0076FB6A /* appSettings.swift in Sources */,
 				56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */,
 				56CD644627E92F40008478CD /* JSONstructs.swift in Sources */,
+				56A0C60927EE207E00C0A358 /* DataController.swift in Sources */,
 				562A87AD27E8FB470076FB6A /* addArmyDialog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +405,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		56A0C60A27EE234400C0A358 /* Army.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				56A0C60B27EE234400C0A358 /* Army.xcdatamodel */,
+			);
+			currentVersion = 56A0C60B27EE234400C0A358 /* Army.xcdatamodel */;
+			path = Army.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 56883D0327A5DF9F00349E69 /* Project object */;
 }

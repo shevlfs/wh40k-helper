@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct armyDetailedView: View {
-    @StateObject var army = Army()
+    var army: Army
     @State var id = Int()
     @State var editMode = false
     
@@ -22,7 +22,7 @@ struct armyDetailedView: View {
                             .frame(width: 190, height: 70, alignment: .leading).cornerRadius(15)
                         VStack(alignment: .leading){
                             
-                    Text("Faction: \(army.faction)")
+                    Text("Faction: \(army.factionID)")
                         .font(.title2)
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.leading)
@@ -30,7 +30,9 @@ struct armyDetailedView: View {
                         .font(.title3)
                         .fontWeight(.regular)
                         .multilineTextAlignment(.leading)
-                        }}
+                        }
+                            
+                        }
                         Spacer()
     
                     }.padding([.leading, .bottom, .trailing], 19.0)
@@ -60,7 +62,7 @@ struct armyDetailedView: View {
 
 struct armyDetailedView_Previews: PreviewProvider {
     static var previews: some View {
-        armyDetailedView()
+        armyDetailedView(army: Army(context: DataController().container.viewContext))
     }
 }
 }
