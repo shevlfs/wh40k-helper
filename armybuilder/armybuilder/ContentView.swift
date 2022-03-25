@@ -22,6 +22,11 @@ struct ContentView: View {
             }.navigationTitle("Your armies").toolbar {
                 ToolbarItemGroup(placement: .primaryAction){
                     Button(action: {
+                        let army = Army(context: moc)
+                        army.troops = [:]
+                        army.id = UUID()
+                        army.factionID = 1
+                        try! moc.save()
                         self.showAddDialog.toggle()
                     }) {
                         Label("Add",systemImage:"plus.app")}.sheet(isPresented:$showAddDialog){
