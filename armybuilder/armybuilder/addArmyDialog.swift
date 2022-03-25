@@ -23,7 +23,7 @@ struct addArmyDialog: View {
         }.navigationTitle("Add a new army!").padding(.top).frame(width: 400, height: 50, alignment: .center)
             VStack(alignment: .center){
                 ForEach(factions){faction in
-                    NavigationLink(destination: selectTroops(factionfile: faction.id)){
+                    NavigationLink(destination: selectTroops(factionID: faction.id)){
                         ZStack(){
                             Rectangle().fill(Color(UIColor.systemGray4)).frame(width: 370.0, height: 55.0).cornerRadius(10).padding(.all,10.0)
                             Text(faction.name)

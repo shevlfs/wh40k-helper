@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct selectTroops: View {
-    @State var factionfile = Int()
+    @State var factionID = Int()
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
@@ -22,7 +22,7 @@ struct selectTroops: View {
             Spacer()
         }.navigationTitle("Add a new army!").padding([.top,.bottom]).frame(width: 400,height:50,alignment: .center)
             VStack(alignment: .center){
-                ForEach(globalstats[factionfile].units){unit in
+                ForEach(globalstats[factionID].units){unit in
                     ZStack(){
                         troopCountSelect(unitcount: 0, unitname: unit.name)
                     }
