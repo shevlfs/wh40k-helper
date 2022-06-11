@@ -11,10 +11,15 @@ struct appSettings: View {
     var body: some View {
         NavigationView{
         VStack(alignment: .leading){
-            HStack(){
-                Text("Settings").font(.headline).fontWeight(.regular).padding()
-                Spacer()
-            }.padding(.top, 20)
+            ScrollView(){
+            VStack(){
+                settingsitem(icon: "person.fill", optionname: "Account").padding()
+                settingsitem(icon: "rectangle.3.group", optionname:"Collection").padding()
+            }.padding()
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.systemGray6)))
+            }
+            
+
         
             Spacer()
         }.navigationTitle("Settings")
