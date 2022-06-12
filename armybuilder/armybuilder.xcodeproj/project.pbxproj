@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5601F63627C6FF9600262E92 /* armyDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5601F63527C6FF9600262E92 /* armyDetailedView.swift */; };
 		56083E802854D64A00A83C9D /* settingsitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56083E7F2854D64A00A83C9D /* settingsitem.swift */; };
+		56083E842856589D00A83C9D /* serverrequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56083E832856589C00A83C9D /* serverrequests.swift */; };
 		562A3B8927C36B7500AB0A80 /* Army.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A3B8827C36B7500AB0A80 /* Army.swift */; };
 		562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A3B8A27C36C1800AB0A80 /* armyView.swift */; };
 		562A87A727E8D9C40076FB6A /* haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87A627E8D9C30076FB6A /* haptic.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		5601F63527C6FF9600262E92 /* armyDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armyDetailedView.swift; sourceTree = "<group>"; };
 		56083E7F2854D64A00A83C9D /* settingsitem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsitem.swift; sourceTree = "<group>"; };
+		56083E832856589C00A83C9D /* serverrequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serverrequests.swift; sourceTree = "<group>"; };
 		562A3B8827C36B7500AB0A80 /* Army.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Army.swift; sourceTree = "<group>"; };
 		562A3B8A27C36C1800AB0A80 /* armyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armyView.swift; sourceTree = "<group>"; };
 		562A87A627E8D9C30076FB6A /* haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haptic.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				56883D1427A5DFA000349E69 /* Preview Content */,
 				56CD644527E92F40008478CD /* JSONstructs.swift */,
 				56083E7F2854D64A00A83C9D /* settingsitem.swift */,
+				56083E832856589C00A83C9D /* serverrequests.swift */,
 			);
 			path = armybuilder;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			files = (
 				5601F63627C6FF9600262E92 /* armyDetailedView.swift in Sources */,
 				562A3B8927C36B7500AB0A80 /* Army.swift in Sources */,
+				56083E842856589D00A83C9D /* serverrequests.swift in Sources */,
 				562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */,
 				562A87A927E8EF850076FB6A /* editArmy.swift in Sources */,
 				56083E802854D64A00A83C9D /* settingsitem.swift in Sources */,
