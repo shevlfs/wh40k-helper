@@ -51,9 +51,10 @@ struct unit: Identifiable,Decodable {
     let a: Int
     let ld: Int
     let sv: String
+    let pts: Int
     
     private enum CodingKeys: String, CodingKey {
-        case id, name = "Name",m="M",ws="WS",bs="BS",s="S",t="T",w="W",a="A",ld="Ld",sv="Sv"
+        case id, name = "Name",m="M",ws="WS",bs="BS",s="S",t="T",w="W",a="A",ld="Ld",sv="Sv",pts="pts"
     }
     init(from decoder: Decoder) throws
             {
@@ -77,6 +78,7 @@ struct unit: Identifiable,Decodable {
                 self.a = try container.decode(Int.self, forKey: .a)
                 self.ld = try container.decode(Int.self, forKey: .ld)
                 self.sv = try container.decode(String.self, forKey: .sv)
+                self.pts = try container.decode(Int.self, forKey: .pts)
         }
 
 }

@@ -18,9 +18,10 @@
 		562A87AD27E8FB470076FB6A /* addArmyDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87AC27E8FB470076FB6A /* addArmyDialog.swift */; };
 		5644884828577B0D00AB2273 /* accountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644884728577B0D00AB2273 /* accountSettings.swift */; };
 		5644884A28577B6600AB2273 /* collectionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644884928577B6600AB2273 /* collectionSettings.swift */; };
+		5644884E2857CE3B00AB2273 /* stats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5644884D2857CE3B00AB2273 /* stats.json */; };
 		566C244327ED1176008C1362 /* troopCountSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C244227ED1176008C1362 /* troopCountSelect.swift */; };
 		5672C37227EB540A00524033 /* selectTroops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672C37127EB540A00524033 /* selectTroops.swift */; };
-		5672C37427EB5DC300524033 /* stats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5672C37327EB5DC300524033 /* stats.json */; };
+		5672C37427EB5DC300524033 /* statsold.json in Resources */ = {isa = PBXBuildFile; fileRef = 5672C37327EB5DC300524033 /* statsold.json */; };
 		5673660527E9E2C10088B805 /* greyknightsstats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5673660227E9E2C10088B805 /* greyknightsstats.json */; };
 		5673660627E9E2C10088B805 /* spacewolvesstats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5673660327E9E2C10088B805 /* spacewolvesstats.json */; };
 		5673660727E9E2C10088B805 /* factions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5673660427E9E2C10088B805 /* factions.json */; };
@@ -43,9 +44,10 @@
 		562A87AC27E8FB470076FB6A /* addArmyDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addArmyDialog.swift; sourceTree = "<group>"; };
 		5644884728577B0D00AB2273 /* accountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountSettings.swift; sourceTree = "<group>"; };
 		5644884928577B6600AB2273 /* collectionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionSettings.swift; sourceTree = "<group>"; };
+		5644884D2857CE3B00AB2273 /* stats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stats.json; sourceTree = "<group>"; };
 		566C244227ED1176008C1362 /* troopCountSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopCountSelect.swift; sourceTree = "<group>"; };
 		5672C37127EB540A00524033 /* selectTroops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectTroops.swift; sourceTree = "<group>"; };
-		5672C37327EB5DC300524033 /* stats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stats.json; sourceTree = "<group>"; };
+		5672C37327EB5DC300524033 /* statsold.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = statsold.json; sourceTree = "<group>"; };
 		5673660227E9E2C10088B805 /* greyknightsstats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = greyknightsstats.json; sourceTree = "<group>"; };
 		5673660327E9E2C10088B805 /* spacewolvesstats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spacewolvesstats.json; sourceTree = "<group>"; };
 		5673660427E9E2C10088B805 /* factions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = factions.json; sourceTree = "<group>"; };
@@ -87,8 +89,9 @@
 		56883D0D27A5DF9F00349E69 /* armybuilder */ = {
 			isa = PBXGroup;
 			children = (
+				5644884D2857CE3B00AB2273 /* stats.json */,
 				5672C37127EB540A00524033 /* selectTroops.swift */,
-				5672C37327EB5DC300524033 /* stats.json */,
+				5672C37327EB5DC300524033 /* statsold.json */,
 				5673660427E9E2C10088B805 /* factions.json */,
 				5673660227E9E2C10088B805 /* greyknightsstats.json */,
 				5673660327E9E2C10088B805 /* spacewolvesstats.json */,
@@ -179,10 +182,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5644884E2857CE3B00AB2273 /* stats.json in Resources */,
 				5673660627E9E2C10088B805 /* spacewolvesstats.json in Resources */,
 				56883D1627A5DFA000349E69 /* Preview Assets.xcassets in Resources */,
 				5673660527E9E2C10088B805 /* greyknightsstats.json in Resources */,
-				5672C37427EB5DC300524033 /* stats.json in Resources */,
+				5672C37427EB5DC300524033 /* statsold.json in Resources */,
 				56883D1327A5DFA000349E69 /* Assets.xcassets in Resources */,
 				5673660727E9E2C10088B805 /* factions.json in Resources */,
 			);

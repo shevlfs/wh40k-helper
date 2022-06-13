@@ -15,17 +15,14 @@ struct settingsitem: View {
             HStack {
                 Image(systemName: icon)
                                 .resizable()
-                                .cornerRadius(12)
                                 .frame(width: 25, height: 25)
-                                .clipped()
-                                .aspectRatio(contentMode: .fit).padding(.horizontal)
+                                .clipped().padding(.horizontal)
 
                             Text(optionname)
                                 .foregroundColor(.blue)
                                 .font(.system(size: 18))
                 Spacer()
                         }
-                .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(

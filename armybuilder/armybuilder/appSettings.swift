@@ -19,7 +19,7 @@ struct appSettings: View {
         
                 
                 NavigationLink(destination: collectionSettings()){
-                    settingsitem(icon: "rectangle.3.group", optionname:"Collection").padding()
+                    settingsitem(icon: "archivebox.fill", optionname:"Collection").padding()
                 }
                 
             }.padding(.vertical)

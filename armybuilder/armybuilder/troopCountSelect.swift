@@ -26,7 +26,7 @@ extension troopCountSelect {
     private func pickerView() -> some View {
         HStack {
             Text("\(pointcount) pts").foregroundColor(.white)
-                .padding(.vertical, 8).padding(.horizontal, 45)
+                .padding(.vertical, 8).padding(.horizontal, 40)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
                         .fill(.teal)

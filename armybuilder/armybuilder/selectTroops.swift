@@ -24,7 +24,7 @@ struct selectTroops: View {
             VStack(alignment: .center){
                 ForEach(globalstats[factionfile].units){unit in
                     ZStack(){
-                        troopCountSelect(unitcount: 0, unitname: unit.name, pointcount: 5)
+                        troopCountSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts)
                     }
                 }
                 }
