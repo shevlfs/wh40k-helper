@@ -10,14 +10,20 @@ import SwiftUI
 struct appSettings: View {
     var body: some View {
         NavigationView{
-        VStack(alignment: .leading){
             ScrollView(){
             VStack(){
-                settingsitem(icon: "person.fill", optionname: "Account").padding()
-                settingsitem(icon: "rectangle.3.group", optionname:"Collection").padding()
-            }.padding()
+                NavigationLink(destination: accountSettings()){
+                    settingsitem(icon: "person.fill", optionname: "Account").padding()
+                }
+                
+        
+                
+                NavigationLink(destination: collectionSettings()){
+                    settingsitem(icon: "rectangle.3.group", optionname:"Collection").padding()
+                }
+                
+            }.padding(.vertical)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.systemGray6)))
-            }
             
 
         

@@ -13,7 +13,7 @@ struct settingsitem: View {
     var body: some View {
         VStack(alignment: .trailing) {
             HStack {
-                Image(systemName: "person.fill")
+                Image(systemName: icon)
                                 .resizable()
                                 .cornerRadius(12)
                                 .frame(width: 25, height: 25)

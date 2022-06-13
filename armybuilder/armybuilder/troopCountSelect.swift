@@ -3,6 +3,7 @@ import SwiftUI
 struct troopCountSelect: View {
     @State var unitcount: Int
     @State var unitname = String()
+    @State var pointcount = Int()
     var body: some View {
         VStack(alignment: .trailing) {
             Text(unitname)
@@ -24,8 +25,17 @@ extension troopCountSelect {
     @ViewBuilder
     private func pickerView() -> some View {
         HStack {
+            Text("\(pointcount) pts").foregroundColor(.white)
+                .padding(.vertical, 8).padding(.horizontal, 45)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.teal)
+                )
+            Spacer()
             Button(action: {
-                unitcount -= 1
+                if (unitcount != 0){
+                    unitcount -= 1
+                }
             }) {
                 Text("-")
                     .foregroundColor(.white)
@@ -49,6 +59,6 @@ extension troopCountSelect {
 
 struct troopCountSelect_Previews: PreviewProvider {
     static var previews: some View {
-        troopCountSelect(unitcount: 0, unitname: "")
+        troopCountSelect(unitcount: 0, unitname: "", pointcount: 150)
     }
 }
