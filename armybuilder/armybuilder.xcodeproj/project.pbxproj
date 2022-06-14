@@ -21,6 +21,7 @@
 		5644884E2857CE3B00AB2273 /* stats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5644884D2857CE3B00AB2273 /* stats.json */; };
 		564488502858B6E300AB2273 /* collectionAddUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644884F2858B6E300AB2273 /* collectionAddUnits.swift */; };
 		564488522858B74800AB2273 /* collectionSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564488512858B74800AB2273 /* collectionSelection.swift */; };
+		5644885F2859255B00AB2273 /* targetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644885E2859255B00AB2273 /* targetPicker.swift */; };
 		566C244327ED1176008C1362 /* troopCountSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C244227ED1176008C1362 /* troopCountSelect.swift */; };
 		5672C37227EB540A00524033 /* selectTroops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672C37127EB540A00524033 /* selectTroops.swift */; };
 		5672C37427EB5DC300524033 /* statsold.json in Resources */ = {isa = PBXBuildFile; fileRef = 5672C37327EB5DC300524033 /* statsold.json */; };
@@ -49,6 +50,7 @@
 		5644884D2857CE3B00AB2273 /* stats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stats.json; sourceTree = "<group>"; };
 		5644884F2858B6E300AB2273 /* collectionAddUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionAddUnits.swift; sourceTree = "<group>"; };
 		564488512858B74800AB2273 /* collectionSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionSelection.swift; sourceTree = "<group>"; };
+		5644885E2859255B00AB2273 /* targetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = targetPicker.swift; sourceTree = "<group>"; };
 		566C244227ED1176008C1362 /* troopCountSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopCountSelect.swift; sourceTree = "<group>"; };
 		5672C37127EB540A00524033 /* selectTroops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectTroops.swift; sourceTree = "<group>"; };
 		5672C37327EB5DC300524033 /* statsold.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = statsold.json; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				5644884D2857CE3B00AB2273 /* stats.json */,
 				5672C37127EB540A00524033 /* selectTroops.swift */,
+				5644885E2859255B00AB2273 /* targetPicker.swift */,
 				5672C37327EB5DC300524033 /* statsold.json */,
 				5673660427E9E2C10088B805 /* factions.json */,
 				5673660227E9E2C10088B805 /* greyknightsstats.json */,
@@ -227,6 +230,7 @@
 				56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */,
 				56CD644627E92F40008478CD /* JSONstructs.swift in Sources */,
 				562A87AD27E8FB470076FB6A /* addArmyDialog.swift in Sources */,
+				5644885F2859255B00AB2273 /* targetPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

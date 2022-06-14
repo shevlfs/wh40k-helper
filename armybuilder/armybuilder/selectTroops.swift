@@ -14,6 +14,7 @@ struct selectTroops: View {
     @State var targetMenu = false
     @State var targetPopUp = false
     @State var pointTarget = Int()
+    
     var body: some View {
         VStack(){
             HStack(){
@@ -27,9 +28,14 @@ struct selectTroops: View {
                             .fill(.green))
                 }
                 .confirmationDialog("Select target", isPresented: $targetMenu,titleVisibility: .visible){
-                    Button("Select target"){
+                    Button(action: {
                         targetpoint = true
+                    }) {
+                        Text("Choose target")
                     }
+                            
+            
+                
                     Button("No target"){
                         targetpoint = false
                     }
