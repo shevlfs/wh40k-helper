@@ -9,18 +9,54 @@ import SwiftUI
 
 struct selectTroops: View {
     @State var factionfile = Int()
+    @State var currentpoints = Int()
+    @State var targetpoint = false
+    @State var targetMenu = false
+    @State var targetPopUp = false
+    @State var pointTarget = Int()
     var body: some View {
-        NavigationView{
-            ScrollView(.vertical){
-        VStack(alignment: .center){
-        VStack(alignment: .leading){
+        VStack(){
             HStack(){
-                    Text("Select troops for your army ").fontWeight(.regular).padding([.leading, .bottom, .trailing],14).font(.title3)
-                Spacer()
-            }
+            if (targetpoint == false){
+                Button(action:{ self.targetMenu.toggle()}){
+                Text("\(currentpoints) pts").foregroundColor(.white)
+                    .frame(width: 150, height: 10)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(.green))
+                }
+                .confirmationDialog("Select target", isPresented: $targetMenu,titleVisibility: .visible){
+                    Button("Select target"){
+                        targetpoint = true
+                    }
+                    Button("No target"){
+                        targetpoint = false
+                    }
+                }
 
-            Spacer()
-        }.navigationTitle("Add a new army!").padding([.top,.bottom]).frame(width: 400,height:50,alignment: .center)
+            } else {
+                Button(action:{ self.targetMenu.toggle()}){
+                Text("\(currentpoints) pts / \(pointTarget) pts ").foregroundColor(.white)
+                    .frame(width: 350, height: 10)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(.green))
+                }
+                .confirmationDialog("Select target", isPresented: $targetMenu,titleVisibility: .visible){
+                    Button("Select target"){
+                        targetpoint = true
+                    }
+                    Button("No target"){
+                        targetpoint = false
+                    }
+                }
+
+                
+            }
+            }.padding()
+            ScrollView(.vertical){
             VStack(alignment: .center){
                 ForEach(globalstats[factionfile].units){unit in
                     ZStack(){
@@ -29,13 +65,13 @@ struct selectTroops: View {
                 }
                 }
             }
+        }.navigationTitle("Add a new army!")
         }
-        }.navigationBarHidden(true)
-}
+        
 }
 
 struct selectTroops_Previews: PreviewProvider {
     static var previews: some View {
-        selectTroops()
+        selectTroops(currentpoints: 1000, pointTarget: 1500)
     }
 }

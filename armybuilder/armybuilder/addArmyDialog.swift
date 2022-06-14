@@ -1,9 +1,3 @@
-//
-//  addArmyDialog.swift
-//  armybuilder
-//
-//  Created by ted on 3/21/22.
-//
 
 import SwiftUI
 
@@ -15,8 +9,8 @@ struct addArmyDialog: View {
         VStack(alignment: .center){
         VStack(alignment: .leading){
             HStack(){
-                    Text("Select your faction ").fontWeight(.regular).padding([.leading, .bottom, .trailing],14).font(.title3)
-                Spacer()
+                    Text("Select your faction ").fontWeight(.regular).padding([.leading, .bottom, .trailing]).font(.title3)
+                
             }
 
             Spacer()
