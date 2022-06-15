@@ -3,6 +3,7 @@ import SwiftUI
 
 struct addArmyDialog: View {
     @State var factionSelected = false
+    @EnvironmentObject var pointTarget : pointTarget
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
