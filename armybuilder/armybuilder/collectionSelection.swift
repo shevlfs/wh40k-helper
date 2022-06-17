@@ -1,8 +1,11 @@
 import SwiftUI
 
 struct collectionSelection: View {
+    @EnvironmentObject var collectionDatas: collectionData
+    @State var factionID: Int
     @State var unitcount: Int
     @State var unitname = String()
+    @State var unitID: Int
     var body: some View {
         VStack(alignment: .trailing) {
             Text(unitname)
@@ -27,6 +30,7 @@ extension collectionSelection {
             Button(action: {
                 if (unitcount != 0){
                     unitcount -= 1
+                    collectionDatas.collectionDict[factionID]![unitID]! -= 1
                 }
             }) {
                 Text("-")
@@ -38,6 +42,7 @@ extension collectionSelection {
             Text("\(unitcount)")
             Button(action: {
                 unitcount += 1
+                collectionDatas.collectionDict[factionID]![unitID]! += 1
             }) {
                 Text("+")
                     .foregroundColor(.white)
@@ -51,7 +56,7 @@ extension collectionSelection {
 
 struct collectionSelection_Previews: PreviewProvider {
     static var previews: some View {
-        collectionSelection(unitcount: 0, unitname: "")
+        collectionSelection(factionID: 0, unitcount: 0, unitname: "", unitID: 0)
     }
 }
 

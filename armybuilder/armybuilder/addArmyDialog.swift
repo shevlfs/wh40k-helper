@@ -4,6 +4,7 @@ import SwiftUI
 struct addArmyDialog: View {
     @State var factionSelected = false
     @StateObject var pointTargetd = pointTarget()
+    @EnvironmentObject var collectionDatas: collectionData
     var body: some View {
         NavigationView{
             ScrollView(.vertical){

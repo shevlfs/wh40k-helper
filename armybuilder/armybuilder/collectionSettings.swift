@@ -9,6 +9,7 @@ import SwiftUI
 
 struct collectionSettings: View {
     @State var factionSelected = false
+    @EnvironmentObject var collectionDatas: collectionData
     var body: some View {
         
         
@@ -19,7 +20,7 @@ struct collectionSettings: View {
             }
             VStack(alignment: .center){
                 ForEach(factions){faction in
-                    NavigationLink(destination: collectionAddUnits(factionfile: faction.id)){
+                    NavigationLink(destination: collectionAddUnits(factionfile: faction.id).environmentObject(collectionDatas)){
                         ZStack(){
                             Rectangle().fill(Color(UIColor.systemGray4)).frame(width: 370.0, height: 55).cornerRadius(10).padding(.all,10.0)
                             Text(faction.name)

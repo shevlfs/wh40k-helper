@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct appSettings: View {
+    @EnvironmentObject var collectionDatas: collectionData
     var body: some View {
         NavigationView{
             ScrollView(){
@@ -18,7 +19,7 @@ struct appSettings: View {
                 
         
                 
-                NavigationLink(destination: collectionSettings()){
+                NavigationLink(destination: collectionSettings().environmentObject(collectionDatas)){
                     settingsitem(icon: "archivebox.fill", optionname:"Collection").padding()
                 }
                 

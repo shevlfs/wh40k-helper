@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @State var showAppSettings = false
     @State var showAddDialog = false
+    @EnvironmentObject var collectionDatas: collectionData
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
@@ -21,7 +22,7 @@ struct ContentView: View {
                         self.showAddDialog.toggle()
                     }) {
                         Label("Add",systemImage:"plus.app")}.sheet(isPresented:$showAddDialog){
-                            addArmyDialog()
+                            addArmyDialog().environmentObject(collectionDatas)
                         }
 
                     }
@@ -33,7 +34,7 @@ struct ContentView: View {
                     }) {
                         Label("Settings",systemImage:"gear")
                     }.sheet(isPresented:$showAppSettings){
-                        appSettings()
+                        appSettings().environmentObject(collectionDatas)
                     }
                 }
             }
