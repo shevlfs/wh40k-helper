@@ -10,24 +10,26 @@ import SwiftUI
 
 class pointTarget: ObservableObject{
     @Published var count = 0
+    @Published var targetpointbool = false
+    @Published var currentPoints = 0
 }
 
 
 struct selectTroops: View {
     @State var factionfile = Int()
     @State var currentpoints = Int()
-    @State var targetpoint = true
     @State var targetMenu = false
     @State var targetPopUp = false
     @EnvironmentObject var pointTarget: pointTarget
     
+    
     var body: some View {
         VStack(){
             HStack(){
-            if (targetpoint == false){
+                if (pointTarget.targetpointbool == false){
                 Button(action:{ self.targetMenu.toggle()}){
-                    Text("\(currentpoints) pts / \(pointTarget.count) pts ").foregroundColor(.white)
-                    .frame(width: 150, height: 10)
+                    Text("\(pointTarget.currentPoints) pts").foregroundColor(.white)
+                    .frame(width: 195, height: 10)
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 8)
@@ -38,31 +40,40 @@ struct selectTroops: View {
                 
 
             } else {
+                
+                if (pointTarget.currentPoints > pointTarget.count){
                 Button(action:{ self.targetMenu.toggle()}){
-                    Text("\(currentpoints) pts / \(pointTarget.count) pts ").foregroundColor(.white)
-                    .frame(width: 350, height: 10)
+                Text("\(pointTarget.currentPoints) pts / \(pointTarget.count) pts ").foregroundColor(.white)
+                .frame(width: 195, height: 10)
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(.red)).sheet(isPresented: $targetMenu){
+                            targetPicker().environmentObject(pointTarget)
+                        }
+            }
+
+                
+                } else {
+                    Button(action:{ self.targetMenu.toggle()}){
+                    Text("\(pointTarget.currentPoints) pts / \(pointTarget.count) pts ").foregroundColor(.white)
+                    .frame(width: 195, height: 10)
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 8)
-                            .fill(.green))
+                            .fill(.green)).sheet(isPresented: $targetMenu){
+                                targetPicker().environmentObject(pointTarget)
+                            }
                 }
-                .confirmationDialog("Select target", isPresented: $targetMenu,titleVisibility: .visible){
-                    Button("Select target"){
-                        targetpoint = true
-                    }
-                    Button("No target"){
-                        targetpoint = false
-                    }
+                    
                 }
-
-                
             }
             }.padding()
             ScrollView(.vertical){
             VStack(alignment: .center){
                 ForEach(globalstats[factionfile].units){unit in
                     ZStack(){
-                        troopCountSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts)
+                        troopCountSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts).environmentObject(pointTarget)
                     }
                 }
                 }

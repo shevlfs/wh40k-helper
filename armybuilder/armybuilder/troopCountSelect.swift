@@ -4,6 +4,7 @@ struct troopCountSelect: View {
     @State var unitcount: Int
     @State var unitname = String()
     @State var pointcount = Int()
+    @EnvironmentObject var pointTarget: pointTarget
     var body: some View {
         VStack(alignment: .trailing) {
             Text(unitname)
@@ -35,6 +36,7 @@ extension troopCountSelect {
             Button(action: {
                 if (unitcount != 0){
                     unitcount -= 1
+                    pointTarget.currentPoints -= pointcount
                 }
             }) {
                 Text("-")
@@ -46,6 +48,7 @@ extension troopCountSelect {
             Text("\(unitcount)")
             Button(action: {
                 unitcount += 1
+                pointTarget.currentPoints += pointcount
             }) {
                 Text("+")
                     .foregroundColor(.white)
