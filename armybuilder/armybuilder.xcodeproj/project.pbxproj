@@ -23,6 +23,7 @@
 		564488522858B74800AB2273 /* collectionSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564488512858B74800AB2273 /* collectionSelection.swift */; };
 		5644885F2859255B00AB2273 /* targetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644885E2859255B00AB2273 /* targetPicker.swift */; };
 		56448864285CB5F500AB2273 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56448863285CB5F500AB2273 /* Data.swift */; };
+		56448866285CCC4600AB2273 /* troopCollectionCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56448865285CCC4600AB2273 /* troopCollectionCount.swift */; };
 		566C244327ED1176008C1362 /* troopCountSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C244227ED1176008C1362 /* troopCountSelect.swift */; };
 		5672C37227EB540A00524033 /* selectTroops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672C37127EB540A00524033 /* selectTroops.swift */; };
 		5672C37427EB5DC300524033 /* statsold.json in Resources */ = {isa = PBXBuildFile; fileRef = 5672C37327EB5DC300524033 /* statsold.json */; };
@@ -53,6 +54,7 @@
 		564488512858B74800AB2273 /* collectionSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionSelection.swift; sourceTree = "<group>"; };
 		5644885E2859255B00AB2273 /* targetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = targetPicker.swift; sourceTree = "<group>"; };
 		56448863285CB5F500AB2273 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		56448865285CCC4600AB2273 /* troopCollectionCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopCollectionCount.swift; sourceTree = "<group>"; };
 		566C244227ED1176008C1362 /* troopCountSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopCountSelect.swift; sourceTree = "<group>"; };
 		5672C37127EB540A00524033 /* selectTroops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectTroops.swift; sourceTree = "<group>"; };
 		5672C37327EB5DC300524033 /* statsold.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = statsold.json; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				5601F63527C6FF9600262E92 /* armyDetailedView.swift */,
 				562A87A827E8EF850076FB6A /* editArmy.swift */,
 				566C244227ED1176008C1362 /* troopCountSelect.swift */,
+				56448865285CCC4600AB2273 /* troopCollectionCount.swift */,
 				56883D1227A5DFA000349E69 /* Assets.xcassets */,
 				562A3B8827C36B7500AB0A80 /* Army.swift */,
 				56883D1427A5DFA000349E69 /* Preview Content */,
@@ -222,6 +225,7 @@
 				562A3B8927C36B7500AB0A80 /* Army.swift in Sources */,
 				56083E842856589D00A83C9D /* serverrequests.swift in Sources */,
 				562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */,
+				56448866285CCC4600AB2273 /* troopCollectionCount.swift in Sources */,
 				562A87A927E8EF850076FB6A /* editArmy.swift in Sources */,
 				56083E802854D64A00A83C9D /* settingsitem.swift in Sources */,
 				5672C37227EB540A00524033 /* selectTroops.swift in Sources */,

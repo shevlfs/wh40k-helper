@@ -11,7 +11,28 @@ class collectionData: ObservableObject{
             }
         }
     }
+    func emptyChecker (factionID: Int) -> Bool{
+        for unit in globalstats[factionID].units{
+            if (collectionDict[factionID]![unit.id] != 0){
+                return true
+            }
+        }
+        return false
+    }
+    
+    func getUnits (factionID: Int) -> [unitTemp]{
+        var units = [unitTemp]()
+        for unit in globalstats[factionID].units{
+            if (collectionDict[factionID]![unit.id] != 0){
+                units.append(unitTemp(unitid: unit.id))
+            }
+        }
+        return units
+    }
 }
 
-
+struct unitTemp: Identifiable{
+    let id = UUID()
+    let unitid: Int
+}
 

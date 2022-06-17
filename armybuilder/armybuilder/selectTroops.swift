@@ -21,7 +21,8 @@ struct selectTroops: View {
     @State var targetMenu = false
     @State var targetPopUp = false
     @EnvironmentObject var pointTarget: pointTarget
-    
+    @EnvironmentObject var collectionDatas: collectionData
+    @State var collectionShowcase: Bool
     
     var body: some View {
         VStack(){
@@ -69,6 +70,9 @@ struct selectTroops: View {
                 }
             }
             }.padding()
+            
+            
+            if(collectionShowcase == false){
             ScrollView(.vertical){
             VStack(alignment: .center){
                 ForEach(globalstats[factionfile].units){unit in
@@ -78,6 +82,47 @@ struct selectTroops: View {
                 }
                 }
             }
+            } else {
+                ScrollView(.vertical){
+                    VStack(){
+                        HStack{
+                        Text("In your collection:")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            Spacer()
+                        }.padding()
+                        VStack(alignment: .center){
+                            ForEach(
+                                collectionDatas.getUnits(factionID: factionfile)
+                            ){unit in
+                                ZStack(){
+                                    troopCollectionCount(unitcount: 0, unitname: globalstats[factionfile].units[unit.unitid-1].name, pointcount: globalstats[factionfile].units[unit.unitid-1].pts).environmentObject(pointTarget)
+                                }
+                            }
+                        }.padding()
+                        
+                        
+                        
+                        
+                        
+                    }
+                VStack(alignment: .center){
+                    ForEach(globalstats[factionfile].units){unit in
+                        ZStack(){
+                            troopCountSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts).environmentObject(pointTarget)
+                        }
+                    }
+                    }
+                }
+                
+                
+                
+                
+                
+                
+            }
+            
+            
         }.navigationTitle("Add a new army!")
         }
         
@@ -85,7 +130,7 @@ struct selectTroops: View {
 
 struct selectTroops_Previews: PreviewProvider {
     static var previews: some View {
-        selectTroops().environmentObject(pointTarget())
+        selectTroops(factionfile: 0, collectionShowcase: true).environmentObject(pointTarget()).environmentObject(collectionData())
     }
 }
 
