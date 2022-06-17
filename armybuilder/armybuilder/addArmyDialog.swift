@@ -6,7 +6,8 @@ struct addArmyDialog: View {
     @StateObject var pointTargetd = pointTarget()
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
-    @State var showNextStep = false
+    @State var showNextStep: Bool? = nil
+    @State var factionfile = 0
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
@@ -20,19 +21,25 @@ struct addArmyDialog: View {
             Spacer()
         }.navigationTitle("Add a new army!").padding(.top).frame(width: 400, height: 50, alignment: .center)
             VStack(alignment: .center){
+                NavigationLink(destination: selectTroops(factionfile: factionfile, collectionShowcase: collectionDatas.emptyChecker(factionID: factionfile)).environmentObject(pointTargetd).environmentObject(collectionDatas).environmentObject(armyControl), tag:true, selection: $showNextStep){
+                    EmptyView()
+                }
+                
                 ForEach(factions){faction in
-                    NavigationLink(destination: selectTroops(factionfile: faction.id, collectionShowcase: collectionDatas.emptyChecker(factionID: faction.id)).environmentObject(pointTargetd).environmentObject(collectionDatas).environmentObject(armyControl).onTapGesture(perform:{
-                        let newarmyid = armyControl.armies.count+1
-                        armyControl.armies.append(Army(factionID: faction.id, armyid: newarmyid))
-                        showNextStep = false
-                    }
-                                                                                                                                                                                                                                                                             )){
                         ZStack(){
                             Rectangle().fill(Color(UIColor.systemGray4)).frame(width: 370.0, height: 55.0).cornerRadius(10).padding(.all,10.0)
                             Text(faction.name)
                                 .font(.headline)
-                            .foregroundColor(Color.black)}
-                    }
+                            .foregroundColor(Color.black)
+                            
+                        }.onTapGesture{
+                            factionfile = faction.id
+                            let newarmyid = armyControl.armies.count+1
+                            armyControl.armies.append(Army(factionID: faction.id, armyid: newarmyid))
+                            showNextStep = true
+                            
+                        }
+                    
                 }
                         
             }

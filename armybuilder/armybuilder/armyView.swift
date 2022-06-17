@@ -9,6 +9,7 @@ import SwiftUI
 
 struct armyView: View {
     @State var id = Int()
+    @State var points = Int()
     @State var faction = String()
     
         var body: some View {
@@ -24,12 +25,12 @@ struct armyView: View {
                                 Spacer()
                             }
                             HStack {
-                                Text("sds) pts")
+                                Text("\(points) pts")
                                 Rectangle()
                                     .frame(width: 0.5, height: 20)
                                 HStack(spacing: 6) {
                                     Image(systemName: "bolt.horizontal.fill")
-                                    Text("dfsf")
+                                    Text("\(faction)")
                                 }
                             }.foregroundColor(.white)
                         }
@@ -60,6 +61,6 @@ struct ScaleableButtonStyle: ButtonStyle {
 
 struct armyView_Previews: PreviewProvider {
     static var previews: some View {
-        armyView()
+        armyView(points: 1000)
     }
 }

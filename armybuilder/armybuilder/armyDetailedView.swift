@@ -10,6 +10,9 @@ import SwiftUI
 struct armyDetailedView: View {
     @State var id = Int()
     @State var editMode = false
+    @EnvironmentObject var collectionDatas: collectionData
+    @EnvironmentObject var armyControl: armyController
+    
     
     var body: some View {
             VStack(){
@@ -21,11 +24,11 @@ struct armyDetailedView: View {
                             .frame(width: 190, height: 70, alignment: .leading).cornerRadius(15)
                         VStack(alignment: .leading){
                             
-                    Text("Faction: fdf")
+                            Text("Faction: \(factions[armyControl.armies[id-1].factionID].name)")
                         .font(.title2)
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.leading)
-                    Text("Points: dsaf")
+                    Text("Points: \(armyControl.armies[id-1].pointCount)")
                         .font(.title3)
                         .fontWeight(.regular)
                         .multilineTextAlignment(.leading)

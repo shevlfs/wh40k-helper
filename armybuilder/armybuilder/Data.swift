@@ -55,5 +55,9 @@ struct Army: Identifiable{
 class armyController: ObservableObject{
     @Published var armies = [Army]()
     @Published var armyViews = [Int]()
+    
+    func getPoints(armyID: Int) -> Int{
+        return armies[armyID-1].pointCount
+    }
 }
 
