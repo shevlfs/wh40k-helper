@@ -19,27 +19,27 @@ struct selectTroops: View {
     @State var targetpoint = true
     @State var targetMenu = false
     @State var targetPopUp = false
-    @EnvironmentObject var pointTargets : pointTarget
+    @EnvironmentObject var pointTarget: pointTarget
     
     var body: some View {
         VStack(){
             HStack(){
             if (targetpoint == false){
                 Button(action:{ self.targetMenu.toggle()}){
-                    Text("\(currentpoints) pts / \(pointTarget().count) pts ").foregroundColor(.white)
+                    Text("\(currentpoints) pts / \(pointTarget.count) pts ").foregroundColor(.white)
                     .frame(width: 150, height: 10)
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 8)
                             .fill(.green)).sheet(isPresented: $targetMenu){
-                                targetPicker(targetPoints: pointTargets).environmentObject(pointTargets)
+                                targetPicker().environmentObject(pointTarget)
                             }
                 }
                 
 
             } else {
                 Button(action:{ self.targetMenu.toggle()}){
-                    Text("\(currentpoints) pts / \(pointTarget().count) pts ").foregroundColor(.white)
+                    Text("\(currentpoints) pts / \(pointTarget.count) pts ").foregroundColor(.white)
                     .frame(width: 350, height: 10)
                     .padding()
                     .background(

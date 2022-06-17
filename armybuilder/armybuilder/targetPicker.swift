@@ -9,27 +9,27 @@ import SwiftUI
 import Combine
 
 struct targetPicker: View {
-    @StateObject var targetPoints: pointTarget
+    @EnvironmentObject var pointTarget: pointTarget
 
     var body: some View {
         VStack{
-        TextField("Target number of points", value: $targetPoints.count, formatter: NumberFormatter())
+        TextField("Target number of points", value: $pointTarget.count, formatter: NumberFormatter())
             .keyboardType(.numberPad)
-            .onReceive(Just(targetPoints.count)) { newValue in
+            .onReceive(Just(pointTarget.count)) { newValue in
                 let filtered = newValue
                 if filtered != newValue {
-                    targetPoints.count = filtered
+                    pointTarget.count = filtered
                     
        
                 }
                 }
-            Text("\(targetPoints.count)")
-        }.environmentObject(targetPoints)
+            Text("\(pointTarget.count)")
+        }
     }
 }
 
 struct targetPicker_Previews: PreviewProvider {
     static var previews: some View {
-        targetPicker(targetPoints: pointTarget())
+        targetPicker().environmentObject(pointTarget())
     }
 }
