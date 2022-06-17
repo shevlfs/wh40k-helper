@@ -10,9 +10,10 @@ import SwiftUI
 @main
 struct armybuilderApp: App {
     @StateObject var collectionDatas = collectionData()
+    @StateObject var armyControl = armyController()
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(collectionDatas)
+            ContentView().environmentObject(collectionDatas).environmentObject(armyControl)
         }
     }
 }

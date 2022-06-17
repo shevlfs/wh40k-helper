@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct armyView: View {
-    @StateObject var army = Army()
     @State var id = Int()
     @State var faction = String()
     
@@ -25,12 +24,12 @@ struct armyView: View {
                                 Spacer()
                             }
                             HStack {
-                                Text("\(army.points) pts")
+                                Text("sds) pts")
                                 Rectangle()
                                     .frame(width: 0.5, height: 20)
                                 HStack(spacing: 6) {
                                     Image(systemName: "bolt.horizontal.fill")
-                                    Text(army.faction)
+                                    Text("dfsf")
                                 }
                             }.foregroundColor(.white)
                         }

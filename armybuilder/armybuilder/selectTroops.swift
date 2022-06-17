@@ -22,6 +22,7 @@ struct selectTroops: View {
     @State var targetPopUp = false
     @EnvironmentObject var pointTarget: pointTarget
     @EnvironmentObject var collectionDatas: collectionData
+    @EnvironmentObject var armyControl: armyController
     @State var collectionShowcase: Bool
     
     var body: some View {
@@ -29,7 +30,7 @@ struct selectTroops: View {
             HStack(){
                 if (pointTarget.targetpointbool == false){
                 Button(action:{ self.targetMenu.toggle()}){
-                    Text("\(pointTarget.currentPoints) pts").foregroundColor(.white)
+                    Text("\(armyControl.armies[armyControl.armies.count-1].pointCount) pts").foregroundColor(.white)
                     .frame(width: 195, height: 10)
                     .padding()
                     .background(
@@ -42,9 +43,9 @@ struct selectTroops: View {
 
             } else {
                 
-                if (pointTarget.currentPoints > pointTarget.count){
+                if (armyControl.armies[armyControl.armies.count-1].pointCount > pointTarget.count){
                 Button(action:{ self.targetMenu.toggle()}){
-                Text("\(pointTarget.currentPoints) pts / \(pointTarget.count) pts ").foregroundColor(.white)
+                Text("\(armyControl.armies[armyControl.armies.count-1].pointCount) pts / \(pointTarget.count) pts ").foregroundColor(.white)
                 .frame(width: 195, height: 10)
                 .padding()
                 .background(
@@ -57,7 +58,7 @@ struct selectTroops: View {
                 
                 } else {
                     Button(action:{ self.targetMenu.toggle()}){
-                    Text("\(pointTarget.currentPoints) pts / \(pointTarget.count) pts ").foregroundColor(.white)
+                        Text("\(armyControl.armies[armyControl.armies.count-1].pointCount) pts / \(pointTarget.count) pts ").foregroundColor(.white)
                     .frame(width: 195, height: 10)
                     .padding()
                     .background(
@@ -77,7 +78,7 @@ struct selectTroops: View {
             VStack(alignment: .center){
                 ForEach(globalstats[factionfile].units){unit in
                     ZStack(){
-                        troopCountSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts).environmentObject(pointTarget)
+                        troopCountSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts, unit: unit).environmentObject(pointTarget).environmentObject(armyControl)
                     }
                 }
                 }
@@ -96,7 +97,8 @@ struct selectTroops: View {
                                 collectionDatas.getUnits(factionID: factionfile)
                             ){unit in
                                 ZStack(){
-                                    troopCollectionCount(unitcount: 0, unitname: globalstats[factionfile].units[unit.unitid-1].name, pointcount: globalstats[factionfile].units[unit.unitid-1].pts).environmentObject(pointTarget)
+                                    troopCollectionCount(unitcount: 0, unitname: globalstats[factionfile].units[unit.unitid-1].name, pointcount: globalstats[factionfile].units[unit.unitid-1].pts).environmentObject(pointTarget).environmentObject(armyControl)
+                                    
                                 }
                             }
                         }.padding()
@@ -109,7 +111,7 @@ struct selectTroops: View {
                 VStack(alignment: .center){
                     ForEach(globalstats[factionfile].units){unit in
                         ZStack(){
-                            troopCountSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts).environmentObject(pointTarget)
+                            troopCountSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts, unit: unit).environmentObject(pointTarget).environmentObject(armyControl)
                         }
                     }
                     }

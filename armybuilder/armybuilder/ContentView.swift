@@ -4,16 +4,25 @@ struct ContentView: View {
     @State var showAppSettings = false
     @State var showAddDialog = false
     @EnvironmentObject var collectionDatas: collectionData
+    @EnvironmentObject var armyControl: armyController
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
                 VStack(){
-                    ForEach((1...10),id: \.self){num in
-                        NavigationLink(destination: armyDetailedView(id: num).onAppear(perform:{ Haptics.shared.play(.light)})) {
-                            armyView(id: num)
+                    
+                    
+                    if (armyControl.armies.isEmpty){
+                        Spacer()
+                        Text("No armies! :(").fontWeight(.light).padding()
+                    } else{
+                    ForEach(armyControl.armies){army in
+                        NavigationLink(destination: armyDetailedView(id: army.armyid).onAppear(perform:{ Haptics.shared.play(.light)})) {
+                            armyView(id: army.armyid)
                         }
-                        
                     }
+                    }
+                    
+                    
                 }
             
             }.navigationTitle("Your armies").toolbar {
@@ -22,7 +31,7 @@ struct ContentView: View {
                         self.showAddDialog.toggle()
                     }) {
                         Label("Add",systemImage:"plus.app")}.sheet(isPresented:$showAddDialog){
-                            addArmyDialog().environmentObject(collectionDatas)
+                            addArmyDialog().environmentObject(collectionDatas).environmentObject(armyControl)
                         }
 
                     }
@@ -45,6 +54,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(collectionData()).environmentObject(armyController())
     }
 }

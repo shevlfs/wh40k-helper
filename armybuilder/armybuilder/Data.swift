@@ -36,3 +36,24 @@ struct unitTemp: Identifiable{
     let unitid: Int
 }
 
+struct Army: Identifiable{
+    let id = UUID()
+    let armyid: Int
+    var factionID: Int
+    var pointCount = 0
+    var troops : [Int:Int] = [:]
+    init(factionID: Int, armyid: Int){
+        for unit in globalstats[factionID].units{
+            self.troops[unit.id] = 0
+        }
+        self.factionID = factionID
+        self.armyid = armyid
+    }
+}
+
+
+class armyController: ObservableObject{
+    @Published var armies = [Army]()
+    @Published var armyViews = [Int]()
+}
+

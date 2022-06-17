@@ -60,9 +60,9 @@ extension troopCollectionCount {
     }
 }
 
-struct troopCollectionCount_Previews: PreviewProvider {
+/* struct troopCollectionCount_Previews: PreviewProvider {
     static var previews: some View {
         troopCountSelect(unitcount: 0, unitname: "", pointcount: 150)
     }
-}
+} */
 

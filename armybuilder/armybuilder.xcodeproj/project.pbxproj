@@ -10,7 +10,6 @@
 		5601F63627C6FF9600262E92 /* armyDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5601F63527C6FF9600262E92 /* armyDetailedView.swift */; };
 		56083E802854D64A00A83C9D /* settingsitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56083E7F2854D64A00A83C9D /* settingsitem.swift */; };
 		56083E842856589D00A83C9D /* serverrequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56083E832856589C00A83C9D /* serverrequests.swift */; };
-		562A3B8927C36B7500AB0A80 /* Army.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A3B8827C36B7500AB0A80 /* Army.swift */; };
 		562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A3B8A27C36C1800AB0A80 /* armyView.swift */; };
 		562A87A727E8D9C40076FB6A /* haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87A627E8D9C30076FB6A /* haptic.swift */; };
 		562A87A927E8EF850076FB6A /* editArmy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87A827E8EF850076FB6A /* editArmy.swift */; };
@@ -31,7 +30,7 @@
 		5673660627E9E2C10088B805 /* spacewolvesstats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5673660327E9E2C10088B805 /* spacewolvesstats.json */; };
 		5673660727E9E2C10088B805 /* factions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5673660427E9E2C10088B805 /* factions.json */; };
 		56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56883D0E27A5DF9F00349E69 /* armybuilderApp.swift */; };
-		56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56883D1027A5DF9F00349E69 /* ContentView.swift */; };
+		56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56883D1027A5DF9F00349E69 /* ContentView.swift */; settings = {COMPILER_FLAGS = "-w"; }; };
 		56883D1327A5DFA000349E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1227A5DFA000349E69 /* Assets.xcassets */; };
 		56883D1627A5DFA000349E69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1527A5DFA000349E69 /* Preview Assets.xcassets */; };
 		56CD644627E92F40008478CD /* JSONstructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD644527E92F40008478CD /* JSONstructs.swift */; };
@@ -41,7 +40,6 @@
 		5601F63527C6FF9600262E92 /* armyDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armyDetailedView.swift; sourceTree = "<group>"; };
 		56083E7F2854D64A00A83C9D /* settingsitem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsitem.swift; sourceTree = "<group>"; };
 		56083E832856589C00A83C9D /* serverrequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serverrequests.swift; sourceTree = "<group>"; };
-		562A3B8827C36B7500AB0A80 /* Army.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Army.swift; sourceTree = "<group>"; };
 		562A3B8A27C36C1800AB0A80 /* armyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armyView.swift; sourceTree = "<group>"; };
 		562A87A627E8D9C30076FB6A /* haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haptic.swift; sourceTree = "<group>"; };
 		562A87A827E8EF850076FB6A /* editArmy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editArmy.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 				566C244227ED1176008C1362 /* troopCountSelect.swift */,
 				56448865285CCC4600AB2273 /* troopCollectionCount.swift */,
 				56883D1227A5DFA000349E69 /* Assets.xcassets */,
-				562A3B8827C36B7500AB0A80 /* Army.swift */,
 				56883D1427A5DFA000349E69 /* Preview Content */,
 				56CD644527E92F40008478CD /* JSONstructs.swift */,
 				56083E7F2854D64A00A83C9D /* settingsitem.swift */,
@@ -222,7 +219,6 @@
 				5644884A28577B6600AB2273 /* collectionSettings.swift in Sources */,
 				5601F63627C6FF9600262E92 /* armyDetailedView.swift in Sources */,
 				564488502858B6E300AB2273 /* collectionAddUnits.swift in Sources */,
-				562A3B8927C36B7500AB0A80 /* Army.swift in Sources */,
 				56083E842856589D00A83C9D /* serverrequests.swift in Sources */,
 				562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */,
 				56448866285CCC4600AB2273 /* troopCollectionCount.swift in Sources */,
