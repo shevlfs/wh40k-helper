@@ -47,6 +47,7 @@ struct Army: Identifiable{
             self.troops[unit.id] = 0
         }
         self.factionID = factionID
+        self.troops[0] = 0
         self.armyid = armyid
     }
 }
@@ -63,8 +64,11 @@ class armyController: ObservableObject{
         var troops = [unitTemp]()
         for unit in globalstats[armies[armyID-1].factionID].units{
             if (armies[armyID-1].troops[unit.id] != 0){
-                troops.append(unitTemp(unitid: unit.id-1))
+                troops.append(unitTemp(unitid: unit.id))
             }
+        }
+        if(armies[armyID-1].troops[0] != 0){
+            troops.append(unitTemp(unitid: 0))
         }
         return troops
     }
