@@ -59,5 +59,14 @@ class armyController: ObservableObject{
     func getPoints(armyID: Int) -> Int{
         return armies[armyID-1].pointCount
     }
+    func getTroops(armyID: Int) -> [unitTemp]{
+        var troops = [unitTemp]()
+        for unit in globalstats[armies[armyID-1].factionID].units{
+            if (armies[armyID-1].troops[unit.id] != 0){
+                troops.append(unitTemp(unitid: unit.id-1))
+            }
+        }
+        return troops
+    }
 }
 

@@ -16,36 +16,30 @@ struct armyDetailedView: View {
     
     var body: some View {
             VStack(){
-                
-                VStack{
-                    HStack(){
-                        ZStack{
-                            Rectangle().fill(Color(UIColor.systemGray3))
-                            .frame(width: 190, height: 70, alignment: .leading).cornerRadius(15)
-                        VStack(alignment: .leading){
-                            
+                HStack{
+                        VStack(){
                             Text("Faction: \(factions[armyControl.armies[id-1].factionID].name)")
                         .font(.title2)
                         .fontWeight(.semibold)
-                        .multilineTextAlignment(.leading)
                     Text("Points: \(armyControl.armies[id-1].pointCount)")
                         .font(.title3)
                         .fontWeight(.regular)
-                        .multilineTextAlignment(.leading)
-                        }}
-                        Spacer()
-    
-                    }.padding([.leading, .bottom, .trailing], 19.0)
-                    Spacer()
-                    
-                    }
-                .frame(width: 415.0, height: 90.0)
+                        }.foregroundColor(.white)
+                            .frame(width: 270, height: 30)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(.green))
+                }.padding()
                 Spacer()
-                VStack(){
-                    Text("Troop Name")
-                Spacer()
+                ScrollView{
+                    VStack{
+                ForEach(armyControl.getTroops(armyID: id)){
+                    unit in Text("\(globalstats[armyControl.armies[id-1].factionID].units[unit.unitid].name)")
                 }
-            
+                    }
+                }
+    
                 
         }.navigationTitle("Army \(id)").toolbar {
             ToolbarItemGroup(placement: .primaryAction){
@@ -62,7 +56,7 @@ struct armyDetailedView: View {
 
 struct armyDetailedView_Previews: PreviewProvider {
     static var previews: some View {
-        armyDetailedView()
+        armyDetailedView().environmentObject(armyController()).environmentObject(collectionData())
     }
 }
 }
