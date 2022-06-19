@@ -4,7 +4,9 @@ struct troopCollectionCount: View {
     @State var unitcount: Int
     @State var unitname = String()
     @State var pointcount = Int()
+    @State var unit: unit
     @EnvironmentObject var pointTarget: pointTarget
+    @EnvironmentObject var armyControl: armyController
     var body: some View {
         VStack(alignment: .trailing) {
             Text(unitname)
@@ -36,8 +38,9 @@ extension troopCollectionCount {
             Button(action: {
                 if (unitcount != 0){
                     unitcount -= 1
-                    pointTarget.currentPoints -= pointcount
-                }
+                    let armyID = armyControl.armies.count - 1
+                    armyControl.armies[armyID].pointCount -= pointcount
+                    armyControl.armies[armyID].troops[unit.id]! -= 1                }
             }) {
                 Text("-")
                     .foregroundColor(.white)
@@ -47,8 +50,10 @@ extension troopCollectionCount {
             }
             Text("\(unitcount)")
             Button(action: {
-                unitcount = unitcount + 1
-                pointTarget.currentPoints += pointcount
+                unitcount += 1
+                let armyID = armyControl.armies.count - 1
+                armyControl.armies[armyID].pointCount += pointcount
+                armyControl.armies[armyID].troops[unit.id]! += 1
             }) {
                 Text("+")
                     .foregroundColor(.white)

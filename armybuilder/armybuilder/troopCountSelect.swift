@@ -36,8 +36,7 @@ extension troopCountSelect {
                 )
             Spacer()
             Button(action: {
-                if (unitcount != 0){
-                    unitcount -= 1
+                if (armyControl.armies[armyControl.armies.count - 1].troops[unit.id]! != 0){
                     let armyID = armyControl.armies.count - 1
                     armyControl.armies[armyID].pointCount -= pointcount
                     armyControl.armies[armyID].troops[unit.id]! -= 1                }
@@ -48,9 +47,8 @@ extension troopCountSelect {
                     .padding(.vertical, 4)
                     .background(RoundedRectangle(cornerRadius: 5).fill(.teal))
             }
-            Text("\(unitcount)")
+            Text("\(armyControl.armies[armyControl.armies.count - 1].troops[unit.id]!)")
             Button(action: {
-                unitcount += 1
                 let armyID = armyControl.armies.count - 1
                 armyControl.armies[armyID].pointCount += pointcount
                 armyControl.armies[armyID].troops[unit.id]! += 1

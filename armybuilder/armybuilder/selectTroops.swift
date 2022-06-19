@@ -97,7 +97,7 @@ struct selectTroops: View {
                                 collectionDatas.getUnits(factionID: factionfile)
                             ){unit in
                                 ZStack(){
-                                    troopCollectionCount(unitcount: 0, unitname: globalstats[factionfile].units[unit.unitid-1].name, pointcount: globalstats[factionfile].units[unit.unitid-1].pts).environmentObject(pointTarget).environmentObject(armyControl)
+                                    troopCollectionCount(unitcount: armyControl.armies[armyControl.armies.count-1].troops[unit.unitid] ?? 999, unitname: globalstats[factionfile].units[unit.unitid-1].name, pointcount: globalstats[factionfile].units[unit.unitid-1].pts, unit: globalstats[factionfile].units[unit.unitid-1]).environmentObject(pointTarget).environmentObject(armyControl)
                                     
                                 }
                             }
@@ -111,7 +111,7 @@ struct selectTroops: View {
                 VStack(alignment: .center){
                     ForEach(globalstats[factionfile].units){unit in
                         ZStack(){
-                            troopCountSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts, unit: unit).environmentObject(pointTarget).environmentObject(armyControl)
+                            troopCountSelect(unitcount: armyControl.armies[armyControl.armies.count-1].troops[unit.id] ?? 999, unitname: unit.name, pointcount: unit.pts, unit: unit).environmentObject(pointTarget).environmentObject(armyControl)
                         }
                     }
                     }
