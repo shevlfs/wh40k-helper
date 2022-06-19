@@ -9,9 +9,9 @@ import SwiftUI
 
 struct armyView: View {
     @State var id = Int()
-    @State var points = Int()
     @State var faction = String()
-    
+    @EnvironmentObject var collectionDatas: collectionData
+    @EnvironmentObject var armyControl: armyController
         var body: some View {
             VStack {
                 Group {
@@ -25,7 +25,7 @@ struct armyView: View {
                                 Spacer()
                             }
                             HStack {
-                                Text("\(points) pts")
+                                Text("\(armyControl.armies[id-1].pointCount) pts")
                                 Rectangle()
                                     .frame(width: 0.5, height: 20)
                                 HStack(spacing: 6) {
@@ -61,6 +61,6 @@ struct ScaleableButtonStyle: ButtonStyle {
 
 struct armyView_Previews: PreviewProvider {
     static var previews: some View {
-        armyView(points: 1000)
+        armyView()
     }
 }

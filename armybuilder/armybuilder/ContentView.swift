@@ -17,7 +17,7 @@ struct ContentView: View {
                     } else{
                     ForEach(armyControl.armies){army in
                         NavigationLink(destination: armyDetailedView(id: army.armyid).environmentObject(collectionDatas).environmentObject(armyControl).onAppear(perform:{ Haptics.shared.play(.light)})) {
-                            armyView(id: army.armyid, points: armyControl.getPoints(armyID: army.armyid), faction: factions[army.factionID].name)
+                            armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObject(armyControl).environmentObject(collectionDatas)
                         }
                     }
                     }
