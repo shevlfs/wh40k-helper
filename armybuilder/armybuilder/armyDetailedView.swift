@@ -12,7 +12,7 @@ struct armyDetailedView: View {
     @State var editMode = false
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
-    
+    @StateObject var pointTargetd =  pointTarget()
     
     var body: some View {
             VStack(){
@@ -48,16 +48,17 @@ struct armyDetailedView: View {
                     self.editMode.toggle()
                 }) {
                     Label("Add",systemImage:"pencil")}.sheet(isPresented: $editMode){
-                        editArmy()
+                        editArmy(factionfile: armyControl.armies[id-1].factionID, armyID: id-1, collectionShowcase: collectionDatas.emptyChecker(factionID: armyControl.armies[id-1].factionID)).environmentObject(armyControl).environmentObject(collectionDatas).environmentObject(pointTargetd)
+                    }
                     }
 
             }
     }
 }
 
-struct armyDetailedView_Previews: PreviewProvider {
+/* struct armyDetailedView_Previews: PreviewProvider {
     static var previews: some View {
         armyDetailedView().environmentObject(armyController()).environmentObject(collectionData())
     }
 }
-}
+} */

@@ -28,6 +28,7 @@
 		5672C37427EB5DC300524033 /* statsold.json in Resources */ = {isa = PBXBuildFile; fileRef = 5672C37327EB5DC300524033 /* statsold.json */; };
 		56733221285E1D6D00AF0AF9 /* troopDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56733220285E1D6D00AF0AF9 /* troopDisplay.swift */; };
 		56733223285F5EB700AF0AF9 /* unitDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56733222285F5EB700AF0AF9 /* unitDetailedView.swift */; };
+		5673322528609C9600AF0AF9 /* troopEditSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673322428609C9600AF0AF9 /* troopEditSelect.swift */; };
 		5673660527E9E2C10088B805 /* greyknightsstats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5673660227E9E2C10088B805 /* greyknightsstats.json */; };
 		5673660627E9E2C10088B805 /* spacewolvesstats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5673660327E9E2C10088B805 /* spacewolvesstats.json */; };
 		5673660727E9E2C10088B805 /* factions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5673660427E9E2C10088B805 /* factions.json */; };
@@ -60,6 +61,7 @@
 		5672C37327EB5DC300524033 /* statsold.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = statsold.json; sourceTree = "<group>"; };
 		56733220285E1D6D00AF0AF9 /* troopDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopDisplay.swift; sourceTree = "<group>"; };
 		56733222285F5EB700AF0AF9 /* unitDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitDetailedView.swift; sourceTree = "<group>"; };
+		5673322428609C9600AF0AF9 /* troopEditSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopEditSelect.swift; sourceTree = "<group>"; };
 		5673660227E9E2C10088B805 /* greyknightsstats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = greyknightsstats.json; sourceTree = "<group>"; };
 		5673660327E9E2C10088B805 /* spacewolvesstats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spacewolvesstats.json; sourceTree = "<group>"; };
 		5673660427E9E2C10088B805 /* factions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = factions.json; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				56733222285F5EB700AF0AF9 /* unitDetailedView.swift */,
 				562A87A827E8EF850076FB6A /* editArmy.swift */,
 				566C244227ED1176008C1362 /* troopCountSelect.swift */,
+				5673322428609C9600AF0AF9 /* troopEditSelect.swift */,
 				56448865285CCC4600AB2273 /* troopCollectionCount.swift */,
 				56883D1227A5DFA000349E69 /* Assets.xcassets */,
 				56883D1427A5DFA000349E69 /* Preview Content */,
@@ -242,6 +245,7 @@
 				56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */,
 				56CD644627E92F40008478CD /* JSONstructs.swift in Sources */,
 				562A87AD27E8FB470076FB6A /* addArmyDialog.swift in Sources */,
+				5673322528609C9600AF0AF9 /* troopEditSelect.swift in Sources */,
 				5644885F2859255B00AB2273 /* targetPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
