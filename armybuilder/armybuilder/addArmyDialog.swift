@@ -21,7 +21,7 @@ struct addArmyDialog: View {
             Spacer()
         }.navigationTitle("Add a new army!").padding(.top).frame(width: 400, height: 50, alignment: .center)
             VStack(alignment: .center){
-                NavigationLink(destination: selectTroops(factionfile: factionfile, collectionShowcase: collectionDatas.emptyChecker(factionID: factionfile)).environmentObject(pointTargetd).environmentObject(collectionDatas).environmentObject(armyControl), tag:true, selection: $showNextStep){
+                NavigationLink(destination: selectTroops(factionfile: factionfile, collectionShowcase: collectionDatas.emptyChecker(factionID: factionfile)).environmentObject(pointTargetd).environmentObject(collectionDatas).environmentObject(armyControl).navigationBarBackButtonHidden(true), tag:true, selection: $showNextStep){
                     EmptyView()
                 }
                 

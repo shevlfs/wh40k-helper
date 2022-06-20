@@ -21,6 +21,7 @@ struct editArmy: View {
     @State var collectionShowcase: Bool
     
     var body: some View {
+        NavigationView(){
         VStack(){
             HStack(){
                 if (pointTarget.targetpointbool == false){
@@ -71,6 +72,11 @@ struct editArmy: View {
             if(collectionShowcase == false){
             ScrollView(.vertical){
             VStack(alignment: .center){
+                HStack{
+                Text("Troops:").font(.title)
+                    .fontWeight(.bold)
+                    Spacer()
+                }.padding()
                 ForEach(globalstats[factionfile].units){unit in
                     ZStack(){
                         troopEditSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts, unit: unit, armyID: armyID).environmentObject(pointTarget).environmentObject(armyControl)
@@ -96,7 +102,7 @@ struct editArmy: View {
                                     
                                 }
                             }
-                        }.padding()
+                        }.padding(.vertical)
                         
                         
                         
@@ -104,6 +110,11 @@ struct editArmy: View {
                         
                     }
                 VStack(alignment: .center){
+                    HStack{
+                    Text("Troops:").font(.title)
+                        .fontWeight(.bold)
+                        Spacer()
+                    }.padding()
                     ForEach(globalstats[factionfile].units){unit in
                         ZStack(){
                             troopEditSelect(unitcount: armyControl.armies[armyControl.armies.count-1].troops[unit.id] ?? 999, unitname: unit.name, pointcount: unit.pts, unit: unit, armyID: armyID ).environmentObject(pointTarget).environmentObject(armyControl)
@@ -118,9 +129,9 @@ struct editArmy: View {
                 
                 
             }
-            
-            
-        }.navigationTitle("Add a new army!")
+        }
+        .navigationBarTitle("Edit Army")
+        }
         }
         
 }

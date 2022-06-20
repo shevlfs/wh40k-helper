@@ -76,6 +76,11 @@ struct selectTroops: View {
             if(collectionShowcase == false){
             ScrollView(.vertical){
             VStack(alignment: .center){
+                HStack{
+                Text("Troops:").font(.title)
+                    .fontWeight(.bold)
+                    Spacer()
+                }.padding()
                 ForEach(globalstats[factionfile].units){unit in
                     ZStack(){
                         troopCountSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts, unit: unit).environmentObject(pointTarget).environmentObject(armyControl)
@@ -101,7 +106,7 @@ struct selectTroops: View {
                                     
                                 }
                             }
-                        }.padding()
+                        }.padding(.vertical)
                         
                         
                         
@@ -109,6 +114,11 @@ struct selectTroops: View {
                         
                     }
                 VStack(alignment: .center){
+                    HStack{
+                    Text("Troops:").font(.title)
+                        .fontWeight(.bold)
+                        Spacer()
+                    }.padding()
                     ForEach(globalstats[factionfile].units){unit in
                         ZStack(){
                             troopCountSelect(unitcount: armyControl.armies[armyControl.armies.count-1].troops[unit.id] ?? 999, unitname: unit.name, pointcount: unit.pts, unit: unit).environmentObject(pointTarget).environmentObject(armyControl)
