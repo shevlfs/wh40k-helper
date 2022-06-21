@@ -7,13 +7,22 @@
 
 import SwiftUI
 
+
 struct troopDetailedView: View {
+
     @EnvironmentObject var collectionDatas: collectionData
     @State var Unit : unit
+    
     var body: some View {
         VStack{
-            
-        }.navigationTitle("\(Unit.name)")
+            HStack{
+                Text("\(Unit.name)")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                Spacer()
+            }.padding(.horizontal)
+            Spacer()
+        }.navigationBarTitleDisplayMode(.inline)
     }
 }
 
