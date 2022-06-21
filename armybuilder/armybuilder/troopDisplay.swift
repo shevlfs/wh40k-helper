@@ -18,7 +18,7 @@ struct troopDisplay: View {
     @EnvironmentObject var armyControl: armyController
     var body: some View {
         VStack(alignment: .trailing) {
-            NavigationLink(destination: troopDetailedView(Unit: Unit).environmentObject(collectionDatas)){
+            NavigationLink(destination: troopDetailedView(Unit: Unit, factionID: faction).environmentObject(collectionDatas)){
             Text(unitname)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)

@@ -12,38 +12,58 @@ struct unitStats: View {
     var body: some View {
         VStack{
             Group{
-                VStack{
-                    HStack{
-                        Group{
-                        Text("M").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("WS").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("BS").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("S").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("T").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("W").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("A").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("Ld").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("Sv").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        }
+                HStack{
+                    VStack{
+                        Text("M").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        Text("\(Unit.m)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        
                     }
-                    HStack{
-                        Group{
-                            Text("\(Unit.m)").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("\(Unit.ws)").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("\(Unit.bs)").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("\(Unit.s)").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("\(Unit.t)").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("\(Unit.w)").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("\(Unit.a)").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("\(Unit.ld)").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        Text("\(Unit.sv)").fontWeight(.bold).foregroundColor(.white).padding(4)
-                        }
+                    VStack{
+                        Text("WS").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        Text("\(Unit.ws)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        
                     }
+                    VStack{
+                        Text("BS").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        Text("\(Unit.bs)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        
+                    }
+                    VStack{
+                        Text("S").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        Text("\(Unit.s)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        
+                    }
+                    VStack{
+                        Text("T").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        Text("\(Unit.t)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        
+                    }
+                    VStack{
+                        Text("W").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        Text("\(Unit.w)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        
+                    }
+                    VStack{
+                        Text("A").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        Text("\(Unit.a)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        
+                    }
+                    VStack{
+                        Text("Ld").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        Text("\(Unit.ld)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        
+                    }
+                    VStack{
+                        Text("Sv").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        Text("\(Unit.sv)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+                        
+                    }
+                    
                 }
                 
                 
-            }.background(RoundedRectangle(cornerRadius: 10).fill(.green).blur(radius: 1)).padding()
-        }
+            }.padding()
+        }.background(RoundedRectangle(cornerRadius: 13).fill(.green).blur(radius: 1))
     }
 }
 
