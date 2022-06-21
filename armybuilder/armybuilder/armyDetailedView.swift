@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct armyDetailedView: View {
     @State var id = Int()
@@ -44,11 +45,24 @@ struct armyDetailedView: View {
                 
         }.navigationTitle("Army \(id)").toolbar {
             ToolbarItemGroup(placement: .primaryAction){
+                HStack{
+                    NavigationLink(destination: armyGameView().onAppear(perform:{
+                            let value = UIInterfaceOrientation.landscapeLeft.rawValue
+                            UIDevice.current.setValue(value, forKey: "orientation")
+                        
+                    }).onDisappear(perform: {
+                        let value = UIInterfaceOrientation.portrait.rawValue
+                        UIDevice.current.setValue(value, forKey: "orientation")
+                    })){
+                        Image(systemName: "viewfinder")
+                    }
+                    
                 Button(action: {
                     self.editMode.toggle()
                 }) {
                     Label("Add",systemImage:"pencil")}.sheet(isPresented: $editMode){
                         editArmy(factionfile: armyControl.armies[id-1].factionID, armyID: id-1, collectionShowcase: collectionDatas.emptyChecker(factionID: armyControl.armies[id-1].factionID)).environmentObject(armyControl).environmentObject(collectionDatas).environmentObject(pointTargetd)
+                    }
                     }
                     }
 
