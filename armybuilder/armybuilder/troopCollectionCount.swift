@@ -7,8 +7,10 @@ struct troopCollectionCount: View {
     @State var unit: unit
     @EnvironmentObject var pointTarget: pointTarget
     @EnvironmentObject var armyControl: armyController
+    @EnvironmentObject var collectionDatas: collectionData
     var body: some View {
         VStack(alignment: .trailing) {
+            NavigationLink(destination: troopDetailedView(Unit: unit).environmentObject(collectionDatas)){
             Text(unitname)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
@@ -17,6 +19,7 @@ struct troopCollectionCount: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(.green)
                 )
+            }
             pickerView()
         }
         .padding()

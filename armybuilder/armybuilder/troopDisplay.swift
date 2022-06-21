@@ -11,10 +11,13 @@ struct troopDisplay: View {
     @State var unitcount: Int
     @State var unitname = String()
     @State var pointcount = Int()
+    @State var Unit: unit
     @EnvironmentObject var pointTarget: pointTarget
+    @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
     var body: some View {
         VStack(alignment: .trailing) {
+            NavigationLink(destination: troopDetailedView(Unit: Unit).environmentObject(collectionDatas)){
             Text(unitname)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
@@ -23,6 +26,7 @@ struct troopDisplay: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(.teal)
                 )
+            }
             pickerView()
         }
         .padding()
@@ -56,6 +60,6 @@ extension troopDisplay {
 
 struct troopDisplay_Previews: PreviewProvider {
     static var previews: some View {
-        troopDisplay(unitcount: 0)
+        troopDisplay(unitcount: 0, Unit: globalstats[0].units[0])
     }
 }

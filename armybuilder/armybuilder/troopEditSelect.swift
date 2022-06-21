@@ -8,8 +8,10 @@ struct troopEditSelect: View {
     @State var armyID: Int
     @EnvironmentObject var pointTarget: pointTarget
     @EnvironmentObject var armyControl: armyController
+    @EnvironmentObject var collectionDatas: collectionData
     var body: some View {
         VStack(alignment: .trailing) {
+            NavigationLink(destination: troopDetailedView(Unit: unit).environmentObject(collectionDatas)){
             Text(unitname)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
@@ -18,6 +20,7 @@ struct troopEditSelect: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(.teal)
                 )
+            }
             pickerView()
         }
         .padding()
