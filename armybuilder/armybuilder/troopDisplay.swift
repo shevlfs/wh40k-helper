@@ -12,6 +12,7 @@ struct troopDisplay: View {
     @State var unitname = String()
     @State var pointcount = Int()
     @State var Unit: unit
+    @State var faction = Int()
     @EnvironmentObject var pointTarget: pointTarget
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController

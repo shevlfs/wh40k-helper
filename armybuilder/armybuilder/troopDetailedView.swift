@@ -21,6 +21,7 @@ struct troopDetailedView: View {
                     .fontWeight(.bold)
                 Spacer()
             }.padding(.horizontal)
+            unitStats(Unit: Unit).padding()
             Spacer()
         }.navigationBarTitleDisplayMode(.inline)
     }

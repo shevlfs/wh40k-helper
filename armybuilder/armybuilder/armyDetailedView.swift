@@ -35,7 +35,7 @@ struct armyDetailedView: View {
                 ScrollView{
                     VStack{
                 ForEach(armyControl.getTroops(armyID: id)){
-                    unit in troopDisplay(unitcount: armyControl.armies[id-1].troops[unit.unitid] ?? 0,unitname: globalstats[armyControl.armies[id-1].factionID].units[unit.unitid-1].name, pointcount: globalstats[armyControl.armies[id-1].factionID].units[unit.unitid-1].pts, Unit: globalstats[armyControl.armies[id-1].factionID].units[unit.unitid-1])
+                    unit in troopDisplay(unitcount: armyControl.armies[id-1].troops[unit.unitid] ?? 0,unitname: globalstats[armyControl.armies[id-1].factionID].units[unit.unitid-1].name, pointcount: globalstats[armyControl.armies[id-1].factionID].units[unit.unitid-1].pts, Unit: globalstats[armyControl.armies[id-1].factionID].units[unit.unitid-1], faction: armyControl.armies[id-1].factionID)
                     
                 }
                     }

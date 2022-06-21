@@ -5,6 +5,7 @@ struct troopCountSelect: View {
     @State var unitname = String()
     @State var pointcount = Int()
     @State var unit: unit
+    @State var faction: Int
     @EnvironmentObject var pointTarget: pointTarget
     @EnvironmentObject var armyControl: armyController
     @EnvironmentObject var collectionDatas: collectionData
