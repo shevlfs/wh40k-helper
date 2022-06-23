@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct armyGameView: View {
+    @State var armyID: Int
+    @EnvironmentObject var armyControl: armyController
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            ForEach(armyControl.getTroops(armyID: armyID+1)){
+                troop in unitGameView(id: troop.unitid, factionID: armyControl.armies[armyID].factionID)
+            }
+        }
     }
 }
 
 struct armyGameView_Previews: PreviewProvider {
     static var previews: some View {
-        armyGameView()
+        armyGameView(armyID: 0)
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

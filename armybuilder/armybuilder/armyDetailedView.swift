@@ -46,7 +46,7 @@ struct armyDetailedView: View {
         }.navigationTitle("Army \(id)").toolbar {
             ToolbarItemGroup(placement: .primaryAction){
                 HStack{
-                    NavigationLink(destination: armyGameView().onAppear(perform:{
+                    NavigationLink(destination: armyGameView(armyID: id-1 ).environmentObject(armyControl).onAppear(perform:{
                             let value = UIInterfaceOrientation.landscapeLeft.rawValue
                             UIDevice.current.setValue(value, forKey: "orientation")
                         

@@ -34,6 +34,7 @@
 		5673660527E9E2C10088B805 /* greyknightsstats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5673660227E9E2C10088B805 /* greyknightsstats.json */; };
 		5673660627E9E2C10088B805 /* spacewolvesstats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5673660327E9E2C10088B805 /* spacewolvesstats.json */; };
 		5673660727E9E2C10088B805 /* factions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5673660427E9E2C10088B805 /* factions.json */; };
+		567FC56A28648D3F00A0159E /* unitGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FC56928648D3F00A0159E /* unitGameView.swift */; };
 		56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56883D0E27A5DF9F00349E69 /* armybuilderApp.swift */; };
 		56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56883D1027A5DF9F00349E69 /* ContentView.swift */; settings = {COMPILER_FLAGS = "-w"; }; };
 		56883D1327A5DFA000349E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1227A5DFA000349E69 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		5673660227E9E2C10088B805 /* greyknightsstats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = greyknightsstats.json; sourceTree = "<group>"; };
 		5673660327E9E2C10088B805 /* spacewolvesstats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spacewolvesstats.json; sourceTree = "<group>"; };
 		5673660427E9E2C10088B805 /* factions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = factions.json; sourceTree = "<group>"; };
+		567FC56928648D3F00A0159E /* unitGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitGameView.swift; sourceTree = "<group>"; };
 		56883D0B27A5DF9F00349E69 /* armybuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = armybuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56883D0E27A5DF9F00349E69 /* armybuilderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armybuilderApp.swift; sourceTree = "<group>"; };
 		56883D1027A5DF9F00349E69 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				562A3B8A27C36C1800AB0A80 /* armyView.swift */,
 				5601F63527C6FF9600262E92 /* armyDetailedView.swift */,
 				5673322A2862470C00AF0AF9 /* armyGameView.swift */,
+				567FC56928648D3F00A0159E /* unitGameView.swift */,
 				562A87A827E8EF850076FB6A /* editArmy.swift */,
 				566C244227ED1176008C1362 /* troopCountSelect.swift */,
 				5673322428609C9600AF0AF9 /* troopEditSelect.swift */,
@@ -238,6 +241,7 @@
 				56083E842856589D00A83C9D /* serverrequests.swift in Sources */,
 				56733227286210D300AF0AF9 /* troopDetailedView.swift in Sources */,
 				5673322B2862470C00AF0AF9 /* armyGameView.swift in Sources */,
+				567FC56A28648D3F00A0159E /* unitGameView.swift in Sources */,
 				562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */,
 				56733221285E1D6D00AF0AF9 /* troopDisplay.swift in Sources */,
 				56448866285CCC4600AB2273 /* troopCollectionCount.swift in Sources */,
