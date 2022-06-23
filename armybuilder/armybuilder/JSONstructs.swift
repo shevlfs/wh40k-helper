@@ -97,13 +97,12 @@ struct mod: Identifiable,Decodable {
     let name: String
     let range: String
     let type: String
-    let s: Int
+    let s: String
     let ap: Int
-    let d: Int
-    let pts: Int
+    let d: String
     
     private enum CodingKeys: String, CodingKey {
-        case id, name = "name", range = "range", type = "type", s = "s", ap =  "ap", d  = "d", pts = "pts"
+        case id, name = "name", range = "range", type = "type", s = "s", ap =  "ap", d  = "d"
     }
     init(from decoder: Decoder) throws
             {
@@ -120,10 +119,23 @@ struct mod: Identifiable,Decodable {
                 self.id = try container.decode(Int.self, forKey: .id)
                 self.type = try container.decode(String.self, forKey: .type)
                 self.ap = try container.decode(Int.self, forKey: .ap)
-                self.d = try container.decode(Int.self, forKey: .d)
+                do
+                {
+                    d = try String(container.decode(Int.self, forKey: .d))
+                }
+                catch
+                {
+                    d = try container.decode(String.self, forKey: .d)
+                }
                 self.name = try container.decode(String.self, forKey: .name)
-                self.s = try container.decode(Int.self, forKey: .s)
-                self.pts = try container.decode(Int.self, forKey: .pts)
+                do
+                {
+                    s = try String(container.decode(Int.self, forKey: .s))
+                }
+                catch
+                {
+                    s = try container.decode(String.self, forKey: .s)
+                }
         }
 
 }

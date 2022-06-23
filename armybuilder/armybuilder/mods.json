@@ -3,10 +3,25 @@
         "name": "Bolt pistol",
         "range": "12",
   "type": "Pistol 1",
-  "s": 4,
+  "s": "4",
   "ap": 0,
-  "d": 1,
-  "pts": 0
-
+  "d": "1"
+    },{
+  "id": 1,
+        "name": "Multi-melta",
+        "range": "24",
+  "type": "Heavy 2",
+  "s": "8",
+  "ap": -4,
+  "d": "D6"
+    },
+  {
+  "id": 2,
+        "name": "Heavy bolter",
+        "range": "36",
+  "type": "Heavy 3",
+  "s": "5",
+  "ap": -1,
+  "d": "2"
     }
 ]

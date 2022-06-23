@@ -10,12 +10,14 @@ import SwiftUI
 struct addUnitMods: View {
     @EnvironmentObject var armyControl: armyController
     var body: some View {
+        NavigationView{
         VStack{
         ScrollView{
             ForEach(mods){
-                mod in Text("\(mod.name)")
+                mod in modDisplay(mod:mod)
             }
         }
+        }.navigationTitle("Add modifications")
         }
     }
 }
