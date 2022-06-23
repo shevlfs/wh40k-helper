@@ -15,7 +15,13 @@ struct addUnitMods: View {
         NavigationView{
         VStack{
         ScrollView{
-            
+            HStack{
+                NavigationLink(destination: addCustomMod().environmentObject(armyControl)){
+                    Text("Add custom...")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                }
+            }.padding()
                 ForEach(searchResults){
                     mod in modDisplay(mod: mod)
                 }.searchable(text: $searchText)

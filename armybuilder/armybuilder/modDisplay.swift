@@ -27,17 +27,17 @@ struct modDisplay: View {
                 }.padding(3)
                 VStack{
                     Text("S").font(.title2).fontWeight(.semibold).foregroundColor(.white).padding(3)
-                    Text("\(mod.s)").font(.title2).fontWeight(.semibold).foregroundColor(.white).padding(3)
+                    Text("\(mod.s)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(3)
                 
                 }.padding(3)
                 VStack{
                     Text("AP").font(.title2).fontWeight(.semibold).foregroundColor(.white).padding(3)
-                    Text("\(mod.ap)").font(.title2).fontWeight(.semibold).foregroundColor(.white).padding(3)
+                    Text("\(mod.ap)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(3)
                 
                 }.padding(3)
                 VStack{
                     Text("D").font(.title2).fontWeight(.semibold).foregroundColor(.white).padding(3)
-                    Text("\(mod.d)").font(.title2).fontWeight(.semibold).foregroundColor(.white).padding(3)
+                    Text("\(mod.d)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(3)
                 
                 }.padding(3)
                 
