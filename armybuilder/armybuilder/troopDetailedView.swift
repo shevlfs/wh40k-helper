@@ -56,7 +56,7 @@ struct troopDetailedView: View {
                             
                     }
                 }.sheet(isPresented: $customization, content: {
-                    addUnitMods().environmentObject(armyControl)
+                    addUnitMods(searchBarMods: modNames()).environmentObject(armyControl)
                 }).padding()
             }
             

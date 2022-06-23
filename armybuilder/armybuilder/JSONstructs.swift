@@ -140,3 +140,10 @@ struct mod: Identifiable,Decodable {
 
 }
 var mods: [mod] = load("mods.json")
+func modNames()->[String]{
+    var answ = [String]()
+    for mod in mods{
+        answ.append(mod.name)
+    }
+    return answ
+}
