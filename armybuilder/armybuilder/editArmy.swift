@@ -145,7 +145,7 @@ struct editArmy: View {
                             Button(action:{
                                 self.collectionHidden.toggle()
                             }){
-                                Image(systemName: "minus")
+                                Image(systemName: "plus")
                             }
                         }.padding()
                         
