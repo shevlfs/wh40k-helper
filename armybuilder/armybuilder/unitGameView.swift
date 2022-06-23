@@ -12,18 +12,17 @@ struct unitGameView: View {
     @State var factionID: Int
     var body: some View {
         HStack{
-        HStack{
-            Text("\(globalstats[factionID].units[id].name)").fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(.white).font(.title2).padding(4)
+        HStack(alignment: .center, spacing: nil){
             Group{
-            Text("\(globalstats[factionID].units[id].m)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-            Text("\(globalstats[factionID].units[id].ws)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-            Text("\(globalstats[factionID].units[id].bs)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-            Text("\(globalstats[factionID].units[id].s)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-            Text("\(globalstats[factionID].units[id].t)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-            Text("\(globalstats[factionID].units[id].w)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-            Text("\(globalstats[factionID].units[id].a)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-            Text("\(globalstats[factionID].units[id].ld)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-            Text("\(globalstats[factionID].units[id].sv)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
+            Text("\(globalstats[factionID].units[id].m)").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
+            Text("\(globalstats[factionID].units[id].ws)").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
+            Text("\(globalstats[factionID].units[id].bs)").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
+            Text("\(globalstats[factionID].units[id].s)").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
+            Text("\(globalstats[factionID].units[id].t)").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
+            Text("\(globalstats[factionID].units[id].w)").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
+            Text("\(globalstats[factionID].units[id].a)").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
+            Text("\(globalstats[factionID].units[id].ld)").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
+            Text("\(globalstats[factionID].units[id].sv)").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
             }
 
         }.padding()

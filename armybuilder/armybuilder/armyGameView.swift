@@ -13,17 +13,8 @@ struct armyGameView: View {
     var body: some View {
         VStack{
             HStack{
-            HStack{
-                Text("M").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-                Text("WS").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-                Text("BS").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-                Text("S").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-                Text("T").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-                Text("W").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-                Text("A").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-                Text("Ld").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-                Text("Sv").font(.title2).fontWeight(.bold).foregroundColor(.white).padding()
-            }.background(RoundedRectangle(cornerRadius: 15).fill(.green)).frame(maxWidth: .infinity, alignment: .leading)
+            TableHeader()
+                Spacer()
             }
             ScrollView{
             ForEach(armyControl.getTroops(armyID: armyID+1)){
@@ -36,7 +27,7 @@ struct armyGameView: View {
 
 struct armyGameView_Previews: PreviewProvider {
     static var previews: some View {
-        armyGameView(armyID: 0)
+        armyGameView(armyID: 0).environmentObject(armyController())
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

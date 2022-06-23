@@ -23,6 +23,7 @@
 		5644885F2859255B00AB2273 /* targetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644885E2859255B00AB2273 /* targetPicker.swift */; };
 		56448864285CB5F500AB2273 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56448863285CB5F500AB2273 /* Data.swift */; };
 		56448866285CCC4600AB2273 /* troopCollectionCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56448865285CCC4600AB2273 /* troopCollectionCount.swift */; };
+		56594CC42864A5C900D1A9C5 /* TableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56594CC32864A5C900D1A9C5 /* TableHeader.swift */; };
 		566C244327ED1176008C1362 /* troopCountSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C244227ED1176008C1362 /* troopCountSelect.swift */; };
 		5672C37227EB540A00524033 /* selectTroops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672C37127EB540A00524033 /* selectTroops.swift */; };
 		5672C37427EB5DC300524033 /* statsold.json in Resources */ = {isa = PBXBuildFile; fileRef = 5672C37327EB5DC300524033 /* statsold.json */; };
@@ -59,6 +60,7 @@
 		5644885E2859255B00AB2273 /* targetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = targetPicker.swift; sourceTree = "<group>"; };
 		56448863285CB5F500AB2273 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		56448865285CCC4600AB2273 /* troopCollectionCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopCollectionCount.swift; sourceTree = "<group>"; };
+		56594CC32864A5C900D1A9C5 /* TableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeader.swift; sourceTree = "<group>"; };
 		566C244227ED1176008C1362 /* troopCountSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopCountSelect.swift; sourceTree = "<group>"; };
 		5672C37127EB540A00524033 /* selectTroops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectTroops.swift; sourceTree = "<group>"; };
 		5672C37327EB5DC300524033 /* statsold.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = statsold.json; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				562A3B8A27C36C1800AB0A80 /* armyView.swift */,
 				5601F63527C6FF9600262E92 /* armyDetailedView.swift */,
 				5673322A2862470C00AF0AF9 /* armyGameView.swift */,
+				56594CC32864A5C900D1A9C5 /* TableHeader.swift */,
 				567FC56928648D3F00A0159E /* unitGameView.swift */,
 				562A87A827E8EF850076FB6A /* editArmy.swift */,
 				566C244227ED1176008C1362 /* troopCountSelect.swift */,
@@ -238,6 +241,7 @@
 				5644884A28577B6600AB2273 /* collectionSettings.swift in Sources */,
 				5601F63627C6FF9600262E92 /* armyDetailedView.swift in Sources */,
 				564488502858B6E300AB2273 /* collectionAddUnits.swift in Sources */,
+				56594CC42864A5C900D1A9C5 /* TableHeader.swift in Sources */,
 				56083E842856589D00A83C9D /* serverrequests.swift in Sources */,
 				56733227286210D300AF0AF9 /* troopDetailedView.swift in Sources */,
 				5673322B2862470C00AF0AF9 /* armyGameView.swift in Sources */,
