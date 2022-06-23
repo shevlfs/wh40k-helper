@@ -19,7 +19,8 @@ struct editArmy: View {
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
     @State var collectionShowcase: Bool
-    
+    @State var searchText = String()
+    @State var collectionHidden = false
     var body: some View {
         NavigationView(){
         VStack(){
@@ -77,14 +78,14 @@ struct editArmy: View {
                     .fontWeight(.bold)
                     Spacer()
                 }.padding()
-                ForEach(globalstats[factionfile].units){unit in
+                ForEach(searchResults){unit in
                     ZStack(){
                         troopEditSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts, unit: unit, armyID: armyID).environmentObject(pointTarget).environmentObject(armyControl)
                     }
-                }
+                }.searchable(text: $searchText)
                 }
             }
-            } else {
+            } else if (collectionHidden == false) {
                 ScrollView(.vertical){
                     VStack(){
                         HStack{
@@ -92,6 +93,11 @@ struct editArmy: View {
                             .font(.title)
                             .fontWeight(.bold)
                             Spacer()
+                            Button(action:{
+                                self.collectionHidden.toggle()
+                            }){
+                                Image(systemName: "minus")
+                            }
                         }.padding()
                         VStack(alignment: .center){
                             ForEach(
@@ -115,11 +121,11 @@ struct editArmy: View {
                         .fontWeight(.bold)
                         Spacer()
                     }.padding()
-                    ForEach(globalstats[factionfile].units){unit in
+                    ForEach(searchResults){unit in
                         ZStack(){
                             troopEditSelect(unitcount: armyControl.armies[armyControl.armies.count-1].troops[unit.id] ?? 999, unitname: unit.name, pointcount: unit.pts, unit: unit, armyID: armyID ).environmentObject(pointTarget).environmentObject(armyControl)
                         }
-                    }
+                    }.searchable(text: $searchText)
                     }
                 }
                 
@@ -128,10 +134,53 @@ struct editArmy: View {
                 
                 
                 
+            } else {
+                ScrollView(.vertical){
+                    VStack(){
+                        HStack{
+                        Text("In your collection:")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            Spacer()
+                            Button(action:{
+                                self.collectionHidden.toggle()
+                            }){
+                                Image(systemName: "minus")
+                            }
+                        }.padding()
+                        
+                        
+                        
+                        
+                        
+                        
+                    }
+                VStack(alignment: .center){
+                    HStack{
+                    Text("Troops:").font(.title)
+                        .fontWeight(.bold)
+                        Spacer()
+                    }.padding()
+                    ForEach(searchResults){unit in
+                        ZStack(){
+                            troopEditSelect(unitcount: armyControl.armies[armyControl.armies.count-1].troops[unit.id] ?? 999, unitname: unit.name, pointcount: unit.pts, unit: unit, armyID: armyID ).environmentObject(pointTarget).environmentObject(armyControl)
+                        }
+                    }.searchable(text: $searchText)
+                    }
+                }
+                
+                
             }
         }
         .navigationBarTitle("Edit Army")
         }
+        }
+    var searchResults: [unit] {
+            if searchText.isEmpty {
+                return globalstats[factionfile].units
+            } else {
+                return globalstats[factionfile].units.filter { $0.name.lowercased().contains(searchText.lowercased())}
+            }
         }
         
 }

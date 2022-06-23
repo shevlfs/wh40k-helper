@@ -171,9 +171,9 @@ struct selectTroops: View {
 
 }
 
-struct selectTroops_Previews: PreviewProvider {
+/*struct selectTroops_Previews: PreviewProvider {
     static var previews: some View {
         selectTroops(factionfile: 0, collectionShowcase: true).environmentObject(pointTarget()).environmentObject(collectionData())
     }
-}
+}*/
 
