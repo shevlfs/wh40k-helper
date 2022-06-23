@@ -23,7 +23,9 @@ struct selectTroops: View {
     @EnvironmentObject var pointTarget: pointTarget
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
+    @State var searchText = String()
     @State var collectionShowcase: Bool
+    @State var collectionHidden = false
     
     var body: some View {
         VStack(){
@@ -81,14 +83,14 @@ struct selectTroops: View {
                     .fontWeight(.bold)
                     Spacer()
                 }.padding()
-                ForEach(globalstats[factionfile].units){unit in
+                ForEach(searchResults){unit in
                     ZStack(){
                         troopCountSelect(unitcount: 0, unitname: unit.name, pointcount: unit.pts, unit: unit, faction: factionfile).environmentObject(pointTarget).environmentObject(armyControl)
                     }
-                }
+                }.searchable(text: $searchText)
                 }
             }
-            } else {
+            } else if(collectionHidden == false){
                 ScrollView(.vertical){
                     VStack(){
                         HStack{
@@ -96,6 +98,11 @@ struct selectTroops: View {
                             .font(.title)
                             .fontWeight(.bold)
                             Spacer()
+                            Button(action:{
+                                self.collectionHidden.toggle()
+                            }){
+                                Image(systemName: "minus")
+                            }
                         }.padding()
                         VStack(alignment: .center){
                             ForEach(
@@ -107,11 +114,6 @@ struct selectTroops: View {
                                 }
                             }
                         }.padding(.vertical)
-                        
-                        
-                        
-                        
-                        
                     }
                 VStack(alignment: .center){
                     HStack{
@@ -119,25 +121,54 @@ struct selectTroops: View {
                         .fontWeight(.bold)
                         Spacer()
                     }.padding()
-                    ForEach(globalstats[factionfile].units){unit in
+                    ForEach(searchResults){unit in
                         ZStack(){
                             troopCountSelect(unitcount: armyControl.armies[armyControl.armies.count-1].troops[unit.id] ?? 999, unitname: unit.name, pointcount: unit.pts, unit: unit, faction: factionfile).environmentObject(pointTarget).environmentObject(armyControl)
                         }
-                    }
+                    }.searchable(text: $searchText)
                     }
                 }
-                
-                
-                
-                
-                
-                
+            } else{
+                ScrollView(.vertical){
+                    VStack(){
+                        HStack{
+                        Text("In your collection:")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            Spacer()
+                            Button(action:{
+                                self.collectionHidden.toggle()
+                            }){
+                                Image(systemName: "plus")
+                            }
+                        }.padding()
+                    }
+                VStack(alignment: .center){
+                    HStack{
+                    Text("Troops:").font(.title)
+                        .fontWeight(.bold)
+                        Spacer()
+                    }.padding()
+                    ForEach(searchResults){unit in
+                        ZStack(){
+                            troopCountSelect(unitcount: armyControl.armies[armyControl.armies.count-1].troops[unit.id] ?? 999, unitname: unit.name, pointcount: unit.pts, unit: unit, faction: factionfile).environmentObject(pointTarget).environmentObject(armyControl)
+                        }
+                    }.searchable(text: $searchText)
+                    }
+                }
             }
             
             
         }.navigationTitle("Add a new army!")
         }
-        
+    var searchResults: [unit] {
+            if searchText.isEmpty {
+                return globalstats[factionfile].units
+            } else {
+                return globalstats[factionfile].units.filter { $0.name.lowercased().contains(searchText.lowercased())}
+            }
+        }
+
 }
 
 struct selectTroops_Previews: PreviewProvider {
