@@ -12,6 +12,7 @@ struct unitGameView: View {
     @State var factionID: Int
     var body: some View {
         HStack{
+        HStack{
         HStack(alignment: .center, spacing: nil){
             Group{
             Text("\(globalstats[factionID].units[id].m)").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
@@ -27,6 +28,9 @@ struct unitGameView: View {
 
         }.padding()
         }.background(RoundedRectangle(cornerRadius: 10).fill(.green)).padding()
+            Spacer()
+            Text("\(globalstats[factionID].units[id].name)").fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(.black).font(.title2).frame(maxWidth: 215, alignment: .trailing)
+        }
     }
 }
 
