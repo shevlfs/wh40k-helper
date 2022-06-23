@@ -16,7 +16,7 @@ struct ContentView: View {
                         Text("No armies! :(").fontWeight(.light).padding()
                     } else{
                     ForEach(armyControl.armies){army in
-                        NavigationLink(destination: armyDetailedView(id: army.armyid).environmentObject(collectionDatas).environmentObject(armyControl).onAppear(perform:{ Haptics.shared.play(.light)})) {
+                        NavigationLink(destination: armyDetailedView(id: army.armyid).environmentObject(collectionDatas).environmentObject(armyControl)) {
                             armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObject(armyControl).environmentObject(collectionDatas)
                         }
                     }

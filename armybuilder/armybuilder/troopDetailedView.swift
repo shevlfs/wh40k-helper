@@ -13,6 +13,9 @@ struct troopDetailedView: View {
     @EnvironmentObject var collectionDatas: collectionData
     @State var Unit : unit
     @State var factionID: Int
+    @EnvironmentObject var armyControl: armyController
+    @State var unitMods = false
+    @State var customization = false
     var body: some View {
         VStack{
             HStack{
@@ -42,6 +45,21 @@ struct troopDetailedView: View {
             }
             
             unitStats(Unit: Unit)
+            if (unitMods == true){
+                Button(action:{
+                    self.customization.toggle()
+                }){
+                    HStack{
+                        Image(systemName: "plus")
+                        Text("Add modifications")
+                            .font(.title3)
+                            
+                    }
+                }.sheet(isPresented: $customization, content: {
+                    addUnitMods().environmentObject(armyControl)
+                }).padding()
+            }
+            
             Spacer()
         }.navigationBarTitleDisplayMode(.inline)
     }
@@ -49,6 +67,6 @@ struct troopDetailedView: View {
 
 struct troopDetailedView_Previews: PreviewProvider {
     static var previews: some View {
-        troopDetailedView(Unit: globalstats[0].units[0], factionID: 0)
+        troopDetailedView(Unit: globalstats[0].units[0], factionID: 0).environmentObject(collectionData()).environmentObject(armyController())
     }
 }

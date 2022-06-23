@@ -63,7 +63,7 @@ struct unitStats: View {
                 
                 
             }.padding()
-        }.background(RoundedRectangle(cornerRadius: 13).fill(.green).blur(radius: 1))
+        }.background(RoundedRectangle(cornerRadius: 13).fill(.green))
     }
 }
 

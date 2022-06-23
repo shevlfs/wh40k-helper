@@ -90,3 +90,41 @@ struct stats: Identifiable, Decodable{
     }
 }
 var globalstats: [stats] = load("stats.json")
+
+
+struct mod: Identifiable,Decodable {
+    var id: Int
+    let name: String
+    let range: String
+    let type: String
+    let s: Int
+    let ap: Int
+    let d: Int
+    let pts: Int
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, name = "name", range = "range", type = "type", s = "s", ap =  "ap", d  = "d", pts = "pts"
+    }
+    init(from decoder: Decoder) throws
+            {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                
+                do
+                {
+                    range = try String(container.decode(Int.self, forKey: .range))
+                }
+                catch
+                {
+                    range = try container.decode(String.self, forKey: .range)
+                }
+                self.id = try container.decode(Int.self, forKey: .id)
+                self.type = try container.decode(String.self, forKey: .type)
+                self.ap = try container.decode(Int.self, forKey: .ap)
+                self.d = try container.decode(Int.self, forKey: .d)
+                self.name = try container.decode(String.self, forKey: .name)
+                self.s = try container.decode(Int.self, forKey: .s)
+                self.pts = try container.decode(Int.self, forKey: .pts)
+        }
+
+}
+var mods: [mod] = load("mods.json")
