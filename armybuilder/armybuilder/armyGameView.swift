@@ -31,3 +31,11 @@ struct armyGameView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
+
+
+/*
+ 
+ Text("\(globalstats[factionID].units[id].name)").fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(.white).font(.title2).frame(maxWidth: 50, alignment: .leading)
+ 
+ 
+ */
