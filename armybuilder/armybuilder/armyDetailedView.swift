@@ -64,8 +64,7 @@ struct armyDetailedView: View {
                         editArmy(factionfile: armyControl.armies[id-1].factionID, armyID: id-1, collectionShowcase: collectionDatas.emptyChecker(factionID: armyControl.armies[id-1].factionID)).environmentObject(armyControl).environmentObject(collectionDatas).environmentObject(pointTargetd)
                     }
                     }
-                    }
-
+        }
             }
     }
 }
