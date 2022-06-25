@@ -42,14 +42,27 @@ struct Army: Identifiable{
     var factionID: Int
     var pointCount = 0
     var troops : [Int:Int] = [:]
+    var mods : [Int: [modification]] = [:]
     init(factionID: Int, armyid: Int){
         for unit in globalstats[factionID].units{
             self.troops[unit.id] = 0
+            self.mods[unit.id] = [modification]()
         }
         self.factionID = factionID
         self.troops[0] = 0
         self.armyid = armyid
     }
+}
+
+struct modification: Identifiable{
+    var id = UUID()
+    var name = String()
+    var range = String()
+    var type = String()
+    var s = String()
+    var ap = Int()
+    var d = String()
+    var count = Int()
 }
 
 

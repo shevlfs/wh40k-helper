@@ -13,12 +13,13 @@ struct troopDisplay: View {
     @State var pointcount = Int()
     @State var Unit: unit
     @State var faction = Int()
+    @State var armyID: Int
     @EnvironmentObject var pointTarget: pointTarget
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
     var body: some View {
         VStack(alignment: .trailing) {
-            NavigationLink(destination: troopDetailedView(Unit: Unit, factionID: faction, unitMods: true).environmentObject(collectionDatas).environmentObject(armyControl)){
+            NavigationLink(destination: troopDetailedView(Unit: Unit, factionID: faction,armyID: armyID, unitMods: true).environmentObject(collectionDatas).environmentObject(armyControl)){
             Text(unitname)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
@@ -61,6 +62,6 @@ extension troopDisplay {
 
 struct troopDisplay_Previews: PreviewProvider {
     static var previews: some View {
-        troopDisplay(unitcount: 0, Unit: globalstats[0].units[0])
+        troopDisplay(unitcount: 0, Unit: globalstats[0].units[0], armyID: 0)
     }
 }

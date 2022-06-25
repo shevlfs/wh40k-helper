@@ -40,9 +40,12 @@ extension troopEditSelect {
                 )
             Spacer()
             Button(action: {
-                if (armyControl.armies[armyID].troops[unit.id]! != 0){
+                if (armyControl.armies[armyID].troops[unit.id]! == 0){
+                    armyControl.armies[armyID].mods[unit.id] = [modification]()
+                } else if (armyControl.armies[armyID].troops[unit.id]! != 0){
                     armyControl.armies[armyID].pointCount -= pointcount
-                    armyControl.armies[armyID].troops[unit.id]! -= 1                }
+                    armyControl.armies[armyID].troops[unit.id]! -= 1
+                }
             }) {
                 Text("-")
                     .foregroundColor(.white)

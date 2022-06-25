@@ -10,13 +10,15 @@ import SwiftUI
 struct addUnitMods: View {
     @EnvironmentObject var armyControl: armyController
     @State var searchBarMods = [String]()
+    @State var armyID: Int
     @State private var searchText = ""
+    @State var Unit: unit
     var body: some View {
         NavigationView{
         VStack{
         ScrollView{
             HStack{
-                NavigationLink(destination: addCustomMod().environmentObject(armyControl)){
+                NavigationLink(destination: addCustomMod(armyID: armyID, Unit: Unit).environmentObject(armyControl)){
                     Text("Add custom...")
                         .font(.title2)
                         .fontWeight(.semibold)
@@ -44,6 +46,6 @@ struct addUnitMods: View {
 
 struct addUnitMods_Previews: PreviewProvider {
     static var previews: some View {
-        addUnitMods().environmentObject(armyController())
+        addUnitMods(armyID: 0).environmentObject(armyController())
     }
 }

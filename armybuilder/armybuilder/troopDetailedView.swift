@@ -13,6 +13,7 @@ struct troopDetailedView: View {
     @EnvironmentObject var collectionDatas: collectionData
     @State var Unit : unit
     @State var factionID: Int
+    @State var armyID = Int()
     @EnvironmentObject var armyControl: armyController
     @State var unitMods = false
     @State var customization = false
@@ -56,7 +57,7 @@ struct troopDetailedView: View {
                             
                     }
                 }.sheet(isPresented: $customization, content: {
-                    addUnitMods(searchBarMods: modNames()).environmentObject(armyControl)
+                    addUnitMods(searchBarMods: modNames(), armyID: armyID, Unit: Unit).environmentObject(armyControl)
                 }).padding()
             }
             
