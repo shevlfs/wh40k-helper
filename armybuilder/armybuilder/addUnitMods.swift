@@ -13,16 +13,22 @@ struct addUnitMods: View {
     @State var armyID: Int
     @State private var searchText = ""
     @State var Unit: unit
+    @State var addMod: Bool? = nil
+    @State var modID: Int
     var body: some View {
         NavigationView{
         VStack{
         ScrollView{
             HStack{
-                NavigationLink(destination: addCustomMod(armyID: armyID, Unit: Unit).environmentObject(armyControl)){
-                    Text("Add custom...")
-                        .font(.title2)
-                        .fontWeight(.semibold)
+                NavigationLink(destination: addCustomMod(armyID: armyID, modID: modID, Unit: Unit ).environmentObject(armyControl), tag: true, selection: $addMod){EmptyView()
                 }
+                Text("Add custom...")
+                    .font(.title2)
+                    .fontWeight(.semibold).onTapGesture {
+                        modID = armyControl.armies[armyID].mods[Unit.id]!.count
+                        armyControl.armies[armyID].mods[Unit.id]!.append(modification())
+                        self.addMod = true
+                    }
             }.padding()
                 ForEach(searchResults){
                     mod in modDisplay(mod: mod)
