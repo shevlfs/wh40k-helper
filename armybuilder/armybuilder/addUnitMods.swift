@@ -14,19 +14,24 @@ struct addUnitMods: View {
     @State private var searchText = ""
     @State var Unit: unit
     @State var addMod: Bool? = nil
-    @State var modID: Int
+    @State var modID = Int()
     var body: some View {
         NavigationView{
         VStack{
         ScrollView{
             HStack{
-                NavigationLink(destination: addCustomMod(armyID: armyID, modID: modID, Unit: Unit ).environmentObject(armyControl), tag: true, selection: $addMod){EmptyView()
+                NavigationLink(destination: addCustomMod(armyID: armyID, modID: modID, Unit: Unit, Range: getRange(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
+                                                                                                                  ), TypeM: getType(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
+                                                                                                                                   ), PTS: getPTS(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
+                                                                                                                                                   )
+                                                        
+                                                        
+                                                        
+                            ).environmentObject(armyControl), tag: true, selection: $addMod){EmptyView()
                 }
                 Text("Add custom...")
                     .font(.title2)
                     .fontWeight(.semibold).onTapGesture {
-                        modID = armyControl.armies[armyID].mods[Unit.id]!.count
-                        armyControl.armies[armyID].mods[Unit.id]!.append(modification())
                         self.addMod = true
                     }
             }.padding()
@@ -52,6 +57,6 @@ struct addUnitMods: View {
 
 struct addUnitMods_Previews: PreviewProvider {
     static var previews: some View {
-        addUnitMods(armyID: 0).environmentObject(armyController())
+        addUnitMods(armyID: 0, Unit: globalstats[0].units[0], modID: 0).environmentObject(armyController())
     }
 }

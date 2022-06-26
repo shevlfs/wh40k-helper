@@ -56,14 +56,42 @@ struct Army: Identifiable{
 
 struct modification: Identifiable{
     var id = UUID()
-    var name = String()
-    var range = String()
-    var type = String()
-    var s = String()
-    var ap = Int()
-    var d = String()
-    var count = Int()
+    var name: String
+    var range: String
+    var type: String
+    var s: String
+    var ap : Int
+    var d : String
+    var pts: Int
+    var count : Int
+    init(){
+        self.name = ""
+        self.range = ""
+        self.type = ""
+        self.s = ""
+        self.ap = 0
+        self.d = ""
+        self.pts = 0
+        self.count = 1
+    }
 }
+
+func getRange(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->String{
+    return armyControl.armies[armyID].mods[unitID]![modID].range
+}
+
+func getType(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->String{
+    return armyControl.armies[armyID].mods[unitID]![modID].type
+}
+
+func getPTS(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->Int{
+    return armyControl.armies[armyID].mods[unitID]![modID].pts
+}
+
+
+
+
+
 
 
 class armyController: ObservableObject{
