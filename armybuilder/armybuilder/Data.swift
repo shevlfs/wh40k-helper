@@ -72,15 +72,15 @@ struct modification: Identifiable{
     var d : String
     var pts: Int
     var count : Int
-    init(){
-        self.name = ""
-        self.range = ""
-        self.type = ""
-        self.s = ""
-        self.ap = 0
-        self.d = ""
-        self.pts = 0
-        self.count = 1
+    init(name: String, range: String, type: String, s: String, ap:Int,d: String,pts: Int,count: Int){
+        self.name = name
+        self.range = range
+        self.type = type
+        self.s = s
+        self.ap = ap
+        self.d = d
+        self.pts = pts
+        self.count = count
     }
 }
 

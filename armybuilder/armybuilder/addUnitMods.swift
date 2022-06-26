@@ -20,18 +20,7 @@ struct addUnitMods: View {
         VStack{
         ScrollView{
             HStack{
-                NavigationLink(destination: addCustomMod(armyID: armyID, modID: modID, Unit: Unit,
-                                                         Name:getName(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
-                                                                    ), Range: getRange(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
-                                                                                                                  ), TypeM: getType(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
-                                                                                                                                   ),S: getS(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
-                                                                                                                                            ),AP: getAP(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
-                                                                                                                                                       ),D: getD(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
-                                                                                                                                                                )
-                                                         ,PTS: getPTS(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
-                                                                     ), Count: getCount(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
-                                                                                       )
-                                                        
+                NavigationLink(destination: addCustomMod(armyID: armyID, modID: modID, Unit: Unit
                                                         
                                                         
                             ).environmentObject(armyControl), tag: true, selection: $addMod){EmptyView()

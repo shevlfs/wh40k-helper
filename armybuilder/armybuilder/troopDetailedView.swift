@@ -19,6 +19,7 @@ struct troopDetailedView: View {
     @State var modID = Int()
     @State var customization = false
     var body: some View {
+        ScrollView{
         VStack{
             HStack{
                 Text("\(Unit.name)")
@@ -48,10 +49,8 @@ struct troopDetailedView: View {
             
             unitStats(Unit: Unit)
             if (unitMods == true){
+                if (armyControl.armies[armyID].checkMods() == false){
                 Button(action:{
-                    modID = armyControl.armies[armyID].mods[Unit.id]!.count
-                    armyControl.armies[armyID].mods[Unit.id]!.append(modification())
-                    
                     self.customization.toggle()
                     
                 }){
@@ -64,9 +63,31 @@ struct troopDetailedView: View {
                 }.sheet(isPresented: $customization, content: {
                     addUnitMods(searchBarMods: modNames(), armyID: armyID, Unit: Unit, modID: modID).environmentObject(armyControl)
                 }).padding()
-            }
+                } else{
+                    ForEach(armyControl.armies[armyID].mods[Unit.id]!){
+                        mod in modificationDisplay(mod: mod)
+                    }
+                    Button(action:{
+                        self.customization.toggle()
+                        
+                    }){
+                        HStack{
+                            Image(systemName: "plus")
+                            Text("Add modifications")
+                                .font(.title3)
+                                
+                        }
+                    }.sheet(isPresented: $customization, content: {
+                        addUnitMods(searchBarMods: modNames(), armyID: armyID, Unit: Unit, modID: modID).environmentObject(armyControl)
+                    }).padding()
+                    
+                    
+                    
+                }
+            } // if ends here
             
             Spacer()
+        }
         }.navigationBarTitleDisplayMode(.inline)
     }
 }

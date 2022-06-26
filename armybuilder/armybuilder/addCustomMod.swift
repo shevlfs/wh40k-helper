@@ -14,7 +14,6 @@ struct addCustomMod: View {
     @State var temppts = Int()
     @State var temptype = String()
     @State var armyID: Int
-    @State var modID = 0
     @State var Unit: unit
     
     
@@ -25,7 +24,7 @@ struct addCustomMod: View {
     @State var AP = Int()
     @State var D = String()
     @State var PTS = Int()
-    @State var Count = Int()
+    @State var Count = 1
     
     
     
@@ -133,14 +132,8 @@ struct addCustomMod: View {
             
             
             Button(action: {
-                armyControl.armies[armyID].mods[Unit.id]![modID].range = Range
-                armyControl.armies[armyID].mods[Unit.id]![modID].name = Name
-                armyControl.armies[armyID].mods[Unit.id]![modID].type = TypeM
-                armyControl.armies[armyID].mods[Unit.id]![modID].pts = PTS
-                armyControl.armies[armyID].mods[Unit.id]![modID].ap = AP
-                armyControl.armies[armyID].mods[Unit.id]![modID].d = D
-                armyControl.armies[armyID].mods[Unit.id]![modID].s = S
-                armyControl.armies[armyID].mods[Unit.id]![modID].count = Count
+                let mod = modification(name: Name, range: Range,type: TypeM,s: S, ap: AP, d: D, pts: PTS, count: Count)
+                armyControl.armies[armyID].mods[Unit.id]!.append(mod)
             }){
                 HStack{
                     Text("Save").foregroundColor(.white).font(.title2).fontWeight(.semibold).padding(.horizontal)
