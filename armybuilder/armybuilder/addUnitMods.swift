@@ -20,7 +20,7 @@ struct addUnitMods: View {
         VStack{
         ScrollView{
             HStack{
-                NavigationLink(destination: addCustomMod(armyID: armyID, modID: modID, Unit: Unit
+                NavigationLink(destination: addCustomMod(armyID: armyID, Unit: Unit
                                                         
                                                         
                             ).environmentObject(armyControl), tag: true, selection: $addMod){EmptyView()
@@ -31,8 +31,10 @@ struct addUnitMods: View {
                         self.addMod = true
                     }
             }.padding()
-                ForEach(searchResults){
-                    mod in modDisplay(mod: mod)
+                ForEach(searchResults){mod in
+                    NavigationLink(destination: addExistingMod(armyID: armyID, Unit: Unit, Name: mod.name, Range: mod.range, TypeM: mod.type, S: mod.s, AP: mod.ap, D: mod.d, PTS: 0, Count: 1, mod: mod)){
+                        modDisplay(mod: mod)
+                    }
                 }.searchable(text: $searchText)
         }
         }.navigationTitle("Add modifications")
