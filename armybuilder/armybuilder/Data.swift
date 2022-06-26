@@ -76,6 +76,10 @@ struct modification: Identifiable{
     }
 }
 
+func getName(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->String{
+    return armyControl.armies[armyID].mods[unitID]![modID].name
+}
+
 func getRange(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->String{
     return armyControl.armies[armyID].mods[unitID]![modID].range
 }
@@ -84,9 +88,28 @@ func getType(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->
     return armyControl.armies[armyID].mods[unitID]![modID].type
 }
 
+func getAP(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->Int{
+    return armyControl.armies[armyID].mods[unitID]![modID].ap
+}
+
+func getCount(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->Int{
+    return armyControl.armies[armyID].mods[unitID]![modID].count
+}
+
+func getS(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->String{
+    return armyControl.armies[armyID].mods[unitID]![modID].s
+}
+
+func getD(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->String{
+    return armyControl.armies[armyID].mods[unitID]![modID].d
+}
+
 func getPTS(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->Int{
     return armyControl.armies[armyID].mods[unitID]![modID].pts
 }
+
+
+
 
 
 

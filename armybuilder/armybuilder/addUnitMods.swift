@@ -20,17 +20,24 @@ struct addUnitMods: View {
         VStack{
         ScrollView{
             HStack{
-                NavigationLink(destination: addCustomMod(armyID: armyID, modID: modID, Unit: Unit, Range: getRange(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
+                NavigationLink(destination: addCustomMod(armyID: armyID, modID: modID, Unit: Unit,
+                                                         Name:getName(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
+                                                                    ), Range: getRange(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
                                                                                                                   ), TypeM: getType(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
-                                                                                                                                   ), PTS: getPTS(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
-                                                                                                                                                   )
+                                                                                                                                   ),S: getS(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
+                                                                                                                                            ),AP: getAP(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
+                                                                                                                                                       ),D: getD(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
+                                                                                                                                                                )
+                                                         ,PTS: getPTS(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
+                                                                     ), Count: getCount(armyControl: armyControl, armyID: armyID, unitID: Unit.id, modID: modID
+                                                                                       )
                                                         
                                                         
                                                         
                             ).environmentObject(armyControl), tag: true, selection: $addMod){EmptyView()
                 }
                 Text("Add custom...")
-                    .font(.title2)
+                    .font(.title2).foregroundColor(.blue)
                     .fontWeight(.semibold).onTapGesture {
                         self.addMod = true
                     }
