@@ -30,6 +30,7 @@ struct addCustomMod: View {
     
     
     var body: some View {
+        ScrollView{
         VStack{
         VStack{
             HStack{
@@ -146,9 +147,9 @@ struct addCustomMod: View {
                 }.padding(.horizontal).padding(.vertical, 7)
             }.background(RoundedRectangle(cornerRadius: 15).fill(.blue)).padding()
             
-            
-            
         }
+            
+        }.navigationTitle("Add a custom mod")
     }
 }
 

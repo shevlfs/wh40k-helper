@@ -52,6 +52,14 @@ struct Army: Identifiable{
         self.troops[0] = 0
         self.armyid = armyid
     }
+    func checkMods()->Bool{
+        for unit in globalstats[factionID].units{
+            if(!self.mods[unit.id]!.isEmpty){
+                return true
+            }
+        }
+        return false
+    }
 }
 
 struct modification: Identifiable{
