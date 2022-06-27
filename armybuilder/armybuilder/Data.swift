@@ -38,6 +38,7 @@ struct unitTemp: Identifiable{
 
 struct Army: Identifiable{
     let id = UUID()
+    var name = String()
     let armyid: Int
     var factionID: Int
     var pointCount = 0
@@ -48,6 +49,7 @@ struct Army: Identifiable{
             self.troops[unit.id] = 0
             self.mods[unit.id] = [modification]()
         }
+        self.name = " "
         self.factionID = factionID
         self.troops[0] = 0
         self.armyid = armyid
@@ -132,6 +134,16 @@ class armyController: ObservableObject{
     func getPoints(armyID: Int) -> Int{
         return armies[armyID-1].pointCount
     }
+    func getArmies()->[Army]{
+        var armies = [Army]()
+        for army in self.armies{
+            if (army.armyid != -1){
+                armies.append(army)
+            }
+        }
+        return armies
+    }
+    
     func getTroops(armyID: Int) -> [unitTemp]{
         var troops = [unitTemp]()
         for unit in globalstats[armies[armyID-1].factionID].units{
@@ -143,6 +155,15 @@ class armyController: ObservableObject{
             troops.append(unitTemp(unitid: 0))
         }
         return troops
+    }
+    func getNextID()->Int{
+        var temp = Int()
+        for army in self.armies{
+            if (army.armyid > temp){
+                temp = army.armyid
+            }
+        }
+        return temp
     }
 }
 

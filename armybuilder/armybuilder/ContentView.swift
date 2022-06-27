@@ -1,10 +1,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var showAppSettings = false
+    @State var showAppSettings : Bool? = nil
     @State var showAddDialog = false
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
+    @State var deleted = false
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
@@ -16,12 +17,18 @@ struct ContentView: View {
                         Text("No armies! :(").fontWeight(.light).padding()
                     } else{
                     ForEach(armyControl.armies){army in
+                        
+                        
                         NavigationLink(destination: armyDetailedView(id: army.armyid).environmentObject(collectionDatas).environmentObject(armyControl)) {
                             armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObject(armyControl).environmentObject(collectionDatas)
+                        
                         }
+                        
+                    }.onDelete(perform: {indexSet in armyControl.armies.remove(atOffsets: indexSet)})
                     }
+                    NavigationLink(destination: appSettings().environmentObject(collectionDatas), tag: true, selection: $showAppSettings){
+                        EmptyView()
                     }
-                    
                     
                 }
             
@@ -38,16 +45,14 @@ struct ContentView: View {
             }.toolbar{
                 ToolbarItemGroup(placement: .navigationBarLeading){
                     Button(action:{
-                        self.showAppSettings.toggle()
+                        showAppSettings = true
                         
                     }) {
                         Label("Settings",systemImage:"gear")
-                    }.sheet(isPresented:$showAppSettings){
-                        appSettings().environmentObject(collectionDatas)
                     }
                 }
             }
-            }
+            }.navigationViewStyle(.stack)
     }
 }
     

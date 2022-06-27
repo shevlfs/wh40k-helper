@@ -28,8 +28,7 @@ extension collectionSelection {
     private func pickerView() -> some View {
         HStack {
             Button(action: {
-                if (unitcount != 0){
-                    unitcount -= 1
+                if (collectionDatas.collectionDict[factionID]![unitID]! != 0){
                     collectionDatas.collectionDict[factionID]![unitID]! -= 1
                 }
             }) {
@@ -39,10 +38,9 @@ extension collectionSelection {
                     .padding(.vertical, 4)
                     .background(RoundedRectangle(cornerRadius: 5).fill(.green))
             }
-            Text("\(unitcount)")
+            Text("\(collectionDatas.collectionDict[factionID]![unitID]!)")
             Button(action: {
-                unitcount += 1
-                collectionDatas.collectionDict[factionID]![unitID]! += 1
+                    collectionDatas.collectionDict[factionID]![unitID]! += 1
             }) {
                 Text("+")
                     .foregroundColor(.white)

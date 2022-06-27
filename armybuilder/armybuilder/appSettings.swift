@@ -10,7 +10,6 @@ import SwiftUI
 struct appSettings: View {
     @EnvironmentObject var collectionDatas: collectionData
     var body: some View {
-        NavigationView{
             ScrollView(){
             VStack(){
                 NavigationLink(destination: accountSettings()){
@@ -29,8 +28,8 @@ struct appSettings: View {
 
         
             Spacer()
-        }.navigationTitle("Settings")
-        }
+        }.navigationTitle("Settings").navigationViewStyle(.stack)
+        
 
     }
 }
