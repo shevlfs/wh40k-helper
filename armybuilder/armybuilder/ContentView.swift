@@ -26,7 +26,7 @@ struct ContentView: View {
                         
                     }.onDelete(perform: {indexSet in armyControl.armies.remove(atOffsets: indexSet)})
                     }
-                    NavigationLink(destination: appSettings().environmentObject(collectionDatas), tag: true, selection: $showAppSettings){
+                    NavigationLink(destination: appSettings().environmentObject(collectionDatas).environmentObject(armyControl), tag: true, selection: $showAppSettings){
                         EmptyView()
                     }
                     

@@ -17,6 +17,7 @@ struct armyDetailedView: View {
     
     var body: some View {
             VStack(){
+                NavigationLink(destination: armyCustomization(armyID: id - 1).environmentObject(armyControl)){
                 HStack{
                         VStack(){
                             Text("Faction: \(factions[armyControl.armies[id-1].factionID].name)")
@@ -32,6 +33,7 @@ struct armyDetailedView: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .fill(.green))
                 }.padding()
+                }
                 Spacer()
                 ScrollView{
                     VStack{

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct appSettings: View {
+    @EnvironmentObject var armyControl: armyController
     @EnvironmentObject var collectionDatas: collectionData
     var body: some View {
             ScrollView(){
@@ -21,6 +22,12 @@ struct appSettings: View {
                 NavigationLink(destination: collectionSettings().environmentObject(collectionDatas)){
                     settingsitem(icon: "archivebox.fill", optionname:"Collection").padding()
                 }
+                
+                NavigationLink(destination: armyDeletion().environmentObject(armyControl)){
+                    settingsitem(icon: "trash", optionname:"Delete armies").padding()
+                }
+                
+                
                 
             }.padding(.vertical)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.systemGray6)))
