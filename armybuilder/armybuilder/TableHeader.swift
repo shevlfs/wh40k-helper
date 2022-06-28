@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TableHeader: View {
+    @State var name = String()
     var body: some View {
         HStack{
         HStack(alignment: .center, spacing: nil){

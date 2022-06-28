@@ -3,4 +3,86 @@
    uuid = "BF96DA6E-590C-4CCE-80A7-1D6AD8E81CDF"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A090298-C8BE-4035-A083-509F1BCBAEB7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "armybuilder/troopGameDetailed.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "9A090298-C8BE-4035-A083-509F1BCBAEB7 - 60c13b6191409bb3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "armybuilder.troopGameDetailed.body.getter : some"
+                  moduleName = "armybuilder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shevlfs/Documents/GitHub/shevlyakovfeodor-ivr/armybuilder/armybuilder/troopGameDetailed.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "400">
+               </Location>
+               <Location
+                  uuid = "9A090298-C8BE-4035-A083-509F1BCBAEB7 - f935bd6d5a800dbc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(armybuilder.tableUnitHeader, SwiftUI.ScrollView&lt;SwiftUI.ForEach&lt;Swift.Array&lt;armybuilder.modification&gt;, Foundation.UUID, armybuilder.modGameView&gt;&gt;)&gt; in armybuilder.troopGameDetailed.body.getter : some"
+                  moduleName = "armybuilder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shevlfs/Documents/GitHub/shevlyakovfeodor-ivr/armybuilder/armybuilder/troopGameDetailed.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "1044">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F168947-4DFC-42EA-B67D-0D1794F053FF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "armybuilder/troopGameDetailed.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9D8AE3C-1CAE-4663-BD03-D63B4C03C75D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "armybuilder/troopGameDetailed.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -19,7 +19,10 @@ struct ContentView: View {
                     ForEach(armyControl.armies){army in
                         
                         
-                        NavigationLink(destination: armyDetailedView(id: army.armyid).environmentObject(collectionDatas).environmentObject(armyControl)) {
+                        NavigationLink(destination: armyDetailedView(id: army.armyid).environmentObject(collectionDatas).environmentObject(armyControl).onAppear(perform: {
+                            let value = UIInterfaceOrientation.portrait.rawValue
+                            UIDevice.current.setValue(value, forKey: "orientation")
+                        })) {
                             
                             armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObject(armyControl).environmentObject(collectionDatas)
                         

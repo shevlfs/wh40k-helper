@@ -9,10 +9,11 @@ import SwiftUI
 
 struct unitGameView: View {
     @State var id: Int
+    @State var armyID: Int
     @State var factionID: Int
     var body: some View {
         HStack{
-            NavigationLink(destination: troopGameDetailed()){
+            NavigationLink(destination: troopGameDetailed(armyID: armyID, unitID: id)){
         HStack{
         HStack(alignment: .center, spacing: nil){
             Group{
@@ -37,7 +38,7 @@ struct unitGameView: View {
 
 struct unitGameView_Previews: PreviewProvider {
     static var previews: some View {
-        unitGameView(id: 20, factionID: 0)
+        unitGameView(id: 20, armyID: 0, factionID: 0)
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

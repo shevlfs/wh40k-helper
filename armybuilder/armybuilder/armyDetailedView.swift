@@ -28,11 +28,11 @@ struct armyDetailedView: View {
                             .font(.title3)
                             .fontWeight(.regular)
                         }.foregroundColor(.white).padding(.vertical, 3).padding([.leading,.trailing])
-                        VStack{
+                        VStack(alignment: .trailing){
                             
-                            Text("Battle size: \(armyControl.armies[id-1].getBattleSize())").font(.title3)
+                            Text("Battle size: \(armyControl.armies[id-1].getBattleSize())").font(.title2)
                                 .fontWeight(.semibold).padding(.vertical,7)
-                            Text("CP: \(armyControl.armies[id-1].getCommandPoints())").font(.title2)
+                            Text("CP: \(armyControl.armies[id-1].getCommandPoints())").font(.title3)
                                 .fontWeight(.semibold)
                         }.foregroundColor(.white).padding(.top, 3).padding([.leading,.trailing])
                                                     
@@ -58,9 +58,6 @@ struct armyDetailedView: View {
                             let value = UIInterfaceOrientation.landscapeLeft.rawValue
                             UIDevice.current.setValue(value, forKey: "orientation")
                         
-                    }).onDisappear(perform: {
-                        let value = UIInterfaceOrientation.portrait.rawValue
-                        UIDevice.current.setValue(value, forKey: "orientation")
                     })){
                         Image(systemName: "viewfinder")
                     }

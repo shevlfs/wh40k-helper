@@ -132,7 +132,7 @@ struct addExistingMod: View {
                 }
                 let mod = modification(name: Name, range: Range,type: TypeM,s: S, ap: AP, d: D, pts: PTS, count: Count)
                 armyControl.armies[armyID].mods[Unit.id]!.append(mod)
-                armyControl.armies[armyID].pointCount = armyControl.armies[armyID].pointCount + PTS
+                armyControl.armies[armyID].pointCount = armyControl.armies[armyID].pointCount + PTS*Count
             }){
                 HStack{
                     Text("Save").foregroundColor(.white).font(.title2).fontWeight(.semibold).padding(.horizontal)

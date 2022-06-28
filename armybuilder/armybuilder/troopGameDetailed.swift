@@ -9,13 +9,22 @@ import SwiftUI
 
 struct troopGameDetailed: View {
     @EnvironmentObject var armyControl: armyController
+    @State var armyID: Int
+    @State var unitID: Int
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            tableUnitHeader(name: globalstats[armyControl.armies[armyID].factionID].units[unitID].name)
+            ScrollView{
+                ForEach(armyControl.armies[armyID].mods[unitID + 1]!){
+                    mod in modGameView(mod: mod)
+                }
+            }
+        }
     }
 }
 
 struct troopGameDetailed_Previews: PreviewProvider {
     static var previews: some View {
-        troopGameDetailed()
+        troopGameDetailed(armyID: 0, unitID: 0 ).environmentObject(armyController())
     }
 }
