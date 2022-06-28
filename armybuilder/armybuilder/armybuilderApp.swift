@@ -13,7 +13,7 @@ struct armybuilderApp: App {
     @StateObject var armyControl = armyController()
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(collectionDatas).environmentObject(armyControl).onAppear(perform: {
+            loginAuth().onAppear(perform:{
                 serverHandshake()
             })
         }

@@ -7,7 +7,6 @@ struct ContentView: View {
     @EnvironmentObject var armyControl: armyController
     @State var deleted = false
     var body: some View {
-        NavigationView{
             ScrollView(.vertical){
                 VStack(){
                     
@@ -56,7 +55,6 @@ struct ContentView: View {
                     }
                 }
             }
-            }.navigationViewStyle(.stack)
     }
 }
     

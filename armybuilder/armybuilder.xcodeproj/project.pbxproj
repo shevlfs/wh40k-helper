@@ -12,6 +12,8 @@
 		56083E842856589D00A83C9D /* serverrequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56083E832856589C00A83C9D /* serverrequests.swift */; };
 		5611EA03286B8DAD004BC850 /* tableUnitHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611EA02286B8DAD004BC850 /* tableUnitHeader.swift */; };
 		5611EA05286B8E87004BC850 /* modGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611EA04286B8E87004BC850 /* modGameView.swift */; };
+		5611EA07286BA720004BC850 /* loginAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611EA06286BA720004BC850 /* loginAuth.swift */; };
+		5611EA09286BB227004BC850 /* rectangleLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611EA08286BB227004BC850 /* rectangleLogo.swift */; };
 		562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A3B8A27C36C1800AB0A80 /* armyView.swift */; };
 		562A87A727E8D9C40076FB6A /* haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87A627E8D9C30076FB6A /* haptic.swift */; };
 		562A87A927E8EF850076FB6A /* editArmy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87A827E8EF850076FB6A /* editArmy.swift */; };
@@ -60,6 +62,8 @@
 		56083E832856589C00A83C9D /* serverrequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serverrequests.swift; sourceTree = "<group>"; };
 		5611EA02286B8DAD004BC850 /* tableUnitHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableUnitHeader.swift; sourceTree = "<group>"; };
 		5611EA04286B8E87004BC850 /* modGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modGameView.swift; sourceTree = "<group>"; };
+		5611EA06286BA720004BC850 /* loginAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginAuth.swift; sourceTree = "<group>"; };
+		5611EA08286BB227004BC850 /* rectangleLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rectangleLogo.swift; sourceTree = "<group>"; };
 		562A3B8A27C36C1800AB0A80 /* armyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armyView.swift; sourceTree = "<group>"; };
 		562A87A627E8D9C30076FB6A /* haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haptic.swift; sourceTree = "<group>"; };
 		562A87A827E8EF850076FB6A /* editArmy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editArmy.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		56883D0D27A5DF9F00349E69 /* armybuilder */ = {
 			isa = PBXGroup;
 			children = (
+				5611EA06286BA720004BC850 /* loginAuth.swift */,
+				5611EA08286BB227004BC850 /* rectangleLogo.swift */,
 				5644884D2857CE3B00AB2273 /* stats.json */,
 				5672C37127EB540A00524033 /* selectTroops.swift */,
 				562A87AA27E8FB1B0076FB6A /* appSettings.swift */,
@@ -285,6 +291,7 @@
 				56659380286A47E8004B0473 /* armyCustomization.swift in Sources */,
 				5611EA03286B8DAD004BC850 /* tableUnitHeader.swift in Sources */,
 				562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */,
+				5611EA07286BA720004BC850 /* loginAuth.swift in Sources */,
 				56733221285E1D6D00AF0AF9 /* troopDisplay.swift in Sources */,
 				56448866285CCC4600AB2273 /* troopCollectionCount.swift in Sources */,
 				562A87A927E8EF850076FB6A /* editArmy.swift in Sources */,
@@ -292,6 +299,7 @@
 				5672C37227EB540A00524033 /* selectTroops.swift in Sources */,
 				56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */,
 				56448864285CB5F500AB2273 /* Data.swift in Sources */,
+				5611EA09286BB227004BC850 /* rectangleLogo.swift in Sources */,
 				566C244327ED1176008C1362 /* troopCountSelect.swift in Sources */,
 				562A87A727E8D9C40076FB6A /* haptic.swift in Sources */,
 				5665937E286A4593004B0473 /* armyDeletion.swift in Sources */,

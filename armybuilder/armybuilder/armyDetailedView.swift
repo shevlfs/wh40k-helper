@@ -19,28 +19,33 @@ struct armyDetailedView: View {
             VStack(){
                 ScrollView{
                     NavigationLink(destination: armyCustomization(armyID: id - 1).environmentObject(armyControl)){
+                        VStack(alignment: .center){
                     HStack{
-                        VStack(alignment: .leading){
+                        VStack(){
                                 Text("Faction: \(factions[armyControl.armies[id-1].factionID].name)")
                             .font(.title2)
-                            .fontWeight(.semibold).padding(.vertical,7)
+                            .fontWeight(.semibold).padding(.bottom, 7)
                         Text("Points: \(armyControl.armies[id-1].pointCount)")
                             .font(.title3)
                             .fontWeight(.regular)
-                        }.foregroundColor(.white).padding(.vertical, 3).padding([.leading,.trailing])
-                        VStack(alignment: .trailing){
+                        }.foregroundColor(.white).padding(5)
+                        VStack(){
                             
-                            Text("Battle size: \(armyControl.armies[id-1].getBattleSize())").font(.title2)
-                                .fontWeight(.semibold).padding(.vertical,7)
-                            Text("CP: \(armyControl.armies[id-1].getCommandPoints())").font(.title3)
+                            Text("Battle size:").font(.title2)
                                 .fontWeight(.semibold)
-                        }.foregroundColor(.white).padding(.top, 3).padding([.leading,.trailing])
+                            Text("\(armyControl.armies[id-1].getBattleSize())").font(.title2)
+                                .fontWeight(.semibold).padding(.bottom, 7)
+                            Text("CP: \(armyControl.armies[id-1].getCommandPoints())").font(.title3)
+                                .fontWeight(.regular)
+                        }.foregroundColor(.white).padding(5)
                                                     
-                    }.padding().background(
-                        RoundedRectangle(cornerRadius: 10)
+                    }.padding(7).background(
+                        RoundedRectangle(cornerRadius: 15)
                             .fill(.green))
-
-                    }
+                        }.padding().background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(.green))
+                    }.padding()
                     Spacer()
                     VStack{
                 ForEach(armyControl.getTroops(armyID: id)){
