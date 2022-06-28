@@ -12,7 +12,7 @@ struct rectangleLogo: View {
     @State var startPoint = UnitPoint(x: 0, y: 0)
     @State var endPoint = UnitPoint(x: 0, y: 2)
     var body: some View {
-        RoundedRectangle(cornerRadius: 10)
+        RoundedRectangle(cornerRadius: 15)
             .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint)).blur(radius: 3)
             .frame(width: 250, height: 150)
             .onAppear {
