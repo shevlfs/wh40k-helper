@@ -6,8 +6,12 @@ struct addArmyDialog: View {
     @StateObject var pointTargetd = pointTarget()
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
+    @EnvironmentObject var viewControl: viewController
     @State var showNextStep: Bool? = nil
     @State var factionfile = 0
+    
+    
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView{
             ScrollView(.vertical){
@@ -21,7 +25,7 @@ struct addArmyDialog: View {
             Spacer()
         }.navigationTitle("Add a new army!").padding(.top).frame(width: 400, height: 50, alignment: .center)
             VStack(alignment: .center){
-                NavigationLink(destination: selectTroops(factionfile: factionfile, collectionShowcase: collectionDatas.emptyChecker(factionID: factionfile)).environmentObject(pointTargetd).environmentObject(collectionDatas).environmentObject(armyControl).navigationBarBackButtonHidden(true), tag:true, selection: $showNextStep){
+                NavigationLink(destination: selectTroops(factionfile: factionfile, collectionShowcase: collectionDatas.emptyChecker(factionID: factionfile)).environmentObject(pointTargetd).environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(viewControl), tag:true, selection: $showNextStep){
                     EmptyView()
                 }
                 

@@ -23,9 +23,12 @@ struct selectTroops: View {
     @EnvironmentObject var pointTarget: pointTarget
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
+    @EnvironmentObject var viewControl: viewController
     @State var searchText = String()
     @State var collectionShowcase: Bool
     @State var collectionHidden = false
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack(){
@@ -159,7 +162,15 @@ struct selectTroops: View {
             }
             
             
-        }.navigationTitle("Add a new army!")
+        }.navigationTitle("Add a new army!").toolbar{
+            ToolbarItemGroup(placement: .primaryAction){
+                Button(action:{
+                    viewControl.showingaddArmy = false
+                }){
+                    Text("Done")
+                }
+            }
+        }
         }
     var searchResults: [unit] {
             if searchText.isEmpty {

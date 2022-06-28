@@ -211,3 +211,8 @@ struct armyTemp: Identifiable{
     var name = String()
 }
 
+class viewController: ObservableObject{
+    @Published var showingaddArmy = false
+    init(){
+        }
+}

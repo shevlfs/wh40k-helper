@@ -6,6 +6,8 @@ struct ContentView: View {
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
     @State var deleted = false
+    
+    @StateObject var viewControl = viewController()
     var body: some View {
             ScrollView(.vertical){
                 VStack(){
@@ -38,10 +40,10 @@ struct ContentView: View {
             }.navigationTitle("Your armies").toolbar {
                 ToolbarItemGroup(placement: .primaryAction){
                     Button(action: {
-                        self.showAddDialog.toggle()
+                        viewControl.showingaddArmy = true
                     }) {
-                        Label("Add",systemImage:"plus.app")}.sheet(isPresented:$showAddDialog){
-                            addArmyDialog().environmentObject(collectionDatas).environmentObject(armyControl)
+                        Label("Add",systemImage:"plus.app")}.sheet(isPresented:$viewControl.showingaddArmy){
+                            addArmyDialog().environmentObject(viewControl).environmentObject(collectionDatas).environmentObject(armyControl)
                         }
 
                     }
