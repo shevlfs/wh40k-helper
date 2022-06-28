@@ -10,13 +10,15 @@ import SwiftUI
 struct armyDeletion: View {
     @EnvironmentObject var armyControl: armyController
     var body: some View {
-        ScrollView{
             List{
-                ForEach(armyControl.armies){
-                    army in Text("\(army.name)")
+                ForEach(armyControl.getNames()){
+                    army in Text(army.name)
                 }
-            }
-        }.navigationTitle("Delete armies")
+            }.navigationTitle("Delete armies")
+
+}
+    func deleteArmy(at offsets: IndexSet){
+        print("")
     }
 }
 

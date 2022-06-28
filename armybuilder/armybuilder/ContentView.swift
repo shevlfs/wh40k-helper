@@ -20,11 +20,12 @@ struct ContentView: View {
                         
                         
                         NavigationLink(destination: armyDetailedView(id: army.armyid).environmentObject(collectionDatas).environmentObject(armyControl)) {
+                            
                             armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObject(armyControl).environmentObject(collectionDatas)
                         
                         }
                         
-                    }.onDelete(perform: {indexSet in armyControl.armies.remove(atOffsets: indexSet)})
+                    }
                     }
                     NavigationLink(destination: appSettings().environmentObject(collectionDatas).environmentObject(armyControl), tag: true, selection: $showAppSettings){
                         EmptyView()

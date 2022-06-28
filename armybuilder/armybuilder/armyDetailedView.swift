@@ -17,25 +17,31 @@ struct armyDetailedView: View {
     
     var body: some View {
             VStack(){
-                NavigationLink(destination: armyCustomization(armyID: id - 1).environmentObject(armyControl)){
-                HStack{
-                        VStack(){
-                            Text("Faction: \(factions[armyControl.armies[id-1].factionID].name)")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    Text("Points: \(armyControl.armies[id-1].pointCount)")
-                        .font(.title3)
-                        .fontWeight(.regular)
-                        }.foregroundColor(.white)
-                            .frame(width: 270, height: 30)
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(.green))
-                }.padding()
-                }
-                Spacer()
                 ScrollView{
+                    NavigationLink(destination: armyCustomization(armyID: id - 1).environmentObject(armyControl)){
+                    HStack{
+                        VStack(alignment: .leading){
+                                Text("Faction: \(factions[armyControl.armies[id-1].factionID].name)")
+                            .font(.title2)
+                            .fontWeight(.semibold).padding(.vertical,7)
+                        Text("Points: \(armyControl.armies[id-1].pointCount)")
+                            .font(.title3)
+                            .fontWeight(.regular)
+                        }.foregroundColor(.white).padding(.vertical, 3).padding([.leading,.trailing])
+                        VStack{
+                            
+                            Text("Battle size: \(armyControl.armies[id-1].getBattleSize())").font(.title3)
+                                .fontWeight(.semibold).padding(.vertical,7)
+                            Text("CP: \(armyControl.armies[id-1].getCommandPoints())").font(.title2)
+                                .fontWeight(.semibold)
+                        }.foregroundColor(.white).padding(.top, 3).padding([.leading,.trailing])
+                                                    
+                    }.padding().background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.green))
+
+                    }
+                    Spacer()
                     VStack{
                 ForEach(armyControl.getTroops(armyID: id)){
                     unit in troopDisplay(unitcount: armyControl.armies[id-1].troops[unit.unitid] ?? 0,unitname: globalstats[armyControl.armies[id-1].factionID].units[unit.unitid-1].name, pointcount: globalstats[armyControl.armies[id-1].factionID].units[unit.unitid-1].pts, Unit: globalstats[armyControl.armies[id-1].factionID].units[unit.unitid-1], faction: armyControl.armies[id-1].factionID, armyID: id-1)
@@ -45,7 +51,7 @@ struct armyDetailedView: View {
                 }
     
                 
-        }.navigationTitle("Army \(id)").toolbar {
+            }.navigationTitle(armyControl.armies[id-1].name).toolbar {
             ToolbarItemGroup(placement: .primaryAction){
                 HStack{
                     NavigationLink(destination: armyGameView(armyID: id-1 ).environmentObject(armyControl).onAppear(perform:{

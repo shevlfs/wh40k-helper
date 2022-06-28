@@ -106,7 +106,9 @@ struct addExistingMod: View {
                 .onReceive(Just(PTS)) { newValue in
                     let filtered = newValue
                     if filtered != newValue {
-                        PTS = filtered
+                        if (filtered >= 0){
+                            PTS = filtered
+                        }
                     }
                 }.padding().foregroundColor(.white)
                     .frame(width: 150, height: 10)
@@ -125,8 +127,12 @@ struct addExistingMod: View {
             
             
             Button(action: {
+                if (PTS < 0){
+                    PTS = 0
+                }
                 let mod = modification(name: Name, range: Range,type: TypeM,s: S, ap: AP, d: D, pts: PTS, count: Count)
                 armyControl.armies[armyID].mods[Unit.id]!.append(mod)
+                armyControl.armies[armyID].pointCount = armyControl.armies[armyID].pointCount + PTS
             }){
                 HStack{
                     Text("Save").foregroundColor(.white).font(.title2).fontWeight(.semibold).padding(.horizontal)
@@ -135,7 +141,7 @@ struct addExistingMod: View {
             
         }
             
-        }.navigationTitle("Add a custom mod")
+        }.navigationTitle("Add a existing mod")
     }
 }
 

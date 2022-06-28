@@ -18,7 +18,7 @@ struct armyView: View {
                         VStack(alignment: .center,spacing: 4) {
                             HStack {
                                 Spacer()
-                                Text("Army \(id)")
+                                Text("\(armyControl.armies[id-1].name)")
                                     .font(.title)
                                     .foregroundColor(.white)
                                 .bold()
