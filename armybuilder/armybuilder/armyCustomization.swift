@@ -23,14 +23,14 @@ struct armyCustomization: View {
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Color(UIColor.systemGray2)))
             }.padding()
-            VStack{
+            VStack(){
                 Button(action: {
-                    /* army deletion.... */
+                    /* army deletion... */
                 }){
-                settingsitem(icon: "trash", optionname: "Delete army")
-                }
-            }.background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.systemGray6)))
-            
+                    settingsitem(icon: "trash", optionname: "Delete army")
+                }}
+
+        
             Spacer()
         }.navigationTitle("Manage army")
     }
