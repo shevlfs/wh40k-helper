@@ -49,6 +49,7 @@
 		56883D1327A5DFA000349E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1227A5DFA000349E69 /* Assets.xcassets */; };
 		56883D1627A5DFA000349E69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1527A5DFA000349E69 /* Preview Assets.xcassets */; };
 		56CD644627E92F40008478CD /* JSONstructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD644527E92F40008478CD /* JSONstructs.swift */; };
+		56F45E4F286B53EE007BA78D /* troopGameDetailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F45E4E286B53EE007BA78D /* troopGameDetailed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		56883D1227A5DFA000349E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56883D1527A5DFA000349E69 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56CD644527E92F40008478CD /* JSONstructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONstructs.swift; sourceTree = "<group>"; };
+		56F45E4E286B53EE007BA78D /* troopGameDetailed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopGameDetailed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				562A3B8A27C36C1800AB0A80 /* armyView.swift */,
 				5601F63527C6FF9600262E92 /* armyDetailedView.swift */,
 				5673322A2862470C00AF0AF9 /* armyGameView.swift */,
+				56F45E4E286B53EE007BA78D /* troopGameDetailed.swift */,
 				56594CC32864A5C900D1A9C5 /* TableHeader.swift */,
 				567FC56928648D3F00A0159E /* unitGameView.swift */,
 				562A87A827E8EF850076FB6A /* editArmy.swift */,
@@ -291,6 +294,7 @@
 				56CD644627E92F40008478CD /* JSONstructs.swift in Sources */,
 				562A87AD27E8FB470076FB6A /* addArmyDialog.swift in Sources */,
 				5673322528609C9600AF0AF9 /* troopEditSelect.swift in Sources */,
+				56F45E4F286B53EE007BA78D /* troopGameDetailed.swift in Sources */,
 				5644885F2859255B00AB2273 /* targetPicker.swift in Sources */,
 				56594CCA2864F5B400D1A9C5 /* modDisplay.swift in Sources */,
 				5665937A2868D07C004B0473 /* modificationDisplay.swift in Sources */,
