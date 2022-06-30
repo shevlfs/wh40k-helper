@@ -161,7 +161,6 @@ func getPTS(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->I
 
 class armyController: ObservableObject{
     @Published var armies = [Army]()
-    @Published var armyViews = [Int]()
     
     func getPoints(armyID: Int) -> Int{
         return armies[armyID-1].pointCount
