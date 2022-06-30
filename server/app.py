@@ -8,7 +8,7 @@ from data import database, mail, secretKey
 import re
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
-from flask_login import login_user, login_required, current_user, LoginManager
+from flask_login import login_user, login_required, current_user, LoginManager, logout_user
 import base64
 
 app = Flask(__name__)
@@ -186,6 +186,14 @@ def login():
 def whoami():
     return current_user.username
 
+@app.route("/logout", methods = ["GET"])
+@login_required
+def logout():
+    user = UserModel(username = "", password="").find_by_username(current_user.username)
+    user.loggedin = False
+    db.session.commit()
+    logout_user()
+    return "logged out successfully"
 
 
 
