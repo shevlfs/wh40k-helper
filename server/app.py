@@ -8,9 +8,12 @@ from data import database, mail, secretKey
 import re
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
-from flask_login import login_user, login_required
+from flask_login import login_user, login_required, current_user, LoginManager
+import base64
 
 app = Flask(__name__)
+login_manager = LoginManager()
+login_manager.init_app(app)
 mail_settings = {
     "MAIL_SERVER": 'smtp.gmail.com',
     "MAIL_PORT": 465,
@@ -53,14 +56,32 @@ class UserModel(db.Model):
     username = db.Column(db.String(80), unique=True, index=True)
     password = db.Column(db.String(128))
     verified = db.Column(db.Boolean, default = False)
-    is_authenticated = db.Column(db.Boolean, default = False)
-    is_active = db.Column(db.Boolean, default = False)
+    loggedin = db.Column(db.Boolean, default = False)
 
     def get_password(self, password):
         return generate_password_hash(password)
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+    def __get__(self, user_id):
+        return self.id
+
+    def is_active(self):
+        """True, as all users are active."""
+        return True
+
+    def get_id(self):
+        """Return the email address to satisfy Flask-Login's requirements."""
+        return self.username
+
+    def is_authenticated(self):
+        """Return True if the user is authenticated."""
+        return self.authenticated
+
+    def is_anonymous(self):
+        """False, as anonymous users aren't supported."""
+        return False
 
     def saveToDatabase(self):
         db.session.add(self)
@@ -89,6 +110,19 @@ class UserModel(db.Model):
 @app.route('/', methods=['GET', 'POST'])
 def handshake():
     return "HellO!"
+
+@login_manager.user_loader
+def load_user(name):
+    return UserModel.find_by_username(name)
+
+@login_manager.request_loader
+def request_loader(request):
+    email = request.form.get('name')
+    if UserModel(username = "", password = ""):
+        return
+
+    user = UserModel()
+    return user
 
 @app.route('/registration',methods=['POST'])
 def registration():
@@ -140,10 +174,17 @@ def login():
         print(user.verified)
         return "verify your account"
     if check_password_hash(user.password, password):
+        user.loggedin = True
         login_user(user)
+        db.session.commit()
         return "logged in successfully"
     else:
         return "check user name or password"
+
+@app.route("/whoami", methods = ["GET"])
+@login_required
+def whoami():
+    return current_user.username
 
 
 
