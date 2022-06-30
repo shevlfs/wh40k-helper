@@ -106,6 +106,12 @@ class UserModel(db.Model):
         self.username = username
         self.password = self.get_password(password)
 
+class ArmyModel(db.Model):
+    user = db.Column(db.String(128))
+    userid = db.Column(db.Integer)
+    id = db.Column(db.Integer, primary_key=True)
+    factionid = db.Column(db.Integer)
+    troops = db.Column(db)
 
 @app.route('/', methods=['GET', 'POST'])
 def handshake():
