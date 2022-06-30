@@ -53,6 +53,8 @@ class UserModel(db.Model):
     username = db.Column(db.String(80), unique=True, index=True)
     password = db.Column(db.String(128))
     verified = db.Column(db.Boolean, default = False)
+    is_authenticated = db.Column(db.Boolean, default = False)
+    is_active = db.Column(db.Boolean, default = False)
 
     def get_password(self, password):
         return generate_password_hash(password)
@@ -77,6 +79,7 @@ class UserModel(db.Model):
     @classmethod
     def find_by_username(cls, username):
         return cls.query.filter_by(username=username).first()
+
 
     def __init__(self, username, password):
         self.username = username
@@ -117,9 +120,31 @@ def verify(token):
     if user.find_by_username(username = email).verified:
         return "user already verified"
     else:
+        print(user.find_by_username(username=email).verified)
         user.find_by_username(username=email).verified = True
-        db.engine.execute("UPDATE `user_model` SET verified = true WHERE username = %s;", email)
+        print(user.find_by_username(username=email).verified)
+       # db.engine.execute("UPDATE `user_model` SET verified = true WHERE username = %s;", email)
+        print(user.find_by_username(username=email).verified)
+        db.session.commit()
         return "verification succesful"
+
+@app.route('/login', methods = ["POST"])
+def login():
+    request.get_json(force=True)
+    name = request.json['name']
+    password = request.json['password']
+    user = UserModel(username= name, password = password).find_by_username(name)
+    if not user:
+        return "check user name or password"
+    if not user.verified:
+        print(user.verified)
+        return "verify your account"
+    if check_password_hash(user.password, password):
+        login_user(user)
+        return "logged in successfully"
+    else:
+        return "check user name or password"
+
 
 
 
