@@ -107,11 +107,29 @@ class UserModel(db.Model):
         self.password = self.get_password(password)
 
 class ArmyModel(db.Model):
+    ___tablename__ = 'armies'
     user = db.Column(db.String(128))
     userid = db.Column(db.Integer)
     id = db.Column(db.Integer, primary_key=True)
     factionid = db.Column(db.Integer)
-    troops = db.Column(db)
+    troopsid = db.Column(db.Integer)
+
+    def saveToDatabase(self):
+        db.session.add(self)
+        db.session.commit()
+        return "army added"
+
+class troopsList(db.Model):
+    __tablename__ = 'troopslist'
+    troopsid = db.Column(db.Integer)
+    factionid = db.Column(db.Integer)
+    troopnums = db.Column(db.ARRAY(db.Integer))
+    troopcounts = db.Column(db.ARRAY(db.Integer))
+
+    def saveToDatabase(self):
+        db.session.add(self)
+        db.session.commit()
+        return "troops list added"
 
 @app.route('/', methods=['GET', 'POST'])
 def handshake():
