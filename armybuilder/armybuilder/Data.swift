@@ -168,8 +168,9 @@ class armyController: ObservableObject, Encodable, Decodable{
     
     required init(from decoder: Decoder) throws{
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.armies = try! container.decode([Army].self, forKey: .armies) 
+        if let d = try? container.decode([Army].self, forKey: .armies){
+            self.armies = d
+        }
     }
     
     func encode(to encoder: Encoder) throws{
