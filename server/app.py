@@ -220,9 +220,6 @@ def add_army():
 
 
 
-    return current_user.username
-
-
 @app.route("/logout", methods = ["GET"])
 @login_required
 def logout():
