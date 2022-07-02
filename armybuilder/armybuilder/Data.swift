@@ -166,20 +166,15 @@ func getPTS(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->I
 
 
 
-class armyController: ObservableObject, Encodable, Decodable{
+class armyController: ObservableObject{
     @Published var armies = [Army]()
     
     private enum CodingKeys : String, CodingKey {
         case armies = "armies"
     }
     
-    required init(from decoder: Decoder) throws{
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        if let d = try? container.decode([serverArmy].self, forKey: .armies){
-            for sArmy in d{
-                self.armies.append(Army(factionID: sArmy.factionid, armyid: sArmy.armyid))
-            }
-        }
+    init(){
+        self.armies = [Army]()
     }
     
     func encode(to encoder: Encoder) throws{

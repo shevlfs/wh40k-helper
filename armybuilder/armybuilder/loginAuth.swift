@@ -17,7 +17,7 @@ struct loginAuth: View {
     @State var wrongPass = false
     @State var emptyPass = false
     @StateObject var collectionDatas = collectionData()
-    @StateObject var armyControl: armyController = load("armyControl.json")
+    @StateObject var armyControl = armyController()
     var body: some View {
         NavigationView{
         VStack{
@@ -69,8 +69,10 @@ struct loginAuth: View {
                             } else {
                                 let result = armybuilder.login(name: login, password: pass)
                                if (result == "logged in successfully" ){
-                                   let tempArmy = getArmyControl()
+                                   let tempArmyList = getArmyControl()
+                                   for tempArmy in tempArmyList{
                                    var mappedDict = [Int:Int]()
+                                   
                                    let mappedKeys = tempArmy.troops.map {Int( $0.key)}
                                    let zippedArray = Array((zip(mappedKeys, tempArmy.troops.map{$0.value})))
                                    for element in zippedArray {
@@ -80,6 +82,7 @@ struct loginAuth: View {
                                    army.custinit(name: tempArmy.name, armyid: tempArmy.armyid, factionID: tempArmy.factionid
                                                  , pointCount: tempArmy.pointCount, troops: mappedDict)
                                    armyControl.armies.append(army)
+                                   }
                                         self.Auth = true
                                 }
         

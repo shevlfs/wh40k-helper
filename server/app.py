@@ -6,6 +6,7 @@ import requests
 from flask_sqlalchemy import SQLAlchemy
 from data import database, mail, secretKey
 import re
+import json
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
 from flask_login import login_user, login_required, current_user, LoginManager, logout_user
@@ -221,10 +222,21 @@ def add_army():
 @app.route("/getarmies", methods = ["GET","POST"])
 @login_required
 def get_armies():
-    armies = ArmyModel.find_by_username(current_user.username).first()
+    armies = ArmyModel.find_by_username(current_user.username).all()
     ansdict = []
-    
-    return armies.army
+    for army in armies:
+        ansdict.append(army.army)
+    return json.dumps(ansdict)
+
+@app.route("/updatearmy", methods = ["GET","POST"])
+@login_required
+def update_army():
+    armies = ArmyModel.find_by_username(current_user.username).all()
+    ansdict = []
+    for army in armies:
+        ansdict.append(army.army)
+    return json.dumps(ansdict)
+
 
 @app.route("/logout", methods = ["GET"])
 @login_required

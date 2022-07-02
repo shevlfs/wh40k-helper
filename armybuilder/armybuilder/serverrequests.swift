@@ -1,14 +1,16 @@
 import Foundation
 
-func serverHandshake()->Void{
+func serverHandshake()->String{
     let url = URL(string: "http://127.0.0.1:5000")!
-
+    var text = String()
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
         guard let data = data else { return }
         print(String(data: data, encoding: .utf8)!)
+        text = String(data: data, encoding: .utf8)!
     }
 
     task.resume()
+    return text
 }
 
 
@@ -73,6 +75,10 @@ func login(name: String, password: String)->String{
         let task = session.dataTask(with: request) { (data, response, error) in
             if let response = response{
                 HTTPCookieStorage.shared.cookies(for: response.url!)
+                if let httpResponse = response as? HTTPURLResponse, let fields = httpResponse.allHeaderFields as? [String : String]{
+                    let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: response.url!)
+                    setCookie(cookie: cookies.first!)
+                }
             }
             if let data = data {
                 do {
@@ -93,14 +99,15 @@ func login(name: String, password: String)->String{
     
     }
 
-func getArmyControl()->serverArmy{
+func getArmyControl()->[serverArmy]{
     let Url = String(format: "http://127.0.0.1:5000/getarmies")
     let serviceUrl = URL(string: Url)!
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "GET"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 20
-    var answ: serverArmy? = nil
+    var answ: [serverArmy]?
+    HTTPCookieStorage.shared.setCookie(getCookie())
     let session = URLSession.shared
         var done = false
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -109,7 +116,7 @@ func getArmyControl()->serverArmy{
             }
             if let data = data {
                 do {
-                    answ = try! JSONDecoder().decode(serverArmy.self, from: data)
+                    answ = try! JSONDecoder().decode([serverArmy].self, from: data)
                     done = true
                 } catch {
                     print(error)
@@ -173,3 +180,17 @@ func addArmy(army: Army)->Void{
             }
         }.resume()
     }
+
+
+func setCookie (cookie:HTTPCookie)
+{
+    UserDefaults.standard.set(cookie.properties, forKey: "kCookie")
+    UserDefaults.standard.synchronize()
+}
+
+
+func getCookie () -> HTTPCookie
+{
+    let cookie = HTTPCookie(properties: UserDefaults.standard.object(forKey: "kCookie") as! [HTTPCookiePropertyKey : Any])
+    return cookie!
+}
