@@ -48,4 +48,50 @@ func register(name: String, password: String)->Void{
         }.resume()
     }
 
+func login(name: String, password: String)->String{
+    let Url = String(format: "http://127.0.0.1:5000/login")
+        guard let serviceUrl = URL(string: Url) else { return "ERROR" }
+        let parameters: [String: String] =
+            [
+                    "name" : name,
+                    "password": password
+            ]
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+    guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .fragmentsAllowed        ) else {
+        print("json fucked up!!")
+            return "ERROR"
+        }
+    let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
+    print(json)
+        request.httpBody = httpBody
+        request.timeoutInterval = 20
+        var answ = "?????"
+        let session = URLSession.shared
+        var done = false
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let response = response{
+                HTTPCookieStorage.shared.cookies(for: response.url!)
+            }
+            if let data = data {
+                do {
+                    print(String(data: data, encoding: .utf8)!)
+                    answ = String(data: data, encoding: .utf8)!
+                    done = true
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    task.resume()
+    repeat {
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
+    } while !done
+    
+    return answ
+    
+    }
+
+
 

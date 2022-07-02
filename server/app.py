@@ -184,7 +184,7 @@ def verify(token):
        # db.engine.execute("UPDATE `user_model` SET verified = true WHERE username = %s;", email)
         print(user.find_by_username(username=email).verified)
         db.session.commit()
-        return "verification succesful"
+        return "verification successful"
 
 @app.route('/login', methods = ["POST"])
 def login():

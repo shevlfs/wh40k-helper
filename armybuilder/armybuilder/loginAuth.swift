@@ -14,7 +14,8 @@ struct loginAuth: View {
     
     @State var Auth: Bool? = nil
     @State var showRegistration = false
-    
+    @State var wrongPass = false
+    @State var emptyPass = false
     @StateObject var collectionDatas = collectionData()
     @StateObject var armyControl = armyController()
     
@@ -51,6 +52,8 @@ struct loginAuth: View {
                     EmptyView()
                 }
                 
+                Text("Wrong name or password.").foregroundColor(.red).fontWeight(.semibold).opacity(!wrongPass ? 0 : 1)
+                
                 
                     HStack{
                         Button(action: {
@@ -62,10 +65,18 @@ struct loginAuth: View {
                             registration()
                         }
                         Button(action: {
-                            
-                            self.Auth = true
-                            
-                        }){
+                            if (login.isEmpty || pass.isEmpty){
+                                wrongPass = true
+                            } else {
+                                let result = armybuilder.login(name: login, password: pass)
+                               if (result == "logged in successfully" ){
+                                        self.Auth = true
+                                }
+        
+                            else {
+                                wrongPass = true
+                            }
+                            }}){
                         HStack{
                             Text("Login").padding(.horizontal,27).padding(.vertical, 12).foregroundColor(.white)
                         }.background(RoundedRectangle(cornerRadius: 10).fill(.blue)).padding()
