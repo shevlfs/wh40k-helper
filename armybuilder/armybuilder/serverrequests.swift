@@ -129,14 +129,27 @@ func getArmyControl()->armyController{
 func addArmy(army: Army)->Void{
     let Url = String(format: "http://127.0.0.1:5000/addarmy")
         guard let serviceUrl = URL(string: Url) else { return }
+    let mappedKeys = army.troops.map {String( $0.key)}
+    var mappedDict = [String: Int]()
+    let zippedArray = Array((zip(mappedKeys, army.troops.map{$0.value})))
+    for element in zippedArray {
+        mappedDict[element.0] = element.1
+    }
+    print(mappedDict)
+    let mappedModKeys = army.mods.map {String( $0.key)}
+    var mappedModDict = [String: [modification]]()
+    let zippedModArray = Array((zip(mappedModKeys, army.mods.map{$0.value})))
+    for element in zippedModArray {
+        mappedModDict[element.0] = element.1
+    }
         let parameters: [String: Any] =
     [
         "name" : army.name,
         "armyid" : army.armyid,
         "factionid" : army.factionID,
         "pointCount" : army.pointCount,
-        /*"troops" : army.troops*/
-       /* "mods" : army.mods*/
+        "troops" : mappedDict,
+        "mods" : mappedModKeys
                 
             ]
         var request = URLRequest(url: serviceUrl)

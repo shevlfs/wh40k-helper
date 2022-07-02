@@ -168,8 +168,10 @@ class armyController: ObservableObject, Encodable, Decodable{
     
     required init(from decoder: Decoder) throws{
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        if let d = try? container.decode([Army].self, forKey: .armies){
-            self.armies = d
+        if let d = try? container.decode([serverArmy].self, forKey: .armies){
+            for sArmy in d{
+                self.armies.append(Army(factionID: sArmy.factionID, armyid: sArmy.armyid))
+            }
         }
     }
     
@@ -228,6 +230,17 @@ struct armyTemp: Identifiable{
     var id = Int()
     var name = String()
 }
+
+struct serverArmy: Decodable{
+    var name = String()
+    var armyid: Int
+    var factionID: Int
+    var pointCount = 0
+    var troops : [String:Int] = [:]
+    var mods : [String: [modification]] = [:]
+}
+
+
 
 class viewController: ObservableObject{
     @Published var showingaddArmy = false
