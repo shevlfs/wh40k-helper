@@ -14,6 +14,9 @@ struct registration: View {
     @Environment(\.presentationMode) var presentationMode
     @State var passConfError = false
     @State var emptyPass = false
+    @State var caseError = false
+    @State var invalidEmail = false
+    @State var shortPass = false
     var body: some View {
         NavigationView{
         VStack{
@@ -21,11 +24,17 @@ struct registration: View {
                 Text("Passwords do not match.").font(.title2).foregroundColor(.red)
             } else if (emptyPass == true) {
                 Text("Password cannot be empty.").font(.title2).foregroundColor(.red)
+            } else if (caseError == true){
+                Text("Password must have lower and upper case symbols.").font(.title2).foregroundColor(.red)
+            } else if (invalidEmail == true){
+                Text("Login is not a valid email.").font(.title2).foregroundColor(.red)
+            } else if (shortPass == true){
+                Text("Password is too short.").font(.title2).foregroundColor(.red)
             }
             HStack{
                 Text("Email").fontWeight(.semibold).font(.title3)
                 Spacer()
-            TextField("", text: $login).padding().foregroundColor(.white)
+            TextField("", text: $login).padding().foregroundColor(.black)
                 .frame(width: 170, height: 10)
                 .padding()
                 .background(
@@ -54,12 +63,25 @@ struct registration: View {
             }.padding()
             HStack{
                 Button(action: {
+                    emptyPass = false
+                    passConfError = false
+                    caseError = false
+                    invalidEmail = false
+                    shortPass = false
                     if (!pass.isEmpty == false){
                         emptyPass = true
                     } else if(pass != passConf){
                         passConfError = true
-                    } else {
-                        /* register user */
+                    } else if(pass == passConf.lowercased()){
+                        caseError = true
+                    } else if(!(pass.count >= 7)){
+                        shortPass = true
+                    }
+                        else if(!isValidEmail(login)){
+                        invalidEmail = true
+                    }
+                    else {
+                        register(name: login, password: pass)
                         presentationMode.wrappedValue.dismiss()
                     }
                     

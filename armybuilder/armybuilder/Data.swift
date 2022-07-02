@@ -36,7 +36,7 @@ struct unitTemp: Identifiable{
     let unitid: Int
 }
 
-struct Army: Identifiable{
+struct Army: Identifiable, Encodable{
     let id = UUID()
     var name = String()
     var armyid: Int
@@ -96,7 +96,7 @@ struct Army: Identifiable{
     }
 }
 
-struct modification: Identifiable{
+struct modification: Identifiable, Encodable{
     var id = UUID()
     var name: String
     var range: String
@@ -214,4 +214,11 @@ class viewController: ObservableObject{
     @Published var showingaddArmy = false
     init(){
         }
+}
+
+func isValidEmail(_ email: String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+    let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailPred.evaluate(with: email)
 }

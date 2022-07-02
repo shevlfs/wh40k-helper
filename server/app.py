@@ -111,25 +111,25 @@ class ArmyModel(db.Model):
     user = db.Column(db.String(128))
     userid = db.Column(db.Integer)
     id = db.Column(db.Integer, primary_key=True)
-    factionid = db.Column(db.Integer)
-    troopsid = db.Column(db.Integer)
+    army = db.Column(db.JSON)
+
 
     def saveToDatabase(self):
         db.session.add(self)
         db.session.commit()
         return "army added"
 
-class troopsList(db.Model):
-    __tablename__ = 'troopslist'
-    troopsid = db.Column(db.Integer)
-    factionid = db.Column(db.Integer)
-    troopnums = db.Column(db.ARRAY(db.Integer))
-    troopcounts = db.Column(db.ARRAY(db.Integer))
+    def __init__(self, username, userid, army ):
+        self.user = username
+        self.userid = userid
+        self.army = army
 
-    def saveToDatabase(self):
-        db.session.add(self)
-        db.session.commit()
-        return "troops list added"
+    @classmethod
+    def find_by_username(cls, username):
+        return cls.query.filter_by(username=username)
+
+
+
 
 @app.route('/', methods=['GET', 'POST'])
 def handshake():
@@ -155,7 +155,7 @@ def registration():
     if not re.match(r"[^@]+@[^@]+\.[^@]+", name):
         return 'emailError'
     password = request.json['password']
-    if not len(password) >= 8:
+    if not len(password) >= 7:
         return 'passwordTooShort'
     elif password.lower() == password:
         return 'caseError'
@@ -209,6 +209,19 @@ def login():
 @login_required
 def whoami():
     return current_user.username
+
+@app.route("/addarmy", methods = ["GET","POST"])
+@login_required
+def add_army():
+    request.get_json(force=True)
+    army = ArmyModel(username=current_user.username, userid=current_user.id, army = request.json)
+    army.saveToDatabase()
+    return "army added"
+
+
+
+    return current_user.username
+
 
 @app.route("/logout", methods = ["GET"])
 @login_required
