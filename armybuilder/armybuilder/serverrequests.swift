@@ -93,14 +93,14 @@ func login(name: String, password: String)->String{
     
     }
 
-func getArmyControl()->armyController{
+func getArmyControl()->serverArmy{
     let Url = String(format: "http://127.0.0.1:5000/getarmies")
     let serviceUrl = URL(string: Url)!
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "GET"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 20
-    var answ: armyController? = nil
+    var answ: serverArmy? = nil
     let session = URLSession.shared
         var done = false
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -109,7 +109,7 @@ func getArmyControl()->armyController{
             }
             if let data = data {
                 do {
-                    answ = try? JSONDecoder().decode(armyController.self, from: data)
+                    answ = try! JSONDecoder().decode(serverArmy.self, from: data)
                     done = true
                 } catch {
                     print(error)
@@ -120,9 +120,7 @@ func getArmyControl()->armyController{
     repeat {
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
     } while !done
-    print(answ!.armies)
     return answ!
-    
     }
 
 
@@ -150,7 +148,6 @@ func addArmy(army: Army)->Void{
         "pointCount" : army.pointCount,
         "troops" : mappedDict,
         "mods" : mappedModKeys
-                
             ]
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "POST"

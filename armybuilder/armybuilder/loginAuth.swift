@@ -69,7 +69,17 @@ struct loginAuth: View {
                             } else {
                                 let result = armybuilder.login(name: login, password: pass)
                                if (result == "logged in successfully" ){
-                                   armyControl.armies = getArmyControl().armies
+                                   let tempArmy = getArmyControl()
+                                   var mappedDict = [Int:Int]()
+                                   let mappedKeys = tempArmy.troops.map {Int( $0.key)}
+                                   let zippedArray = Array((zip(mappedKeys, tempArmy.troops.map{$0.value})))
+                                   for element in zippedArray {
+                                       mappedDict[element.0!] = element.1
+                                   }
+                                   var army = Army(factionID: tempArmy.factionid, armyid: tempArmy.armyid)
+                                   army.custinit(name: tempArmy.name, armyid: tempArmy.armyid, factionID: tempArmy.factionid
+                                                 , pointCount: tempArmy.pointCount, troops: mappedDict)
+                                   armyControl.armies.append(army)
                                         self.Auth = true
                                 }
         

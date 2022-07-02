@@ -221,12 +221,10 @@ def add_army():
 @app.route("/getarmies", methods = ["GET","POST"])
 @login_required
 def get_armies():
-    armies = ArmyModel.find_by_username(current_user.username).all()
-    ansdict = {"armies": []}
-    for army in armies:
-        ansdict["armies"].append(army.army)
-    print(armies)
-    return ansdict
+    armies = ArmyModel.find_by_username(current_user.username).first()
+    ansdict = []
+    
+    return armies.army
 
 @app.route("/logout", methods = ["GET"])
 @login_required

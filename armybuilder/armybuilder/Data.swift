@@ -54,6 +54,13 @@ struct Army: Identifiable, Encodable, Decodable{
         self.armyid = armyid
         self.name = "Army \(self.armyid)"
     }
+    mutating func custinit(name: String, armyid: Int, factionID: Int, pointCount: Int, troops: [Int:Int]){
+        self.name = name
+        self.armyid = armyid
+        self.factionID = factionID
+        self.pointCount = pointCount
+        self.troops = troops
+    }
     func checkMods()->Bool{
         for unit in globalstats[factionID].units{
             if(!self.mods[unit.id]!.isEmpty){
@@ -170,7 +177,7 @@ class armyController: ObservableObject, Encodable, Decodable{
         let container = try decoder.container(keyedBy: CodingKeys.self)
         if let d = try? container.decode([serverArmy].self, forKey: .armies){
             for sArmy in d{
-                self.armies.append(Army(factionID: sArmy.factionID, armyid: sArmy.armyid))
+                self.armies.append(Army(factionID: sArmy.factionid, armyid: sArmy.armyid))
             }
         }
     }
@@ -231,13 +238,13 @@ struct armyTemp: Identifiable{
     var name = String()
 }
 
-struct serverArmy: Decodable{
+struct serverArmy: Codable{
     var name = String()
     var armyid: Int
-    var factionID: Int
+    var factionid: Int
     var pointCount = 0
     var troops : [String:Int] = [:]
-    var mods : [String: [modification]] = [:]
+   // var mods : [String: [modification]] = [:]
 }
 
 
