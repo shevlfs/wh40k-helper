@@ -69,6 +69,7 @@ struct loginAuth: View {
                             } else {
                                 let result = armybuilder.login(name: login, password: pass)
                                if (result == "logged in successfully" ){
+                                   armyControl.armies = getArmyControl().armies
                                         self.Auth = true
                                 }
         

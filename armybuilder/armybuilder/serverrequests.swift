@@ -94,7 +94,7 @@ func login(name: String, password: String)->String{
     }
 
 func getArmyControl()->armyController{
-    let Url = String(format: "http://127.0.0.1:5000/login")
+    let Url = String(format: "http://127.0.0.1:5000/getarmies")
     let serviceUrl = URL(string: Url)!
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "GET"
@@ -120,8 +120,46 @@ func getArmyControl()->armyController{
     repeat {
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
     } while !done
-    
+    print(answ!.armies)
     return answ!
     
     }
 
+
+func addArmy(army: Army)->Void{
+    let Url = String(format: "http://127.0.0.1:5000/addarmy")
+        guard let serviceUrl = URL(string: Url) else { return }
+        let parameters: [String: Any] =
+    [
+        "name" : army.name,
+        "armyid" : army.armyid,
+        "factionid" : army.factionID,
+        "pointCount" : army.pointCount,
+        /*"troops" : army.troops*/
+       /* "mods" : army.mods*/
+                
+            ]
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+    guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .fragmentsAllowed        ) else {
+        print("json fucked up!!")
+            return
+        }
+    let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
+    print(json)
+        request.httpBody = httpBody
+        request.timeoutInterval = 20
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+
+            if let data = data {
+                do {
+                    print(String(data: data, encoding: .utf8)!)
+                    
+                } catch {
+                    print(error)
+                }
+            }
+        }.resume()
+    }

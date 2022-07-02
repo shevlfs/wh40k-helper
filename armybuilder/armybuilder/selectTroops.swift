@@ -165,6 +165,7 @@ struct selectTroops: View {
         }.navigationTitle("Add a new army!").toolbar{
             ToolbarItemGroup(placement: .primaryAction){
                 Button(action:{
+                    addArmy(army: armyControl.armies[armyControl.armies.count-1])
                     viewControl.showingaddArmy = false
                 }){
                     Text("Done")
