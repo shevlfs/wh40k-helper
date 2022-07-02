@@ -36,8 +36,8 @@ struct armyCustomization: View {
     }
 }
 
-struct armyCustomization_Previews: PreviewProvider {
+/*struct armyCustomization_Previews: PreviewProvider {
     static var previews: some View {
         armyCustomization(armyID: 0).environmentObject(armyController())
     }
-}
+}*/

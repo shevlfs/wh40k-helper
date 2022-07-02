@@ -53,6 +53,7 @@
 		56883D1327A5DFA000349E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1227A5DFA000349E69 /* Assets.xcassets */; };
 		56883D1627A5DFA000349E69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1527A5DFA000349E69 /* Preview Assets.xcassets */; };
 		56940119286BBC9F007841BB /* registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56940118286BBC9F007841BB /* registration.swift */; };
+		56BFC544287091980065A40D /* armyControl.json in Resources */ = {isa = PBXBuildFile; fileRef = 56BFC543287091980065A40D /* armyControl.json */; };
 		56CD644627E92F40008478CD /* JSONstructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD644527E92F40008478CD /* JSONstructs.swift */; };
 		56F45E4F286B53EE007BA78D /* troopGameDetailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F45E4E286B53EE007BA78D /* troopGameDetailed.swift */; };
 /* End PBXBuildFile section */
@@ -105,6 +106,7 @@
 		56883D1227A5DFA000349E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56883D1527A5DFA000349E69 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56940118286BBC9F007841BB /* registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registration.swift; sourceTree = "<group>"; };
+		56BFC543287091980065A40D /* armyControl.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = armyControl.json; sourceTree = "<group>"; };
 		56CD644527E92F40008478CD /* JSONstructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONstructs.swift; sourceTree = "<group>"; };
 		56F45E4E286B53EE007BA78D /* troopGameDetailed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopGameDetailed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 				5644885E2859255B00AB2273 /* targetPicker.swift */,
 				5672C37327EB5DC300524033 /* statsold.json */,
 				5673660427E9E2C10088B805 /* factions.json */,
+				56BFC543287091980065A40D /* armyControl.json */,
 				5673660227E9E2C10088B805 /* greyknightsstats.json */,
 				5673660327E9E2C10088B805 /* spacewolvesstats.json */,
 				562A87AC27E8FB470076FB6A /* addArmyDialog.swift */,
@@ -267,6 +270,7 @@
 				5673660527E9E2C10088B805 /* greyknightsstats.json in Resources */,
 				56594CC82864BD6600D1A9C5 /* mods.json in Resources */,
 				5672C37427EB5DC300524033 /* statsold.json in Resources */,
+				56BFC544287091980065A40D /* armyControl.json in Resources */,
 				56883D1327A5DFA000349E69 /* Assets.xcassets in Resources */,
 				5673660727E9E2C10088B805 /* factions.json in Resources */,
 			);

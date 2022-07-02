@@ -126,7 +126,7 @@ class ArmyModel(db.Model):
 
     @classmethod
     def find_by_username(cls, username):
-        return cls.query.filter_by(username=username)
+        return cls.query.filter_by(user=username)
 
 
 
@@ -218,7 +218,15 @@ def add_army():
     army.saveToDatabase()
     return "army added"
 
-
+@app.route("/getarmies", methods = ["GET","POST"])
+@login_required
+def get_armies():
+    armies = ArmyModel.find_by_username(current_user.username).all()
+    ansdict = {"armies": []}
+    for army in armies:
+        ansdict["armies"].append(army.army)
+    print(armies)
+    return ansdict
 
 @app.route("/logout", methods = ["GET"])
 @login_required

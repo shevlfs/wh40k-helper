@@ -36,8 +36,8 @@ struct unitTemp: Identifiable{
     let unitid: Int
 }
 
-struct Army: Identifiable, Encodable{
-    let id = UUID()
+struct Army: Identifiable, Encodable, Decodable{
+    var id = UUID()
     var name = String()
     var armyid: Int
     var factionID: Int
@@ -96,7 +96,7 @@ struct Army: Identifiable, Encodable{
     }
 }
 
-struct modification: Identifiable, Encodable{
+struct modification: Identifiable, Encodable, Decodable{
     var id = UUID()
     var name: String
     var range: String
@@ -159,8 +159,26 @@ func getPTS(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->I
 
 
 
-class armyController: ObservableObject{
+class armyController: ObservableObject, Encodable, Decodable{
     @Published var armies = [Army]()
+    
+    private enum CodingKeys : String, CodingKey {
+        case armies = "armies"
+    }
+    
+    required init(from decoder: Decoder) throws{
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.armies = try! container.decode([Army].self, forKey: .armies) 
+    }
+    
+    func encode(to encoder: Encoder) throws{
+        
+    }
+    
+    
+    
+    
     
     func getPoints(armyID: Int) -> Int{
         return armies[armyID-1].pointCount

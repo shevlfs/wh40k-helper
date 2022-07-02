@@ -53,8 +53,8 @@ struct addUnitMods: View {
 
 
 
-struct addUnitMods_Previews: PreviewProvider {
+/*struct addUnitMods_Previews: PreviewProvider {
     static var previews: some View {
         addUnitMods(armyID: 0, Unit: globalstats[0].units[0], modID: 0).environmentObject(armyController())
     }
-}
+}*/

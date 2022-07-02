@@ -23,8 +23,8 @@ struct troopGameDetailed: View {
     }
 }
 
-struct troopGameDetailed_Previews: PreviewProvider {
+/*struct troopGameDetailed_Previews: PreviewProvider {
     static var previews: some View {
         troopGameDetailed(armyID: 0, unitID: 0 ).environmentObject(armyController())
     }
-}
+}*/

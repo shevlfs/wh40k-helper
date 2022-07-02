@@ -92,8 +92,8 @@ struct troopDetailedView: View {
     }
 }
 
-struct troopDetailedView_Previews: PreviewProvider {
+/*struct troopDetailedView_Previews: PreviewProvider {
     static var previews: some View {
         troopDetailedView(Unit: globalstats[0].units[0], factionID: 0).environmentObject(collectionData()).environmentObject(armyController())
     }
-}
+}*/

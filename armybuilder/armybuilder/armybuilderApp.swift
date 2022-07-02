@@ -10,9 +10,8 @@ import SwiftUI
 @main
 struct armybuilderApp: App {
     @StateObject var collectionDatas = collectionData()
-    @StateObject var armyControl = armyController()
     var body: some Scene {
-        WindowGroup {
+        WindowGroup{
             loginAuth().onAppear(perform:{
                 serverHandshake()
             })

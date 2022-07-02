@@ -26,12 +26,12 @@ struct armyGameView: View {
     }
 }
 
-struct armyGameView_Previews: PreviewProvider {
+/*struct armyGameView_Previews: PreviewProvider {
     static var previews: some View {
         armyGameView(armyID: 0).environmentObject(armyController())
             .previewInterfaceOrientation(.landscapeLeft)
     }
-}
+}*/
 
 
 /*

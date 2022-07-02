@@ -93,5 +93,35 @@ func login(name: String, password: String)->String{
     
     }
 
-
+func getArmyControl()->armyController{
+    let Url = String(format: "http://127.0.0.1:5000/login")
+    let serviceUrl = URL(string: Url)!
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = "GET"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 20
+    var answ: armyController? = nil
+    let session = URLSession.shared
+        var done = false
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let response = response{
+                HTTPCookieStorage.shared.cookies(for: response.url!)
+            }
+            if let data = data {
+                do {
+                    answ = try? JSONDecoder().decode(armyController.self, from: data)
+                    done = true
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    task.resume()
+    repeat {
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
+    } while !done
+    
+    return answ!
+    
+    }
 

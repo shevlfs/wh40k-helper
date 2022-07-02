@@ -17,8 +17,7 @@ struct loginAuth: View {
     @State var wrongPass = false
     @State var emptyPass = false
     @StateObject var collectionDatas = collectionData()
-    @StateObject var armyControl = armyController()
-    
+    @StateObject var armyControl: armyController = load("armyControl.json")
     var body: some View {
         NavigationView{
         VStack{
