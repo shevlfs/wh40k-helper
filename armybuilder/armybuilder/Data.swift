@@ -53,7 +53,6 @@ struct Army: Identifiable{
         self.factionID = factionID
         self.troops[0] = 0
         self.armyid = armyid
-        self.name = "Army \(self.armyid)"
     }
     mutating func custinit(name: String, armyid: Int, factionID: Int, pointCount: Int, troops: [Int:Int], mods: [Int: [modification]], deleted: Bool){
         self.name = name
@@ -63,6 +62,17 @@ struct Army: Identifiable{
         self.troops = troops
         self.mods = mods
         self.deleted = deleted
+    }
+    mutating func setName(armyControl: armyController)->Void{
+        var counter = 0
+        for army in armyControl.armies{
+            if (army.deleted == false)
+            {
+                counter = counter + 1
+            }
+        }
+        
+        self.name = "Army \(self.armyid)"
     }
     func checkMods()->Bool{
         for unit in globalstats[factionID].units{
@@ -164,7 +174,9 @@ func getPTS(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->I
 
 
 
-
+class reloadController: ObservableObject{
+    @Published var reloadNeeded = true
+}
 
 
 

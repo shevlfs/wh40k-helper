@@ -56,6 +56,7 @@
 		56BFC544287091980065A40D /* armyControl.json in Resources */ = {isa = PBXBuildFile; fileRef = 56BFC543287091980065A40D /* armyControl.json */; };
 		56BFC54928731C620065A40D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 56BFC54828731C620065A40D /* Alamofire */; };
 		56BFC54B287321AA0065A40D /* ContentViewLogged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC54A287321AA0065A40D /* ContentViewLogged.swift */; };
+		56BFC54E28738D150065A40D /* HidingViews in Frameworks */ = {isa = PBXBuildFile; productRef = 56BFC54D28738D150065A40D /* HidingViews */; };
 		56CD644627E92F40008478CD /* JSONstructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD644527E92F40008478CD /* JSONstructs.swift */; };
 		56F45E4F286B53EE007BA78D /* troopGameDetailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F45E4E286B53EE007BA78D /* troopGameDetailed.swift */; };
 /* End PBXBuildFile section */
@@ -119,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56BFC54E28738D150065A40D /* HidingViews in Frameworks */,
 				56BFC54928731C620065A40D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +227,7 @@
 			name = armybuilder;
 			packageProductDependencies = (
 				56BFC54828731C620065A40D /* Alamofire */,
+				56BFC54D28738D150065A40D /* HidingViews */,
 			);
 			productName = armybuilder;
 			productReference = 56883D0B27A5DF9F00349E69 /* armybuilder.app */;
@@ -256,6 +259,7 @@
 			mainGroup = 56883D0227A5DF9F00349E69;
 			packageReferences = (
 				56BFC54728731C620065A40D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				56BFC54C28738D150065A40D /* XCRemoteSwiftPackageReference "HidingViews" */,
 			);
 			productRefGroup = 56883D0C27A5DF9F00349E69 /* Products */;
 			projectDirPath = "";
@@ -547,6 +551,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		56BFC54C28738D150065A40D /* XCRemoteSwiftPackageReference "HidingViews" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GeorgeElsham/HidingViews";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -554,6 +566,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 56BFC54728731C620065A40D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		56BFC54D28738D150065A40D /* HidingViews */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56BFC54C28738D150065A40D /* XCRemoteSwiftPackageReference "HidingViews" */;
+			productName = HidingViews;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
