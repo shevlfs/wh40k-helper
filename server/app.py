@@ -116,6 +116,7 @@ class ArmyModel(db.Model):
     userid = db.Column(db.Integer)
     id = db.Column(db.Integer, primary_key=True)
     army = db.Column(db.JSON)
+    deleted = db.Column(db.Boolean)
 
 
     def saveToDatabase(self):
@@ -274,6 +275,27 @@ def update_army():
     request.get_json(force=True)
     army = ArmyModel.find_by_username_and_name(username = current_user.username, name = request.json['name'])
     army.army = request.json
+    flag_modified(army, "army")
+    db.session.commit()
+    return "ok!"
+
+
+@app.route("/changearmyname", methods = ["GET","POST"])
+@login_required
+def changearmyname():
+    request.get_json(force=True)
+    army = ArmyModel.find_by_username_and_name(username = current_user.username, name = request.json['oldname'])
+    army.army["name"] = request.json["newname"]
+    flag_modified(army, "army")
+    db.session.commit()
+    return "ok!"
+
+@app.route("/deletearmy", methods = ["GET","POST"])
+@login_required
+def deletearmy():
+    request.get_json(force=True)
+    army = ArmyModel.find_by_username_and_name(username = current_user.username, name = request.json['oldname'])
+    army.army["name"] = request.json["newname"]
     flag_modified(army, "army")
     db.session.commit()
     return "ok!"

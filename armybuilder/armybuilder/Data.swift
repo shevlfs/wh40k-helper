@@ -36,7 +36,7 @@ struct unitTemp: Identifiable{
     let unitid: Int
 }
 
-struct Army: Identifiable, Encodable, Decodable{
+struct Army: Identifiable{
     var id = UUID()
     var name = String()
     var armyid: Int
@@ -54,12 +54,13 @@ struct Army: Identifiable, Encodable, Decodable{
         self.armyid = armyid
         self.name = "Army \(self.armyid)"
     }
-    mutating func custinit(name: String, armyid: Int, factionID: Int, pointCount: Int, troops: [Int:Int]){
+    mutating func custinit(name: String, armyid: Int, factionID: Int, pointCount: Int, troops: [Int:Int], mods: [Int: [modification]]){
         self.name = name
         self.armyid = armyid
         self.factionID = factionID
         self.pointCount = pointCount
         self.troops = troops
+        self.mods = mods
     }
     func checkMods()->Bool{
         for unit in globalstats[factionID].units{
@@ -103,7 +104,7 @@ struct Army: Identifiable, Encodable, Decodable{
     }
 }
 
-struct modification: Identifiable, Encodable, Decodable{
+struct modification: Identifiable{
     var id = UUID()
     var name: String
     var range: String
@@ -239,7 +240,18 @@ struct serverArmy: Codable{
     var factionid: Int
     var pointCount = 0
     var troops : [String:Int] = [:]
-    var mods : [String: [modification]] = [:]
+    var mods : [String: [serverMod]] = [:]
+}
+
+struct serverMod: Codable {
+    var name = String()
+    var range = String()
+    var type = String()
+    var s = String()
+    var ap = Int()
+    var d = String()
+    var pts = Int()
+    var count = Int()
 }
 
 

@@ -48,10 +48,26 @@ func fillarmycontrol(armyControl: armyController)->armyController{
         mappedDict[element.0!] = element.1
     }
     var army = Army(factionID: tempArmy.factionid, armyid: tempArmy.armyid)
+        
+        var tempmods: [Int : [modification]] = [:]
+        for unit in tempArmy.mods.keys{
+            let intkey = Int(unit)
+            tempmods[intkey!] = [modification]()
+            if (!tempArmy.mods[unit]!.isEmpty){
+                for mod in tempArmy.mods[unit]!{
+                    tempmods[intkey!]!.append(modification(name: mod.name, range: mod.range, type: mod.type, s: mod.s, ap: mod.ap, d: mod.d, pts: mod.pts, count: mod.count))
+                }
+            }
+        }
+        
     army.custinit(name: tempArmy.name, armyid: tempArmy.armyid, factionID: tempArmy.factionid
-                  , pointCount: tempArmy.pointCount, troops: mappedDict)
+                  , pointCount: tempArmy.pointCount, troops: mappedDict, mods: tempmods)
+        
+        
     armyControl.armies.append(army)
         print(army.pointCount)
+        
+        
     }
     return armyControl
 }

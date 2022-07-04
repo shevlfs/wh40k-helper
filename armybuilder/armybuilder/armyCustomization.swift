@@ -47,6 +47,7 @@ struct armyCustomization: View {
                         }
                     }
                     if (sameNameWarn == false){
+                        changearmyname(oldname: armyControl.armies[armyID].name, newname: temparmyName)
                         armyControl.armies[armyID].name = temparmyName
                     }
                     

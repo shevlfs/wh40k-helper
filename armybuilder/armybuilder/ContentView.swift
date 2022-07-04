@@ -26,7 +26,7 @@ struct ContentView: View {
                         })) {
                             
                             armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObject(armyControl).environmentObject(collectionDatas)
-                        
+                                
                         }
                         
                     }

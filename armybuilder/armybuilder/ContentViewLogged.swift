@@ -26,9 +26,25 @@ struct ContentViewLogged: View {
                             UIDevice.current.setValue(value, forKey: "orientation")
                         })) {
                             
-                            armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObject(armyControl).environmentObject(collectionDatas)
-                        
+                            armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObject(armyControl).environmentObject(collectionDatas).contextMenu{
+                                
+                                Button(action:{
+                                    
+                                }){
+                                    Text("Delete")
+                                
+                            }
                         }
+                        
+                        }.contextMenu{
+                            
+                            Button(action:{
+                                
+                            }){
+                                Text("Delete")
+                            
+                        }
+                    }
                         
                     }
                     }

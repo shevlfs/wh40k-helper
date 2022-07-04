@@ -21,6 +21,7 @@ struct editArmy: View {
     @State var collectionShowcase: Bool
     @State var searchText = String()
     @State var collectionHidden = false
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView(){
         VStack(){
@@ -172,7 +173,15 @@ struct editArmy: View {
                 
             }
         }
-        .navigationBarTitle("Edit Army")
+        .navigationBarTitle("Edit Army").toolbar{
+            ToolbarItemGroup(placement: .primaryAction){
+                Button(action:{
+                    presentationMode.wrappedValue.dismiss()
+                }){
+                    Text("Done")
+                }
+            }
+        }
         }
         }
     var searchResults: [unit] {

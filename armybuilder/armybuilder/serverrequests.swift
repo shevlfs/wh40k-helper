@@ -301,13 +301,24 @@ func updatearmy(army: Army)->Void{
         mappedDict[element.0] = element.1
     }
     print(mappedDict)
-    var newmods: [String: [modification]] = [:]
+    var newmods: [String: [[String: Any]]] = [:]
     for unit in army.mods.keys{
         let strunit = String(unit)
-        newmods[strunit] = [modification]()
+        newmods[strunit] = [[String: Any]]()
         if (!army.mods[unit]!.isEmpty){
             for modf in army.mods[unit]!{
-                newmods[strunit]!.append(modf)
+            var newmod: [String: Any] = [
+                "name" : modf.name,
+                "range" : modf.range,
+                "type" : modf.type,
+                "s" : modf.s,
+                "ap" : modf.ap,
+                "d" : modf.d,
+                "pts" : modf.pts,
+                "count" : modf.count
+
+            ]
+                newmods[strunit]!.append(newmod)
             }
         }
     }
@@ -345,3 +356,72 @@ func updatearmy(army: Army)->Void{
             }
         }.resume()
     }
+
+
+func changearmyname(oldname: String, newname: String)->Void{
+    let Url = String(format: "http://127.0.0.1:5000/changearmyname")
+        guard let serviceUrl = URL(string: Url) else { return }
+        let parameters: [String: Any] =
+    [
+        "oldname" : oldname,
+        "newname" : newname
+            ]
+    print(parameters)
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+    guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .fragmentsAllowed        ) else {
+        print("json fucked up!!")
+            return
+        }
+    let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
+    print(json)
+        request.httpBody = httpBody
+        request.timeoutInterval = 20
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+
+            if let data = data {
+                do {
+                    print(String(data: data, encoding: .utf8)!)
+                } catch {
+                    print(error)
+                }
+            }
+        }.resume()
+    }
+
+func deleteArmy(army: Army){
+    let Url = String(format: "http://127.0.0.1:5000/deletearmy")
+        guard let serviceUrl = URL(string: Url) else { return }
+        let parameters: [String: Any] =
+    [
+        "armyname" : army.name
+        
+            ]
+    print(parameters)
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+    guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .fragmentsAllowed        ) else {
+        print("json fucked up!!")
+            return
+        }
+    let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
+    print(json)
+        request.httpBody = httpBody
+        request.timeoutInterval = 20
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+
+            if let data = data {
+                do {
+                    print(String(data: data, encoding: .utf8)!)
+                    
+                } catch {
+                    print(error)
+                }
+            }
+        }.resume()
+    
+}
