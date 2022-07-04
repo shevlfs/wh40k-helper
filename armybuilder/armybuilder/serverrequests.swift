@@ -1,4 +1,5 @@
 import Foundation
+import Alamofire
 
 func serverHandshake()->String{
     let url = URL(string: "http://127.0.0.1:5000")!
@@ -72,25 +73,13 @@ func login(name: String, password: String)->String{
         var answ = "?????"
         let session = URLSession.shared
         var done = false
-        let task = session.dataTask(with: request) { (data, response, error) in
-            if let response = response{
-                HTTPCookieStorage.shared.cookies(for: response.url!)
-                if let httpResponse = response as? HTTPURLResponse, let fields = httpResponse.allHeaderFields as? [String : String]{
-                    let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: response.url!)
-                    setCookie(cookie: cookies.first!)
-                }
-            }
-            if let data = data {
-                do {
-                    print(String(data: data, encoding: .utf8)!)
-                    answ = String(data: data, encoding: .utf8)!
-                    done = true
-                } catch {
-                    print(error)
-                }
-            }
-        }
-    task.resume()
+    
+    AF.request("http://127.0.0.1:5000/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+        response in saveCookies(response: response)
+    }.responseString {
+        response in answ = response.value!
+        done = true
+    }
     repeat {
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
     } while !done
@@ -107,7 +96,6 @@ func getArmyControl()->[serverArmy]{
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 20
     var answ: [serverArmy]?
-    HTTPCookieStorage.shared.setCookie(getCookie())
     let session = URLSession.shared
         var done = false
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -189,8 +177,28 @@ func setCookie (cookie:HTTPCookie)
 }
 
 
-func getCookie () -> HTTPCookie
-{
-    let cookie = HTTPCookie(properties: UserDefaults.standard.object(forKey: "kCookie") as! [HTTPCookiePropertyKey : Any])
-    return cookie!
+
+
+
+func saveCookies(response: AFDataResponse<Any>) {
+    let headerFields = response.response?.allHeaderFields as! [String: String]
+    let url = response.response?.url
+    let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: url!)
+    var cookieArray = [[HTTPCookiePropertyKey: Any]]()
+    for cookie in cookies {
+        cookieArray.append(cookie.properties!)
+    }
+    UserDefaults.standard.set(cookieArray, forKey: "savedCookies")
+    UserDefaults.standard.synchronize()
+}
+
+
+func loadCookies()->Bool{
+    guard let cookieArray = UserDefaults.standard.array(forKey: "savedCookies") as? [[HTTPCookiePropertyKey: Any]] else { return false}
+    for cookieProperties in cookieArray {
+        if let cookie = HTTPCookie(properties: cookieProperties) {
+            HTTPCookieStorage.shared.setCookie(cookie)
+        }
+    }
+    return true
 }

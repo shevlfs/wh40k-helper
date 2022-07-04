@@ -54,6 +54,8 @@
 		56883D1627A5DFA000349E69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1527A5DFA000349E69 /* Preview Assets.xcassets */; };
 		56940119286BBC9F007841BB /* registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56940118286BBC9F007841BB /* registration.swift */; };
 		56BFC544287091980065A40D /* armyControl.json in Resources */ = {isa = PBXBuildFile; fileRef = 56BFC543287091980065A40D /* armyControl.json */; };
+		56BFC54928731C620065A40D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 56BFC54828731C620065A40D /* Alamofire */; };
+		56BFC54B287321AA0065A40D /* ContentViewLogged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC54A287321AA0065A40D /* ContentViewLogged.swift */; };
 		56CD644627E92F40008478CD /* JSONstructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD644527E92F40008478CD /* JSONstructs.swift */; };
 		56F45E4F286B53EE007BA78D /* troopGameDetailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F45E4E286B53EE007BA78D /* troopGameDetailed.swift */; };
 /* End PBXBuildFile section */
@@ -107,6 +109,7 @@
 		56883D1527A5DFA000349E69 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56940118286BBC9F007841BB /* registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registration.swift; sourceTree = "<group>"; };
 		56BFC543287091980065A40D /* armyControl.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = armyControl.json; sourceTree = "<group>"; };
+		56BFC54A287321AA0065A40D /* ContentViewLogged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewLogged.swift; sourceTree = "<group>"; };
 		56CD644527E92F40008478CD /* JSONstructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONstructs.swift; sourceTree = "<group>"; };
 		56F45E4E286B53EE007BA78D /* troopGameDetailed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopGameDetailed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56BFC54928731C620065A40D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +161,7 @@
 				562A87AC27E8FB470076FB6A /* addArmyDialog.swift */,
 				56883D0E27A5DF9F00349E69 /* armybuilderApp.swift */,
 				56883D1027A5DF9F00349E69 /* ContentView.swift */,
+				56BFC54A287321AA0065A40D /* ContentViewLogged.swift */,
 				56594CC72864BD6600D1A9C5 /* mods.json */,
 				562A87A627E8D9C30076FB6A /* haptic.swift */,
 				56448863285CB5F500AB2273 /* Data.swift */,
@@ -219,6 +224,7 @@
 			);
 			name = armybuilder;
 			packageProductDependencies = (
+				56BFC54828731C620065A40D /* Alamofire */,
 			);
 			productName = armybuilder;
 			productReference = 56883D0B27A5DF9F00349E69 /* armybuilder.app */;
@@ -249,6 +255,7 @@
 			);
 			mainGroup = 56883D0227A5DF9F00349E69;
 			packageReferences = (
+				56BFC54728731C620065A40D /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 56883D0C27A5DF9F00349E69 /* Products */;
 			projectDirPath = "";
@@ -296,6 +303,7 @@
 				5673322B2862470C00AF0AF9 /* armyGameView.swift in Sources */,
 				567FC56A28648D3F00A0159E /* unitGameView.swift in Sources */,
 				56659380286A47E8004B0473 /* armyCustomization.swift in Sources */,
+				56BFC54B287321AA0065A40D /* ContentViewLogged.swift in Sources */,
 				5611EA03286B8DAD004BC850 /* tableUnitHeader.swift in Sources */,
 				562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */,
 				5611EA07286BA720004BC850 /* loginAuth.swift in Sources */,
@@ -380,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -435,7 +443,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -529,6 +537,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		56BFC54728731C620065A40D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		56BFC54828731C620065A40D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56BFC54728731C620065A40D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 56883D0327A5DF9F00349E69 /* Project object */;
 }

@@ -10,8 +10,9 @@ import SwiftUI
 @main
 struct armybuilderApp: App {
     @StateObject var collectionDatas = collectionData()
-    var cookieExists = cookieCheck()
+    var cookieExists = loadCookies()
     @StateObject var armyControl = armyController()
+    @State var armyLoaded = false
     var body: some Scene {
         WindowGroup{
             if (!cookieExists){
@@ -19,7 +20,13 @@ struct armybuilderApp: App {
                 serverHandshake()
             })
             } else{
-                ContentView().environmentObject(fillarmycontrol(armyControl: armyControl))
+                if (armyLoaded == false){
+                    ContentViewLogged().environmentObject(fillarmycontrol(armyControl: armyControl)).environmentObject(collectionDatas).onAppear(perform:{
+                        armyLoaded = true
+                    })
+                } else {
+                ContentViewLogged().environmentObject(armyControl).environmentObject(collectionDatas)
+                }
             }
                 
                 
@@ -27,17 +34,10 @@ struct armybuilderApp: App {
     }
 }
 
-func cookieCheck()->Bool{
-    let cookieJar = HTTPCookieStorage.shared
-    for cookie in cookieJar.cookies! {
-       if cookie.name == "session" {
-           return true
-       }
-    }
-    return false
-}
+
 
 func fillarmycontrol(armyControl: armyController)->armyController{
+    
     let tempArmyList = getArmyControl()
     for tempArmy in tempArmyList{
     var mappedDict = [Int:Int]()
@@ -51,6 +51,7 @@ func fillarmycontrol(armyControl: armyController)->armyController{
     army.custinit(name: tempArmy.name, armyid: tempArmy.armyid, factionID: tempArmy.factionid
                   , pointCount: tempArmy.pointCount, troops: mappedDict)
     armyControl.armies.append(army)
+        print(army.pointCount)
     }
     return armyControl
 }
