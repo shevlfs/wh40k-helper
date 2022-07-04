@@ -129,11 +129,15 @@ func addArmy(army: Army)->Void{
         mappedDict[element.0] = element.1
     }
     print(mappedDict)
-    let mappedModKeys = army.mods.map {String( $0.key)}
-    var mappedModDict = [String: [modification]]()
-    let zippedModArray = Array((zip(mappedModKeys, army.mods.map{$0.value})))
-    for element in zippedModArray {
-        mappedModDict[element.0] = element.1
+    var newmods: [String: [modification]] = [:]
+    for unit in army.mods.keys{
+        let strunit = String(unit)
+        newmods[strunit] = [modification]()
+        if (!army.mods[unit]!.isEmpty){
+            for modf in army.mods[unit]!{
+                newmods[strunit]!.append(modf)
+            }
+        }
     }
         let parameters: [String: Any] =
     [
@@ -142,7 +146,7 @@ func addArmy(army: Army)->Void{
         "factionid" : army.factionID,
         "pointCount" : army.pointCount,
         "troops" : mappedDict,
-        "mods" : mappedModKeys
+        "mods" : newmods
             ]
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "POST"
@@ -256,7 +260,7 @@ func getCollectionDatas()->[Int: [Int: Int]]{
             }
             if let data = data {
                 do {
-                    urlansw = try! JSONDecoder().decode([String : [String: Int]].self, from: data)
+                    urlansw = try? JSONDecoder().decode([String : [String: Int]].self, from: data)
                     done = true
                 } catch {
                     print(error)
@@ -267,6 +271,9 @@ func getCollectionDatas()->[Int: [Int: Int]]{
     repeat {
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
     } while !done
+    if ((urlansw?.isEmpty) == nil){
+        return collectionData().collectionDict
+    }
     print(urlansw)
     for factionid in urlansw!.keys{
         print(factionid)
@@ -281,4 +288,60 @@ func getCollectionDatas()->[Int: [Int: Int]]{
     
     
     return answ
+    }
+
+
+func updatearmy(army: Army)->Void{
+    let Url = String(format: "http://127.0.0.1:5000/updatearmy")
+        guard let serviceUrl = URL(string: Url) else { return }
+    let mappedKeys = army.troops.map {String( $0.key)}
+    var mappedDict = [String: Int]()
+    let zippedArray = Array((zip(mappedKeys, army.troops.map{$0.value})))
+    for element in zippedArray {
+        mappedDict[element.0] = element.1
+    }
+    print(mappedDict)
+    var newmods: [String: [modification]] = [:]
+    for unit in army.mods.keys{
+        let strunit = String(unit)
+        newmods[strunit] = [modification]()
+        if (!army.mods[unit]!.isEmpty){
+            for modf in army.mods[unit]!{
+                newmods[strunit]!.append(modf)
+            }
+        }
+    }
+        let parameters: [String: Any] =
+    [
+        "name" : army.name,
+        "armyid" : army.armyid,
+        "factionid" : army.factionID,
+        "pointCount" : army.pointCount,
+        "troops" : mappedDict,
+        "mods" : newmods
+            ]
+    print(parameters)
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+    guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .fragmentsAllowed        ) else {
+        print("json fucked up!!")
+            return
+        }
+    let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
+    print(json)
+        request.httpBody = httpBody
+        request.timeoutInterval = 20
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+
+            if let data = data {
+                do {
+                    print(String(data: data, encoding: .utf8)!)
+                    
+                } catch {
+                    print(error)
+                }
+            }
+        }.resume()
     }

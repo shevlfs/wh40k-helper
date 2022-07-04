@@ -132,6 +132,13 @@ class ArmyModel(db.Model):
     def find_by_username(cls, username):
         return cls.query.filter_by(user=username)
 
+    @classmethod
+    def find_by_username_and_name(cls, username, name):
+        armies = cls.query.filter_by(user=username).all()
+        for army in armies:
+            if army.army["name"] == name:
+                return army
+
 
 class CollectionModel(db.Model):
     ___tablename__ = 'collections'
@@ -264,11 +271,12 @@ def get_armies():
 @app.route("/updatearmy", methods = ["GET","POST"])
 @login_required
 def update_army():
-    armies = ArmyModel.find_by_username(current_user.username).all()
-    ansdict = []
-    for army in armies:
-        ansdict.append(army.army)
-    return json.dumps(ansdict)
+    request.get_json(force=True)
+    army = ArmyModel.find_by_username_and_name(username = current_user.username, name = request.json['name'])
+    army.army = request.json
+    flag_modified(army, "army")
+    db.session.commit()
+    return "ok!"
 
 
 @app.route("/getcollection", methods = ["GET","POST"])

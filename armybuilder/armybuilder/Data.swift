@@ -239,7 +239,7 @@ struct serverArmy: Codable{
     var factionid: Int
     var pointCount = 0
     var troops : [String:Int] = [:]
-   // var mods : [String: [modification]] = [:]
+    var mods : [String: [modification]] = [:]
 }
 
 

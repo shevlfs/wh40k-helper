@@ -19,7 +19,7 @@ struct armyGameView: View {
             ScrollView{
             ForEach(armyControl.getTroops(armyID: armyID+1)){
                 troop in
-                unitGameView(id: troop.unitid-1, armyID: armyID, factionID: armyControl.armies[armyID].factionID).frame(maxWidth: .infinity, alignment: .leading)
+                unitGameView(id: troop.unitid-1, armyID: armyID, factionID: armyControl.armies[armyID].factionID).environmentObject(armyControl).frame(maxWidth: .infinity, alignment: .leading)
             }
             }
         }

@@ -11,9 +11,10 @@ struct unitGameView: View {
     @State var id: Int
     @State var armyID: Int
     @State var factionID: Int
+    @EnvironmentObject var armyControl: armyController
     var body: some View {
         HStack{
-            NavigationLink(destination: troopGameDetailed(armyID: armyID, unitID: id)){
+            NavigationLink(destination: troopGameDetailed(armyID: armyID, unitID: id).environmentObject(armyControl)){
         HStack{
         HStack(alignment: .center, spacing: nil){
             Group{

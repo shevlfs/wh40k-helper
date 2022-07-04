@@ -15,8 +15,12 @@ struct troopGameDetailed: View {
         VStack{
             tableUnitHeader(name: globalstats[armyControl.armies[armyID].factionID].units[unitID].name)
             ScrollView{
+                if (!armyControl.armies[armyID].mods[unitID + 1]!.isEmpty){
                 ForEach(armyControl.armies[armyID].mods[unitID + 1]!){
                     mod in modGameView(mod: mod)
+                }
+                } else{
+                    Text("This troop has no mods.")
                 }
             }
         }
