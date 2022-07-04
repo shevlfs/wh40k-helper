@@ -146,7 +146,8 @@ func addArmy(army: Army)->Void{
         "factionid" : army.factionID,
         "pointCount" : army.pointCount,
         "troops" : mappedDict,
-        "mods" : newmods
+        "mods" : newmods,
+        "deleted" : false
             ]
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "POST"
@@ -329,7 +330,8 @@ func updatearmy(army: Army)->Void{
         "factionid" : army.factionID,
         "pointCount" : army.pointCount,
         "troops" : mappedDict,
-        "mods" : newmods
+        "mods" : newmods,
+        "deleted" : army.deleted
             ]
     print(parameters)
         var request = URLRequest(url: serviceUrl)
@@ -396,7 +398,7 @@ func deleteArmy(army: Army){
         guard let serviceUrl = URL(string: Url) else { return }
         let parameters: [String: Any] =
     [
-        "armyname" : army.name
+        "name" : army.name
         
             ]
     print(parameters)

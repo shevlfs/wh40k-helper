@@ -131,13 +131,14 @@ class ArmyModel(db.Model):
 
     @classmethod
     def find_by_username(cls, username):
+
         return cls.query.filter_by(user=username)
 
     @classmethod
     def find_by_username_and_name(cls, username, name):
         armies = cls.query.filter_by(user=username).all()
         for army in armies:
-            if army.army["name"] == name:
+            if army.army["name"] == name and army.army["deleted"] == False:
                 return army
 
 
@@ -266,7 +267,8 @@ def get_armies():
     armies = ArmyModel.find_by_username(current_user.username).all()
     ansdict = []
     for army in armies:
-        ansdict.append(army.army)
+        if army.army["deleted"] == False:
+            ansdict.append(army.army)
     return json.dumps(ansdict)
 
 @app.route("/updatearmy", methods = ["GET","POST"])
@@ -294,8 +296,8 @@ def changearmyname():
 @login_required
 def deletearmy():
     request.get_json(force=True)
-    army = ArmyModel.find_by_username_and_name(username = current_user.username, name = request.json['oldname'])
-    army.army["name"] = request.json["newname"]
+    army = ArmyModel.find_by_username_and_name(username = current_user.username, name = request.json['name'])
+    army.army["deleted"] = True
     flag_modified(army, "army")
     db.session.commit()
     return "ok!"

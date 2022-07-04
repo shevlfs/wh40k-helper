@@ -61,7 +61,7 @@ func fillarmycontrol(armyControl: armyController)->armyController{
         }
         
     army.custinit(name: tempArmy.name, armyid: tempArmy.armyid, factionID: tempArmy.factionid
-                  , pointCount: tempArmy.pointCount, troops: mappedDict, mods: tempmods)
+                  , pointCount: tempArmy.pointCount, troops: mappedDict, mods: tempmods, deleted: tempArmy.deleted)
         
         
     armyControl.armies.append(army)
