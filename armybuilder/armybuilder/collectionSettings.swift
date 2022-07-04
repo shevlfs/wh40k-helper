@@ -20,7 +20,13 @@ struct collectionSettings: View {
             }
             VStack(alignment: .center){
                 ForEach(factions){faction in
-                    NavigationLink(destination: collectionAddUnits(factionfile: faction.id).environmentObject(collectionDatas)){
+                    NavigationLink(destination: collectionAddUnits(factionfile: faction.id).environmentObject(collectionDatas).onDisappear(perform: {
+                        
+                        saveCollection(collectionDatas: collectionDatas)
+                        
+                        
+                        
+                    })){
                         ZStack(){
                             Rectangle().fill(Color(UIColor.systemGray4)).frame(width: 370.0, height: 55).cornerRadius(10).padding(.all,10.0)
                             Text(faction.name)
@@ -33,7 +39,7 @@ struct collectionSettings: View {
                 
                 
             }
-    }.navigationTitle("Add units to collection")
+    }.navigationTitle("Add units to collection").navigationViewStyle(.stack)
     }
 }
 

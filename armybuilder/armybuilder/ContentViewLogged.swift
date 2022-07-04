@@ -58,7 +58,7 @@ struct ContentViewLogged: View {
                     }
                 }
             }
-        }
+        }.navigationViewStyle(.stack)
     }
 }
     

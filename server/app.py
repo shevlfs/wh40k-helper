@@ -6,6 +6,7 @@ import requests
 from flask_sqlalchemy import SQLAlchemy
 from data import database, mail, secretKey
 import re
+from sqlalchemy.orm.attributes import flag_modified
 import json
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
@@ -106,6 +107,8 @@ class UserModel(db.Model):
     def __init__(self, username, password):
         self.username = username
         self.password = self.get_password(password)
+        col = CollectionModel(username = username, userid = self.id)
+        col.saveToDatabase()
 
 class ArmyModel(db.Model):
     ___tablename__ = 'armies'
@@ -130,6 +133,26 @@ class ArmyModel(db.Model):
         return cls.query.filter_by(user=username)
 
 
+class CollectionModel(db.Model):
+    ___tablename__ = 'collections'
+    user = db.Column(db.String(128))
+    userid = db.Column(db.Integer)
+    id = db.Column(db.Integer, primary_key=True)
+    collection = db.Column(db.JSON)
+
+
+    def saveToDatabase(self):
+        db.session.add(self)
+        db.session.commit()
+        return "collection saved"
+
+    def __init__(self, username, userid):
+        self.user = username
+        self.userid = userid
+
+    @classmethod
+    def find_by_username(cls, username):
+        return cls.query.filter_by(user=username)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -218,6 +241,16 @@ def add_army():
     army = ArmyModel(username=current_user.username, userid=current_user.id, army = request.json)
     army.saveToDatabase()
     return "army added"
+
+@app.route("/savecollection", methods = ["GET","POST"])
+@login_required
+def save_collection():
+    request.get_json(force=True)
+    col = CollectionModel.find_by_username(username = current_user.username).first()
+    col.collection = request.json
+    flag_modified(col, "collection")
+    db.session.commit()
+    return "collection saved"
 
 @app.route("/getarmies", methods = ["GET","POST"])
 @login_required
