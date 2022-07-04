@@ -21,7 +21,7 @@ struct armybuilderApp: App {
             })
             } else{
                 if (armyLoaded == false){
-                    ContentViewLogged().environmentObject(fillarmycontrol(armyControl: armyControl)).environmentObject(collectionDatas).onAppear(perform:{
+                    ContentViewLogged().environmentObject(fillarmycontrol(armyControl: armyControl)).environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).onAppear(perform:{
                         armyLoaded = true
                     })
                 } else {
@@ -54,4 +54,10 @@ func fillarmycontrol(armyControl: armyController)->armyController{
         print(army.pointCount)
     }
     return armyControl
+}
+
+func fillcollectiondata(collectionDatas: collectionData)->collectionData{
+    let tempCollection = getCollectionDatas()
+    collectionDatas.collectionDict = tempCollection
+    return collectionDatas
 }

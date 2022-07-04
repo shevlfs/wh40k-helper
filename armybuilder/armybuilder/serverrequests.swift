@@ -212,11 +212,6 @@ func saveCollection(collectionDatas: collectionData){
                 }
             }
         }.resume()
-    
-    
-    
-    
-    
 }
 
 
@@ -242,3 +237,48 @@ func loadCookies()->Bool{
     }
     return true
 }
+
+
+func getCollectionDatas()->[Int: [Int: Int]]{
+    let Url = String(format: "http://127.0.0.1:5000/getcollection")
+    let serviceUrl = URL(string: Url)!
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = "GET"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 20
+    var urlansw: [String: [String: Int]]?
+    var answ: [Int: [Int: Int]] = [:]
+    let session = URLSession.shared
+        var done = false
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let response = response{
+                HTTPCookieStorage.shared.cookies(for: response.url!)
+            }
+            if let data = data {
+                do {
+                    urlansw = try! JSONDecoder().decode([String : [String: Int]].self, from: data)
+                    done = true
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    task.resume()
+    repeat {
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
+    } while !done
+    print(urlansw)
+    for factionid in urlansw!.keys{
+        print(factionid)
+        let intfac = Int(factionid)
+        answ[intfac!] = [:]
+        for unit in urlansw![factionid]!.keys{
+            let val = urlansw![factionid]![unit]
+            answ[intfac!]![Int(unit)!] = val
+        }
+    }
+    
+    
+    
+    return answ
+    }

@@ -271,6 +271,13 @@ def update_army():
     return json.dumps(ansdict)
 
 
+@app.route("/getcollection", methods = ["GET","POST"])
+@login_required
+def get_collection():
+    col = CollectionModel.find_by_username(username= current_user.username).first()
+    return col.collection
+
+
 @app.route("/logout", methods = ["GET"])
 @login_required
 def logout():
