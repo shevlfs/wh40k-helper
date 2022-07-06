@@ -13,6 +13,7 @@ struct armyView: View {
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
         var body: some View {
+            if(checkForSafety(armyID: id, armyControl: armyControl)){
             VStack {
                 Group {
                         VStack(alignment: .center,spacing: 4) {
@@ -48,6 +49,12 @@ struct armyView: View {
                     }
                     .buttonStyle(ScaleableButtonStyle())
             }
+            
+            
+            } else{
+                EmptyView()
+            }
+            
         }
     }
 
@@ -63,4 +70,11 @@ struct armyView_Previews: PreviewProvider {
     static var previews: some View {
         armyView()
     }
+}
+
+func checkForSafety(armyID: Int, armyControl: armyController)->Bool{
+    if armyControl.armies.count <= armyID - 1{
+        return false
+    }
+    return true
 }

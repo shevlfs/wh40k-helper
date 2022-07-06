@@ -268,6 +268,7 @@ def get_armies():
     ansdict = []
     for army in armies:
         if army.army["deleted"] == False:
+            print(army.army["name"])
             ansdict.append(army.army)
     return json.dumps(ansdict)
 

@@ -275,7 +275,6 @@ func getCollectionDatas()->[Int: [Int: Int]]{
     if ((urlansw?.isEmpty) == nil){
         return collectionData().collectionDict
     }
-    print(urlansw)
     for factionid in urlansw!.keys{
         print(factionid)
         let intfac = Int(factionid)
@@ -413,17 +412,23 @@ func deleteArmy(army: Army){
     print(json)
         request.httpBody = httpBody
         request.timeoutInterval = 20
+    var done = false
         let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
+        var task = session.dataTask(with: request) { (data, response, error) in
 
             if let data = data {
                 do {
                     print(String(data: data, encoding: .utf8)!)
-                    
+                    done = true
                 } catch {
                     print(error)
                 }
             }
-        }.resume()
+        }
+    
+    task.resume()
+    repeat {
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
+    } while !done
     
 }

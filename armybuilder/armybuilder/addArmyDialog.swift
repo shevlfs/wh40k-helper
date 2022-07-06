@@ -38,7 +38,13 @@ struct addArmyDialog: View {
                             
                         }.onTapGesture{
                             factionfile = faction.id
-                            let newarmyid = armyControl.armies.count+1
+                            var newarmyid = 1
+                            for army in armyControl.armies{
+                                if (army.deleted == false){
+                                    newarmyid = newarmyid + 1
+                                }
+                            }
+                            
                             armyControl.armies.append(Army(factionID: faction.id, armyid: newarmyid))
                             showNextStep = true
                             
