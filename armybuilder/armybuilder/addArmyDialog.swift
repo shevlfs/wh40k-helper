@@ -44,8 +44,9 @@ struct addArmyDialog: View {
                                     newarmyid = newarmyid + 1
                                 }
                             }
-                            
-                            armyControl.armies.append(Army(factionID: faction.id, armyid: newarmyid))
+                            var army = Army(factionID: faction.id, armyid: newarmyid)
+                            army.setName(armyControl: armyControl)
+                            armyControl.armies.append(army)
                             showNextStep = true
                             
                         }

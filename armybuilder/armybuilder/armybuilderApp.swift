@@ -17,8 +17,9 @@ struct armybuilderApp: App {
     var body: some Scene {
         WindowGroup{
             if (!cookieExists){
-            loginAuth().onAppear(perform:{
+                loginAuth().environmentObject(reloadControl).onAppear(perform:{
                 serverHandshake()
+                    reloadControl.reloadNeeded = false
             })
             } else{
                 if (reloadControl.reloadNeeded == true){

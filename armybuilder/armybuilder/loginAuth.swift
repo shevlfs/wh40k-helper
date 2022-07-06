@@ -17,6 +17,7 @@ struct loginAuth: View {
     @State var wrongPass = false
     @State var emptyPass = false
     @StateObject var collectionDatas = collectionData()
+    @EnvironmentObject var reloadControl : reloadController
     @StateObject var armyControl = armyController()
     var body: some View {
         NavigationView{
@@ -47,7 +48,7 @@ struct loginAuth: View {
                         .fill(Color(UIColor.systemGray5)))
             }.padding()
                 
-                NavigationLink(destination: ContentView().environmentObject(collectionDatas).environmentObject(fillarmycontrol(armyControl: armyControl)).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){
+                NavigationLink(destination: ContentView().environmentObject(collectionDatas).environmentObject(fillarmycontrol(armyControl: armyControl)).environmentObject(reloadControl).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){
                     EmptyView()
                 }
                 
@@ -69,7 +70,7 @@ struct loginAuth: View {
                             } else {
                                 let result = armybuilder.login(name: login, password: pass)
                                if (result == "logged in successfully" ){
-                                        self.Auth = true
+                                   self.Auth = true
                                 }
         
                             else {

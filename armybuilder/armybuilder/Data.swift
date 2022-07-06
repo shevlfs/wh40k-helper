@@ -64,6 +64,24 @@ struct Army: Identifiable{
         self.mods = mods
         self.deleted = deleted
     }
+    mutating func setName (armyControl: armyController){
+        var ids = [Int]()
+        for army in armyControl.armies{
+            if army.name.contains("Army"){
+                let decimalCharacters = CharacterSet.decimalDigits
+                let decimalRange = army.name.rangeOfCharacter(from: decimalCharacters)
+                if decimalRange != nil {
+                    ids.append(Int.parse(from: army.name)!)
+                }
+            }
+        }
+        if (!ids.isEmpty){
+        self.name = "Army \(ids.max()!+1)"
+        } else{
+            self.name = "Army 1"
+        }
+        
+    }
     func checkMods()->Bool{
         for unit in globalstats[factionID].units{
             if(!self.mods[unit.id]!.isEmpty){
@@ -274,4 +292,12 @@ func isValidEmail(_ email: String) -> Bool {
 
 class reloadController: ObservableObject{
     @Published var reloadNeeded = true
+    @Published var loggedIn = true
+}
+
+
+extension Int {
+    static func parse(from string: String) -> Int? {
+        return Int(string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
+    }
 }
