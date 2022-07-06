@@ -5,7 +5,6 @@ struct ContentView: View {
     @State var showAddDialog = false
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
-    @EnvironmentObject var reloadControl: reloadController
     @State var deleted = false
     
     @StateObject var viewControl = viewController()

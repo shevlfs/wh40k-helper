@@ -40,7 +40,6 @@ struct addArmyDialog: View {
                             factionfile = faction.id
                             let newarmyid = armyControl.armies.count+1
                             armyControl.armies.append(Army(factionID: faction.id, armyid: newarmyid))
-                            armyControl.armies[newarmyid - 1].setName(armyControl: armyControl)
                             showNextStep = true
                             
                         }

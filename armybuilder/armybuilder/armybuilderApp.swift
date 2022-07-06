@@ -13,7 +13,6 @@ struct armybuilderApp: App {
     var cookieExists = loadCookies()
     @StateObject var armyControl = armyController()
     @State var armyLoaded = false
-    @StateObject var reloadControl = reloadController()
     var body: some Scene {
         WindowGroup{
             if (!cookieExists){
@@ -21,12 +20,12 @@ struct armybuilderApp: App {
                 serverHandshake()
             })
             } else{
-                if (reloadControl.reloadNeeded == true ){
-                    ContentViewLogged().environmentObject(fillarmycontrol(armyControl: armyControl)).environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(reloadControl).onAppear(perform:{
-                        reloadControl.reloadNeeded = false
+                if (armyLoaded == false){
+                    ContentViewLogged().environmentObject(fillarmycontrol(armyControl: armyControl)).environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).onAppear(perform:{
+                        armyLoaded = true
                     })
                 } else {
-                    ContentViewLogged().environmentObject(armyControl).environmentObject(collectionDatas).environmentObject(reloadControl)
+                ContentViewLogged().environmentObject(armyControl).environmentObject(collectionDatas)
                 }
             }
                 
@@ -37,10 +36,8 @@ struct armybuilderApp: App {
 
 
 
-
 func fillarmycontrol(armyControl: armyController)->armyController{
     
-    var armyControlller = armyController()
     let tempArmyList = getArmyControl()
     for tempArmy in tempArmyList{
     var mappedDict = [Int:Int]()
@@ -67,13 +64,12 @@ func fillarmycontrol(armyControl: armyController)->armyController{
                   , pointCount: tempArmy.pointCount, troops: mappedDict, mods: tempmods, deleted: tempArmy.deleted)
         
         
-    armyControlller.armies.append(army)
+    armyControl.armies.append(army)
         print(army.pointCount)
         
         
     }
-    print(armyControlller)
-    return armyControlller
+    return armyControl
 }
 
 func fillcollectiondata(collectionDatas: collectionData)->collectionData{

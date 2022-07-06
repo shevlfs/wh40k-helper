@@ -346,24 +346,17 @@ func updatearmy(army: Army)->Void{
         request.httpBody = httpBody
         request.timeoutInterval = 20
         let session = URLSession.shared
-    var done = false
         session.dataTask(with: request) { (data, response, error) in
 
             if let data = data {
                 do {
                     print(String(data: data, encoding: .utf8)!)
-                    done = true
+                    
                 } catch {
                     print(error)
                 }
             }
         }.resume()
-    
-    repeat {
-        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
-    } while !done
-    
-    
     }
 
 
@@ -421,21 +414,16 @@ func deleteArmy(army: Army){
         request.httpBody = httpBody
         request.timeoutInterval = 20
         let session = URLSession.shared
-    var done = false
         session.dataTask(with: request) { (data, response, error) in
 
             if let data = data {
                 do {
                     print(String(data: data, encoding: .utf8)!)
-                    done = true
+                    
                 } catch {
                     print(error)
                 }
             }
         }.resume()
-    repeat {
-        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
-    } while !done
-    
     
 }

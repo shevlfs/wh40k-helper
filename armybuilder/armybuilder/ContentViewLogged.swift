@@ -1,12 +1,10 @@
 import SwiftUI
-import HidingViews
 
 struct ContentViewLogged: View {
     @State var showAppSettings : Bool? = nil
     @State var showAddDialog = false
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var armyControl: armyController
-    @EnvironmentObject var reloadControl: reloadController
     @State var deleted = false
     
     @StateObject var viewControl = viewController()
@@ -29,17 +27,16 @@ struct ContentViewLogged: View {
 armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObject(armyControl).environmentObject(collectionDatas).contextMenu{
 Button(action:{
                                 }){
-                                    Text("Delete")}}}.contextMenu{
+    Text("Delete")}}}.contextMenu{
                             Button(action:{
                                 deleteArmy(army: army)
-                                armyControl.armies[army.armyid - 1].deleted = true
-                                reloadControl.reloadNeeded = true
+        
                             }){
                                 Text("Delete")
     }
-                                    }
+                    }
                             
-                        }
+                    }
                         
                     }
                     }

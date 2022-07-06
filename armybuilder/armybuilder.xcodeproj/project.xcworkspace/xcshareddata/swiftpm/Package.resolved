@@ -8,15 +8,6 @@
         "revision" : "354dda32d89fc8cd4f5c46487f64957d355f53d8",
         "version" : "5.6.1"
       }
-    },
-    {
-      "identity" : "hidingviews",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/GeorgeElsham/HidingViews",
-      "state" : {
-        "revision" : "7fde89eaeb2f0d3a07f8bf517507c6e27af8e4c3",
-        "version" : "1.1.1"
-      }
     }
   ],
   "version" : 2
