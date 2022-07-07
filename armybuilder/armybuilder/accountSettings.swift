@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct accountSettings: View {
+    @State var account: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            
+        }.navigationTitle("\(account)")
     }
 }
 
 struct accountSettings_Previews: PreviewProvider {
     static var previews: some View {
-        accountSettings()
+        accountSettings(account : "test")
     }
 }

@@ -104,7 +104,7 @@ func getArmyControl()->[serverArmy]{
             }
             if let data = data {
                 do {
-                    answ = try! JSONDecoder().decode([serverArmy].self, from: data)
+                    answ = try? JSONDecoder().decode([serverArmy].self, from: data)
                     done = true
                 } catch {
                     print(error)
@@ -115,7 +115,7 @@ func getArmyControl()->[serverArmy]{
     repeat {
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
     } while !done
-    return answ!
+    return answ ?? [serverArmy]()
     }
 
 
@@ -431,4 +431,23 @@ func deleteArmy(army: Army){
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
     } while !done
     
+}
+
+
+
+func whoami()->String{
+    let url = URL(string: "http://127.0.0.1:5000/whoami")!
+    var text = String()
+    var done = false
+    let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        guard let data = data else { return }
+        print(String(data: data, encoding: .utf8)!)
+        text = String(data: data, encoding: .utf8)!
+        done = true
+    }
+    task.resume()
+    repeat {
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
+    } while !done
+    return text
 }

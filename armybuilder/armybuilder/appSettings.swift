@@ -10,10 +10,11 @@ import SwiftUI
 struct appSettings: View {
     @EnvironmentObject var armyControl: armyController
     @EnvironmentObject var collectionDatas: collectionData
+    @State var username = whoami()
     var body: some View {
             ScrollView(){
             VStack(){
-                NavigationLink(destination: accountSettings()){
+                NavigationLink(destination: accountSettings(account : username)){
                     settingsitem(icon: "person.fill", optionname: "Account").padding()
                 }
                 

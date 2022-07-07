@@ -47,9 +47,10 @@ struct loginAuth: View {
                     RoundedRectangle(cornerRadius: 8)
                         .fill(Color(UIColor.systemGray5)))
             }.padding()
-                
+                if (Auth == true){
                 NavigationLink(destination: ContentView().environmentObject(collectionDatas).environmentObject(fillarmycontrol(armyControl: armyControl)).environmentObject(reloadControl).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){
                     EmptyView()
+                }
                 }
                 
                 Text("Wrong name or password.").foregroundColor(.red).fontWeight(.semibold).opacity(!wrongPass ? 0 : 1)
