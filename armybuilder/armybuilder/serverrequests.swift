@@ -451,3 +451,19 @@ func whoami()->String{
     } while !done
     return text
 }
+
+
+func logout()->String{
+    let url = URL(string: "http://127.0.0.1:5000/logout")!
+    var text = String()
+    let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        guard let data = data else { return }
+        print(String(data: data, encoding: .utf8)!)
+        text = String(data: data, encoding: .utf8)!
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+    }
+    task.resume()
+    return text
+}

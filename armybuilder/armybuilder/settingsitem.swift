@@ -10,6 +10,7 @@ import SwiftUI
 struct settingsitem: View {
     @State var icon = String()
     @State var optionname = String()
+    @State var textColor = String()
     var body: some View {
         VStack(alignment: .trailing) {
             HStack {
@@ -19,7 +20,7 @@ struct settingsitem: View {
                                 .clipped().padding(.horizontal)
 
                             Text(optionname)
-                                .foregroundColor(.blue)
+                    .foregroundColor(.blue)
                                 .font(.system(size: 18))
                 Spacer()
                         }

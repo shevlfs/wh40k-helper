@@ -42,7 +42,7 @@ Button(action:{
                         
                     }
                     }
-                    NavigationLink(destination: appSettings().environmentObject(collectionDatas).environmentObject(armyControl), tag: true, selection: $showAppSettings){
+                    NavigationLink(destination: appSettings().environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(reloadControl), tag: true, selection: $showAppSettings){
                         EmptyView()
                     }
                     
