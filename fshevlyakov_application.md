@@ -60,7 +60,7 @@ Simple Army Builder
 **[ ИНСТРУМЕНТЫ РАЗРАБОТКИ ]**
 
 * Swift / Xcode - разработка iOS приложения
-* MongoDB + Flask - бэкэнд
+* MySQL + (Flask + MySQLAlchemy) - бэкэнд
 
 **[ ЭТАПЫ РАЗРАБОТКИ ]**
 
