@@ -291,8 +291,8 @@ func isValidEmail(_ email: String) -> Bool {
 }
 
 class reloadController: ObservableObject{
-    @Published var reloadNeeded = false
-    @Published var loggedIn = true
+    @Published var reloadNeeded = true
+    @Published var loggedIn = false
 }
 
 

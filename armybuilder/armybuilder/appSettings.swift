@@ -10,11 +10,11 @@ import SwiftUI
 struct appSettings: View {
     @EnvironmentObject var armyControl: armyController
     @EnvironmentObject var collectionDatas: collectionData
-    @State var username = whoami()
     var body: some View {
             ScrollView(){
+                Group{
             VStack(){
-                NavigationLink(destination: accountSettings(account : username)){
+                NavigationLink(destination: accountSettings(account : whoami())){
                     settingsitem(icon: "person.fill", optionname: "Account").padding()
                 }
                 
@@ -23,15 +23,9 @@ struct appSettings: View {
                 NavigationLink(destination: collectionSettings().environmentObject(collectionDatas)){
                     settingsitem(icon: "archivebox.fill", optionname:"Collection").padding()
                 }
-                
-                NavigationLink(destination: armyDeletion().environmentObject(armyControl)){
-                    settingsitem(icon: "trash", optionname:"Delete armies").padding()
-                }
-                
-                
-                
-            }.padding(.vertical)
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.systemGray6)))
+            }.frame(maxWidth: 405).padding(.vertical)
+                .background(RoundedRectangle(cornerRadius: 12).fill(Color(UIColor.systemGray6)))
+                }.padding()
             
 
         

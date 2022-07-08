@@ -34,7 +34,6 @@
 		56594CE628650D7600D1A9C5 /* addCustomMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56594CE528650D7600D1A9C5 /* addCustomMod.swift */; };
 		5665937A2868D07C004B0473 /* modificationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566593792868D07C004B0473 /* modificationDisplay.swift */; };
 		5665937C2868F45B004B0473 /* addExistingMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665937B2868F45B004B0473 /* addExistingMod.swift */; };
-		5665937E286A4593004B0473 /* armyDeletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665937D286A4593004B0473 /* armyDeletion.swift */; };
 		56659380286A47E8004B0473 /* armyCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665937F286A47E8004B0473 /* armyCustomization.swift */; };
 		566C244327ED1176008C1362 /* troopCountSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C244227ED1176008C1362 /* troopCountSelect.swift */; };
 		5672C37227EB540A00524033 /* selectTroops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672C37127EB540A00524033 /* selectTroops.swift */; };
@@ -88,7 +87,6 @@
 		56594CE528650D7600D1A9C5 /* addCustomMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addCustomMod.swift; sourceTree = "<group>"; };
 		566593792868D07C004B0473 /* modificationDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modificationDisplay.swift; sourceTree = "<group>"; };
 		5665937B2868F45B004B0473 /* addExistingMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addExistingMod.swift; sourceTree = "<group>"; };
-		5665937D286A4593004B0473 /* armyDeletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armyDeletion.swift; sourceTree = "<group>"; };
 		5665937F286A47E8004B0473 /* armyCustomization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armyCustomization.swift; sourceTree = "<group>"; };
 		566C244227ED1176008C1362 /* troopCountSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopCountSelect.swift; sourceTree = "<group>"; };
 		5672C37127EB540A00524033 /* selectTroops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectTroops.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				5644884D2857CE3B00AB2273 /* stats.json */,
 				5672C37127EB540A00524033 /* selectTroops.swift */,
 				562A87AA27E8FB1B0076FB6A /* appSettings.swift */,
-				5665937D286A4593004B0473 /* armyDeletion.swift */,
 				5644885E2859255B00AB2273 /* targetPicker.swift */,
 				5672C37327EB5DC300524033 /* statsold.json */,
 				5673660427E9E2C10088B805 /* factions.json */,
@@ -318,7 +315,6 @@
 				56940119286BBC9F007841BB /* registration.swift in Sources */,
 				566C244327ED1176008C1362 /* troopCountSelect.swift in Sources */,
 				562A87A727E8D9C40076FB6A /* haptic.swift in Sources */,
-				5665937E286A4593004B0473 /* armyDeletion.swift in Sources */,
 				5644884828577B0D00AB2273 /* accountSettings.swift in Sources */,
 				562A87AB27E8FB1B0076FB6A /* appSettings.swift in Sources */,
 				56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */,
