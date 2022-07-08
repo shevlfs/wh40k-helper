@@ -1,5 +1,4 @@
 import SwiftUI
-import HidingViews
 
 struct ContentViewLogged: View {
     @State var showAppSettings : Bool? = nil
@@ -74,7 +73,7 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
                     }
                 }
             }
-        }.navigationViewStyle(.stack)
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
     

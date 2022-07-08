@@ -58,7 +58,7 @@ struct addArmyDialog: View {
                 
             }
         }
-        }.navigationTitle("Add a new army!")
+        }.navigationViewStyle(StackNavigationViewStyle()).navigationTitle("Add a new army!")
     }
 }
 

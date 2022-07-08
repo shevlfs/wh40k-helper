@@ -1,5 +1,4 @@
 import SwiftUI
-import HidingViews
 
 struct ContentView: View {
     @State var showAppSettings : Bool? = nil

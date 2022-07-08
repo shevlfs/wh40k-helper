@@ -19,6 +19,9 @@
 		562A87A927E8EF850076FB6A /* editArmy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87A827E8EF850076FB6A /* editArmy.swift */; };
 		562A87AB27E8FB1B0076FB6A /* appSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87AA27E8FB1B0076FB6A /* appSettings.swift */; };
 		562A87AD27E8FB470076FB6A /* addArmyDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87AC27E8FB470076FB6A /* addArmyDialog.swift */; };
+		562C1EFD2878AD820020788F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 562C1EFC2878AD820020788F /* Alamofire */; };
+		562C1EFF2878B22E0020788F /* navigationLinkFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C1EFE2878B22E0020788F /* navigationLinkFix.swift */; };
+		562C1F022878B2970020788F /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 562C1F012878B2970020788F /* Introspect */; };
 		5644884828577B0D00AB2273 /* accountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644884728577B0D00AB2273 /* accountSettings.swift */; };
 		5644884A28577B6600AB2273 /* collectionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644884928577B6600AB2273 /* collectionSettings.swift */; };
 		5644884E2857CE3B00AB2273 /* stats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5644884D2857CE3B00AB2273 /* stats.json */; };
@@ -53,7 +56,6 @@
 		56883D1627A5DFA000349E69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1527A5DFA000349E69 /* Preview Assets.xcassets */; };
 		56940119286BBC9F007841BB /* registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56940118286BBC9F007841BB /* registration.swift */; };
 		56BFC544287091980065A40D /* armyControl.json in Resources */ = {isa = PBXBuildFile; fileRef = 56BFC543287091980065A40D /* armyControl.json */; };
-		56BFC54928731C620065A40D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 56BFC54828731C620065A40D /* Alamofire */; };
 		56BFC54B287321AA0065A40D /* ContentViewLogged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC54A287321AA0065A40D /* ContentViewLogged.swift */; };
 		56BFC550287897EC0065A40D /* afterLogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC54F287897EC0065A40D /* afterLogOut.swift */; };
 		56CD644627E92F40008478CD /* JSONstructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD644527E92F40008478CD /* JSONstructs.swift */; };
@@ -73,6 +75,7 @@
 		562A87A827E8EF850076FB6A /* editArmy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editArmy.swift; sourceTree = "<group>"; };
 		562A87AA27E8FB1B0076FB6A /* appSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appSettings.swift; sourceTree = "<group>"; };
 		562A87AC27E8FB470076FB6A /* addArmyDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addArmyDialog.swift; sourceTree = "<group>"; };
+		562C1EFE2878B22E0020788F /* navigationLinkFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationLinkFix.swift; sourceTree = "<group>"; };
 		5644884728577B0D00AB2273 /* accountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountSettings.swift; sourceTree = "<group>"; };
 		5644884928577B6600AB2273 /* collectionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionSettings.swift; sourceTree = "<group>"; };
 		5644884D2857CE3B00AB2273 /* stats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stats.json; sourceTree = "<group>"; };
@@ -119,7 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56BFC54928731C620065A40D /* Alamofire in Frameworks */,
+				562C1EFD2878AD820020788F /* Alamofire in Frameworks */,
+				562C1F022878B2970020788F /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +199,7 @@
 				5644884928577B6600AB2273 /* collectionSettings.swift */,
 				5644884F2858B6E300AB2273 /* collectionAddUnits.swift */,
 				564488512858B74800AB2273 /* collectionSelection.swift */,
+				562C1EFE2878B22E0020788F /* navigationLinkFix.swift */,
 			);
 			path = armybuilder;
 			sourceTree = "<group>";
@@ -224,7 +229,8 @@
 			);
 			name = armybuilder;
 			packageProductDependencies = (
-				56BFC54828731C620065A40D /* Alamofire */,
+				562C1EFC2878AD820020788F /* Alamofire */,
+				562C1F012878B2970020788F /* Introspect */,
 			);
 			productName = armybuilder;
 			productReference = 56883D0B27A5DF9F00349E69 /* armybuilder.app */;
@@ -256,6 +262,8 @@
 			mainGroup = 56883D0227A5DF9F00349E69;
 			packageReferences = (
 				56BFC54728731C620065A40D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				56BFC5542878AD230065A40D /* XCRemoteSwiftPackageReference "HidingViews" */,
+				562C1F002878B2970020788F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 56883D0C27A5DF9F00349E69 /* Products */;
 			projectDirPath = "";
@@ -291,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				564488522858B74800AB2273 /* collectionSelection.swift in Sources */,
+				562C1EFF2878B22E0020788F /* navigationLinkFix.swift in Sources */,
 				5673322928622FD000AF0AF9 /* unitStats.swift in Sources */,
 				5644884A28577B6600AB2273 /* collectionSettings.swift in Sources */,
 				5665937C2868F45B004B0473 /* addExistingMod.swift in Sources */,
@@ -539,6 +548,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		562C1F002878B2970020788F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 		56BFC54728731C620065A40D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -547,13 +564,26 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		56BFC5542878AD230065A40D /* XCRemoteSwiftPackageReference "HidingViews" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GeorgeElsham/HidingViews";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		56BFC54828731C620065A40D /* Alamofire */ = {
+		562C1EFC2878AD820020788F /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 56BFC54728731C620065A40D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		562C1F012878B2970020788F /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 562C1F002878B2970020788F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

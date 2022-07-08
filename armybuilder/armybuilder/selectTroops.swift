@@ -31,6 +31,9 @@ struct selectTroops: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
+        NavigationLink(destination: EmptyView()) {
+            EmptyView()
+        }
         VStack(){
             HStack(){
                 if (pointTarget.targetpointbool == false){
@@ -111,10 +114,10 @@ struct selectTroops: View {
                             ForEach(
                                 collectionDatas.getUnits(factionID: factionfile)
                             ){unit in
-                                ZStack(){
+                                
                                     troopCollectionCount(unitcount: armyControl.armies[armyControl.armies.count-1].troops[unit.unitid] ?? 999, unitname: globalstats[factionfile].units[unit.unitid-1].name, pointcount: globalstats[factionfile].units[unit.unitid-1].pts, unit: globalstats[factionfile].units[unit.unitid-1], faction: factionfile).environmentObject(pointTarget).environmentObject(armyControl)
                                     
-                                }
+                                
                             }
                         }.padding(.vertical)
                     }
@@ -125,9 +128,9 @@ struct selectTroops: View {
                         Spacer()
                     }.padding()
                     ForEach(searchResults){unit in
-                        ZStack(){
+                        
                             troopCountSelect(unitcount: armyControl.armies[armyControl.armies.count-1].troops[unit.id] ?? 999, unitname: unit.name, pointcount: unit.pts, unit: unit, faction: factionfile).environmentObject(pointTarget).environmentObject(armyControl)
-                        }
+                        
                     }.searchable(text: $searchText)
                     }
                 }
