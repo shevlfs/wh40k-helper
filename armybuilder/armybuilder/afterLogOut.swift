@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct loginAuth: View {
+struct afterLogOut: View {
     @State var login = String()
     @State var pass = String()
     
@@ -21,7 +21,6 @@ struct loginAuth: View {
     @EnvironmentObject var reloadControl : reloadController
     @StateObject var armyControl = armyController()
     var body: some View {
-        NavigationView{
         VStack{
             ZStack{
                 rectangleLogo()
@@ -49,8 +48,8 @@ struct loginAuth: View {
                         .fill(Color(UIColor.systemGray6)))
             }.padding()
                 if (Auth == true){
-                    if (reloadControl.reloadNeeded == true && reloadControl.logOutPerformed == false){
-                    NavigationLink(destination: ContentView().environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){
+                    if (reloadControl.reloadNeeded == true && reloadControl.logOutPerformed == true){
+                        NavigationLink(destination: ContentView().onAppear(perform: {reloadControl.logOutPerformed = false}).environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){
                     EmptyView()
                 }
                     } else {
@@ -100,7 +99,6 @@ struct loginAuth: View {
             }.padding()
             Spacer()
         }
-        }.navigationViewStyle(.stack)
     }
     var filledarmycontrol: armyController {
         let group = DispatchGroup()
@@ -151,8 +149,4 @@ struct loginAuth: View {
     }
 }
 
-struct loginAuth_Previews: PreviewProvider {
-    static var previews: some View {
-        loginAuth()
-    }
-}
+

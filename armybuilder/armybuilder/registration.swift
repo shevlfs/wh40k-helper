@@ -35,31 +35,31 @@ struct registration: View {
                 Text("Email").fontWeight(.semibold).font(.title3)
                 Spacer()
             TextField("", text: $login).padding().foregroundColor(.black)
-                .frame(width: 170, height: 10)
+                .frame(width: 195, height: 10)
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 8)
-                        .fill(Color(UIColor.systemGray5)))
+                        .fill(Color(UIColor.systemGray6)))
             }.padding()
             HStack{
                 Text("Password").fontWeight(.semibold).font(.title3)
                 Spacer()
             SecureField("", text: $pass).padding().foregroundColor(.black)
-                .frame(width: 170, height: 10)
+                .frame(width: 195, height: 10)
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 8)
-                        .fill(Color(UIColor.systemGray5)))
+                        .fill(Color(UIColor.systemGray6)))
             }.padding()
             HStack{
                 Text("Confirm password").fontWeight(.semibold).font(.title3).frame(maxWidth: 90)
                 Spacer()
             SecureField("", text: $passConf).padding().foregroundColor(.black)
-                .frame(width: 170, height: 10)
+                .frame(width: 195, height: 10)
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 8)
-                        .fill(Color(UIColor.systemGray5)))
+                        .fill(Color(UIColor.systemGray6)))
             }.padding()
             HStack{
                 Button(action: {

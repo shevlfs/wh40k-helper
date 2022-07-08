@@ -25,18 +25,23 @@ struct ContentView: View {
                             let value = UIInterfaceOrientation.portrait.rawValue
                             UIDevice.current.setValue(value, forKey: "orientation")}
                                                                                                                                 )) {
-armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObject(armyControl).environmentObject(collectionDatas).contextMenu{
-Button(action:{
-                                }){
-                                    Text("Delete")}}}.contextMenu{
-                            Button(action:{
+armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObject(armyControl).environmentObject(collectionDatas)}.contextMenu{
+    Button(role: .destructive, action:{
                                 deleteArmy(army: army)
                                 armyControl.armies[army.armyid - 1].deleted = true
                                 reloadControl.reloadNeeded = true
                             }){
+                                HStack(){
                                 Text("Delete")
+                                    Image(systemName: "trash")
+                                }
+                            }
+        Button(action: {}){
+            Text("Cancel")
+        
     }
                                     }
+
                             
                     }
                         

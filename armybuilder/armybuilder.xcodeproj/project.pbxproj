@@ -55,6 +55,7 @@
 		56BFC544287091980065A40D /* armyControl.json in Resources */ = {isa = PBXBuildFile; fileRef = 56BFC543287091980065A40D /* armyControl.json */; };
 		56BFC54928731C620065A40D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 56BFC54828731C620065A40D /* Alamofire */; };
 		56BFC54B287321AA0065A40D /* ContentViewLogged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC54A287321AA0065A40D /* ContentViewLogged.swift */; };
+		56BFC550287897EC0065A40D /* afterLogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC54F287897EC0065A40D /* afterLogOut.swift */; };
 		56CD644627E92F40008478CD /* JSONstructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD644527E92F40008478CD /* JSONstructs.swift */; };
 		56F45E4F286B53EE007BA78D /* troopGameDetailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F45E4E286B53EE007BA78D /* troopGameDetailed.swift */; };
 /* End PBXBuildFile section */
@@ -108,6 +109,7 @@
 		56940118286BBC9F007841BB /* registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registration.swift; sourceTree = "<group>"; };
 		56BFC543287091980065A40D /* armyControl.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = armyControl.json; sourceTree = "<group>"; };
 		56BFC54A287321AA0065A40D /* ContentViewLogged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewLogged.swift; sourceTree = "<group>"; };
+		56BFC54F287897EC0065A40D /* afterLogOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = afterLogOut.swift; sourceTree = "<group>"; };
 		56CD644527E92F40008478CD /* JSONstructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONstructs.swift; sourceTree = "<group>"; };
 		56F45E4E286B53EE007BA78D /* troopGameDetailed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopGameDetailed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +191,7 @@
 				56083E7F2854D64A00A83C9D /* settingsitem.swift */,
 				56083E832856589C00A83C9D /* serverrequests.swift */,
 				5644884728577B0D00AB2273 /* accountSettings.swift */,
+				56BFC54F287897EC0065A40D /* afterLogOut.swift */,
 				5644884928577B6600AB2273 /* collectionSettings.swift */,
 				5644884F2858B6E300AB2273 /* collectionAddUnits.swift */,
 				564488512858B74800AB2273 /* collectionSelection.swift */,
@@ -312,6 +315,7 @@
 				56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */,
 				56448864285CB5F500AB2273 /* Data.swift in Sources */,
 				5611EA09286BB227004BC850 /* rectangleLogo.swift in Sources */,
+				56BFC550287897EC0065A40D /* afterLogOut.swift in Sources */,
 				56940119286BBC9F007841BB /* registration.swift in Sources */,
 				566C244327ED1176008C1362 /* troopCountSelect.swift in Sources */,
 				562A87A727E8D9C40076FB6A /* haptic.swift in Sources */,

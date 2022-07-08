@@ -23,7 +23,7 @@ struct armybuilderApp: App {
                 serverHandshake()
                 }).onDisappear(perform: {reloadControl.reloadNeeded = false})
             } else{
-                if (reloadControl.reloadNeeded == true){
+                if (reloadControl.reloadNeeded == true && reloadControl.logOutPerformed == false){
                     ContentViewLogged().environmentObject(filledarmycontrol).environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(reloadControl).onAppear(perform:{
                         reloadControl.reloadNeeded = false
                     })
@@ -76,11 +76,11 @@ struct armybuilderApp: App {
                 }
                 
                 group.notify(queue: .main) {
-                    print("Simulation finished")
+                    print("Data Loaded")
                 }
          }
         reloadControl.reloadNeeded = false
-        print("armybuilder execd")
+        print("armybuilder reload execd")
         return armyControl
     }
 }

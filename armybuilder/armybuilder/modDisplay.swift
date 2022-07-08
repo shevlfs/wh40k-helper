@@ -14,7 +14,7 @@ struct modDisplay: View {
             HStack{
                 Text("\(mod.name)").font(.title).fontWeight(.semibold).foregroundColor(.white)
                 Spacer()
-            }.padding().background(RoundedRectangle(cornerRadius: 15).fill(.mint))
+            }.padding()
             HStack{
                 VStack{
                     Text("Range").font(.title2).fontWeight(.semibold).foregroundColor(.white).padding(3)

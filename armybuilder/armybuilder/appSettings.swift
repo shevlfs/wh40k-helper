@@ -15,7 +15,7 @@ struct appSettings: View {
             ScrollView(){
                 Group{
             VStack(){
-                NavigationLink(destination: accountSettings(account : whoami()).environmentObject(reloadControl)){
+                NavigationLink(destination: accountSettings(account : whoami()).onAppear(perform: {UINavigationBar.setAnimationsEnabled(false)}).onDisappear(perform: {UINavigationBar.setAnimationsEnabled(true)}).environmentObject(reloadControl).environmentObject(collectionDatas).environmentObject(armyControl)){
                     settingsitem(icon: "person.fill", optionname: "Account").padding()
                 }
                 

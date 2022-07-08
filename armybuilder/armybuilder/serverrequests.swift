@@ -74,11 +74,14 @@ func login(name: String, password: String)->String{
         let session = URLSession.shared
         var done = false
     
-    AF.request("http://127.0.0.1:5000/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
-        response in saveCookies(response: response)
-    }.responseString {
+    AF.request("http://127.0.0.1:5000/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseString {
         response in answ = response.value!
         done = true
+    }.responseJSON {
+        response in
+        if (answ == "logged in successfully"){
+            saveCookies(response: response)
+        }
     }
     repeat {
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
