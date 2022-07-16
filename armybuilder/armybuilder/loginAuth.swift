@@ -32,7 +32,7 @@ struct loginAuth: View {
                 Text("Email").fontWeight(.semibold).font(.title3)
                 Spacer()
             TextField("", text: $login).padding().foregroundColor(.black)
-                .frame(width: 195, height: 10)
+                    .frame(maxWidth: 195,maxHeight: 10)
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 8)
@@ -42,7 +42,7 @@ struct loginAuth: View {
                 Text("Password").fontWeight(.semibold).font(.title3)
                 Spacer()
             SecureField("", text: $pass).padding().foregroundColor(.black)
-                .frame(width: 195, height: 10)
+                .frame(maxWidth: 195, maxHeight: 10)
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 8)

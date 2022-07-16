@@ -6,6 +6,7 @@ import requests
 from flask_sqlalchemy import SQLAlchemy
 from data import database, mail, secretKey
 import re
+from flask import render_template
 from sqlalchemy.orm.attributes import flag_modified
 import json
 from flask_mail import Mail, Message
@@ -97,6 +98,16 @@ class UserModel(db.Model):
                               recipients=[self.username],  # replace with your email for testing
                               body="Confirm your email by clicking this link:\n"
                                    "localhost:5000/verification/" + generate_confirmation_token(self.username))
+            mail.send(msg)
+
+    def sendChangePassMail(self):
+        with app.app_context():
+            msg = Message(subject="Change password -- ArmyBuilder",
+                              sender=app.config.get("MAIL_USERNAME"),
+                              recipients=[self.username],  # replace with your email for testing
+                              body="Change your passwrod by clicking this link:\n"
+                                   "localhost:5000/verification/ \n"
+                                   "If it wasn't you who tried to change the password, please ignore this message." + generate_confirmation_token(self.username))
             mail.send(msg)
 
     @classmethod
@@ -320,9 +331,16 @@ def logout():
     logout_user()
     return "logged out successfully"
 
+@app.route("/changepassword", methods = ["GET,POST"])
+def changepasswordApp():
+    request.get_json(force=True)
+    UserModel.sendChangePassMail(UserModel.find_by_username(username = request.json['name']))
+    return "ok!"
 
+@app.route("/changepasswordweb", methods = ["GET,POST"])
+def changepasswordApp():
 
-
+    return "ok!"
 
 
 
