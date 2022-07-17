@@ -15,7 +15,7 @@ struct forgotPass: View {
         NavigationView{
             VStack{
                 Text("Email is incorrect.").foregroundColor(.red).fontWeight(.semibold).opacity(!emailError ? 0 : 1)
-                Text("If there is an account associated with this email you will recieve a message with further instructions to reset your password.").foregroundColor(.red).fontWeight(.semibold).opacity(!emailError ? 0 : 1)
+                Text("If there is an account associated with this email you will recieve a message with further instructions to reset your password.").foregroundColor(.red).fontWeight(.semibold).multilineTextAlignment(.center).opacity(!success ? 0 : 1).padding()
                 HStack{
                     Text("Email").fontWeight(.semibold).font(.title3)
                     Spacer()
@@ -37,12 +37,12 @@ struct forgotPass: View {
                             forgotPassword(email : login)
                         }
                     }){
-                        Text("confirm")
+                        Text("Confirm")
                     }
                 }
                 Spacer()
-            }
-        }.navigationTitle("Forgot password")
+            }.navigationBarTitle("Forgot password")
+        }
     }
 }
 

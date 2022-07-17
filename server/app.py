@@ -106,8 +106,8 @@ class UserModel(db.Model):
                               sender=app.config.get("MAIL_USERNAME"),
                               recipients=[self.username],  # replace with your email for testing
                               body="Change your passwrod by clicking this link:\n"
-                                   "localhost:5000/verification/ \n"
-                                   "If it wasn't you who tried to change the password, please ignore this message." + generate_confirmation_token(self.username))
+                                   "localhost:5000/changepasswordweb/"  + generate_confirmation_token(self.username) + " \n "
+                                   "If it wasn't you who tried to change the password, please ignore this message.")
             mail.send(msg)
 
     @classmethod
@@ -321,6 +321,11 @@ def get_collection():
     col = CollectionModel.find_by_username(username= current_user.username).first()
     return col.collection
 
+@app.route("/changepasswordapp", methods = ["POST"])
+def changepasswordapp():
+    request.get_json(force=True)
+    UserModel.sendChangePassMail(UserModel.find_by_username(username = request.json['email']))
+    return "ok!"
 
 @app.route("/logout", methods = ["GET"])
 @login_required
@@ -331,16 +336,19 @@ def logout():
     logout_user()
     return "logged out successfully"
 
-@app.route("/changepassword", methods = ["GET,POST"])
-def changepasswordApp():
-    request.get_json(force=True)
-    UserModel.sendChangePassMail(UserModel.find_by_username(username = request.json['name']))
-    return "ok!"
-
-@app.route("/changepasswordweb", methods = ["GET,POST"])
-def changepasswordApp():
-
-    return "ok!"
+@app.route("/changepasswordweb/<token>", methods = ["GET"])
+def changepasswordweb(token):
+    try:
+        email = confirm_token(token)
+    except:
+        return 'The confirmation link is invalid or has expired.'
+    if request.method == "POST":
+        if "submitpass" in request.form and "passOne" in request.form and "passTwo" in request.form:
+            if len(request.form['passOne']) > 0:
+                user = UserModel.find_by_username(username= email)
+                user.password = user.get_password(password = request.form['passOne'])
+                db.session.commit()
+    return render_template('changepass.html')
 
 
 

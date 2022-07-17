@@ -11,7 +11,7 @@ struct loginAuth: View {
     @State var login = String()
     @State var pass = String()
     
-    
+    @State var showForgotprompt = false
     @State var Auth: Bool? = nil
     @State var showRegistration = false
     @State var wrongPass = false
@@ -48,6 +48,14 @@ struct loginAuth: View {
                     RoundedRectangle(cornerRadius: 8)
                         .fill(Color(UIColor.systemGray6)))
             }.padding()
+                HStack{
+                    Button(action: {
+                        showForgotprompt.toggle()
+                    }){
+                        Text("Forgot password...").padding()
+                    }.sheet(isPresented: $showForgotprompt, content: {forgotPass()})
+                    Spacer()
+                }
                 if (Auth == true){
                     if (reloadControl.reloadNeeded == true && reloadControl.logOutPerformed == false){
                     NavigationLink(destination: ContentView().environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){
@@ -64,8 +72,6 @@ struct loginAuth: View {
                 Text("Wrong name or password.").foregroundColor(.red).fontWeight(.semibold).opacity(!wrongPass ? 0 : 1)
         
                 Text("Please verify your email by checking your inbox for a message from ArmyBuilder.").foregroundColor(.red).fontWeight(.semibold).opacity(!notVerified ? 0 : 1)
-                
-                
                     HStack{
                         Button(action: {
                             self.showRegistration.toggle()

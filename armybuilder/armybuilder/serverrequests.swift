@@ -472,7 +472,7 @@ func logout()->String{
 }
 
 func forgotPassword(email: String)->Void{
-    let Url = String(format: "http://127.0.0.1:5000/changepasswordApp")
+    let Url = String(format: "http://127.0.0.1:5000/changepasswordapp")
         guard let serviceUrl = URL(string: Url) else { return }
         let parameters: [String: String] =
             [
