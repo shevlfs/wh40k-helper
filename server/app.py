@@ -336,19 +336,21 @@ def logout():
     logout_user()
     return "logged out successfully"
 
-@app.route("/changepasswordweb/<token>", methods = ["GET"])
+@app.route("/changepasswordweb/<token>", methods = ["GET,POST"])
 def changepasswordweb(token):
-    try:
-        email = confirm_token(token)
-    except:
-        return 'The confirmation link is invalid or has expired.'
-    if request.method == "POST":
+    if request.method == "GET":
+        return render_template('changepass.html')
+    elif request.method == "POST":
+        try:
+            email = confirm_token(token)
+        except:
+            return 'The confirmation link is invalid or has expired.'
         if "submitpass" in request.form and "passOne" in request.form and "passTwo" in request.form:
             if len(request.form['passOne']) > 0:
                 user = UserModel.find_by_username(username= email)
                 user.password = user.get_password(password = request.form['passOne'])
                 db.session.commit()
-    return render_template('changepass.html')
+        return render_template('changepass.html')
 
 
 
