@@ -11,7 +11,7 @@ struct afterLogOut: View {
     @State var login = String()
     @State var pass = String()
     
-    
+    @State var showForgotprompt = false
     @State var Auth: Bool? = nil
     @State var showRegistration = false
     @State var wrongPass = false
@@ -31,7 +31,7 @@ struct afterLogOut: View {
                 Text("Email").fontWeight(.semibold).font(.title3)
                 Spacer()
             TextField("", text: $login).padding().foregroundColor(.black)
-                .frame(width: 195, height: 10)
+                .frame(maxWidth: 195, maxHeight: 10)
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 8)
@@ -41,12 +41,23 @@ struct afterLogOut: View {
                 Text("Password").fontWeight(.semibold).font(.title3)
                 Spacer()
             SecureField("", text: $pass).padding().foregroundColor(.black)
-                .frame(width: 195, height: 10)
+                .frame(maxWidth: 195, maxHeight: 10)
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 8)
                         .fill(Color(UIColor.systemGray6)))
             }.padding()
+                HStack{
+                    Button(action: {
+                        showForgotprompt.toggle()
+                    }){
+                        Text("Forgot password...").padding()
+                    }.sheet(isPresented: $showForgotprompt, content: {forgotPass()})
+                    Spacer()
+                }
+                
+                
+                
                 if (Auth == true){
                     if (reloadControl.reloadNeeded == true && reloadControl.logOutPerformed == true){
                         NavigationLink(destination: ContentView().onAppear(perform: {reloadControl.logOutPerformed = false}).environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){

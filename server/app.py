@@ -350,6 +350,7 @@ def changepasswordweb(token):
                 user = UserModel.find_by_username(username= email)
                 user.password = user.get_password(password = request.form['passOne'])
                 db.session.commit()
+                return "Password changed."
         return render_template('changepass.html')
 
 
