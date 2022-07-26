@@ -18,6 +18,7 @@ struct armyDetailedView: View {
     var body: some View {
             VStack(){
                 ScrollView{
+                    ZStack{
                     NavigationLink(destination: armyCustomization(armyID: id - 1).environmentObject(armyControl)){
                         VStack(alignment: .center){
                     HStack{
@@ -42,9 +43,10 @@ struct armyDetailedView: View {
                     }.padding(7).background(
                         RoundedRectangle(cornerRadius: 15)
                             .fill(.green))
-                        }.padding().background(
+                        }.background(
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(.green))
+                    }.padding()
                     }.padding()
                     Spacer()
                     VStack{
