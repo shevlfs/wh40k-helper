@@ -34,7 +34,12 @@ struct editArmy: View {
                     .background(
                         RoundedRectangle(cornerRadius: 8)
                             .fill(.green)).sheet(isPresented: $targetMenu){
-                                targetPicker().environmentObject(pointTarget)
+                                if #available(iOS 16.0, *) {
+                                    targetPicker().environmentObject(pointTarget).presentationDetents([.medium])
+                                } else {
+                                    // Fallback on earlier versions
+                                    targetPicker().environmentObject(pointTarget)
+                                }
                             }
                 }
                 
@@ -49,7 +54,12 @@ struct editArmy: View {
                 .background(
                     RoundedRectangle(cornerRadius: 8)
                         .fill(.red)).sheet(isPresented: $targetMenu){
-                            targetPicker().environmentObject(pointTarget)
+                            if #available(iOS 16.0, *) {
+                                targetPicker().environmentObject(pointTarget).presentationDetents([.medium])
+                            } else {
+                                // Fallback on earlier versions
+                                targetPicker().environmentObject(pointTarget)
+                            }
                         }
             }
 
@@ -62,7 +72,12 @@ struct editArmy: View {
                     .background(
                         RoundedRectangle(cornerRadius: 8)
                             .fill(.green)).sheet(isPresented: $targetMenu){
-                                targetPicker().environmentObject(pointTarget)
+                                if #available(iOS 16.0, *) {
+                                    targetPicker().environmentObject(pointTarget).presentationDetents([.medium])
+                                } else {
+                                    // Fallback on earlier versions
+                                    targetPicker().environmentObject(pointTarget)
+                                }
                             }
                 }
                     

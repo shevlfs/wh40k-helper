@@ -31,7 +31,7 @@ struct appSettings: View {
 
         
             Spacer()
-        }.navigationTitle("Settings").navigationViewStyle(.stack)
+        }.navigationBarTitle("Settings").navigationViewStyle(.stack)
         
 
     }

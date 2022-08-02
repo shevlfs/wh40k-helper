@@ -51,7 +51,7 @@ struct accountSettings: View {
             }.background(RoundedRectangle(cornerRadius: 12).fill(Color(UIColor.systemGray6))).frame(maxWidth: 405).padding()
             Spacer()
             
-        }.navigationTitle("\(account)")
+        }.navigationBarTitle("\(account)")
     }
 }
 

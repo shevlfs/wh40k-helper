@@ -39,7 +39,7 @@ struct collectionSettings: View {
                 
                 
             }
-    }.navigationTitle("Add units to collection").navigationViewStyle(.stack)
+    }.navigationBarTitle("Add units to collection").navigationViewStyle(.stack)
     }
 }
 

@@ -23,6 +23,7 @@ struct loginAuth: View {
     var body: some View {
         NavigationView{
         VStack{
+            Spacer()
             ZStack{
                 rectangleLogo()
                 Text("ArmyBuilder").foregroundColor(.white).font(.title).fontWeight(.bold).padding()

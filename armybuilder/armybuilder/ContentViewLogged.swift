@@ -53,7 +53,7 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
                     
                 }
             
-            }.navigationTitle("Your armies").toolbar {
+            }.navigationBarTitle("Your armies").toolbar {
                 ToolbarItemGroup(placement: .primaryAction){
                     Button(action: {
                         viewControl.showingaddArmy = true

@@ -22,6 +22,7 @@ struct afterLogOut: View {
     @StateObject var armyControl = armyController()
     var body: some View {
         VStack{
+            Spacer()
             ZStack{
                 rectangleLogo()
                 Text("ArmyBuilder").foregroundColor(.white).font(.title).fontWeight(.bold).padding()
