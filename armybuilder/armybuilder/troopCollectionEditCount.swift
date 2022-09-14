@@ -1,26 +1,30 @@
 import SwiftUI
 
-struct troopEditSelect: View {
+struct troopCollectionEditCount: View {
     @State var unitcount: Int
     @State var unitname = String()
     @State var pointcount = Int()
     @State var unit: unit
     @State var armyID: Int
+    @State var faction: Int
     @EnvironmentObject var pointTarget: pointTarget
     @EnvironmentObject var armyControl: armyController
     @EnvironmentObject var collectionDatas: collectionData
     var body: some View {
         VStack(alignment: .trailing) {
-            NavigationLink(destination: troopDetailedView(Unit: unit, factionID: armyControl.armies[armyID].factionID).environmentObject(collectionDatas)){
+            NavigationLink(destination: EmptyView()) {
+                EmptyView()
+            }
+            NavigationLink(destination: troopDetailedView(Unit: unit, factionID: faction).environmentObject(collectionDatas)){
             Text(unitname)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(.teal)
+                        .fill(.green)
                 )
-            }
+            }.isDetailLink(false)
             pickerView()
         }
         .padding()
@@ -28,7 +32,7 @@ struct troopEditSelect: View {
     }
 }
 
-extension troopEditSelect {
+extension troopCollectionEditCount {
     @ViewBuilder
     private func pickerView() -> some View {
         HStack {
@@ -36,7 +40,7 @@ extension troopEditSelect {
                 .padding(.vertical, 8).padding(.horizontal, 40)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(.teal)
+                        .fill(.green)
                 )
             Spacer()
             Button(action: {
@@ -59,7 +63,7 @@ extension troopEditSelect {
                     .foregroundColor(.white)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
-                    .background(RoundedRectangle(cornerRadius: 5).fill(.teal))
+                    .background(RoundedRectangle(cornerRadius: 5).fill(.green))
             }
             Text("\(armyControl.armies[armyID].troops[unit.id]!)")
             Button(action: {
@@ -70,14 +74,8 @@ extension troopEditSelect {
                     .foregroundColor(.white)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
-                    .background(RoundedRectangle(cornerRadius: 5).fill(.teal))
+                    .background(RoundedRectangle(cornerRadius: 5).fill(.green))
             }
         }
     }
 }
-
-/* struct troopCountSelect_Previews: PreviewProvider {
-    static var previews: some View {
-        troopCountSelect(unitcount: 0, unitname: "", pointcount: 150)
-    }
-} */

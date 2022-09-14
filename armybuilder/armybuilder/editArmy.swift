@@ -120,7 +120,7 @@ struct editArmy: View {
                                 collectionDatas.getUnits(factionID: factionfile)
                             ){unit in
                                 ZStack(){
-                                    troopCollectionCount(unitcount: armyControl.armies[armyID].troops[unit.unitid] ?? 999, unitname: globalstats[factionfile].units[unit.unitid-1].name, pointcount: globalstats[factionfile].units[unit.unitid-1].pts, unit: globalstats[factionfile].units[unit.unitid-1], faction: factionfile).environmentObject(pointTarget).environmentObject(armyControl)
+                                    troopCollectionEditCount(unitcount: armyControl.armies[armyID].troops[unit.unitid] ?? 999, unitname: globalstats[factionfile].units[unit.unitid-1].name, pointcount: globalstats[factionfile].units[unit.unitid-1].pts, unit: globalstats[factionfile].units[unit.unitid-1], armyID: armyID, faction: factionfile).environmentObject(pointTarget).environmentObject(armyControl)
                                     
                                 }
                             }

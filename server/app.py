@@ -205,8 +205,8 @@ def registration():
         return 'caseError'
     print(name)
     print(password)
-    user = UserModel(username = name, password = password)
-    if not user.find_by_username(user.username):
+    if not UserModel.find_by_username(name):
+        user = UserModel(username = name, password = password)
         user.saveToDatabase()
         user.sendConfirmationMail()
         return "ok!"
@@ -218,15 +218,14 @@ def verify(token):
         email = confirm_token(token)
     except:
         return 'The confirmation link is invalid or has expired.'
-    user = UserModel(username = email, password = "None")
-    if user.find_by_username(username = email).verified:
+    if UserModel.find_by_username(username = email).verified:
         return "user already verified"
     else:
-        print(user.find_by_username(username=email).verified)
-        user.find_by_username(username=email).verified = True
-        print(user.find_by_username(username=email).verified)
+        print(UserModel.find_by_username(username=email).verified)
+        UserModel.find_by_username(username=email).verified = True
+        print(UserModel.find_by_username(username=email).verified)
        # db.engine.execute("UPDATE `user_model` SET verified = true WHERE username = %s;", email)
-        print(user.find_by_username(username=email).verified)
+        print(UserModel.find_by_username(username=email).verified)
         db.session.commit()
         return "verification successful"
 
@@ -235,7 +234,7 @@ def login():
     request.get_json(force=True)
     name = request.json['name']
     password = request.json['password']
-    user = UserModel(username= name, password = password).find_by_username(name)
+    user = UserModel.find_by_username(name)
     if not user:
         return "check user name or password"
     if not user.verified:
@@ -319,7 +318,10 @@ def deletearmy():
 @login_required
 def get_collection():
     col = CollectionModel.find_by_username(username= current_user.username).first()
-    return col.collection
+    if col.collection:
+        return col.collection
+    else:
+        return "NOne"
 
 @app.route("/changepasswordapp", methods = ["POST"])
 def changepasswordapp():
@@ -330,7 +332,7 @@ def changepasswordapp():
 @app.route("/logout", methods = ["GET"])
 @login_required
 def logout():
-    user = UserModel(username = "", password="").find_by_username(current_user.username)
+    user = UserModel.find_by_username(current_user.username)
     user.loggedin = False
     db.session.commit()
     logout_user()
