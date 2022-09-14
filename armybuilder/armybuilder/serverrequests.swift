@@ -2,7 +2,7 @@ import Foundation
 import Alamofire
 
 func serverHandshake()->String{
-    let url = URL(string: "http://127.0.0.1:5000")!
+    let url = URL(string: "http://94.228.195.88:5000")!
     var text = String()
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
         guard let data = data else { return }
@@ -17,7 +17,7 @@ func serverHandshake()->String{
 
 
 func register(name: String, password: String)->Void{
-    let Url = String(format: "http://127.0.0.1:5000/registration")
+    let Url = String(format: "http://94.228.195.88:5000/registration")
         guard let serviceUrl = URL(string: Url) else { return }
         let parameters: [String: String] =
             [
@@ -52,7 +52,7 @@ func register(name: String, password: String)->Void{
     }
 
 func login(name: String, password: String)->String{
-    let Url = String(format: "http://127.0.0.1:5000/login")
+    let Url = String(format: "http://94.228.195.88:5000/login")
         guard let serviceUrl = URL(string: Url) else { return "ERROR" }
         let parameters: [String: String] =
             [
@@ -74,7 +74,7 @@ func login(name: String, password: String)->String{
         let session = URLSession.shared
         var done = false
     
-    AF.request("http://127.0.0.1:5000/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseString {
+    AF.request("http://94.228.195.88:5000/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseString {
         response in answ = response.value!
         done = true
     }.responseJSON {
@@ -92,7 +92,7 @@ func login(name: String, password: String)->String{
     }
 
 func getArmyControl()->[serverArmy]{
-    let Url = String(format: "http://127.0.0.1:5000/getarmies")
+    let Url = String(format: "http://94.228.195.88:5000/getarmies")
     let serviceUrl = URL(string: Url)!
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "GET"
@@ -123,7 +123,7 @@ func getArmyControl()->[serverArmy]{
 
 
 func addArmy(army: Army)->Void{
-    let Url = String(format: "http://127.0.0.1:5000/addarmy")
+    let Url = String(format: "http://94.228.195.88:5000/addarmy")
         guard let serviceUrl = URL(string: Url) else { return }
     let mappedKeys = army.troops.map {String( $0.key)}
     var mappedDict = [String: Int]()
@@ -186,7 +186,7 @@ func setCookie (cookie:HTTPCookie)
 
 
 func saveCollection(collectionDatas: collectionData){
-    let Url = String(format: "http://127.0.0.1:5000/savecollection")
+    let Url = String(format: "http://94.228.195.88:5000/savecollection")
         guard let serviceUrl = URL(string: Url) else { return }
     var parameters: [String: [String: Int]] =
     [:]
@@ -248,7 +248,7 @@ func loadCookies()->Bool{
 
 
 func getCollectionDatas()->[Int: [Int: Int]]{
-    let Url = String(format: "http://127.0.0.1:5000/getcollection")
+    let Url = String(format: "http://94.228.195.88:5000/getcollection")
     let serviceUrl = URL(string: Url)!
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "GET"
@@ -295,7 +295,7 @@ func getCollectionDatas()->[Int: [Int: Int]]{
 
 
 func updatearmy(army: Army)->Void{
-    let Url = String(format: "http://127.0.0.1:5000/updatearmy")
+    let Url = String(format: "http://94.228.195.88:5000/updatearmy")
         guard let serviceUrl = URL(string: Url) else { return }
     let mappedKeys = army.troops.map {String( $0.key)}
     var mappedDict = [String: Int]()
@@ -363,7 +363,7 @@ func updatearmy(army: Army)->Void{
 
 
 func changearmyname(oldname: String, newname: String)->Void{
-    let Url = String(format: "http://127.0.0.1:5000/changearmyname")
+    let Url = String(format: "http://94.228.195.88:5000/changearmyname")
         guard let serviceUrl = URL(string: Url) else { return }
         let parameters: [String: Any] =
     [
@@ -396,7 +396,7 @@ func changearmyname(oldname: String, newname: String)->Void{
     }
 
 func deleteArmy(army: Army){
-    let Url = String(format: "http://127.0.0.1:5000/deletearmy")
+    let Url = String(format: "http://94.228.195.88:5000/deletearmy")
         guard let serviceUrl = URL(string: Url) else { return }
         let parameters: [String: Any] =
     [
@@ -439,7 +439,7 @@ func deleteArmy(army: Army){
 
 
 func whoami()->String{
-    let url = URL(string: "http://127.0.0.1:5000/whoami")!
+    let url = URL(string: "http://94.228.195.88:5000/whoami")!
     var text = String()
     var done = false
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
@@ -457,7 +457,7 @@ func whoami()->String{
 
 
 func logout()->String{
-    let url = URL(string: "http://127.0.0.1:5000/logout")!
+    let url = URL(string: "http://94.228.195.88:5000/logout")!
     var text = String()
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
         guard let data = data else { return }
@@ -472,7 +472,7 @@ func logout()->String{
 }
 
 func forgotPassword(email: String)->Void{
-    let Url = String(format: "http://127.0.0.1:5000/changepasswordapp")
+    let Url = String(format: "http://94.228.195.88:5000/changepasswordapp")
         guard let serviceUrl = URL(string: Url) else { return }
         let parameters: [String: String] =
             [
