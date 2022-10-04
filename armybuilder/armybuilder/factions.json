@@ -1,11 +1,16 @@
 [{
-        "id": 0,
+    "id": 0,
+    "name": "Dark Angels",
+    "file": "greyknightsstats.json"
+
+},{
+        "id": 1,
         "name": "Gray Knights",
         "file": "greyknightsstats.json"
 
     },
     {
-        "id": 1,
+        "id": 2,
         "name": "Space Wolves",
         "file": "spacewolvesstats.json"
     }
