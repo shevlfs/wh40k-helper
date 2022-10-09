@@ -8,6 +8,7 @@ class collectionData: ObservableObject{
             collectionDict[faction.id] = [:]
             for unit in globalstats[faction.id].units{
                 collectionDict[faction.id]![unit.id] = 0
+                print(faction.id)
             }
         }
     }
@@ -198,19 +199,12 @@ class armyController: ObservableObject{
         self.armies = [Army]()
     }
     
-    func encode(to encoder: Encoder) throws{
-        
-    }
-    
-    
-    
-    
     
     func getPoints(armyID: Int) -> Int{
         return armies[armyID-1].pointCount
     }
     func getArmies()->[Army]{
-        var armies = [Army]()
+        var armies = [Army]()   
         for army in self.armies{
             if (army.armyid != -1){
                 armies.append(army)
