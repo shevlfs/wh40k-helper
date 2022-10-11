@@ -11,6 +11,10 @@ struct ContentView: View {
     @StateObject var viewControl = viewController()
     var body: some View {
             ScrollView(.vertical){
+                HStack{
+                    Text("Your armies").font(.largeTitle).fontWeight(.semibold).padding()
+                    Spacer()
+                }
                 VStack(){
                     
                     
@@ -52,7 +56,7 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
                     
                 }
             
-            }.navigationBarTitle("Your armies").toolbar {
+            }.toolbar {
                 ToolbarItemGroup(placement: .primaryAction){
                     Button(action: {
                         viewControl.showingaddArmy = true

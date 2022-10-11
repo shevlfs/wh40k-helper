@@ -22,7 +22,7 @@ struct loginAuth: View {
     @StateObject var armyControl = armyController()
     var body: some View {
         NavigationView{
-        VStack{
+        VStack{     
             Spacer()
             ZStack{
                 rectangleLogo()
@@ -59,7 +59,7 @@ struct loginAuth: View {
                 }
                 if (Auth == true){
                     if (reloadControl.reloadNeeded == true && reloadControl.logOutPerformed == false){
-                    NavigationLink(destination: ContentView().environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){
+                        NavigationLink(destination: ContentView().environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){
                     EmptyView()
                 }
                     } else {
