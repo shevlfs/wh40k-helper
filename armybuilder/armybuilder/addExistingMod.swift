@@ -18,7 +18,7 @@ struct addExistingMod: View {
     @State var D = String()
     @State var PTS = Int()
     @State var Count = 1
-    
+    @Environment(\.presentationMode) var presentationMode
     @State var mod: mod
     
     var body: some View {
@@ -134,6 +134,7 @@ struct addExistingMod: View {
                 armyControl.armies[armyID].mods[Unit.id]!.append(mod)
                 armyControl.armies[armyID].pointCount = armyControl.armies[armyID].pointCount + PTS*Count
                 updatearmy(army: armyControl.armies[armyID])
+                presentationMode.wrappedValue.dismiss()
             }){
                 HStack{
                     Text("Save").foregroundColor(.white).font(.title2).fontWeight(.semibold).padding(.horizontal)

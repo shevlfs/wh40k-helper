@@ -15,6 +15,7 @@ struct addCustomMod: View {
     @State var temptype = String()
     @State var armyID: Int
     @State var Unit: unit
+    @Environment(\.presentationMode) var presentationMode
     
     
     @State var Name = String()
@@ -141,6 +142,7 @@ struct addCustomMod: View {
                 armyControl.armies[armyID].mods[Unit.id]!.append(mod)
                 armyControl.armies[armyID].pointCount = armyControl.armies[armyID].pointCount + PTS*Count
                 updatearmy(army: armyControl.armies[armyID])
+                presentationMode.wrappedValue.dismiss()
             }){
                 HStack{
                     Text("Save").foregroundColor(.white).font(.title2).fontWeight(.semibold).padding(.horizontal)

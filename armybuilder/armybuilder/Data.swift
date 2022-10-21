@@ -273,6 +273,7 @@ struct serverMod: Codable {
 
 class viewController: ObservableObject{
     @Published var showingaddArmy = false
+    @Published var addingmod = false
     init(){
         }
 }

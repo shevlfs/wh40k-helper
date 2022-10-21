@@ -69,7 +69,6 @@ struct troopDetailedView: View {
                     }
                     Button(action:{
                         self.customization.toggle()
-                        
                     }){
                         HStack{
                             Image(systemName: "plus")
