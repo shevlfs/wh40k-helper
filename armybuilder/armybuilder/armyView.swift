@@ -66,13 +66,8 @@ struct ScaleableButtonStyle: ButtonStyle {
     }
 }
 
-struct armyView_Previews: PreviewProvider {
-    static var previews: some View {
-        armyView()
-    }
-}
 
-func checkForSafety(armyID: Int, armyControl: armyController)->Bool{
+func checkForSafety(armyID: Int, armyControl: armyController)->Bool{ // проверка на безопасность вывода армии после удаления
     if armyControl.armies.count <= armyID - 1{
         return false
     }

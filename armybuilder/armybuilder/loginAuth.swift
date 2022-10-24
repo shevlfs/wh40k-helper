@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct loginAuth: View {
+struct loginAuth: View { // View с экраном авторизации (впервые при загрузке приложения)
     @State var login = String()
     @State var pass = String()
     
@@ -25,7 +25,7 @@ struct loginAuth: View {
         VStack{     
             Spacer()
             ZStack{
-                rectangleLogo()
+                rectangleLogo() // анимированный логотип
                 Text("ArmyBuilder").foregroundColor(.white).font(.title).fontWeight(.bold).padding()
             }.padding()
             VStack{
@@ -51,7 +51,7 @@ struct loginAuth: View {
             }.padding()
                 HStack{
                     Button(action: {
-                        showForgotprompt.toggle()
+                        showForgotprompt.toggle() // экран "забыли пароль"
                     }){
                         Text("Forgot password...").padding()
                     }.sheet(isPresented: $showForgotprompt, content: {forgotPass()})
@@ -59,11 +59,11 @@ struct loginAuth: View {
                 }
                 if (Auth == true){
                     if (reloadControl.reloadNeeded == true && reloadControl.logOutPerformed == false){
-                        NavigationLink(destination: ContentView().environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){
+                        NavigationLink(destination: ContentView().environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){ // вызов главного меню при успешной  авторизации (при предыдущем выходе)
                     EmptyView()
                 }
                     } else {
-                        NavigationLink(destination: ContentView().environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){
+                        NavigationLink(destination: ContentView().environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){ // вызов главного меню при успешной авторизации (при входе в первый раз)
                         EmptyView()
                     }
                         
@@ -80,7 +80,7 @@ struct loginAuth: View {
                         HStack{
                             Text("Register").padding(.horizontal, 27).padding(.vertical, 12).foregroundColor(.white)
                         }.background(RoundedRectangle(cornerRadius: 10).fill(.blue)).padding()}.sheet(isPresented: $showRegistration){
-                            registration()
+                            registration() // вызов меню регистрации
                         }
                         Button(action: {
                             wrongPass = false
@@ -109,7 +109,7 @@ struct loginAuth: View {
         }
         }.navigationViewStyle(.stack)
     }
-    var filledarmycontrol: armyController {
+    var filledarmycontrol: armyController { // заполнение информации об армиях с бекенда
         let group = DispatchGroup()
         let internalQueue = DispatchQueue(label: "InternalQueue")
                 group.enter()
@@ -155,11 +155,5 @@ struct loginAuth: View {
          }
         reloadControl.reloadNeeded = false
         return armyControl
-    }
-}
-
-struct loginAuth_Previews: PreviewProvider {
-    static var previews: some View {
-        loginAuth()
     }
 }

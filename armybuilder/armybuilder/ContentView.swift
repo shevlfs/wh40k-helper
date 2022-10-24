@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View { // View с главным меню после захода в аккаунт и перезапуске приложения
     @State var showAppSettings : Bool? = nil
     @State var showAddDialog = false
     @EnvironmentObject var collectionDatas: collectionData
@@ -28,6 +28,7 @@ struct ContentView: View {
                             let value = UIInterfaceOrientation.portrait.rawValue
                             UIDevice.current.setValue(value, forKey: "orientation")}
                                                                                                                                 )) {
+                            // вызов View с детальным просмотром армии
 armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObject(armyControl).environmentObject(collectionDatas)}.contextMenu{
     Button(role: .destructive, action:{
                                 deleteArmy(army: army)
@@ -51,7 +52,7 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
                     }
                     }
                     NavigationLink(destination: appSettings().environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(reloadControl), tag: true, selection: $showAppSettings){
-                        EmptyView()
+                        EmptyView() // вызов настроек приложения
                     }
                     
                 }

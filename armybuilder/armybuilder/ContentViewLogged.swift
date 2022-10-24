@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentViewLogged: View {
+struct ContentViewLogged: View { // View с главным меню после захода в аккаунт
     @State var showAppSettings : Bool? = nil
     @State var showAddDialog = false
     @EnvironmentObject var collectionDatas: collectionData

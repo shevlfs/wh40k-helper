@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct afterLogOut: View {
+struct afterLogOut: View { // View с экраном авторизации (после выхода из аккаунта)
     @State var login = String()
     @State var pass = String()
     

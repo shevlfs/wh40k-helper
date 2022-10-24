@@ -1,9 +1,9 @@
 import Foundation
 
 
-class collectionData: ObservableObject{
+class collectionData: ObservableObject{ // Объект для хранения информации о коллекции пользователя
     @Published var collectionDict: [Int : [Int: Int]] = [:]
-    init(){
+    init(){ // инициализация
         for faction in factions{
             collectionDict[faction.id] = [:]
             for unit in globalstats[faction.id].units{
@@ -12,7 +12,7 @@ class collectionData: ObservableObject{
             }
         }
     }
-    func emptyChecker (factionID: Int) -> Bool{
+    func emptyChecker (factionID: Int) -> Bool{ // проверка на пустоту
         for unit in globalstats[factionID].units{
             if (collectionDict[factionID]![unit.id] != 0){
                 return true
@@ -21,7 +21,7 @@ class collectionData: ObservableObject{
         return false
     }
     
-    func getUnits (factionID: Int) -> [unitTemp]{
+    func getUnits (factionID: Int) -> [unitTemp]{ // получение всех юнитов от конкретной фракции которые есть в коллекции
         var units = [unitTemp]()
         for unit in globalstats[factionID].units{
             if (collectionDict[factionID]![unit.id] != 0){
@@ -32,12 +32,12 @@ class collectionData: ObservableObject{
     }
 }
 
-struct unitTemp: Identifiable{
+struct unitTemp: Identifiable{ // времененная структура для хранения юнита
     let id = UUID()
     let unitid: Int
 }
 
-struct Army: Identifiable{
+struct Army: Identifiable{ // структура для армии
     var id = UUID()
     var name = String()
     var armyid: Int
@@ -46,7 +46,7 @@ struct Army: Identifiable{
     var troops : [Int:Int] = [:]
     var mods : [Int: [modification]] = [:]
     var deleted = false
-    init(factionID: Int, armyid: Int){
+    init(factionID: Int, armyid: Int){ // инициализация
         for unit in globalstats[factionID].units{
             self.troops[unit.id] = 0
             self.mods[unit.id] = [modification]()
@@ -57,6 +57,7 @@ struct Army: Identifiable{
         self.name = "Army \(self.armyid)"
     }
     mutating func custinit(name: String, armyid: Int, factionID: Int, pointCount: Int, troops: [Int:Int], mods: [Int: [modification]], deleted: Bool){
+        // mutating функция для создания армии при получении её с бекенда
         self.name = name
         self.armyid = armyid
         self.factionID = factionID
@@ -65,7 +66,7 @@ struct Army: Identifiable{
         self.mods = mods
         self.deleted = deleted
     }
-    mutating func setName (armyControl: armyController){
+    mutating func setName (armyControl: armyController){ // функция для задания имени армии при изменении его
         var ids = [Int]()
         for army in armyControl.armies{
             if army.name.contains("Army"){
@@ -83,7 +84,7 @@ struct Army: Identifiable{
         }
         
     }
-    func checkMods()->Bool{
+    func checkMods()->Bool{ // проверка на наличие модификаций у юнита
         for unit in globalstats[factionID].units{
             if(!self.mods[unit.id]!.isEmpty){
                 return true
@@ -91,7 +92,7 @@ struct Army: Identifiable{
         }
         return false
     }
-    func getCommandPoints()->Int{
+    func getCommandPoints()->Int{ // функция для получения типа подразделения армии
         if (self.pointCount == 0){
             return 0
         }
@@ -107,7 +108,7 @@ struct Army: Identifiable{
             return 18
         }
     }
-    func getBattleSize()->String{
+    func getBattleSize()->String{ // функция для получения размера битвы от армии
         if (self.pointCount == 0){
             return "None"
         }
@@ -125,7 +126,7 @@ struct Army: Identifiable{
     }
 }
 
-struct modification: Identifiable{
+struct modification: Identifiable{ // структура для модификации
     var id = UUID()
     var name: String
     var range: String
@@ -136,6 +137,7 @@ struct modification: Identifiable{
     var pts: Int
     var count : Int
     init(name: String, range: String, type: String, s: String, ap:Int,d: String,pts: Int,count: Int){
+        // инициализация
         self.name = name
         self.range = range
         self.type = type
@@ -146,7 +148,7 @@ struct modification: Identifiable{
         self.count = count
     }
 }
-
+// далее идут функции-геттеры, в целом, их названия говорят сами за себя
 func getName(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->String{
     return armyControl.armies[armyID].mods[unitID]![modID].name
 }
@@ -188,22 +190,22 @@ func getPTS(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->I
 
 
 
-class armyController: ObservableObject{
+class armyController: ObservableObject{ // объект для хранения всех армий
     @Published var armies = [Army]()
     
-    private enum CodingKeys : String, CodingKey {
+    private enum CodingKeys : String, CodingKey { // enum для парсинга с бекенда
         case armies = "armies"
     }
     
-    init(){
+    init(){ // инициализация
         self.armies = [Army]()
     }
     
-    
-    func getPoints(armyID: Int) -> Int{
+    func getPoints(armyID: Int) -> Int{ // функция для получения количества очков
         return armies[armyID-1].pointCount
     }
-    func getArmies()->[Army]{
+    
+    func getArmies()->[Army]{ // функция для получения массива действительных армий
         var armies = [Army]()   
         for army in self.armies{
             if (army.armyid != -1){
@@ -213,7 +215,7 @@ class armyController: ObservableObject{
         return armies
     }
     
-    func getTroops(armyID: Int) -> [unitTemp]{
+    func getTroops(armyID: Int) -> [unitTemp]{ // функция для получения массива юнитов от конкретной армии
         var troops = [unitTemp]()
         for unit in globalstats[armies[armyID-1].factionID].units{
             if (armies[armyID-1].troops[unit.id] != 0){
@@ -225,7 +227,8 @@ class armyController: ObservableObject{
         }
         return troops
     }
-    func getNextID()->Int{
+    
+    func getNextID()->Int{ // функция для получения id армии для её названия во время её создания
         var temp = Int()
         for army in self.armies{
             if (army.armyid > temp){
@@ -234,7 +237,8 @@ class armyController: ObservableObject{
         }
         return temp
     }
-    func getNames()->[armyTemp]{
+    
+    func getNames()->[armyTemp]{ // функция для получения названий армий
         var temp = [armyTemp]()
         for army in self.armies{
             temp.append(armyTemp(id: army.armyid, name: army.name))
@@ -243,12 +247,12 @@ class armyController: ObservableObject{
     }
     
 }
-struct armyTemp: Identifiable{
+struct armyTemp: Identifiable{ // временная структура для армии
     var id = Int()
     var name = String()
 }
 
-struct serverArmy: Codable{
+struct serverArmy: Codable{ // временная структура для парсинга армии с бекенда
     var name = String()
     var armyid: Int
     var factionid: Int
@@ -258,7 +262,7 @@ struct serverArmy: Codable{
     var deleted = false
 }
 
-struct serverMod: Codable {
+struct serverMod: Codable { // временная структура для парсинга модификации с бекенда
     var name = String()
     var range = String()
     var type = String()
