@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-struct addArmyDialog: View {
+struct addArmyDialog: View { // View для выбора фракции при создании новой армии
     @State var factionSelected = false
     @StateObject var pointTargetd = pointTarget()
     @EnvironmentObject var collectionDatas: collectionData
@@ -27,7 +27,7 @@ struct addArmyDialog: View {
             VStack(alignment: .center){
                 NavigationLink(destination: selectTroops(factionfile: factionfile, collectionShowcase: collectionDatas.emptyChecker(factionID: factionfile)).environmentObject(pointTargetd).environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(viewControl).navigationBarBackButtonHidden(true), tag:true, selection: $showNextStep){
                     EmptyView()
-                }
+                } // вызов следующего этапа создания армии - выбора юнитов
                 
                 ForEach(factions){faction in
                         ZStack(){

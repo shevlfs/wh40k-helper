@@ -9,7 +9,7 @@ import SwiftUI
 
 
 @main
-struct armybuilderApp: App {
+struct armybuilderApp: App { // главная функция всего приложения в которой определяется запускать экран авторизации или загружать информацию с бекэнда и запускать главное меню
     @StateObject var collectionDatas = collectionData()
     var cookieExists = loadCookies()
     @StateObject var reloadControl = reloadController()

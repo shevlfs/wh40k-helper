@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-class pointTarget: ObservableObject{
+class pointTarget: ObservableObject{ // объект для хранения цели по очкам
     @Published var count = 0
     @Published var targetpointbool = false
     @Published var currentPoints = 0
@@ -32,7 +32,7 @@ struct selectTroops: View {
     
     var body: some View {
         NavigationLink(destination: EmptyView()) {
-            EmptyView()
+            EmptyView() // фикс бага swiftui...
         }
         VStack(){
             HStack(){
@@ -49,13 +49,10 @@ struct selectTroops: View {
                                 } else {
                                     // Fallback on earlier versions
                                     targetPicker().environmentObject(pointTarget)
-                                }
+                                } // вызов меню выбора цели по очкам(в зависимости от версии ios она будет выглядеть по разному из-за нововведений swift)
                             }
                 }
-                
-
             } else {
-                
                 if (armyControl.armies[armyControl.armies.count-1].pointCount > pointTarget.count){
                 Button(action:{ self.targetMenu.toggle()}){
                 Text("\(armyControl.armies[armyControl.armies.count-1].pointCount) pts / \(pointTarget.count) pts ").foregroundColor(.white)
@@ -69,11 +66,9 @@ struct selectTroops: View {
                             } else {
                                 // Fallback on earlier versions
                                 targetPicker().environmentObject(pointTarget)
-                            }
+                            } // вызов меню выбора цели по очкам(в зависимости от версии ios она будет выглядеть по разному из-за нововведений swift)
                         }
             }
-
-                
                 } else {
                     Button(action:{ self.targetMenu.toggle()}){
                         Text("\(armyControl.armies[armyControl.armies.count-1].pointCount) pts / \(pointTarget.count) pts ").foregroundColor(.white)
@@ -87,16 +82,14 @@ struct selectTroops: View {
                                 } else {
                                     // Fallback on earlier versions
                                     targetPicker().environmentObject(pointTarget)
-                                }
+                                } // вызов меню выбора цели по очкам(в зависимости от версии ios она будет выглядеть по разному из-за нововведений swift)
                             }
                 }
                     
                 }
             }
             }.padding()
-            
-            
-            if(collectionShowcase == false){
+            if(collectionShowcase == false){ // if для того показывать ли юниты которые есть в коллекции
             ScrollView(.vertical){
             VStack(alignment: .center){
                 HStack{
@@ -129,10 +122,7 @@ struct selectTroops: View {
                             ForEach(
                                 collectionDatas.getUnits(factionID: factionfile)
                             ){unit in
-                                
                                     troopCollectionCount(unitcount: armyControl.armies[armyControl.armies.count-1].troops[unit.unitid] ?? 999, unitname: globalstats[factionfile].units[unit.unitid-1].name, pointcount: globalstats[factionfile].units[unit.unitid-1].pts, unit: globalstats[factionfile].units[unit.unitid-1], faction: factionfile).environmentObject(pointTarget).environmentObject(armyControl)
-                                    
-                                
                             }
                         }.padding(.vertical)
                     }
@@ -143,7 +133,6 @@ struct selectTroops: View {
                         Spacer()
                     }.padding()
                     ForEach(searchResults){unit in
-                        
                             troopCountSelect(unitcount: armyControl.armies[armyControl.armies.count-1].troops[unit.id] ?? 999, unitname: unit.name, pointcount: unit.pts, unit: unit, faction: factionfile).environmentObject(pointTarget).environmentObject(armyControl)
                         
                     }.searchable(text: $searchText)
@@ -178,8 +167,6 @@ struct selectTroops: View {
                     }
                 }
             }
-            
-            
         }.navigationTitle("Add a new army!").toolbar{
             ToolbarItemGroup(placement: .primaryAction){
                 Button(action:{
@@ -200,10 +187,3 @@ struct selectTroops: View {
         }
 
 }
-
-/*struct selectTroops_Previews: PreviewProvider {
-    static var previews: some View {
-        selectTroops(factionfile: 0, collectionShowcase: true).environmentObject(pointTarget()).environmentObject(collectionData())
-    }
-}*/
-

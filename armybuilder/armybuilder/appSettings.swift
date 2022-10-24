@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct appSettings: View {
+struct appSettings: View { // View с настройками приложения
     @EnvironmentObject var armyControl: armyController
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var reloadControl: reloadController
@@ -18,22 +18,14 @@ struct appSettings: View {
                 NavigationLink(destination: accountSettings(account : whoami()).onAppear(perform: {UINavigationBar.setAnimationsEnabled(false)}).onDisappear(perform: {UINavigationBar.setAnimationsEnabled(true)}).environmentObject(reloadControl).environmentObject(collectionDatas).environmentObject(armyControl)){
                     settingsitem(icon: "person.fill", optionname: "Account").padding()
                 }
-                
-        
-                
                 NavigationLink(destination: collectionSettings().environmentObject(collectionDatas)){
                     settingsitem(icon: "archivebox.fill", optionname:"Collection").padding()
                 }
             }.frame(maxWidth: 405).padding(.vertical)
                 .background(RoundedRectangle(cornerRadius: 12).fill(Color(UIColor.systemGray6)))
                 }.padding()
-            
-
-        
             Spacer()
         }.navigationBarTitle("Settings").navigationViewStyle(.stack)
-        
-
     }
 }
 

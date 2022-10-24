@@ -1,7 +1,7 @@
 import Foundation
 import Alamofire
 
-func serverHandshake()->String{
+func serverHandshake()->String{ // тестовая функция связи с сервером
     let url = URL(string: "http://94.228.195.88:5000")!
     var text = String()
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
@@ -9,14 +9,13 @@ func serverHandshake()->String{
         print(String(data: data, encoding: .utf8)!)
         text = String(data: data, encoding: .utf8)!
     }
-
     task.resume()
     return text
 }
 
 
 
-func register(name: String, password: String)->Void{
+func register(name: String, password: String)->Void{ // функция регистрации
     let Url = String(format: "http://94.228.195.88:5000/registration")
         guard let serviceUrl = URL(string: Url) else { return }
         let parameters: [String: String] =
@@ -30,7 +29,7 @@ func register(name: String, password: String)->Void{
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
     guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .fragmentsAllowed	    ) else {
-        print("json fucked up!!")
+        print("json fucked up!!") // видимо что-то пошло не так
             return
         }
     let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
@@ -43,7 +42,6 @@ func register(name: String, password: String)->Void{
             if let data = data {
                 do {
                     print(String(data: data, encoding: .utf8)!)
-                    
                 } catch {
                     print(error)
                 }
@@ -51,7 +49,7 @@ func register(name: String, password: String)->Void{
         }.resume()
     }
 
-func login(name: String, password: String)->String{
+func login(name: String, password: String)->String{ // функция входа и получения cookies
     let Url = String(format: "http://94.228.195.88:5000/login")
         guard let serviceUrl = URL(string: Url) else { return "ERROR" }
         let parameters: [String: String] =
@@ -63,7 +61,7 @@ func login(name: String, password: String)->String{
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
     guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .fragmentsAllowed        ) else {
-        print("json fucked up!!")
+        print("json fucked up!!") // что-то пошло не так
             return "ERROR"
         }
     let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
@@ -73,7 +71,6 @@ func login(name: String, password: String)->String{
         var answ = "?????"
         let session = URLSession.shared
         var done = false
-    
     AF.request("http://94.228.195.88:5000/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseString {
         response in answ = response.value!
         done = true
@@ -91,7 +88,7 @@ func login(name: String, password: String)->String{
     
     }
 
-func getArmyControl()->[serverArmy]{
+func getArmyControl()->[serverArmy]{ // функция получения армий с бекенда
     let Url = String(format: "http://94.228.195.88:5000/getarmies")
     let serviceUrl = URL(string: Url)!
         var request = URLRequest(url: serviceUrl)
@@ -122,7 +119,7 @@ func getArmyControl()->[serverArmy]{
     }
 
 
-func addArmy(army: Army)->Void{
+func addArmy(army: Army)->Void{ // функция добавления армии на бекенд
     let Url = String(format: "http://94.228.195.88:5000/addarmy")
         guard let serviceUrl = URL(string: Url) else { return }
     let mappedKeys = army.troops.map {String( $0.key)}
@@ -165,11 +162,9 @@ func addArmy(army: Army)->Void{
         request.timeoutInterval = 20
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
-
             if let data = data {
                 do {
                     print(String(data: data, encoding: .utf8)!)
-                    
                 } catch {
                     print(error)
                 }
@@ -178,14 +173,14 @@ func addArmy(army: Army)->Void{
     }
 
 
-func setCookie (cookie:HTTPCookie)
+func setCookie (cookie:HTTPCookie) // функция сохранения cookie
 {
     UserDefaults.standard.set(cookie.properties, forKey: "kCookie")
     UserDefaults.standard.synchronize()
 }
 
 
-func saveCollection(collectionDatas: collectionData){
+func saveCollection(collectionDatas: collectionData){ // функция сохранения коллекции на бекенд
     let Url = String(format: "http://94.228.195.88:5000/savecollection")
         guard let serviceUrl = URL(string: Url) else { return }
     var parameters: [String: [String: Int]] =
@@ -214,7 +209,6 @@ func saveCollection(collectionDatas: collectionData){
             if let data = data {
                 do {
                     print(String(data: data, encoding: .utf8)!)
-                    
                 } catch {
                     print(error)
                 }
@@ -223,7 +217,7 @@ func saveCollection(collectionDatas: collectionData){
 }
 
 
-func saveCookies(response: AFDataResponse<Any>) {
+func saveCookies(response: AFDataResponse<Any>) { // функция сохранения cookies через alamofire
     let headerFields = response.response?.allHeaderFields as! [String: String]
     let url = response.response?.url
     let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: url!)
@@ -236,7 +230,7 @@ func saveCookies(response: AFDataResponse<Any>) {
 }
 
 
-func loadCookies()->Bool{
+func loadCookies()->Bool{ // функция проверки на наличие cookies
     guard let cookieArray = UserDefaults.standard.array(forKey: "savedCookies") as? [[HTTPCookiePropertyKey: Any]] else { return false}
     for cookieProperties in cookieArray {
         if let cookie = HTTPCookie(properties: cookieProperties) {
@@ -247,7 +241,7 @@ func loadCookies()->Bool{
 }
 
 
-func getCollectionDatas()->[Int: [Int: Int]]{
+func getCollectionDatas()->[Int: [Int: Int]]{ // функция получения коллекции с бекенда
     let Url = String(format: "http://94.228.195.88:5000/getcollection")
     let serviceUrl = URL(string: Url)!
         var request = URLRequest(url: serviceUrl)
@@ -287,14 +281,11 @@ func getCollectionDatas()->[Int: [Int: Int]]{
             answ[intfac!]![Int(unit)!] = val
         }
     }
-    
-    
-    
     return answ
-    }
+}
 
 
-func updatearmy(army: Army)->Void{
+func updatearmy(army: Army)->Void{ // функция обновления измененной армии на бекенде
     let Url = String(format: "http://94.228.195.88:5000/updatearmy")
         guard let serviceUrl = URL(string: Url) else { return }
     let mappedKeys = army.troops.map {String( $0.key)}
@@ -349,11 +340,9 @@ func updatearmy(army: Army)->Void{
         request.timeoutInterval = 20
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
-
             if let data = data {
                 do {
                     print(String(data: data, encoding: .utf8)!)
-                    
                 } catch {
                     print(error)
                 }
@@ -362,7 +351,7 @@ func updatearmy(army: Army)->Void{
     }
 
 
-func changearmyname(oldname: String, newname: String)->Void{
+func changearmyname(oldname: String, newname: String)->Void{ // функция изменения названия армии на бекенде
     let Url = String(format: "http://94.228.195.88:5000/changearmyname")
         guard let serviceUrl = URL(string: Url) else { return }
         let parameters: [String: Any] =
@@ -384,7 +373,6 @@ func changearmyname(oldname: String, newname: String)->Void{
         request.timeoutInterval = 20
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
-
             if let data = data {
                 do {
                     print(String(data: data, encoding: .utf8)!)
@@ -395,7 +383,7 @@ func changearmyname(oldname: String, newname: String)->Void{
         }.resume()
     }
 
-func deleteArmy(army: Army){
+func deleteArmy(army: Army){ // функция удаления армии с бекенда
     let Url = String(format: "http://94.228.195.88:5000/deletearmy")
         guard let serviceUrl = URL(string: Url) else { return }
         let parameters: [String: Any] =
@@ -418,7 +406,6 @@ func deleteArmy(army: Army){
     var done = false
         let session = URLSession.shared
         var task = session.dataTask(with: request) { (data, response, error) in
-
             if let data = data {
                 do {
                     print(String(data: data, encoding: .utf8)!)
@@ -428,7 +415,6 @@ func deleteArmy(army: Army){
                 }
             }
         }
-    
     task.resume()
     repeat {
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
@@ -438,7 +424,7 @@ func deleteArmy(army: Army){
 
 
 
-func whoami()->String{
+func whoami()->String{ // функция получения email текущего пользователя
     let url = URL(string: "http://94.228.195.88:5000/whoami")!
     var text = String()
     var done = false
@@ -456,7 +442,7 @@ func whoami()->String{
 }
 
 
-func logout()->String{
+func logout()->String{ // функция выхода из аккаунта
     let url = URL(string: "http://94.228.195.88:5000/logout")!
     var text = String()
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
@@ -471,7 +457,7 @@ func logout()->String{
     return text
 }
 
-func forgotPassword(email: String)->Void{
+func forgotPassword(email: String)->Void{ // функция восстановления пароля
     let Url = String(format: "http://94.228.195.88:5000/changepasswordapp")
         guard let serviceUrl = URL(string: Url) else { return }
         let parameters: [String: String] =
@@ -493,11 +479,9 @@ func forgotPassword(email: String)->Void{
         request.timeoutInterval = 20
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
-
             if let data = data {
                 do {
                     print(String(data: data, encoding: .utf8)!)
-                    
                 } catch {
                     print(error)
                 }
