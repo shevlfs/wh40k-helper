@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct faction: Identifiable,Decodable {
+struct faction: Identifiable,Decodable { // структура для фракции
     let id: Int
     let name: String
     let file: String
 }
 
-var factions: [faction] = load("factions.json")
+var factions: [faction] = load("factions.json") // создания массива factions из json'а
 
-func load<T: Decodable>(_ filename: String) -> T {
+func load<T: Decodable>(_ filename: String) -> T { // фунцкия парсинга json файла
     
     let data: Data
 
@@ -39,7 +39,7 @@ func load<T: Decodable>(_ filename: String) -> T {
 }
 
 
-struct unit: Identifiable,Decodable {
+struct unit: Identifiable,Decodable { // структура юнита
     var id: Int
     let name: String
     let m: String
@@ -53,10 +53,10 @@ struct unit: Identifiable,Decodable {
     let sv: String
     let pts: Int
     
-    private enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey { // enum для парсинга
         case id, name = "Name",m="M",ws="WS",bs="BS",s="S",t="T",w="W",a="A",ld="Ld",sv="Sv",pts="pts"
     }
-    init(from decoder: Decoder) throws
+    init(from decoder: Decoder) throws // инициализация через парсинг из json файла
             {
                 let container = try decoder.container(keyedBy: CodingKeys.self)
                 
@@ -82,7 +82,7 @@ struct unit: Identifiable,Decodable {
         }
 
 }
-struct stats: Identifiable, Decodable{
+struct stats: Identifiable, Decodable{ // структура для хранения всей информации о юнитах и фракциях
     var id: Int
     let units: [unit]
     private enum CodingKeys : String, CodingKey {
@@ -92,7 +92,7 @@ struct stats: Identifiable, Decodable{
 var globalstats: [stats] = load("stats.json")
 
 
-struct mod: Identifiable,Decodable {
+struct mod: Identifiable,Decodable { // структура для модификации
     var id: Int
     let name: String
     let range: String
@@ -100,11 +100,11 @@ struct mod: Identifiable,Decodable {
     let s: String
     let ap: Int
     let d: String
-    
-    private enum CodingKeys: String, CodingKey {
+
+    private enum CodingKeys: String, CodingKey { // codingkeys для парсинга модификаций из json'a
         case id, name = "name", range = "range", type = "type", s = "s", ap =  "ap", d  = "d"
     }
-    init(from decoder: Decoder) throws
+    init(from decoder: Decoder) throws // инициализация через парсинг из json файла
             {
                 let container = try decoder.container(keyedBy: CodingKeys.self)
                 
@@ -140,7 +140,7 @@ struct mod: Identifiable,Decodable {
 
 }
 var mods: [mod] = load("mods.json")
-func modNames()->[String]{
+func modNames()->[String]{ // функция получения названий всех модификаций
     var answ = [String]()
     for mod in mods{
         answ.append(mod.name)
