@@ -29,10 +29,10 @@ struct armyDetailedView: View {
                         Text("Points: \(armyControl.armies[id-1].pointCount)")
                             .font(.title3)
                             .fontWeight(.regular)
-                        }.foregroundColor(.white).padding(14)
+                        }.foregroundColor(.white).padding()
                         VStack(){
                             
-                            Text("Battle size:").font(.title2)
+                            Text("Battle size:").font(.title3)
                                 .fontWeight(.semibold)
                             Text("\(armyControl.armies[id-1].getBattleSize())").font(.title2)
                                 .fontWeight(.semibold).padding(.bottom, 7)
