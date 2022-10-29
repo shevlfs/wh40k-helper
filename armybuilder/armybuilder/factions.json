@@ -22,5 +22,13 @@
         "id": 4,
         "name": "Space Marines",
         "file": "spacewolvesstats.json"
+    },{
+        "id": 5,
+        "name": "Deathwatch",
+        "file": "spacewolvesstats.json"
+    },{
+        "id": 6,
+        "name": "Thousand Sons",
+        "file": "spacewolvesstats.json"
     }
 ]
