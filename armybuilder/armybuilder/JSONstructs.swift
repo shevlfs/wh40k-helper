@@ -79,6 +79,7 @@ struct unit: Identifiable,Decodable { // структура юнита
                 self.ld = try container.decode(Int.self, forKey: .ld)
                 self.sv = try container.decode(String.self, forKey: .sv)
                 self.pts = try container.decode(Int.self, forKey: .pts)
+                print(self.name)
         }
 
 }

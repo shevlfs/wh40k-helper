@@ -18,5 +18,9 @@
         "id": 3,
         "name": "Necrons",
         "file": "spacewolvesstats.json"
+    }, {
+        "id": 4,
+        "name": "Space Marines",
+        "file": "spacewolvesstats.json"
     }
 ]
