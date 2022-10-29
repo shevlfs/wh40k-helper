@@ -9,7 +9,7 @@ import SwiftUI
 
 
 class pointTarget: ObservableObject{ // объект для хранения цели по очкам
-    @Published var count = 0
+    @Published var count = 1000
     @Published var targetpointbool = false
     @Published var currentPoints = 0
 }
