@@ -30,5 +30,9 @@
         "id": 6,
         "name": "Thousand Sons",
         "file": "spacewolvesstats.json"
+    },{
+        "id": 7,
+        "name": "T'au Empire",
+        "file": "spacewolvesstats.json"
     }
 ]
