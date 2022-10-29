@@ -14,7 +14,6 @@ struct troopCollectionCount: View {
             NavigationLink(destination: EmptyView()) {
                 EmptyView()
             }
-            NavigationLink(destination: troopDetailedView(Unit: unit, factionID: faction).environmentObject(collectionDatas)){
             Text(unitname)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
@@ -23,7 +22,7 @@ struct troopCollectionCount: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(.green)
                 )
-            }.isDetailLink(false)
+            
             pickerView()
         }
         .padding()

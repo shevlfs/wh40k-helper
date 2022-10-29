@@ -92,6 +92,14 @@ struct Army: Identifiable{ // структура для армии
         }
         return false
     }
+    func emptyChecker()->Bool{ // проверка на пустоту армии
+        for unit in globalstats[self.factionID].units{
+            if self.troops[unit.id] != 0{
+                return false
+            }
+        }
+        return true
+    }
     func getCommandPoints()->Int{ // функция для получения типа подразделения армии
         if (self.pointCount == 0){
             return 0
