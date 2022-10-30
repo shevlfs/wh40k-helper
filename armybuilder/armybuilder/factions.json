@@ -42,5 +42,9 @@
         "id": 9,
         "name": "Adepta Sororitas",
         "file": "spacewolvesstats.json"
+    },{
+        "id": 10,
+        "name": "Death Guard",
+        "file": "spacewolvesstats.json"
     }
 ]
