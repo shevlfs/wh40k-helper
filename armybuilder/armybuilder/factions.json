@@ -38,5 +38,9 @@
         "id": 8,
         "name": "Drukhari",
         "file": "spacewolvesstats.json"
+    },{
+        "id": 9,
+        "name": "Adepta Sororitas",
+        "file": "spacewolvesstats.json"
     }
 ]
