@@ -34,5 +34,9 @@
         "id": 7,
         "name": "T'au Empire",
         "file": "spacewolvesstats.json"
+    },{
+        "id": 8,
+        "name": "Drukhari",
+        "file": "spacewolvesstats.json"
     }
 ]
