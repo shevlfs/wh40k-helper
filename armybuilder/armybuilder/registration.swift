@@ -72,10 +72,10 @@ struct registration: View {
                         emptyPass = true
                     } else if(pass != passConf){
                         passConfError = true
-                    } else if(pass == passConf.lowercased()){
-                        caseError = true
                     } else if(!(pass.count >= 7)){
                         shortPass = true
+                    }else if(pass == passConf.lowercased()){
+                        caseError = true
                     }
                         else if(!isValidEmail(login)){
                         invalidEmail = true
@@ -84,7 +84,6 @@ struct registration: View {
                         register(name: login, password: pass)
                         presentationMode.wrappedValue.dismiss()
                     }
-                    
                 }){
                 HStack{
                     Text("Confirm").padding(.horizontal,27).padding(.vertical, 12).foregroundColor(.white)

@@ -63,7 +63,7 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
                         viewControl.showingaddArmy = true
                     }) {
                         Label("Add",systemImage:"plus.app")}.sheet(isPresented:$viewControl.showingaddArmy){
-                            addArmyDialog().environmentObject(viewControl).environmentObject(collectionDatas).environmentObject(armyControl)
+                            addArmyDialog().environmentObject(viewControl).environmentObject(collectionDatas).environmentObject(armyControl).interactiveDismissDisabled()
                         }
 
                     }

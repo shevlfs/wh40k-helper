@@ -23,5 +23,310 @@
   "s": "5",
   "ap": -1,
   "d": "2"
-    }
+    },{
+              "id": 3,
+                    "name": "Bolt rifle",
+                    "range": "30",
+              "type": "Rapid Fire 1",
+              "s": "4",
+              "ap": -1,
+              "d": "1"
+              
+          },{
+                "id": 4,
+                "name": "Bolt carbine",
+                "range": "36",
+                    "type": "Assault 2",
+                    "s": "4",
+                    "ap": 0,
+                    "d": "1"
+                      },
+          {
+          "id": 5,
+                "name": "Combi-bolter",
+                "range": "24",
+          "type": "Rapid Fire 2",
+          "s": "4",
+          "ap": 0,
+          "d": "1"
+            },
+          {
+          "id": 6,
+                "name": "Boltgun",
+                "range": "24",
+          "type": "Rapid Fire 1",
+          "s": "4",
+          "ap": 0,
+          "d": "1"
+            },
+          {
+          "id": 7,
+                "name": "Meltagun",
+                "range": "12",
+          "type": "Assault 1",
+          "s": "8",
+          "ap": -4,
+          "d": "D6"
+            },
+          {
+          "id": 8,
+                "name": "Grav-gun",
+                "range": "18",
+          "type": "Rapid Fire 1",
+          "s": "5",
+          "ap": -3,
+          "d": "1"
+            },{
+                  "id": 9,
+                  "name": "Hunter-slayer missile",
+                  "range": 48,
+                  "type": "Heavy 1",
+                  "s": 10,
+                  "ap": -2,
+                  "d": "06"
+                },
+                {
+                  "id": 10,
+                  "name": "Hurricane bolter",
+                  "range": 24,
+                  "type": "Rapid Fire 6",
+                  "s": 4,
+                  "ap": 0,
+                  "d": 1
+                },
+                {
+                  "id": 11,
+                  "name": "Icarus ironhail heavy stubber",
+                  "range": 36,
+                  "type": "Heavy 4",
+                  "s": 4,
+                  "ap": -1,
+                  "d": 1
+                },
+                {
+                  "id": 12,
+                  "name": "Icarus rocket pod",
+                  "range": 24,
+                  "type": "Heavy 03",
+                  "s": 7,
+                  "ap": -1,
+                  "d": 2
+                },
+                {
+                  "id": 13,
+                  "name": "Icarus stormcannon",
+                  "range": 48,
+                  "type": "Heavy 3",
+                  "s": 7,
+                  "ap": -1,
+                  "d": 2
+                },
+                {
+                  "id": 14,
+                  "name": "Incendium cannon",
+                  "range": 12,
+                  "type": "Heavy 2D6",
+                  "s": 5,
+                  "ap": -1,
+                  "d": 1
+                },
+                {
+                  "id": 15,
+                  "name": "Inferno pistol",
+                  "range": 6,
+                  "type": "Pistol 1",
+                  "s": 8,
+                  "ap": -4,
+                  "d": "06"
+                },
+                {
+                  "id": 16,
+                  "name": "Instigator bolt carbine",
+                  "range": 24,
+                  "type": "Assault 1",
+                  "s": 4,
+                  "ap": -1,
+                  "d": 2
+                },
+                {
+                  "id": 17,
+                  "name": "Ironhail heavy stubber",
+                  "range": 36,
+                  "type": "Heavy 4",
+                  "s": 4,
+                  "ap": -1,
+                  "d": 1
+                },
+                {
+                  "id": 18,
+                  "name": "Ironhail skytalon array",
+                  "range": 36,
+                  "type": "Heavy 8",
+                  "s": 4,
+                  "ap": -1,
+                  "d": 1
+                },
+                {
+                  "id": 19,
+                  "name": "Kheres-pattern assault cannon",
+                  "range": 24,
+                  "type": "Heavy 6",
+                  "s": 7,
+                  "ap": -1,
+                  "d": 1
+                },
+                {
+                  "id": 20,
+                  "name": "Krak grenades",
+                  "range": 6,
+                  "type": "Grenade 1",
+                  "s": 6,
+                  "ap": -1,
+                  "d": "03"
+                },
+                {
+                  "id": 21,
+                  "name": "Krakstorm grenade launcher",
+                  "range": 18,
+                  "type": "Assault 1",
+                  "s": 6,
+                  "ap": -1,
+                  "d": "03"
+                },
+                {
+                  "id": 22,
+                  "name": "Las fusil",
+                  "range": 36,
+                  "type": "Heavy 1",
+                  "s": 8,
+                  "ap": -3,
+                  "d": 3
+                },
+                {
+                  "id": 23,
+                  "name": "Las-talon",
+                  "range": 24,
+                  "type": "Heavy 2",
+                  "s": 9,
+                  "ap": -3,
+                  "d": "06"
+                },
+                {
+                  "id": 24,
+                  "name": "Lascannon",
+                  "range": 48,
+                  "type": "Heavy 1",
+                  "s": 9,
+                  "ap": -3,
+                  "d": "06"
+                },
+                {
+                  "id": 25,
+                  "name": "Lancer laser destroyer",
+                  "range": 72,
+                  "type": "Heavy 2",
+                  "s": 10,
+                  "ap": -3,
+                  "d": "03+3"
+                },
+                {
+                  "id": 26,
+                  "name": "Standard Supercharge",
+                  "range": 36,
+                  "type": "Heavy D6",
+                  "s": 9,
+                  "ap": -4,
+                  "d": 3
+                },
+                {
+                  "id": 27,
+                  "name": "Marksman bolt carbine",
+                  "range": 24,
+                  "type": "Rapid Fire 1",
+                  "s": 4,
+                  "ap": 0,
+                  "d": 1
+                },
+                {
+                  "id": 28,
+                  "name": "Master-crafted auto bolt rifle",
+                  "range": 24,
+                  "type": "Assault 3",
+                  "s": 4,
+                  "ap": 0,
+                  "d": 2
+                },
+                {
+                  "id": 29,
+                  "name": "Master-crafted boltgun",
+                  "range": 24,
+                  "type": "Rapid Fire 1",
+                  "s": 4,
+                  "ap": -1,
+                  "d": 2
+                },
+                {
+                  "id": 30,
+                  "name": "Master-crafted heavy bolt rifle",
+                  "range": 36,
+                  "type": "Rapid Fire 1",
+                  "s": 5,
+                  "ap": -1,
+                  "d": 2
+                },
+                {
+                  "id": 31,
+                  "name": "Master-crafted instigator bolt carbine",
+                  "range": 30,
+                  "type": "Assault 1",
+                  "s": 4,
+                  "ap": -2,
+                  "d": 3
+                },
+                {
+                  "id": 32,
+                  "name": "Master-crafted occulus bolt carbine",
+                  "range": 24,
+                  "type": "Rapid Fire 1",
+                  "s": 4,
+                  "ap": 0,
+                  "d": 2
+                },
+                {
+                  "id": 33,
+                  "name": "Master-crafted bolt pistol",
+                  "range": 12,
+                  "type": "Pistol 1",
+                  "s": 4,
+                  "ap": -2,
+                  "d": 2
+                },
+                {
+                  "id": 34,
+                  "name": "Master-crafted stalker bolt rifle",
+                  "range": 36,
+                  "type": "Heavy 1",
+                  "s": 4,
+                  "ap": -2,
+                  "d": 3
+                },
+                {
+                  "id": 35,
+                  "name": "Melta destroyer",
+                  "range": 24,
+                  "type": "Heavy 3",
+                  "s": 8,
+                  "ap": -4,
+                  "d": "D6"
+                },
+                {
+                  "id": 36,
+                  "name": "Melta rifle",
+                  "range": 24,
+                  "type": "Assault 1",
+                  "s": 8,
+                  "ap": -4,
+                  "d": "D6"
+                }
 ]
+
