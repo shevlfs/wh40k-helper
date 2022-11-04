@@ -10,6 +10,7 @@ struct ContentView: View { // View с главным меню после зах�
     
     @StateObject var viewControl = viewController()
     var body: some View {
+        NavigationView {
             ScrollView(.vertical){
                 HStack{
                     Text("Your armies").font(.largeTitle).fontWeight(.semibold).padding()
@@ -71,12 +72,15 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
                 ToolbarItemGroup(placement: .navigationBarLeading){
                     Button(action:{
                         showAppSettings = true
-                        
+                    
                     }) {
                         Label("Settings",systemImage:"gear")
                     }
                 }
             }
+        }.fullScreenCover(isPresented: $reloadControl.showLoginScreen){
+            loginAuth().environmentObject(reloadControl).environmentObject(armyControl).environmentObject(collectionDatas)
+        }
     }
 }
     

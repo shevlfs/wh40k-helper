@@ -16,9 +16,9 @@ struct loginAuth: View { // View с экраном авторизации (вп�
     @State var wrongPass = false
     @State var emptyPass = false
     @State var notVerified = false
-    @StateObject var collectionDatas = collectionData()
+    @EnvironmentObject var collectionDatas : collectionData
     @EnvironmentObject var reloadControl : reloadController
-    @StateObject var armyControl = armyController()
+    @EnvironmentObject var armyControl : armyController
     var body: some View {
         NavigationView{
         VStack{     
@@ -56,19 +56,6 @@ struct loginAuth: View { // View с экраном авторизации (вп�
                     }.sheet(isPresented: $showForgotprompt, content: {forgotPass()})
                     Spacer()
                 }
-                if (isUserAuthenticated == true){
-                    if (reloadControl.reloadNeeded == true && reloadControl.logOutPerformed == false){
-                        NavigationLink(destination: ContentView().environmentObject(fillCollectionInfo(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $isUserAuthenticated){ // вызов главного меню при успешной  авторизации (при предыдущем выходе)
-                    EmptyView()
-                }
-                    } else {
-                        NavigationLink(destination: ContentView().environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $isUserAuthenticated){ // вызов главного меню при успешной авторизации (при входе в первый раз)
-                        EmptyView()
-                    }
-                        
-                    }
-                }
-                
                 Text("Wrong name or password.").foregroundColor(.red).fontWeight(.semibold).opacity(!wrongPass ? 0 : 1)
         
                 Text("Please verify your email by checking your inbox for a message from ArmyBuilder.").foregroundColor(.red).fontWeight(.semibold).opacity(!notVerified ? 0 : 1)
@@ -89,9 +76,10 @@ struct loginAuth: View { // View с экраном авторизации (вп�
                             } else {
                                 let result = armybuilder.login(name: userEmail, password: userPass)
                                if (result == "logged in successfully" ){
-                                   reloadControl.reloadNeeded = true
                                    reloadControl.currentUser = whoami()
-                                   self.isUserAuthenticated = true
+                                   armyControl.armies = filledarmycontrol.armies
+                                   collectionDatas.collectionDict = fillCollectionInfo(collectionDatas: collectionDatas).collectionDict
+                                   reloadControl.showLoginScreen = false
                                } else if (result == "verify your account"){
                                    self.notVerified = true
                                }
