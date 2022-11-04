@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct loginAuth: View { // View с экраном авторизации (впервые при загрузке приложения)
-    @State var login = String()
-    @State var pass = String()
-    
+    @State var userEmail = String() //
+    @State var userPass = String()
     @State var showForgotprompt = false
-    @State var Auth: Bool? = nil
+    @State var isUserAuthenticated: Bool? = nil
     @State var showRegistration = false
     @State var wrongPass = false
     @State var emptyPass = false
@@ -32,7 +31,7 @@ struct loginAuth: View { // View с экраном авторизации (вп�
             HStack{
                 Text("Email").fontWeight(.semibold).font(.title3)
                 Spacer()
-            TextField("", text: $login).padding().foregroundColor(.black)
+            TextField("", text: $userEmail).padding().foregroundColor(.black)
                     .frame(maxWidth: 195,maxHeight: 10)
                 .padding()
                 .background(
@@ -42,7 +41,7 @@ struct loginAuth: View { // View с экраном авторизации (вп�
             HStack{
                 Text("Password").fontWeight(.semibold).font(.title3)
                 Spacer()
-            SecureField("", text: $pass).padding().foregroundColor(.black)
+            SecureField("", text: $userPass).padding().foregroundColor(.black)
                 .frame(maxWidth: 195, maxHeight: 10)
                 .padding()
                 .background(
@@ -57,13 +56,13 @@ struct loginAuth: View { // View с экраном авторизации (вп�
                     }.sheet(isPresented: $showForgotprompt, content: {forgotPass()})
                     Spacer()
                 }
-                if (Auth == true){
+                if (isUserAuthenticated == true){
                     if (reloadControl.reloadNeeded == true && reloadControl.logOutPerformed == false){
-                        NavigationLink(destination: ContentView().environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){ // вызов главного меню при успешной  авторизации (при предыдущем выходе)
+                        NavigationLink(destination: ContentView().environmentObject(fillCollectionInfo(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $isUserAuthenticated){ // вызов главного меню при успешной  авторизации (при предыдущем выходе)
                     EmptyView()
                 }
                     } else {
-                        NavigationLink(destination: ContentView().environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){ // вызов главного меню при успешной авторизации (при входе в первый раз)
+                        NavigationLink(destination: ContentView().environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(reloadControl).onAppear(perform: {reloadControl.reloadNeeded = false}).navigationBarBackButtonHidden(true), tag: true, selection: $isUserAuthenticated){ // вызов главного меню при успешной авторизации (при входе в первый раз)
                         EmptyView()
                     }
                         
@@ -85,13 +84,13 @@ struct loginAuth: View { // View с экраном авторизации (вп�
                         Button(action: {
                             wrongPass = false
                             notVerified = false
-                            if (login.isEmpty || pass.isEmpty){
+                            if (userEmail.isEmpty || userPass.isEmpty){
                                 wrongPass = true
                             } else {
-                                let result = armybuilder.login(name: login, password: pass)
+                                let result = armybuilder.login(name: userEmail, password: userPass)
                                if (result == "logged in successfully" ){
                                    reloadControl.reloadNeeded = true
-                                   self.Auth = true
+                                   self.isUserAuthenticated = true
                                } else if (result == "verify your account"){
                                    self.notVerified = true
                                }

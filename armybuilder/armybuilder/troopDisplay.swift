@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct troopDisplay: View {
-    @State var unitcount: Int
+    @State var unitCount: Int
     @State var unitname = String()
     @State var pointcount = Int()
-    @State var Unit: unit
+    @State var Unit: unit   
     @State var faction = Int()
     @State var armyID: Int
     @EnvironmentObject var pointTarget: pointTarget
@@ -50,7 +50,7 @@ extension troopDisplay {
              
                 
             
-            Text("\(unitcount)").foregroundColor(.white)
+            Text("\(unitCount)").foregroundColor(.white)
                 .padding(.vertical, 8).padding(.horizontal, 40)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
@@ -62,6 +62,6 @@ extension troopDisplay {
 
 struct troopDisplay_Previews: PreviewProvider {
     static var previews: some View {
-        troopDisplay(unitcount: 0, Unit: globalstats[0].units[0], armyID: 0)
+        troopDisplay(unitCount: 0, Unit: globalstats[0].units[0], armyID: 0)
     }
 }

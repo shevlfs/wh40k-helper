@@ -26,7 +26,7 @@ struct editArmy: View {
         NavigationView(){
         VStack(){
             HStack(){
-                if (pointTarget.targetpointbool == false){
+                if (pointTarget.isPointTargetOn == false){
                 Button(action:{ self.targetMenu.toggle()}){
                     Text("\(armyControl.armies[armyID].pointCount) pts").foregroundColor(.white)
                     .frame(width: 195, height: 10)
@@ -46,9 +46,9 @@ struct editArmy: View {
 
             } else {
                 
-                if (armyControl.armies[armyID].pointCount > pointTarget.count){
+                if (armyControl.armies[armyID].pointCount > pointTarget.pointTargetCount){
                 Button(action:{ self.targetMenu.toggle()}){
-                Text("\(armyControl.armies[armyID].pointCount) pts / \(pointTarget.count) pts ").foregroundColor(.white)
+                Text("\(armyControl.armies[armyID].pointCount) pts / \(pointTarget.pointTargetCount) pts ").foregroundColor(.white)
                 .frame(width: 195, height: 10)
                 .padding()
                 .background(
@@ -66,7 +66,7 @@ struct editArmy: View {
                 
                 } else {
                     Button(action:{ self.targetMenu.toggle()}){
-                        Text("\(armyControl.armies[armyID].pointCount) pts / \(pointTarget.count) pts ").foregroundColor(.white)
+                        Text("\(armyControl.armies[armyID].pointCount) pts / \(pointTarget.pointTargetCount) pts ").foregroundColor(.white)
                     .frame(width: 195, height: 10)
                     .padding()
                     .background(
@@ -120,7 +120,7 @@ struct editArmy: View {
                                 collectionDatas.getUnits(factionID: factionfile)
                             ){unit in
                                 ZStack(){
-                                    troopCollectionEditCount(unitcount: armyControl.armies[armyID].troops[unit.unitid] ?? 999, unitname: globalstats[factionfile].units[unit.unitid-1].name, pointcount: globalstats[factionfile].units[unit.unitid-1].pts, unit: globalstats[factionfile].units[unit.unitid-1], armyID: armyID, faction: factionfile).environmentObject(pointTarget).environmentObject(armyControl)
+                                    troopCollectionEditCount(unitCount: armyControl.armies[armyID].troops[unit.unitid] ?? 999, unitName: globalstats[factionfile].units[unit.unitid-1].name, pointCount: globalstats[factionfile].units[unit.unitid-1].pts, unit: globalstats[factionfile].units[unit.unitid-1], armyID: armyID, faction: factionfile).environmentObject(pointTarget).environmentObject(armyControl)
                                     
                                 }
                             }

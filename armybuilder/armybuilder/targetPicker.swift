@@ -13,21 +13,21 @@ struct targetPicker: View {
 
     var body: some View {
         VStack{
-            Toggle("Point target", isOn: $pointTarget.targetpointbool).padding().foregroundColor(.black)
+            Toggle("Point target", isOn: $pointTarget.isPointTargetOn).padding().foregroundColor(.black)
             Text("Select target number of points:").foregroundColor(.black)
-        TextField("", value: $pointTarget.count, formatter: NumberFormatter())
+        TextField("", value: $pointTarget.pointTargetCount, formatter: NumberFormatter())
             .keyboardType(.numberPad)
-            .onReceive(Just(pointTarget.count)) { newValue in
+            .onReceive(Just(pointTarget.pointTargetCount)) { newValue in
                 let filtered = newValue
                 if filtered != newValue {
-                    pointTarget.count = filtered
+                    pointTarget.pointTargetCount = filtered
                 }
             }.padding().foregroundColor(.white)
                 .frame(width: 150, height: 10)
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 8)
-                        .fill(Color(UIColor.systemGray2))).disabled(!pointTarget.targetpointbool)
+                        .fill(Color(UIColor.systemGray2))).disabled(!pointTarget.isPointTargetOn)
         }.padding()
     }
 }

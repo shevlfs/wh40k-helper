@@ -61,7 +61,7 @@ struct afterLogOut: View { // View с экраном авторизации (п�
                 
                 if (Auth == true){
                     if (reloadControl.reloadNeeded == true && reloadControl.logOutPerformed == true){
-                        NavigationLink(destination: ContentView().onAppear(perform: {reloadControl.logOutPerformed = false}).environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){
+                        NavigationLink(destination: ContentView().onAppear(perform: {reloadControl.logOutPerformed = false}).environmentObject(fillCollectionInfo(collectionDatas: collectionDatas)).environmentObject(filledarmycontrol).environmentObject(reloadControl).navigationBarBackButtonHidden(true), tag: true, selection: $Auth){
                     EmptyView()
                 }
                     } else {

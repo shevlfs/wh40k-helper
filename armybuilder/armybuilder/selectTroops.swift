@@ -9,8 +9,8 @@ import SwiftUI
 
 
 class pointTarget: ObservableObject{ // объект для хранения цели по очкам
-    @Published var count = 1000
-    @Published var targetpointbool = false
+    @Published var pointTargetCount = 1000
+    @Published var isPointTargetOn = false
     @Published var currentPoints = 0
 }
 
@@ -37,7 +37,7 @@ struct selectTroops: View {
         }
         VStack(){
             HStack(){
-                if (pointTarget.targetpointbool == false){
+                if (pointTarget.isPointTargetOn == false){
                 Button(action:{ self.targetMenu.toggle()}){
                     Text("\(armyControl.armies[armyControl.armies.count-1].pointCount) pts").foregroundColor(.white)
                     .frame(width: 195, height: 10)
@@ -54,9 +54,9 @@ struct selectTroops: View {
                             }
                 }
             } else {
-                if (armyControl.armies[armyControl.armies.count-1].pointCount > pointTarget.count){
+                if (armyControl.armies[armyControl.armies.count-1].pointCount > pointTarget.pointTargetCount){
                 Button(action:{ self.targetMenu.toggle()}){
-                Text("\(armyControl.armies[armyControl.armies.count-1].pointCount) pts / \(pointTarget.count) pts ").foregroundColor(.white)
+                Text("\(armyControl.armies[armyControl.armies.count-1].pointCount) pts / \(pointTarget.pointTargetCount) pts ").foregroundColor(.white)
                 .frame(width: 195, height: 10)
                 .padding()
                 .background(
@@ -72,7 +72,7 @@ struct selectTroops: View {
             }
                 } else {
                     Button(action:{ self.targetMenu.toggle()}){
-                        Text("\(armyControl.armies[armyControl.armies.count-1].pointCount) pts / \(pointTarget.count) pts ").foregroundColor(.white)
+                        Text("\(armyControl.armies[armyControl.armies.count-1].pointCount) pts / \(pointTarget.pointTargetCount) pts ").foregroundColor(.white)
                     .frame(width: 195, height: 10)
                     .padding()
                     .background(

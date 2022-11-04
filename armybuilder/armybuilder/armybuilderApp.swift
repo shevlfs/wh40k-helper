@@ -24,7 +24,7 @@ struct armybuilderApp: App { // главная функция всего при�
                 }).onDisappear(perform: {reloadControl.reloadNeeded = false})
             } else{
                 if (reloadControl.reloadNeeded == true && reloadControl.logOutPerformed == false){
-                    ContentViewLogged().environmentObject(filledarmycontrol).environmentObject(fillcollectiondata(collectionDatas: collectionDatas)).environmentObject(reloadControl).onAppear(perform:{
+                    ContentViewLogged().environmentObject(filledarmycontrol).environmentObject(fillCollectionInfo(collectionDatas: collectionDatas)).environmentObject(reloadControl).onAppear(perform:{
                         reloadControl.reloadNeeded = false
                     })
                 } else {
@@ -89,7 +89,7 @@ struct armybuilderApp: App { // главная функция всего при�
 
 
 
-func fillcollectiondata(collectionDatas: collectionData)->collectionData{
+func fillCollectionInfo(collectionDatas: collectionData)->collectionData{
     let tempCollection = getCollectionDatas()
     collectionDatas.collectionDict = tempCollection
     return collectionDatas

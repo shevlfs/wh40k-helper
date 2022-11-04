@@ -16,7 +16,6 @@
 		5611EA09286BB227004BC850 /* rectangleLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611EA08286BB227004BC850 /* rectangleLogo.swift */; };
 		5627BA9C288324EC00FF6F33 /* forgotPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627BA9B288324EB00FF6F33 /* forgotPass.swift */; };
 		562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A3B8A27C36C1800AB0A80 /* armyView.swift */; };
-		562A87A727E8D9C40076FB6A /* haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87A627E8D9C30076FB6A /* haptic.swift */; };
 		562A87A927E8EF850076FB6A /* editArmy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87A827E8EF850076FB6A /* editArmy.swift */; };
 		562A87AB27E8FB1B0076FB6A /* appSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87AA27E8FB1B0076FB6A /* appSettings.swift */; };
 		562A87AD27E8FB470076FB6A /* addArmyDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87AC27E8FB470076FB6A /* addArmyDialog.swift */; };
@@ -74,7 +73,6 @@
 		5611EA08286BB227004BC850 /* rectangleLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rectangleLogo.swift; sourceTree = "<group>"; };
 		5627BA9B288324EB00FF6F33 /* forgotPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forgotPass.swift; sourceTree = "<group>"; };
 		562A3B8A27C36C1800AB0A80 /* armyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armyView.swift; sourceTree = "<group>"; };
-		562A87A627E8D9C30076FB6A /* haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = haptic.swift; sourceTree = "<group>"; };
 		562A87A827E8EF850076FB6A /* editArmy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editArmy.swift; sourceTree = "<group>"; };
 		562A87AA27E8FB1B0076FB6A /* appSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appSettings.swift; sourceTree = "<group>"; };
 		562A87AC27E8FB470076FB6A /* addArmyDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addArmyDialog.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				56883D1027A5DF9F00349E69 /* ContentView.swift */,
 				56BFC54A287321AA0065A40D /* ContentViewLogged.swift */,
 				56594CC72864BD6600D1A9C5 /* mods.json */,
-				562A87A627E8D9C30076FB6A /* haptic.swift */,
 				56448863285CB5F500AB2273 /* Data.swift */,
 				56733220285E1D6D00AF0AF9 /* troopDisplay.swift */,
 				5665937F286A47E8004B0473 /* armyCustomization.swift */,
@@ -334,7 +331,6 @@
 				56BFC550287897EC0065A40D /* afterLogOut.swift in Sources */,
 				56940119286BBC9F007841BB /* registration.swift in Sources */,
 				566C244327ED1176008C1362 /* troopCountSelect.swift in Sources */,
-				562A87A727E8D9C40076FB6A /* haptic.swift in Sources */,
 				5644884828577B0D00AB2273 /* accountSettings.swift in Sources */,
 				562A87AB27E8FB1B0076FB6A /* appSettings.swift in Sources */,
 				56883D0F27A5DF9F00349E69 /* armybuilderApp.swift in Sources */,

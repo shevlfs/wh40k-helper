@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct troopCollectionEditCount: View {
-    @State var unitcount: Int
-    @State var unitname = String()
-    @State var pointcount = Int()
+    @State var unitCount: Int
+    @State var unitName = String()
+    @State var pointCount = Int()
     @State var unit: unit
     @State var armyID: Int
     @State var faction: Int
@@ -16,7 +16,7 @@ struct troopCollectionEditCount: View {
                 EmptyView()
             }
             NavigationLink(destination: troopDetailedView(Unit: unit, factionID: faction).environmentObject(collectionDatas)){
-            Text(unitname)
+            Text(unitName)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -36,7 +36,7 @@ extension troopCollectionEditCount {
     @ViewBuilder
     private func pickerView() -> some View {
         HStack {
-            Text("\(pointcount) pts").foregroundColor(.white)
+            Text("\(pointCount) pts").foregroundColor(.white)
                 .padding(.vertical, 8).padding(.horizontal, 40)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
@@ -52,10 +52,10 @@ extension troopCollectionEditCount {
                     armyControl.armies[armyID].mods[unit.id] = [modification]()
                         
                     }
-                    armyControl.armies[armyID].pointCount -= pointcount
+                    armyControl.armies[armyID].pointCount -= pointCount
                     armyControl.armies[armyID].troops[unit.id]! -= 1
                 } else if (armyControl.armies[armyID].troops[unit.id]! != 0){
-                    armyControl.armies[armyID].pointCount -= pointcount
+                    armyControl.armies[armyID].pointCount -= pointCount
                     armyControl.armies[armyID].troops[unit.id]! -= 1
                 }
             }) {
@@ -67,7 +67,7 @@ extension troopCollectionEditCount {
             }
             Text("\(armyControl.armies[armyID].troops[unit.id]!)")
             Button(action: {
-                armyControl.armies[armyID].pointCount += pointcount
+                armyControl.armies[armyID].pointCount += pointCount
                 armyControl.armies[armyID].troops[unit.id]! += 1
             }) {
                 Text("+")
