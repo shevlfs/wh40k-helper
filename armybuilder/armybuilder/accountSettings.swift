@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct accountSettings: View {
-    @State var account: String
     @EnvironmentObject var reloadControl: reloadController
     @EnvironmentObject var armyControl: armyController
     @EnvironmentObject var collectionDatas: collectionData
@@ -51,12 +50,12 @@ struct accountSettings: View {
             }.background(RoundedRectangle(cornerRadius: 12).fill(Color(UIColor.systemGray6))).frame(maxWidth: 405).padding()
             Spacer()
             
-        }.navigationBarTitle("\(account)")
+        }.navigationBarTitle("\(reloadControl.currentUser)")
     }
 }
 
 struct accountSettings_Previews: PreviewProvider {
     static var previews: some View {
-        accountSettings(account : "test")
+        accountSettings()
     }
 }

@@ -20,12 +20,13 @@ struct armybuilderApp: App { // главная функция всего при�
             if (!cookieExists){
                 loginAuth().environmentObject(reloadControl).onAppear(perform:{
                     reloadControl.reloadNeeded = false
-                serverHandshake()
+                    reloadControl.currentUser = whoami()
                 }).onDisappear(perform: {reloadControl.reloadNeeded = false})
             } else{
                 if (reloadControl.reloadNeeded == true && reloadControl.logOutPerformed == false){
                     ContentViewLogged().environmentObject(filledarmycontrol).environmentObject(fillCollectionInfo(collectionDatas: collectionDatas)).environmentObject(reloadControl).onAppear(perform:{
                         reloadControl.reloadNeeded = false
+                        reloadControl.currentUser = whoami()
                     })
                 } else {
                 ContentViewLogged().environmentObject(armyControl).environmentObject(collectionDatas).environmentObject(reloadControl)

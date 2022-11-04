@@ -15,10 +15,12 @@ struct appSettings: View { // View с настройками приложени�
             ScrollView(){
                 Group{
             VStack(){
-                NavigationLink(destination: accountSettings(account : whoami()).onAppear(perform: {UINavigationBar.setAnimationsEnabled(false)}).onDisappear(perform: {UINavigationBar.setAnimationsEnabled(true)}).environmentObject(reloadControl).environmentObject(collectionDatas).environmentObject(armyControl)){
+                NavigationLink(destination: accountSettings().environmentObject(reloadControl).environmentObject(collectionDatas).environmentObject(armyControl)){
                     settingsitem(icon: "person.fill", optionname: "Account").padding()
                 }
-                NavigationLink(destination: collectionSettings().environmentObject(collectionDatas)){
+                NavigationLink(destination: collectionSettings().onAppear(perform: {
+                    saveCollection(collectionDatas: collectionDatas)
+                }).environmentObject(collectionDatas)){
                     settingsitem(icon: "archivebox.fill", optionname:"Collection").padding()
                 }
             }.frame(maxWidth: 405).padding(.vertical)

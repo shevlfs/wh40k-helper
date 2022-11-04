@@ -200,7 +200,6 @@ func getPTS(armyControl: armyController,armyID: Int, unitID: Int, modID: Int)->I
 
 class armyController: ObservableObject{ // объект для хранения всех армий
     @Published var armies = [Army]()
-    
     private enum CodingKeys : String, CodingKey { // enum для парсинга с бекенда
         case armies = "armies"
     }
@@ -301,6 +300,7 @@ class reloadController: ObservableObject{
     @Published var reloadNeeded = true
     @Published var loggedIn = false
     @Published var logOutPerformed = false
+    @Published var currentUser = String()
 }
 
 

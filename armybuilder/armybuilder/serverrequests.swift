@@ -436,7 +436,7 @@ func whoami()->String{ // функция получения email текущег
     }
     task.resume()
     repeat {
-        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 2))
     } while !done
     return text
 }
