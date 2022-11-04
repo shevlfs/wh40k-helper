@@ -95,6 +95,7 @@ struct afterLogOut: View { // View с экраном авторизации (п�
                                 let result = armybuilder.login(name: login, password: pass)
                                if (result == "logged in successfully" ){
                                    reloadControl.reloadNeeded = true
+                                   reloadControl.currentUser = whoami()
                                    self.Auth = true
                                } else if (result == "verify your account"){
                                    self.notVerified = true
