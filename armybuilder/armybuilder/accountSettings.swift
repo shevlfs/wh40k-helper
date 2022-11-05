@@ -16,7 +16,7 @@ struct accountSettings: View {
   var body: some View {
     VStack {
       HStack {
-        Text("\(reloadControl.currentUser)").font(.largeTitle).fontWeight(.semibold)
+          Text("\(reloadControl.currentUser)").font(.largeTitle).fontWeight(.semibold).lineLimit(1).minimumScaleFactor(0.01).scaledToFit()
         Spacer()
       }.padding()
       VStack {

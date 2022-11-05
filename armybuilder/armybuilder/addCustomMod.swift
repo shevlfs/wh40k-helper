@@ -15,7 +15,11 @@ struct addCustomMod: View {
   @State var armyID: Int
   @State var Unit: unit
   @Environment(\.presentationMode) var presentationMode
-
+  let dLimit = 3
+  let sLimit = 2
+  let nameLimit = 20
+  let typeLimit = 9
+  let rangeLimit = 3
   @State var Name = String()
   @State var Range = String()
   @State var TypeM = String()
@@ -28,7 +32,6 @@ struct addCustomMod: View {
   var body: some View {
     ScrollView {
       VStack {
-        VStack {
           HStack {
             Text("Name").font(.title2).fontWeight(.semibold)
             Spacer()
@@ -36,13 +39,14 @@ struct addCustomMod: View {
               "",
               text:
                 $Name
-            ).padding().foregroundColor(.white)
+            ).onReceive(Just(Name)) { _ in limitNameText(nameLimit)}.padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray6)))
           }.padding()
+          
 
           HStack {
             Text("Range").font(.title2).fontWeight(.semibold)
@@ -51,22 +55,22 @@ struct addCustomMod: View {
               "",
               text:
                 $Range
-            ).padding().foregroundColor(.white)
+            ).onReceive(Just(Range)) { _ in limitRangeText(rangeLimit)}.padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray6)))
           }.padding()
           HStack {
             Text("Type").font(.title2).fontWeight(.semibold)
             Spacer()
-            TextField("", text: $TypeM).padding().foregroundColor(.white)
+              TextField("", text: $TypeM).onReceive(Just(TypeM)) { _ in limitTypeText(typeLimit)}.padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray6)))
           }.padding()
           HStack {
             Text("S").font(.title2).fontWeight(.semibold)
@@ -75,12 +79,12 @@ struct addCustomMod: View {
               "",
               text:
                 $S
-            ).padding().foregroundColor(.white)
+            ).onReceive(Just(S)) { _ in limitSText(sLimit) }.padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray6)))
           }.padding()
           HStack {
             Text("AP").font(.title2).fontWeight(.semibold)
@@ -92,12 +96,12 @@ struct addCustomMod: View {
                 if filtered != newValue {
                   AP = filtered
                 }
-              }.padding().foregroundColor(.white)
+              }.padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray6)))
           }.padding()
           HStack {
             Text("D").font(.title2).fontWeight(.semibold)
@@ -106,12 +110,12 @@ struct addCustomMod: View {
               "",
               text:
                 $D
-            ).padding().foregroundColor(.white)
+            ).onReceive(Just(D)) { _ in limitDText(dLimit) }.padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray6)))
           }.padding()
           HStack {
             Text("Point cost").font(.title2).fontWeight(.semibold)
@@ -125,12 +129,12 @@ struct addCustomMod: View {
                     PTS = filtered
                   }
                 }
-              }.padding().foregroundColor(.white)
+              }.padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray6)))
           }.padding()
         }
         HStack {
@@ -157,10 +161,35 @@ struct addCustomMod: View {
           }.padding(.horizontal).padding(.vertical, 7)
         }.background(RoundedRectangle(cornerRadius: 15).fill(.blue)).padding()
 
-      }
+      
 
     }.navigationTitle("Add a custom mod")
   }
+    func limitNameText(_ upper: Int) {
+            if Name.count > upper {
+                Name = String(Name.prefix(upper))
+            }
+        }
+    func limitDText(_ upper: Int) {
+            if D.count > upper {
+                D = String(D.prefix(upper))
+            }
+        }
+    func limitSText(_ upper: Int) {
+            if S.count > upper {
+                S = String(S.prefix(upper))
+            }
+        }
+    func limitTypeText(_ upper: Int) {
+            if TypeM.count > upper {
+                TypeM = String(TypeM.prefix(upper))
+            }
+        }
+    func limitRangeText(_ upper: Int) {
+            if Range.count > upper {
+                Range = String(Range.prefix(upper))
+            }
+        }
 }
 
 extension addCustomMod {
@@ -173,20 +202,20 @@ extension addCustomMod {
         }
       }) {
         Text("-")
-          .font(.title2).fontWeight(.semibold).foregroundColor(.white)
+          .font(.title2).fontWeight(.semibold).foregroundColor(.black)
           .padding(.horizontal, 10)
           .padding(.vertical, 6)
-          .background(RoundedRectangle(cornerRadius: 5).fill(Color(UIColor.systemGray2)))
+          .background(RoundedRectangle(cornerRadius: 5).fill(Color(UIColor.systemGray6)))
       }
       Text("\(Count)")
       Button(action: {
         Count = Count + 1
       }) {
         Text("+")
-          .font(.title2).fontWeight(.semibold).foregroundColor(.white)
+          .font(.title2).fontWeight(.semibold).foregroundColor(.black)
           .padding(.horizontal, 10)
           .padding(.vertical, 6)
-          .background(RoundedRectangle(cornerRadius: 5).fill(Color(UIColor.systemGray2)))
+          .background(RoundedRectangle(cornerRadius: 5).fill(Color(UIColor.systemGray6)))
       }
     }
   }

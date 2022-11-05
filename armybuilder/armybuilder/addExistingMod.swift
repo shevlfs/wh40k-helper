@@ -30,12 +30,12 @@ struct addExistingMod: View {
               "",
               text:
                 $Name
-            ).disabled(true).padding().foregroundColor(.white)
+            ).disabled(true).padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray4)))
           }.padding()
 
           HStack {
@@ -45,22 +45,22 @@ struct addExistingMod: View {
               "",
               text:
                 $Range
-            ).disabled(true).padding().foregroundColor(.white)
+            ).disabled(true).padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray4)))
           }.padding()
           HStack {
             Text("Type").font(.title2).fontWeight(.semibold)
             Spacer()
-            TextField("", text: $TypeM).disabled(true).padding().foregroundColor(.white)
+            TextField("", text: $TypeM).disabled(true).padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray4)))
           }.padding()
           HStack {
             Text("S").font(.title2).fontWeight(.semibold)
@@ -69,12 +69,12 @@ struct addExistingMod: View {
               "",
               text:
                 $S
-            ).disabled(true).padding().foregroundColor(.white)
+            ).disabled(true).padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray4)))
           }.padding()
           HStack {
             Text("AP").font(.title2).fontWeight(.semibold)
@@ -86,12 +86,12 @@ struct addExistingMod: View {
                 if filtered != newValue {
                   AP = filtered
                 }
-              }.disabled(true).padding().foregroundColor(.white)
+              }.disabled(true).padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray4)))
           }.padding()
           HStack {
             Text("D").font(.title2).fontWeight(.semibold)
@@ -100,12 +100,12 @@ struct addExistingMod: View {
               "",
               text:
                 $D
-            ).disabled(true).padding().foregroundColor(.white)
+            ).disabled(true).padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray4)))
           }.padding()
           HStack {
             Text("Point cost").font(.title2).fontWeight(.semibold)
@@ -119,12 +119,12 @@ struct addExistingMod: View {
                     PTS = filtered
                   }
                 }
-              }.padding().foregroundColor(.white)
+              }.padding().foregroundColor(.black)
               .frame(width: 150, height: 10)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray2)))
+                  .fill(Color(UIColor.systemGray6)))
           }.padding()
         }
         HStack {
@@ -167,20 +167,20 @@ extension addExistingMod {
         }
       }) {
         Text("-")
-          .font(.title2).fontWeight(.semibold).foregroundColor(.white)
+          .font(.title2).fontWeight(.semibold).foregroundColor(.black)
           .padding(.horizontal, 10)
           .padding(.vertical, 6)
-          .background(RoundedRectangle(cornerRadius: 5).fill(Color(UIColor.systemGray2)))
+          .background(RoundedRectangle(cornerRadius: 5).fill(Color(UIColor.systemGray6)))
       }
       Text("\(Count)")
       Button(action: {
         Count = Count + 1
       }) {
         Text("+")
-          .font(.title2).fontWeight(.semibold).foregroundColor(.white)
+          .font(.title2).fontWeight(.semibold).foregroundColor(.black)
           .padding(.horizontal, 10)
           .padding(.vertical, 6)
-          .background(RoundedRectangle(cornerRadius: 5).fill(Color(UIColor.systemGray2)))
+          .background(RoundedRectangle(cornerRadius: 5).fill(Color(UIColor.systemGray6)))
       }
     }
   }

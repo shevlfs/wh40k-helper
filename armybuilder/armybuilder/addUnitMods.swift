@@ -28,10 +28,10 @@ struct addUnitMods: View {
             ) {
               EmptyView()
             }
-            Text("Add custom...")
-              .font(.title2).foregroundColor(.blue)
-              .fontWeight(.semibold).onTapGesture {
-                self.addMod = true
+              Button(action: {self.addMod = true}){
+                  Text("Add custom...")
+                    .font(.title2).foregroundColor(.blue)
+                    .fontWeight(.semibold)
               }
           }.padding()
           ForEach(searchResults) { mod in
