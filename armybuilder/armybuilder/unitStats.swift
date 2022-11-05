@@ -14,55 +14,55 @@ struct unitStats: View {
       Group {
         HStack {
           VStack {
-              Text("M").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
-              Text("\(Unit.m)".suffix(2)).font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
+              Text("M").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
+              Text("\(Unit.m)".suffix(2)).font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
 
           }
           VStack {
-            Text("WS").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
-            Text("\(Unit.ws)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
+            Text("WS").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
+            Text("\(Unit.ws)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
 
           }
           VStack {
-            Text("BS").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
-            Text("\(Unit.bs)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
+            Text("BS").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
+            Text("\(Unit.bs)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
 
           }
           VStack {
-            Text("S").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
-            Text("\(Unit.s)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
+            Text("S").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
+            Text("\(Unit.s)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
 
           }
           VStack {
-            Text("T").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
-            Text("\(Unit.t)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
+            Text("T").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
+            Text("\(Unit.t)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
 
           }
           VStack {
-            Text("W").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
-            Text("\(Unit.w)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
+            Text("W").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
+            Text("\(Unit.w)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
 
           }
           VStack {
-            Text("A").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
-            Text("\(Unit.a)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
+            Text("A").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
+            Text("\(Unit.a)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
 
           }
           VStack {
-            Text("Ld").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4)
-            Text("\(Unit.ld)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
+            Text("Ld").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
+            Text("\(Unit.ld)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
 
           }
           VStack {
-            Text("Sv").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
-            Text("\(Unit.sv)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01)
+            Text("Sv").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
+            Text("\(Unit.sv)").font(.title2).fontWeight(.bold).lineLimit(1).foregroundColor(.white).padding(4).minimumScaleFactor(0.01).scaledToFit()
 
           }
 
-        }
+        }.minimumScaleFactor(0.01)
 
-      }.padding()
-    }.background(RoundedRectangle(cornerRadius: 13).fill(.green))
+      }.minimumScaleFactor(0.01).padding()
+    }.minimumScaleFactor(0.01).background(RoundedRectangle(cornerRadius: 13).fill(.green))
   }
 }
 

@@ -26,11 +26,7 @@ struct ContentView: View {  // View с главным меню после зах
               if !army.deleted {
                 NavigationLink(
                   destination: armyDetailedView(id: army.armyid).environmentObject(collectionDatas)
-                    .environmentObject(armyControl).onAppear(perform: {
-                      let value = UIInterfaceOrientation.portrait.rawValue
-                      UIDevice.current.setValue(value, forKey: "orientation")
-                    }
-                    )
+                    .environmentObject(armyControl)
                 ) {
                   // вызов View с детальным просмотром армии
                   armyView(id: army.armyid, faction: factions[army.factionID].name)

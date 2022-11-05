@@ -43,6 +43,5 @@ struct modGameView_Previews: PreviewProvider {
       id: 0,
       mod: modification(name: "asd", range: "", type: "", s: "", ap: 0, d: "", pts: 0, count: 0)
     )
-    .previewInterfaceOrientation(.landscapeLeft)
   }
 }

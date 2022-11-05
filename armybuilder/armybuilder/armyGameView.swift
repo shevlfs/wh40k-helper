@@ -7,26 +7,40 @@
 
 import SwiftUI
 
+
 struct armyGameView: View {
   @State var armyID: Int
+  @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+  @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
   @EnvironmentObject var armyControl: armyController
   var body: some View {
-    VStack {
-      HStack {
-        TableHeader()
-        Spacer()
+      if (horizontalSizeClass == .regular && verticalSizeClass == .compact){
+          VStack {
+              HStack {
+                  TableHeader()
+                  Spacer()
+              }
+              ScrollView {
+                  ForEach(armyControl.getTroops(armyID: armyID + 1)) {
+                      troop in
+                      unitGameView(
+                        id: troop.unitid - 1, armyID: armyID, factionID: armyControl.armies[armyID].factionID
+                      ).environmentObject(armyControl).frame(maxWidth: .infinity, alignment: .leading)
+                  }
+              }
+          }
+      } else {
+          VStack{
+              HStack{
+                  Text("Please flip your device to landscape mode.").font(.title2).fontWeight(.bold).padding().lineLimit(2)
+                  Image(systemName: "arrow.turn.up.right").padding()
+              }.padding()
+              Spacer()
+          }
       }
-      ScrollView {
-        ForEach(armyControl.getTroops(armyID: armyID + 1)) {
-          troop in
-          unitGameView(
-            id: troop.unitid - 1, armyID: armyID, factionID: armyControl.armies[armyID].factionID
-          ).environmentObject(armyControl).frame(maxWidth: .infinity, alignment: .leading)
-        }
-      }
-    }
   }
 }
+
 
 /*struct armyGameView_Previews: PreviewProvider {
     static var previews: some View {
@@ -41,3 +55,4 @@ struct armyGameView: View {
 
 
  */
+

@@ -39,6 +39,5 @@ struct tableUnitHeader: View {
 struct tableUnitHeader_previews: PreviewProvider {
   static var previews: some View {
     tableUnitHeader()
-      .previewInterfaceOrientation(.landscapeLeft)
   }
 }
