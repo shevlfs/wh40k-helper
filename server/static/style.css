@@ -1,12 +1,9 @@
 #header {
 	width: 100%;
-	height: 90px;
-	line-height: 90px;
 	background-color: #FAEBD7;
 	font-family: 'Montserrat', sans-serif;
 	color: #B8860B;
 	font-size: 50px;
-	padding: 10px;
 }
 
 .color-box span {
@@ -56,10 +53,6 @@
 td {
 	vertical-align: top;
 }
-.releaselist {
-    margin-left: auto;
-    margin-right: auto;
-}
 h1{
 	font-size: 30px;
 	padding: 30px;
@@ -89,7 +82,7 @@ h3{
 }
 
 textarta {
-	width: 300px;
+	width: 200px;
 }
 #user-friends {
 	font-size:10px;
@@ -114,3 +107,13 @@ textarea {
     box-shadow: 1px 1px 1px #999;
 }
 
+.passOne {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.passTwo {
+	font-family: 'Montserrat', sans-serif;
+}
+.passTitle{
+	font-family: 'Montserrat', sans-serif;
+}

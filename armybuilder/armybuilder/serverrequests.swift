@@ -79,7 +79,7 @@ func login(name: String, password: String) -> String {  // функция вхо
     "http://94.228.195.88:5000/login", method: .post, parameters: parameters,
     encoding: JSONEncoding.default
   ).responseString {
-    response in answ = response.value!
+      response in answ = response.value ?? "None"
     done = true
   }.responseJSON {
     response in

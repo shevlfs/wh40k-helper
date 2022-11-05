@@ -98,7 +98,7 @@ class UserModel(db.Model):
         with app.app_context():
             msg = Message(subject="Change password -- ArmyBuilder",
                           sender=app.config.get("MAIL_USERNAME"),
-                          recipients=[self.username],  
+                          recipients=[self.username],
                           body="Change your password by clicking this link:\n"
                                "94.228.195.88:5000/changepasswordweb/" + generate_confirmation_token(
                               self.username) + " \n "
