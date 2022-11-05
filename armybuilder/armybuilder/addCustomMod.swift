@@ -20,6 +20,7 @@ struct addCustomMod: View {
   let nameLimit = 20
   let typeLimit = 9
   let rangeLimit = 3
+  @State var emptyWarn = false
   @State var Name = String()
   @State var Range = String()
   @State var TypeM = String()
@@ -32,6 +33,7 @@ struct addCustomMod: View {
   var body: some View {
     ScrollView {
       VStack {
+          Text("Fields cannot be empty.").foregroundColor(.red).opacity(emptyWarn ? 1 : 0)
           HStack {
             Text("Name").font(.title2).fontWeight(.semibold)
             Spacer()
@@ -144,25 +146,30 @@ struct addCustomMod: View {
         }
 
         Button(action: {
-          if PTS < 0 {
-            PTS = 0
-          }
-          let mod = modification(
-            name: Name, range: Range, type: TypeM, s: S, ap: AP, d: D, pts: PTS, count: Count)
-          armyControl.armies[armyID].mods[Unit.id]!.append(mod)
-          armyControl.armies[armyID].pointCount =
-            armyControl.armies[armyID].pointCount + PTS * Count
-          updatearmy(army: armyControl.armies[armyID])
-          presentationMode.wrappedValue.dismiss()
+            
+            if (!Name.trimmingCharacters(in: .whitespaces).isEmpty && !TypeM.trimmingCharacters(in: .whitespaces).isEmpty && !Range.trimmingCharacters(in: .whitespaces).isEmpty &&
+                !D.trimmingCharacters(in: .whitespaces).isEmpty && !S.trimmingCharacters(in: .whitespaces).isEmpty){
+                if PTS < 0 {
+                    PTS = 0
+                }
+                let mod = modification(
+                    name: Name, range: Range, type: TypeM, s: S, ap: AP, d: D, pts: PTS, count: Count)
+                armyControl.armies[armyID].mods[Unit.id]!.append(mod)
+                armyControl.armies[armyID].pointCount =
+                armyControl.armies[armyID].pointCount + PTS * Count
+                updatearmy(army: armyControl.armies[armyID])
+                presentationMode.wrappedValue.dismiss()
+                
+            } else {
+                emptyWarn = true
+            }
+            
         }) {
           HStack {
             Text("Save").foregroundColor(.white).font(.title2).fontWeight(.semibold).padding(
               .horizontal)
           }.padding(.horizontal).padding(.vertical, 7)
         }.background(RoundedRectangle(cornerRadius: 15).fill(.blue)).padding()
-
-      
-
     }.navigationTitle("Add a custom mod")
   }
     func limitNameText(_ upper: Int) {
