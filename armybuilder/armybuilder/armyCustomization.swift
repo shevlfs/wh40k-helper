@@ -8,49 +8,51 @@
 import SwiftUI
 
 struct armyCustomization: View {
-    @EnvironmentObject var armyControl: armyController
-    @State var armyID: Int
-    @State var sameNameWarn = false
-    @State var temparmyName = String()
-    var body: some View {
-        VStack{
-            if (sameNameWarn == true){
-            Text("You already have an army with that name.").foregroundColor(.red).fontWeight(.semibold)
-            }
-            HStack{
-                Text("Army name").font(.title2).fontWeight(.semibold)
-                Spacer()
-                TextField("", text:
-                            $temparmyName).padding().foregroundColor(.white)
-                    .frame(width: 150, height: 10)
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(Color(UIColor.systemGray2)))
-            }.padding()
+  @EnvironmentObject var armyControl: armyController
+  @State var armyID: Int
+  @State var sameNameWarn = false
+  @State var temparmyName = String()
+  var body: some View {
+    VStack {
+      if sameNameWarn == true {
+        Text("You already have an army with that name.").foregroundColor(.red).fontWeight(.semibold)
+      }
+      HStack {
+        Text("Army name").font(.title2).fontWeight(.semibold)
+        Spacer()
+        TextField(
+          "",
+          text:
+            $temparmyName
+        ).padding().foregroundColor(.white)
+          .frame(width: 150, height: 10)
+          .padding()
+          .background(
+            RoundedRectangle(cornerRadius: 8)
+              .fill(Color(UIColor.systemGray2)))
+      }.padding()
 
-        
-            Spacer()
-        }.navigationTitle("Manage army").toolbar{
-            ToolbarItemGroup(placement: .primaryAction){
-                Button(action: {
-                    
-                    for army in armyControl.armies{
-                        if (army.name == temparmyName){
-                            sameNameWarn = true
-                        }
-                    }
-                    if (sameNameWarn == false){
-                        changearmyname(oldname: armyControl.armies[armyID].name, newname: temparmyName)
-                        armyControl.armies[armyID].name = temparmyName
-                    }
-                    
-                }){
-                    Text("Save")
-                }
+      Spacer()
+    }.navigationTitle("Manage army").toolbar {
+      ToolbarItemGroup(placement: .primaryAction) {
+        Button(action: {
+
+          for army in armyControl.armies {
+            if army.name == temparmyName {
+              sameNameWarn = true
             }
+          }
+          if sameNameWarn == false {
+            changearmyname(oldname: armyControl.armies[armyID].name, newname: temparmyName)
+            armyControl.armies[armyID].name = temparmyName
+          }
+
+        }) {
+          Text("Save")
         }
+      }
     }
+  }
 }
 
 /*struct armyCustomization_Previews: PreviewProvider {
@@ -59,7 +61,6 @@ struct armyCustomization: View {
     }
 }*/
 
-
-func getName(armyControl: armyController, id: Int)->String{
-    return armyControl.armies[id].name
+func getName(armyControl: armyController, id: Int) -> String {
+  return armyControl.armies[id].name
 }

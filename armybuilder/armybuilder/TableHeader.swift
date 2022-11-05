@@ -8,30 +8,39 @@
 import SwiftUI
 
 struct TableHeader: View {
-    @State var name = String()
-    var body: some View {
-        HStack{
-        HStack(alignment: .center, spacing: nil){
-            Group{
-                Text("M").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
-                                Text("WS").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
-                                Text("BS").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
-                                Text("S").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
-                                Text("T").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
-                                Text("W").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
-                                Text("A").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
-                                Text("Ld").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
-                                Text("Sv").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(maxWidth: 50, alignment: .leading)
-            }
+  @State var name = String()
+  var body: some View {
+    HStack {
+      HStack(alignment: .center, spacing: nil) {
+        Group {
+          Text("M").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(
+            maxWidth: 50, alignment: .leading)
+          Text("WS").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(
+            maxWidth: 50, alignment: .leading)
+          Text("BS").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(
+            maxWidth: 50, alignment: .leading)
+          Text("S").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(
+            maxWidth: 50, alignment: .leading)
+          Text("T").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(
+            maxWidth: 50, alignment: .leading)
+          Text("W").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(
+            maxWidth: 50, alignment: .leading)
+          Text("A").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(
+            maxWidth: 50, alignment: .leading)
+          Text("Ld").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(
+            maxWidth: 50, alignment: .leading)
+          Text("Sv").font(.title2).fontWeight(.bold).foregroundColor(.white).frame(
+            maxWidth: 50, alignment: .leading)
+        }
 
-        }.padding()
-        }.background(RoundedRectangle(cornerRadius: 10).fill(.green)).padding()
-    }
+      }.padding()
+    }.background(RoundedRectangle(cornerRadius: 10).fill(.green)).padding()
+  }
 }
 
 struct TableHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        TableHeader()
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
+  static var previews: some View {
+    TableHeader()
+      .previewInterfaceOrientation(.landscapeLeft)
+  }
 }

@@ -8,22 +8,24 @@
 import SwiftUI
 
 struct armyGameView: View {
-    @State var armyID: Int
-    @EnvironmentObject var armyControl: armyController
-    var body: some View {
-        VStack{
-            HStack{
-            TableHeader()
-                Spacer()
-            }
-            ScrollView{
-            ForEach(armyControl.getTroops(armyID: armyID+1)){
-                troop in
-                unitGameView(id: troop.unitid-1, armyID: armyID, factionID: armyControl.armies[armyID].factionID).environmentObject(armyControl).frame(maxWidth: .infinity, alignment: .leading)
-            }
-            }
+  @State var armyID: Int
+  @EnvironmentObject var armyControl: armyController
+  var body: some View {
+    VStack {
+      HStack {
+        TableHeader()
+        Spacer()
+      }
+      ScrollView {
+        ForEach(armyControl.getTroops(armyID: armyID + 1)) {
+          troop in
+          unitGameView(
+            id: troop.unitid - 1, armyID: armyID, factionID: armyControl.armies[armyID].factionID
+          ).environmentObject(armyControl).frame(maxWidth: .infinity, alignment: .leading)
         }
+      }
     }
+  }
 }
 
 /*struct armyGameView_Previews: PreviewProvider {
@@ -33,10 +35,9 @@ struct armyGameView: View {
     }
 }*/
 
-
 /*
- 
+
  Text("\(globalstats[factionID].units[id].name)").fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(.white).font(.title2).frame(maxWidth: 50, alignment: .leading)
- 
- 
+
+
  */
