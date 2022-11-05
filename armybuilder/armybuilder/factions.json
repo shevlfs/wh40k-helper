@@ -1,11 +1,11 @@
-[{
-    "id": 0,
-    "name": "Dark Angels"
-
-},{
+[
+    {
+        "id": 0,
+        "name": "Dark Angels"
+    },
+    {
         "id": 1,
         "name": "Gray Knights"
-
     },
     {
         "id": 2,
