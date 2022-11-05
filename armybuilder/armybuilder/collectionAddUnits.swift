@@ -6,9 +6,13 @@ struct collectionAddUnits: View {
   @State var searchText = String()
   var body: some View {
     ScrollView(.vertical) {
+        HStack {
+          Text("Add units to collection").font(.largeTitle).fontWeight(.semibold)
+          Spacer()
+        }.padding()
       HStack {
         Text("Select units for your colleciton ").fontWeight(.regular).padding(
-          [.leading, .bottom, .trailing], 14
+          [.leading, .bottom, .trailing]
         ).font(.title3)
       }
       VStack(alignment: .center) {
@@ -21,7 +25,7 @@ struct collectionAddUnits: View {
             ).environmentObject(collectionDatas)
           }
         }.searchable(text: $searchText)
-      }.navigationTitle("Add units to collection")
+      }
     }
   }
   var searchResults: [unit] {

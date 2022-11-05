@@ -15,7 +15,7 @@ struct unitStats: View {
         HStack {
           VStack {
             Text("M").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
-            Text("\(Unit.m)").font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
+              Text("\(Unit.m)".suffix(2)).font(.title2).fontWeight(.bold).foregroundColor(.white).padding(4)
 
           }
           VStack {

@@ -13,10 +13,14 @@ struct collectionSettings: View {
   var body: some View {
 
     ScrollView(.vertical) {
+        HStack {
+          Text("Add units to collection").font(.largeTitle).fontWeight(.semibold)
+          Spacer()
+        }.padding()
       VStack {
         HStack {
           Text("Choose the faction of your units ").fontWeight(.regular).padding(
-            [.leading, .bottom, .trailing], 14
+            [.leading, .bottom, .trailing]
           ).font(.title3)
         }
         VStack(alignment: .center) {
@@ -38,7 +42,7 @@ struct collectionSettings: View {
         }
 
       }
-    }.navigationBarTitle("Add units to collection").navigationViewStyle(.stack)
+    }.navigationViewStyle(.stack)
   }
 }
 

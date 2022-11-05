@@ -27,7 +27,7 @@ struct targetPicker: View {
         .padding()
         .background(
           RoundedRectangle(cornerRadius: 8)
-            .fill(Color(UIColor.systemGray2))
+            .fill(pointTarget.isPointTargetOn ? Color(UIColor.systemGray3):Color(UIColor.systemGray6))
         ).disabled(!pointTarget.isPointTargetOn)
     }.padding()
   }
