@@ -46,7 +46,7 @@ struct unitGameView: View {
               Spacer()
               Text("\(globalstats[factionID].units[id].name)").fontWeight(.bold).multilineTextAlignment(
                 .trailing
-              ).foregroundColor(.black).font(.title2).frame(maxWidth: 80, alignment: .trailing).scaledToFit().minimumScaleFactor(0.01)
+              ).foregroundColor(.black).font(.title2).frame(maxWidth: 80, alignment: .trailing).lineLimit(3).scaledToFit().minimumScaleFactor(0.01)
           }
   }
 }

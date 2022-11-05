@@ -7,7 +7,6 @@ struct ContentView: View {  // View с главным меню после зах
   @EnvironmentObject var armyControl: armyController
   @EnvironmentObject var reloadControl: reloadController
   @State var deleted = false
-
   @StateObject var viewControl = viewController()
   var body: some View {
     NavigationView {
