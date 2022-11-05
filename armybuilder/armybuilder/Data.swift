@@ -302,6 +302,7 @@ class reloadController: ObservableObject{
     @Published var logOutPerformed = false
     @Published var currentUser = String()
     @Published var userAlreadyLogged = false
+    @Published var showSettings : Bool? = nil
     init() {
         if (loadCookies()){
             self.showLoginScreen = false

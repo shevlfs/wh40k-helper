@@ -52,7 +52,7 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
                         
                     }
                     }
-                    NavigationLink(destination: appSettings().environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(reloadControl), tag: true, selection: $showAppSettings){
+                    NavigationLink(destination: appSettings().environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(reloadControl), tag: true, selection: $reloadControl.showSettings){
                         EmptyView() // вызов настроек приложения
                     }
                     
@@ -71,8 +71,7 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
             }.toolbar{
                 ToolbarItemGroup(placement: .navigationBarLeading){
                     Button(action:{
-                        showAppSettings = true
-                    
+                        reloadControl.showSettings = true
                     }) {
                         Label("Settings",systemImage:"gear")
                     }

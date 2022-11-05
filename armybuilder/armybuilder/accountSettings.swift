@@ -15,6 +15,10 @@ struct accountSettings: View {
     @State var loggedout: Bool? = nil
     var body: some View {
         VStack{
+            HStack{
+                Text("\(reloadControl.currentUser)").font(.largeTitle).fontWeight(.semibold)
+                Spacer()
+            }.padding()
             VStack{
             Button(action:{
                 logout()
@@ -45,7 +49,7 @@ struct accountSettings: View {
             }.background(RoundedRectangle(cornerRadius: 12).fill(Color(UIColor.systemGray6))).frame(maxWidth: 405).padding()
             Spacer()
             
-        }.navigationBarTitle("\(reloadControl.currentUser)")
+        }
     }
 }
 
