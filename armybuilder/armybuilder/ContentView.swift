@@ -90,7 +90,7 @@ struct ContentView: View {  // View с главным меню после зах
           }
         }
       }
-    }.onAppear(perform: {
+    }.navigationViewStyle(.stack).onAppear(perform: {
       if reloadControl.userAlreadyLogged {
         reloadControl.currentUser = whoami()
         armyControl.armies = fillArmyControlInfo(armyControl: armyControl).armies

@@ -40,7 +40,7 @@ struct appSettings: View {  // View с настройками приложени
           }
         }.frame(maxWidth: 405).padding(.vertical)
           .background(RoundedRectangle(cornerRadius: 12).fill(Color(UIColor.systemGray6)))
-      }.padding()
+      }.navigationViewStyle(.stack).padding()
       Spacer()
     }
   }
