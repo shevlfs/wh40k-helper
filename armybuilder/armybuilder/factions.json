@@ -1,50 +1,39 @@
 [{
     "id": 0,
-    "name": "Dark Angels",
-    "file": "greyknightsstats.json"
+    "name": "Dark Angels"
 
 },{
         "id": 1,
-        "name": "Gray Knights",
-        "file": "greyknightsstats.json"
+        "name": "Gray Knights"
 
     },
     {
         "id": 2,
-        "name": "Space Wolves",
-        "file": "spacewolvesstats.json"
+        "name": "Space Wolves"
     },
     {
         "id": 3,
-        "name": "Necrons",
-        "file": "spacewolvesstats.json"
+        "name": "Necrons"
     }, {
         "id": 4,
-        "name": "Space Marines",
-        "file": "spacewolvesstats.json"
+        "name": "Space Marines"
     },{
         "id": 5,
-        "name": "Deathwatch",
-        "file": "spacewolvesstats.json"
+        "name": "Deathwatch"
     },{
         "id": 6,
-        "name": "Thousand Sons",
-        "file": "spacewolvesstats.json"
+        "name": "Thousand Sons"
     },{
         "id": 7,
-        "name": "T'au Empire",
-        "file": "spacewolvesstats.json"
+        "name": "T'au Empire"
     },{
         "id": 8,
-        "name": "Drukhari",
-        "file": "spacewolvesstats.json"
+        "name": "Drukhari"
     },{
         "id": 9,
-        "name": "Adepta Sororitas",
-        "file": "spacewolvesstats.json"
+        "name": "Adepta Sororitas"
     },{
         "id": 10,
-        "name": "Death Guard",
-        "file": "spacewolvesstats.json"
+        "name": "Death Guard"
     }
 ]

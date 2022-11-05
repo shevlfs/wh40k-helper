@@ -10,7 +10,6 @@ import Foundation
 struct faction: Identifiable,Decodable { // структура для фракции
     let id: Int
     let name: String
-    let file: String
 }
 
 var factions: [faction] = load("factions.json") // создания массива factions из json'а

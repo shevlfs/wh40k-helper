@@ -284,9 +284,6 @@ struct serverMod: Codable { // временная структура для па
 
 class viewController: ObservableObject{
     @Published var showingaddArmy = false
-    @Published var addingmod = false
-    init(){
-        }
 }
 
 func isValidEmail(_ email: String) -> Bool {
@@ -309,6 +306,45 @@ class reloadController: ObservableObject{
             self.userAlreadyLogged = true
         }
     }
+}
+
+func fillCollectionInfo(collectionDatas: collectionData)->collectionData{
+    let tempCollection = getCollectionDatas()
+    collectionDatas.collectionDict = tempCollection
+    return collectionDatas
+}
+
+func fillArmyControlInfo(armyControl: armyController)->armyController{
+    let tempArmyList = getArmyControl()
+    armyControl.armies = [Army]()
+    for tempArmy in tempArmyList{
+        var mappedDict = [Int:Int]()
+        var done = false
+        let mappedKeys = tempArmy.troops.map {Int( $0.key)}
+        let zippedArray = Array((zip(mappedKeys, tempArmy.troops.map{$0.value})))
+        for element in zippedArray {
+            mappedDict[element.0!] = element.1
+        }
+        var army = Army(factionID: tempArmy.factionid, armyid: tempArmy.armyid)
+        
+        var tempmods: [Int : [modification]] = [:]
+        for unit in tempArmy.mods.keys{
+            let intkey = Int(unit)
+            tempmods[intkey!] = [modification]()
+            if (!tempArmy.mods[unit]!.isEmpty){
+                for mod in tempArmy.mods[unit]!{
+                    tempmods[intkey!]!.append(modification(name: mod.name, range: mod.range, type: mod.type, s: mod.s, ap: mod.ap, d: mod.d, pts: mod.pts, count: mod.count))
+                }
+            }
+        }
+        
+        army.custinit(name: tempArmy.name, armyid: armyControl.armies.count + 1, factionID: tempArmy.factionid
+                      , pointCount: tempArmy.pointCount, troops: mappedDict, mods: tempmods, deleted: false)
+        
+        
+        armyControl.armies.append(army)
+    }
+    return armyControl
 }
 
 
