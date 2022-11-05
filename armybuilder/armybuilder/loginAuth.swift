@@ -101,7 +101,7 @@ struct loginAuth: View {  // View с экраном авторизации (вп
           }.padding()
         }.padding()
         Spacer()
-      }
-    }.navigationViewStyle(.stack)
+      }.ignoresSafeArea(.keyboard)
+    }.ignoresSafeArea(.keyboard).navigationViewStyle(.stack)
   }
 }
