@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct appSettings: View { // View с настройками приложения
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var armyControl: armyController
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var reloadControl: reloadController
@@ -15,7 +16,11 @@ struct appSettings: View { // View с настройками приложени�
             ScrollView(){
                 Group{
             VStack(){
-                NavigationLink(destination: accountSettings().environmentObject(reloadControl).environmentObject(collectionDatas).environmentObject(armyControl)){
+                NavigationLink(destination: accountSettings().onDisappear(perform: {
+                    if (reloadControl.logOutPerformed) {
+                        dismiss()
+                    }
+                }).environmentObject(reloadControl).environmentObject(collectionDatas).environmentObject(armyControl)){
                     settingsitem(icon: "person.fill", optionname: "Account").padding()
                 }
                 NavigationLink(destination: collectionSettings().onAppear(perform: {

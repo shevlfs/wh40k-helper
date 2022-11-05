@@ -57,8 +57,6 @@
 		56883D1627A5DFA000349E69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1527A5DFA000349E69 /* Preview Assets.xcassets */; };
 		56940119286BBC9F007841BB /* registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56940118286BBC9F007841BB /* registration.swift */; };
 		56BFC544287091980065A40D /* armyControl.json in Resources */ = {isa = PBXBuildFile; fileRef = 56BFC543287091980065A40D /* armyControl.json */; };
-		56BFC54B287321AA0065A40D /* ContentViewLogged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC54A287321AA0065A40D /* ContentViewLogged.swift */; };
-		56BFC550287897EC0065A40D /* afterLogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC54F287897EC0065A40D /* afterLogOut.swift */; };
 		56CD644627E92F40008478CD /* JSONstructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD644527E92F40008478CD /* JSONstructs.swift */; };
 		56F45E4F286B53EE007BA78D /* troopGameDetailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F45E4E286B53EE007BA78D /* troopGameDetailed.swift */; };
 /* End PBXBuildFile section */
@@ -113,8 +111,6 @@
 		56883D1527A5DFA000349E69 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56940118286BBC9F007841BB /* registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registration.swift; sourceTree = "<group>"; };
 		56BFC543287091980065A40D /* armyControl.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = armyControl.json; sourceTree = "<group>"; };
-		56BFC54A287321AA0065A40D /* ContentViewLogged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewLogged.swift; sourceTree = "<group>"; };
-		56BFC54F287897EC0065A40D /* afterLogOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = afterLogOut.swift; sourceTree = "<group>"; };
 		56CD644527E92F40008478CD /* JSONstructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONstructs.swift; sourceTree = "<group>"; };
 		56F45E4E286B53EE007BA78D /* troopGameDetailed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = troopGameDetailed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,7 +163,6 @@
 				562A87AC27E8FB470076FB6A /* addArmyDialog.swift */,
 				56883D0E27A5DF9F00349E69 /* armybuilderApp.swift */,
 				56883D1027A5DF9F00349E69 /* ContentView.swift */,
-				56BFC54A287321AA0065A40D /* ContentViewLogged.swift */,
 				56594CC72864BD6600D1A9C5 /* mods.json */,
 				56448863285CB5F500AB2273 /* Data.swift */,
 				56733220285E1D6D00AF0AF9 /* troopDisplay.swift */,
@@ -198,7 +193,6 @@
 				56083E7F2854D64A00A83C9D /* settingsitem.swift */,
 				56083E832856589C00A83C9D /* serverrequests.swift */,
 				5644884728577B0D00AB2273 /* accountSettings.swift */,
-				56BFC54F287897EC0065A40D /* afterLogOut.swift */,
 				5644884928577B6600AB2273 /* collectionSettings.swift */,
 				5644884F2858B6E300AB2273 /* collectionAddUnits.swift */,
 				564488512858B74800AB2273 /* collectionSelection.swift */,
@@ -316,7 +310,6 @@
 				5673322B2862470C00AF0AF9 /* armyGameView.swift in Sources */,
 				567FC56A28648D3F00A0159E /* unitGameView.swift in Sources */,
 				56659380286A47E8004B0473 /* armyCustomization.swift in Sources */,
-				56BFC54B287321AA0065A40D /* ContentViewLogged.swift in Sources */,
 				5611EA03286B8DAD004BC850 /* tableUnitHeader.swift in Sources */,
 				562A3B8B27C36C1800AB0A80 /* armyView.swift in Sources */,
 				5611EA07286BA720004BC850 /* loginAuth.swift in Sources */,
@@ -328,7 +321,6 @@
 				56883D1127A5DF9F00349E69 /* ContentView.swift in Sources */,
 				56448864285CB5F500AB2273 /* Data.swift in Sources */,
 				5611EA09286BB227004BC850 /* rectangleLogo.swift in Sources */,
-				56BFC550287897EC0065A40D /* afterLogOut.swift in Sources */,
 				56940119286BBC9F007841BB /* registration.swift in Sources */,
 				566C244327ED1176008C1362 /* troopCountSelect.swift in Sources */,
 				5644884828577B0D00AB2273 /* accountSettings.swift in Sources */,

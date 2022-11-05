@@ -77,8 +77,9 @@ struct loginAuth: View { // View с экраном авторизации (вп�
                                 let result = armybuilder.login(name: userEmail, password: userPass)
                                if (result == "logged in successfully" ){
                                    reloadControl.currentUser = whoami()
-                                   armyControl.armies = filledarmycontrol.armies
+                                   armyControl.armies = fillArmyControlInfo(armyControl: armyControl).armies
                                    collectionDatas.collectionDict = fillCollectionInfo(collectionDatas: collectionDatas).collectionDict
+                                   reloadControl.logOutPerformed = false
                                    reloadControl.showLoginScreen = false
                                } else if (result == "verify your account"){
                                    self.notVerified = true
@@ -96,52 +97,5 @@ struct loginAuth: View { // View с экраном авторизации (вп�
             Spacer()
         }
         }.navigationViewStyle(.stack)
-    }
-    var filledarmycontrol: armyController { // заполнение информации об армиях с бекенда
-        let group = DispatchGroup()
-        let internalQueue = DispatchQueue(label: "InternalQueue")
-                group.enter()
-        internalQueue.async
-         {
-                DispatchQueue.main.sync {
-                    let tempArmyList = getArmyControl()
-                    armyControl.armies = [Army]()
-                    for tempArmy in tempArmyList{
-                    var mappedDict = [Int:Int]()
-                    var done = false
-                    let mappedKeys = tempArmy.troops.map {Int( $0.key)}
-                    let zippedArray = Array((zip(mappedKeys, tempArmy.troops.map{$0.value})))
-                    for element in zippedArray {
-                        mappedDict[element.0!] = element.1
-                    }
-                    var army = Army(factionID: tempArmy.factionid, armyid: tempArmy.armyid)
-                        
-                        var tempmods: [Int : [modification]] = [:]
-                        for unit in tempArmy.mods.keys{
-                            let intkey = Int(unit)
-                            tempmods[intkey!] = [modification]()
-                            if (!tempArmy.mods[unit]!.isEmpty){
-                                for mod in tempArmy.mods[unit]!{
-                                    tempmods[intkey!]!.append(modification(name: mod.name, range: mod.range, type: mod.type, s: mod.s, ap: mod.ap, d: mod.d, pts: mod.pts, count: mod.count))
-                                }
-                            }
-                        }
-                        
-                        army.custinit(name: tempArmy.name, armyid: armyControl.armies.count + 1, factionID: tempArmy.factionid
-                                  , pointCount: tempArmy.pointCount, troops: mappedDict, mods: tempmods, deleted: false)
-                        
-                        
-                    armyControl.armies.append(army)
-                        print(army.name ,army.pointCount)
-                    }
-                    group.leave()
-                }
-                
-                group.notify(queue: .main) {
-                    print("Data Loaded")
-                }
-         }
-        reloadControl.reloadNeeded = false
-        return armyControl
     }
 }

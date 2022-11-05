@@ -34,7 +34,7 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
     Button(role: .destructive, action:{
                                 deleteArmy(army: army)
                                 armyControl.armies[army.armyid - 1].deleted = true
-                                reloadControl.reloadNeeded = true
+        armyControl.armies = fillArmyControlInfo(armyControl: armyControl).armies
                             }){
                                 HStack(){
                                 Text("Delete")
@@ -78,7 +78,13 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
                     }
                 }
             }
-        }.fullScreenCover(isPresented: $reloadControl.showLoginScreen){
+        }.onAppear(perform: {
+            if (reloadControl.userAlreadyLogged){
+                reloadControl.currentUser = whoami()
+                armyControl.armies = fillArmyControlInfo(armyControl: armyControl).armies
+                collectionDatas.collectionDict = fillCollectionInfo(collectionDatas: collectionDatas).collectionDict
+            }
+        }).fullScreenCover(isPresented: $reloadControl.showLoginScreen){
             loginAuth().environmentObject(reloadControl).environmentObject(armyControl).environmentObject(collectionDatas)
         }
     }
