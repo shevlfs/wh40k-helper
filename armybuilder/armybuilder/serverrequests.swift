@@ -30,7 +30,7 @@ func register(name: String, password: String) {  // функция регист�
     let httpBody = try? JSONSerialization.data(
       withJSONObject: parameters, options: .fragmentsAllowed)
   else {
-    print("json fucked up!!")  // видимо что-то пошло не так
+    print("something went wrong")  // видимо что-то пошло не так
     return
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
@@ -65,7 +65,7 @@ func login(name: String, password: String) -> String {  // функция вхо
     let httpBody = try? JSONSerialization.data(
       withJSONObject: parameters, options: .fragmentsAllowed)
   else {
-    print("json fucked up!!")  // что-то пошло не так
+    print("something went wrong")  // что-то пошло не так
     return "ERROR"
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
@@ -162,7 +162,7 @@ func addArmy(army: Army) {  // функция добавления армии н
     let httpBody = try? JSONSerialization.data(
       withJSONObject: parameters, options: .fragmentsAllowed)
   else {
-    print("json fucked up!!")
+    print("something went wrong")
     return
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
@@ -206,7 +206,7 @@ func saveCollection(collectionDatas: collectionData) {  // функция сох
     let httpBody = try? JSONSerialization.data(
       withJSONObject: parameters, options: .fragmentsAllowed)
   else {
-    print("json fucked up!!")
+    print("something went wrong")
     return
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
@@ -343,7 +343,7 @@ func updatearmy(army: Army) {  // функция обновления измен
     let httpBody = try? JSONSerialization.data(
       withJSONObject: parameters, options: .fragmentsAllowed)
   else {
-    print("json fucked up!!")
+    print("something went wrong")
     return
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
@@ -378,7 +378,7 @@ func changearmyname(oldname: String, newname: String) {  // функция из�
     let httpBody = try? JSONSerialization.data(
       withJSONObject: parameters, options: .fragmentsAllowed)
   else {
-    print("json fucked up!!")
+    print("something went wrong")
     return
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
@@ -413,7 +413,7 @@ func deleteArmy(army: Army) {  // функция удаления армии с 
     let httpBody = try? JSONSerialization.data(
       withJSONObject: parameters, options: .fragmentsAllowed)
   else {
-    print("json fucked up!!")
+    print("something went wrong")
     return
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
@@ -487,7 +487,7 @@ func forgotPassword(email: String) {  // функция восстановлен
     let httpBody = try? JSONSerialization.data(
       withJSONObject: parameters, options: .fragmentsAllowed)
   else {
-    print("json fucked up!!")
+    print("something went wrong")
     return
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
