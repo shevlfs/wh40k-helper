@@ -11,21 +11,20 @@ struct accountSettings: View {
     @EnvironmentObject var reloadControl: reloadController
     @EnvironmentObject var armyControl: armyController
     @EnvironmentObject var collectionDatas: collectionData
-    
+    @Environment(\.dismiss) var dismiss
     @State var loggedout: Bool? = nil
-    
     var body: some View {
         VStack{
+            HStack{
+                Text("\(reloadControl.currentUser)").font(.largeTitle).fontWeight(.semibold)
+                Spacer()
+            }.padding()
             VStack{
-                NavigationLink(destination: afterLogOut().navigationBarBackButtonHidden(true).environmentObject(reloadControl).environmentObject(collectionDatas).environmentObject(armyControl), tag: true, selection: $loggedout){
-                    EmptyView()
-                }
             Button(action:{
                 logout()
-                reloadControl.loggedIn = false
-                reloadControl.reloadNeeded = true
+                reloadControl.showLoginScreen = true
                 reloadControl.logOutPerformed = true
-                self.loggedout = true
+                dismiss()
             }){
                 VStack(alignment: .trailing) {
                     HStack {
@@ -50,7 +49,7 @@ struct accountSettings: View {
             }.background(RoundedRectangle(cornerRadius: 12).fill(Color(UIColor.systemGray6))).frame(maxWidth: 405).padding()
             Spacer()
             
-        }.navigationBarTitle("\(reloadControl.currentUser)")
+        }
     }
 }
 

@@ -297,10 +297,18 @@ func isValidEmail(_ email: String) -> Bool {
 }
 
 class reloadController: ObservableObject{
-    @Published var reloadNeeded = true
-    @Published var loggedIn = false
+
+    @Published var showLoginScreen = true
     @Published var logOutPerformed = false
     @Published var currentUser = String()
+    @Published var userAlreadyLogged = false
+    @Published var showSettings : Bool? = nil
+    init() {
+        if (loadCookies()){
+            self.showLoginScreen = false
+            self.userAlreadyLogged = true
+        }
+    }
 }
 
 

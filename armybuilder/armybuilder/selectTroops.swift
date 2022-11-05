@@ -17,6 +17,7 @@ class pointTarget: ObservableObject{ // объект для хранения ц�
 
 struct selectTroops: View {
     @State var emptyWarning = false
+    @State var pointTargetWarning = false
     @State var factionfile = Int()
     @State var currentpoints = Int()
     @State var targetMenu = false
@@ -92,6 +93,8 @@ struct selectTroops: View {
             }.padding()
             if (emptyWarning){
                 Text("You cannot create an empty army").foregroundColor(.red)
+            } else if (pointTargetWarning) {
+                Text("Current point count is too big").foregroundColor(.red)
             }
             if(collectionShowcase == false){ // if для того показывать ли юниты которые есть в коллекции
             ScrollView(.vertical){
@@ -174,9 +177,14 @@ struct selectTroops: View {
         }.navigationTitle("Add a new army!").toolbar{
             ToolbarItemGroup(placement: .primaryAction){
                 Button(action:{
-                    if (!armyControl.armies[armyControl.armies.count-1].emptyChecker()){
-                        addArmy(army: armyControl.armies[armyControl.armies.count-1])
-                        viewControl.showingaddArmy = false
+                    if (armyControl.armies[armyControl.armies.count-1].pointCount != 0){
+                        if (armyControl.armies[armyControl.armies.count-1].pointCount > pointTarget.pointTargetCount) {
+                            emptyWarning = false
+                            pointTargetWarning = true
+                        } else {
+                            addArmy(army: armyControl.armies[armyControl.armies.count-1])
+                            viewControl.showingaddArmy = false
+                        }
                     } else {
                         emptyWarning = true
                     }

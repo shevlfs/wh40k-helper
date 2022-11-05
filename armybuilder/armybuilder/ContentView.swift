@@ -10,6 +10,7 @@ struct ContentView: View { // View с главным меню после зах�
     
     @StateObject var viewControl = viewController()
     var body: some View {
+        NavigationView {
             ScrollView(.vertical){
                 HStack{
                     Text("Your armies").font(.largeTitle).fontWeight(.semibold).padding()
@@ -33,7 +34,7 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
     Button(role: .destructive, action:{
                                 deleteArmy(army: army)
                                 armyControl.armies[army.armyid - 1].deleted = true
-                                reloadControl.reloadNeeded = true
+        armyControl.armies = fillArmyControlInfo(armyControl: armyControl).armies
                             }){
                                 HStack(){
                                 Text("Delete")
@@ -51,7 +52,7 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
                         
                     }
                     }
-                    NavigationLink(destination: appSettings().environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(reloadControl), tag: true, selection: $showAppSettings){
+                    NavigationLink(destination: appSettings().environmentObject(collectionDatas).environmentObject(armyControl).environmentObject(reloadControl), tag: true, selection: $reloadControl.showSettings){
                         EmptyView() // вызов настроек приложения
                     }
                     
@@ -70,13 +71,21 @@ armyView(id: army.armyid, faction: factions[army.factionID].name).environmentObj
             }.toolbar{
                 ToolbarItemGroup(placement: .navigationBarLeading){
                     Button(action:{
-                        showAppSettings = true
-                        
+                        reloadControl.showSettings = true
                     }) {
                         Label("Settings",systemImage:"gear")
                     }
                 }
             }
+        }.onAppear(perform: {
+            if (reloadControl.userAlreadyLogged){
+                reloadControl.currentUser = whoami()
+                armyControl.armies = fillArmyControlInfo(armyControl: armyControl).armies
+                collectionDatas.collectionDict = fillCollectionInfo(collectionDatas: collectionDatas).collectionDict
+            }
+        }).fullScreenCover(isPresented: $reloadControl.showLoginScreen){
+            loginAuth().environmentObject(reloadControl).environmentObject(armyControl).environmentObject(collectionDatas)
+        }
     }
 }
     

@@ -8,27 +8,34 @@
 import SwiftUI
 
 struct appSettings: View { // View с настройками приложения
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var armyControl: armyController
     @EnvironmentObject var collectionDatas: collectionData
     @EnvironmentObject var reloadControl: reloadController
     var body: some View {
-            ScrollView(){
-                Group{
-            VStack(){
-                NavigationLink(destination: accountSettings().environmentObject(reloadControl).environmentObject(collectionDatas).environmentObject(armyControl)){
-                    settingsitem(icon: "person.fill", optionname: "Account").padding()
+        if (reloadControl.logOutPerformed){
+            VStack{}.navigationBarBackButtonHidden(true).onAppear(perform:{reloadControl.showSettings = false})
+        } else {
+            Group{
+                HStack{
+                    Text("Settings").font(.largeTitle).fontWeight(.semibold)
+                    Spacer()
                 }
-                NavigationLink(destination: collectionSettings().onAppear(perform: {
-                    saveCollection(collectionDatas: collectionDatas)
-                }).environmentObject(collectionDatas)){
-                    settingsitem(icon: "archivebox.fill", optionname:"Collection").padding()
-                }
-            }.frame(maxWidth: 405).padding(.vertical)
-                .background(RoundedRectangle(cornerRadius: 12).fill(Color(UIColor.systemGray6)))
-                }.padding()
+                VStack(){
+                    NavigationLink(destination: accountSettings().environmentObject(reloadControl).environmentObject(collectionDatas).environmentObject(armyControl)){
+                        settingsitem(icon: "person.fill", optionname: "Account").padding()
+                    }
+                    NavigationLink(destination: collectionSettings().onAppear(perform: {
+                        saveCollection(collectionDatas: collectionDatas)
+                    }).environmentObject(collectionDatas)){
+                        settingsitem(icon: "archivebox.fill", optionname:"Collection").padding()
+                    }
+                }.frame(maxWidth: 405).padding(.vertical)
+                    .background(RoundedRectangle(cornerRadius: 12).fill(Color(UIColor.systemGray6)))
+            }.padding()
             Spacer()
-        }.navigationBarTitle("Settings").navigationViewStyle(.stack)
-    }
+        }
+        }
 }
 
 struct appSettings_Previews: PreviewProvider {
