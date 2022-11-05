@@ -1,12 +1,9 @@
 import SwiftUI
 
 struct ContentView: View {  // View с главным меню (отсюда же вызывается modal с экраном регистрации)
-  @State var showAppSettings: Bool? = nil
-  @State var showAddDialog = false
   @EnvironmentObject var collectionDatas: collectionData
   @EnvironmentObject var armyControl: armyController
   @EnvironmentObject var reloadControl: reloadController
-  @State var deleted = false
   @StateObject var viewControl = viewController()
   var body: some View {
     NavigationView {
@@ -55,9 +52,7 @@ struct ContentView: View {  // View с главным меню (отсюда ж�
             }
           }
           NavigationLink(
-            destination: appSettings().environmentObject(collectionDatas).environmentObject(
-              armyControl
-            ).environmentObject(reloadControl), tag: true, selection: $reloadControl.showSettings
+            destination: appSettings().environmentObject(collectionDatas).environmentObject(reloadControl), tag: true, selection: $reloadControl.showSettings
           ) {
             EmptyView()  // вызов настроек приложения
           }

@@ -1,18 +1,6 @@
 import Alamofire
 import Foundation
 
-func serverHandshake() -> String {  // тестовая функция связи с сервером
-  let url = URL(string: "http://94.228.195.88:5000")!
-  var text = String()
-  let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-    guard let data = data else { return }
-    print(String(data: data, encoding: .utf8)!)
-    text = String(data: data, encoding: .utf8)!
-  }
-  task.resume()
-  return text
-}
-
 func register(name: String, password: String) {  // функция регистрации
   let Url = String(format: "http://94.228.195.88:5000/registration")
   guard let serviceUrl = URL(string: Url) else { return }
@@ -181,11 +169,6 @@ func addArmy(army: Army) {  // функция добавления армии н
   }.resume()
 }
 
-func setCookie(cookie: HTTPCookie)  // функция сохранения cookie
-{
-  UserDefaults.standard.set(cookie.properties, forKey: "kCookie")
-  UserDefaults.standard.synchronize()
-}
 
 func saveCollection(collectionDatas: collectionData) {  // функция сохранения коллекции на бекенд
   let Url = String(format: "http://94.228.195.88:5000/savecollection")

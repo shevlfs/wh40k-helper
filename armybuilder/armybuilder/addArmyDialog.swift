@@ -1,15 +1,12 @@
 import SwiftUI
 
 struct addArmyDialog: View {  // View для выбора фракции при создании новой армии
-  @State var factionSelected = false
   @StateObject var pointTargetObj = pointTarget()
   @EnvironmentObject var collectionDatas: collectionData
   @EnvironmentObject var armyControl: armyController
   @EnvironmentObject var viewControl: viewController
   @State var showNextStep: Bool? = nil
   @State var factionfile = 0
-
-  @Environment(\.presentationMode) var presentationMode
   var body: some View {
     NavigationView {
       ScrollView(.vertical) {

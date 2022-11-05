@@ -10,7 +10,6 @@ import SwiftUI
 class pointTarget: ObservableObject {  // объект для хранения цели по очкам
   @Published var pointTargetCount = 1000
   @Published var isPointTargetOn = false
-  @Published var currentPoints = 0
 }
 
 struct selectTroops: View { // View для выбора юнитов при создании армии

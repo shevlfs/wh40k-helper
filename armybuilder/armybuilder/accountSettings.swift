@@ -9,10 +9,7 @@ import SwiftUI
 
 struct accountSettings: View {
   @EnvironmentObject var reloadControl: reloadController
-  @EnvironmentObject var armyControl: armyController
-  @EnvironmentObject var collectionDatas: collectionData
   @Environment(\.dismiss) var dismiss
-  @State var loggedout: Bool? = nil
   var body: some View {
     VStack {
       HStack {

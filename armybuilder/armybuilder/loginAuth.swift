@@ -11,10 +11,8 @@ struct loginAuth: View {  // View с экраном авторизации
   @State var userEmail = String()
   @State var userPass = String()
   @State var showForgotprompt = false
-  @State var isUserAuthenticated: Bool? = nil
   @State var showRegistration = false
   @State var wrongPass = false
-  @State var emptyPass = false
   @State var notVerified = false
   @EnvironmentObject var collectionDatas: collectionData
   @EnvironmentObject var reloadControl: reloadController

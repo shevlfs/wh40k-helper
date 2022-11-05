@@ -94,14 +94,7 @@ struct Army: Identifiable {  // структура для армии
     }
     return false
   }
-  func emptyChecker() -> Bool {  // проверка на пустоту армии
-    for unit in globalstats[self.factionID].units {
-      if self.troops[unit.id] != 0 {
-        return false
-      }
-    }
-    return true
-  }
+  
   func getCommandPoints() -> Int {  // функция для получения типа подразделения армии
     if self.pointCount == 0 {
       return 0
@@ -154,63 +147,12 @@ struct modification: Identifiable {  // структура для модифик
     self.count = count
   }
 }
-// далее идут функции-геттеры, в целом, их названия говорят сами за себя
-func getName(armyControl: armyController, armyID: Int, unitID: Int, modID: Int) -> String {
-  return armyControl.armies[armyID].mods[unitID]![modID].name
-}
-
-func getRange(armyControl: armyController, armyID: Int, unitID: Int, modID: Int) -> String {
-  return armyControl.armies[armyID].mods[unitID]![modID].range
-}
-
-func getType(armyControl: armyController, armyID: Int, unitID: Int, modID: Int) -> String {
-  return armyControl.armies[armyID].mods[unitID]![modID].type
-}
-
-func getAP(armyControl: armyController, armyID: Int, unitID: Int, modID: Int) -> Int {
-  return armyControl.armies[armyID].mods[unitID]![modID].ap
-}
-
-func getCount(armyControl: armyController, armyID: Int, unitID: Int, modID: Int) -> Int {
-  return armyControl.armies[armyID].mods[unitID]![modID].count
-}
-
-func getS(armyControl: armyController, armyID: Int, unitID: Int, modID: Int) -> String {
-  return armyControl.armies[armyID].mods[unitID]![modID].s
-}
-
-func getD(armyControl: armyController, armyID: Int, unitID: Int, modID: Int) -> String {
-  return armyControl.armies[armyID].mods[unitID]![modID].d
-}
-
-func getPTS(armyControl: armyController, armyID: Int, unitID: Int, modID: Int) -> Int {
-  return armyControl.armies[armyID].mods[unitID]![modID].pts
-}
 
 class armyController: ObservableObject {  // объект для хранения всех армий
   @Published var armies = [Army]()
-  private enum CodingKeys: String, CodingKey {  // enum для парсинга с бекенда
-    case armies = "armies"
-  }
-
   init() {  // инициализация
     self.armies = [Army]()
   }
-
-  func getPoints(armyID: Int) -> Int {  // функция для получения количества очков
-    return armies[armyID - 1].pointCount
-  }
-
-  func getArmies() -> [Army] {  // функция для получения массива действительных армий
-    var armies = [Army]()
-    for army in self.armies {
-      if army.armyid != -1 {
-        armies.append(army)
-      }
-    }
-    return armies
-  }
-
   func getTroops(armyID: Int) -> [unitTemp] {  // функция для получения массива юнитов от конкретной армии
     var troops = [unitTemp]()
     for unit in globalstats[armies[armyID - 1].factionID].units {
@@ -223,29 +165,6 @@ class armyController: ObservableObject {  // объект для хранени�
     }
     return troops
   }
-
-  func getNextID() -> Int {  // функция для получения id армии для её названия во время её создания
-    var temp = Int()
-    for army in self.armies {
-      if army.armyid > temp {
-        temp = army.armyid
-      }
-    }
-    return temp
-  }
-
-  func getNames() -> [armyTemp] {  // функция для получения названий армий
-    var temp = [armyTemp]()
-    for army in self.armies {
-      temp.append(armyTemp(id: army.armyid, name: army.name))
-    }
-    return temp
-  }
-
-}
-struct armyTemp: Identifiable {  // временная структура для армии
-  var id = Int()
-  var name = String()
 }
 
 struct serverArmy: Codable {  // временная структура для парсинга армии с бекенда

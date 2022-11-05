@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct collectionSettings: View {
-  @State var factionSelected = false
   @EnvironmentObject var collectionDatas: collectionData
   var body: some View {
 

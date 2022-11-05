@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct appSettings: View {  // View с настройками приложения
-  @Environment(\.dismiss) var dismiss
-  @EnvironmentObject var armyControl: armyController
   @EnvironmentObject var collectionDatas: collectionData
   @EnvironmentObject var reloadControl: reloadController
   var body: some View {
@@ -25,9 +23,7 @@ struct appSettings: View {  // View с настройками приложени
         }
         VStack {
           NavigationLink(
-            destination: accountSettings().environmentObject(reloadControl).environmentObject(
-              collectionDatas
-            ).environmentObject(armyControl)
+            destination: accountSettings().environmentObject(reloadControl)
           ) {
             settingsitem(icon: "person.fill", optionname: "Account").padding()
           }

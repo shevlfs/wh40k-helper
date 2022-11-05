@@ -90,7 +90,3 @@ struct armyCustomization: View {
         return false
     }
 }
-
-func getName(armyControl: armyController, id: Int) -> String {
-  return armyControl.armies[id].name
-}
