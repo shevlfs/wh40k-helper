@@ -91,17 +91,18 @@ class UserModel(db.Model):
                           sender=app.config.get("MAIL_USERNAME"),
                           recipients=[self.username],
                           body="Confirm your email by clicking this link:\n"
-                               "localhost:5000/verification/" + generate_confirmation_token(self.username))
+                               "94.228.195.88:5000/verification/" + generate_confirmation_token(self.username))
             mail.send(msg)
 
     def sendChangePassMail(self):
         with app.app_context():
             msg = Message(subject="Change password -- ArmyBuilder",
                           sender=app.config.get("MAIL_USERNAME"),
-                          recipients=[self.username],
+                          recipients=[self.username],  
                           body="Change your password by clicking this link:\n"
-                               "localhost:5000/changepasswordweb/" + generate_confirmation_token(self.username) + " \n "
-                                                                                                                  "If it wasn't you who tried to change the password, please ignore this message.")
+                               "94.228.195.88:5000/changepasswordweb/" + generate_confirmation_token(
+                              self.username) + " \n "
+                                               "If it wasn't you who tried to change the password, please ignore this message.")
             mail.send(msg)
 
     @classmethod
@@ -169,7 +170,7 @@ class CollectionModel(db.Model):
 
 @app.route('/', methods=['GET', 'POST'])
 def handshake():
-    return "Hello!"
+    return "HellO!"
 
 
 @login_manager.user_loader
@@ -180,7 +181,7 @@ def load_user(name):
 @login_manager.request_loader
 def request_loader(request):
     email = request.form.get('name')
-    if UserModel(username="", password=""):
+    if UserModel:
         return
 
     user = UserModel()
@@ -337,8 +338,7 @@ def changepasswordapp():
 @app.route("/logout", methods=["GET"])
 @login_required
 def logout():
-    user = UserModel.find_by_username(current_user.username)
-    user.loggedin = False
+    UserModel.find_by_username(current_user.username).loggedin = False
     db.session.commit()
     logout_user()
     return "logged out successfully"
@@ -363,4 +363,4 @@ def changepasswordweb(token):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
