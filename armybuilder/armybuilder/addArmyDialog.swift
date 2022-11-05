@@ -57,14 +57,10 @@ struct addArmyDialog: View {  // View для выбора фракции при 
                 army.setName(armyControl: armyControl)
                 armyControl.armies.append(army)
                 showNextStep = true
-
               }
-
             }
-
           }
           Spacer()
-
         }
       }
     }.navigationViewStyle(StackNavigationViewStyle()).navigationTitle("Add a new army!")

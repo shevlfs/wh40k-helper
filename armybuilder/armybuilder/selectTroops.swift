@@ -13,7 +13,7 @@ class pointTarget: ObservableObject {  // объект для хранения �
   @Published var currentPoints = 0
 }
 
-struct selectTroops: View {
+struct selectTroops: View { // View для выбора юнитов при создании армии
   @State var emptyWarning = false
   @State var pointTargetWarning = false
   @State var factionfile = Int()

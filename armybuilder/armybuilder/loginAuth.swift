@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct loginAuth: View {  // View с экраном авторизации (впервые при загрузке приложения)
-  @State var userEmail = String()  //
+struct loginAuth: View {  // View с экраном авторизации
+  @State var userEmail = String()
   @State var userPass = String()
   @State var showForgotprompt = false
   @State var isUserAuthenticated: Bool? = nil
@@ -58,7 +58,6 @@ struct loginAuth: View {  // View с экраном авторизации (вп
           }
           Text("Wrong name or password.").foregroundColor(.red).fontWeight(.semibold).opacity(
             !wrongPass ? 0 : 1)
-
           Text("Please verify your email by checking your inbox for a message from ArmyBuilder.")
             .foregroundColor(.red).fontWeight(.semibold).opacity(!notVerified ? 0 : 1)
           HStack {

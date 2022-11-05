@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct troopCollectionEditCount: View {
+struct troopCollectionEditCount: View { // View, который отображает юниты, которые находятся в коллекции, при изменении армии (вызывается в editArmy)
   @State var unitCount: Int
   @State var unitName = String()
   @State var pointCount = Int()

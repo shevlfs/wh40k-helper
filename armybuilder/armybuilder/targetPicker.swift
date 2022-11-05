@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-struct targetPicker: View {
+struct targetPicker: View { // View, который отображает настройки цели по очкам
   @EnvironmentObject var pointTarget: pointTarget
 
   var body: some View {

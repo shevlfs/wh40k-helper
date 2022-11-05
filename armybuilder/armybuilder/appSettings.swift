@@ -46,8 +46,3 @@ struct appSettings: View {  // View с настройками приложени
   }
 }
 
-struct appSettings_Previews: PreviewProvider {
-  static var previews: some View {
-    appSettings()
-  }
-}

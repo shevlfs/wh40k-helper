@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {  // View с главным меню после захода в аккаунт и перезапуске приложения
+struct ContentView: View {  // View с главным меню (отсюда же вызывается modal с экраном регистрации)
   @State var showAppSettings: Bool? = nil
   @State var showAddDialog = false
   @EnvironmentObject var collectionDatas: collectionData

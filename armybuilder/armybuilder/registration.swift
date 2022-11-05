@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct registration: View {
+struct registration: View { // View с экраном регистрации
   @State var userEmail = String()
   @State var userPass = String()
   @State var passConfirmation = String()
@@ -93,11 +93,5 @@ struct registration: View {
         Spacer()
       }.padding().navigationTitle("Registration")
     }
-  }
-}
-
-struct registration_Previews: PreviewProvider {
-  static var previews: some View {
-    registration()
   }
 }

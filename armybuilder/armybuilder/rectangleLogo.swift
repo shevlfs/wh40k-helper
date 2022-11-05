@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct rectangleLogo: View {  // View с логотипом приложения
+struct rectangleLogo: View {  // View с анимированным логотипом приложения
   @State var gradient = [Color.indigo, Color.mint, Color.green]
   @State var startPoint = UnitPoint(x: 0, y: 0)
   @State var endPoint = UnitPoint(x: 0, y: 2)
