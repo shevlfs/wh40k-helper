@@ -9,14 +9,22 @@ struct ContentView: View {  // View с главным меню (отсюда ж�
     NavigationView {
       ScrollView(.vertical) {
         HStack {
-          Text("Your armies").font(.largeTitle).fontWeight(.semibold).padding()
+            if (reloadControl.showLoginScreen == true){
+                EmptyView()
+            } else {
+                Text("Your armies").font(.largeTitle).fontWeight(.semibold).padding()
+            }
           Spacer()
         }
         VStack {
 
           if armyControl.armies.isEmpty {
             Spacer()
-            Text("No armies! :(").fontWeight(.light).padding()
+              if (reloadControl.showLoginScreen == true){
+                  EmptyView()
+              } else{
+                  Text("No armies! :(").fontWeight(.light).padding()
+              }
           } else {
             ForEach(armyControl.armies, id: \.id) { army in
               if !army.deleted {

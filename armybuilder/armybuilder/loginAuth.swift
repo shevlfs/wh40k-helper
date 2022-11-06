@@ -27,20 +27,14 @@ struct loginAuth: View {  // View с экраном авторизации
         }.padding()
         VStack {
           HStack {
-            Text("Email").fontWeight(.semibold).font(.title3)
-            Spacer()
-            TextField("", text: $userEmail).padding().foregroundColor(.black)
-              .frame(maxWidth: 195, maxHeight: 10)
+            TextField("Email", text: $userEmail).padding().foregroundColor(.black).frame(maxHeight: 20)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
                   .fill(Color(UIColor.systemGray6)))
           }.padding()
           HStack {
-            Text("Password").fontWeight(.semibold).font(.title3)
-            Spacer()
-            SecureField("", text: $userPass).padding().foregroundColor(.black)
-              .frame(maxWidth: 195, maxHeight: 10)
+              SecureField("Password", text: $userPass).padding().foregroundColor(.black).frame(maxHeight: 20)
               .padding()
               .background(
                 RoundedRectangle(cornerRadius: 8)
@@ -98,7 +92,7 @@ struct loginAuth: View {  // View с экраном авторизации
           }.padding()
         }.padding()
         Spacer()
-      }.ignoresSafeArea(.keyboard)
-    }.ignoresSafeArea(.keyboard).navigationViewStyle(.stack)
+      }
+    }.navigationViewStyle(.stack)
   }
 }
