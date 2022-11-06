@@ -31,7 +31,7 @@ struct armyView: View { // View для отображения армий в гл
                 .frame(width: 0.5, height: 20)
               HStack(spacing: 6) {
                 Image(systemName: "bolt.horizontal.fill")
-                Text("\(faction)")
+                Text("\(faction)" + " ")
               }
             }.foregroundColor(.white)
           }
