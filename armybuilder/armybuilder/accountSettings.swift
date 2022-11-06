@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct accountSettings: View {
+struct accountSettings: View { // View с меню настроек аккаунта (возможностью выхода из него)
   @EnvironmentObject var reloadControl: reloadController
   @Environment(\.dismiss) var dismiss
   var body: some View {
@@ -49,11 +49,5 @@ struct accountSettings: View {
       Spacer()
 
     }
-  }
-}
-
-struct accountSettings_Previews: PreviewProvider {
-  static var previews: some View {
-    accountSettings()
   }
 }

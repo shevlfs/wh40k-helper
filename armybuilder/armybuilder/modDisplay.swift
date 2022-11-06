@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct modDisplay: View { // View отображающий модификацию
+struct modDisplay: View { // View отображающий модификацию при добавлении её к юниту
   @State var mod: mod
   var body: some View {
     VStack {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct armyGameView: View {
+struct armyGameView: View { // View для отображения армии в "режиме игры"
   @State var armyID: Int
   @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
   @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
@@ -40,19 +40,3 @@ struct armyGameView: View {
       }
   }
 }
-
-
-/*struct armyGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        armyGameView(armyID: 0).environmentObject(armyController())
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}*/
-
-/*
-
- Text("\(globalstats[factionID].units[id].name)").fontWeight(.bold).multilineTextAlignment(.center).foregroundColor(.white).font(.title2).frame(maxWidth: 50, alignment: .leading)
-
-
- */
-

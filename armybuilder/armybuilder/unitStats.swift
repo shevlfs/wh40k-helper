@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct unitStats: View {
+struct unitStats: View { // View со статистикой конкретного юнита
   @State var Unit: unit
   var body: some View {
     VStack {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct modGameView: View {
+struct modGameView: View { // View для отображения модификации в "режиме игры"
   @State var id = Int()
   @State var mod: modification
   var body: some View {
@@ -34,14 +34,5 @@ struct modGameView: View {
         Text("\(mod.name)").fontWeight(.bold).multilineTextAlignment(.trailing).foregroundColor(.black)
             .font(.title2).frame(maxWidth: 120, alignment: .trailing).lineLimit(3).scaledToFit().minimumScaleFactor(0.01)
     }
-  }
-}
-
-struct modGameView_Previews: PreviewProvider {
-  static var previews: some View {
-    modGameView(
-      id: 0,
-      mod: modification(name: "asd", range: "", type: "", s: "", ap: 0, d: "", pts: 0, count: 0)
-    )
   }
 }

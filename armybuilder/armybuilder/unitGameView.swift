@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct unitGameView: View {
+struct unitGameView: View { // View отображающий статистику конкретного юнита в "режиме игры"
   @State var id: Int
   @State var armyID: Int
   @State var factionID: Int
@@ -48,11 +48,5 @@ struct unitGameView: View {
                 .trailing
               ).foregroundColor(.black).font(.title2).frame(maxWidth: 80, alignment: .trailing).lineLimit(3).scaledToFit().minimumScaleFactor(0.01)
           }
-  }
-}
-
-struct unitGameView_Previews: PreviewProvider {
-  static var previews: some View {
-    unitGameView(id: 20, armyID: 0, factionID: 0)
   }
 }

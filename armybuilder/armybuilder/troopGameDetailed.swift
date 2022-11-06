@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct troopGameDetailed: View {
+struct troopGameDetailed: View { // View для отображения модификаций юнита в "режиме игры"
   @EnvironmentObject var armyControl: armyController
   @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
   @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
@@ -38,9 +38,3 @@ struct troopGameDetailed: View {
       }
   }
 }
-
-/*struct troopGameDetailed_Previews: PreviewProvider {
-    static var previews: some View {
-        troopGameDetailed(armyID: 0, unitID: 0 ).environmentObject(armyController())
-    }
-}*/

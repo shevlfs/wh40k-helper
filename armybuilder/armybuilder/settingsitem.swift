@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct settingsitem: View {
+struct settingsitem: View { // View для отображения конкретной кнопки в меню настроек
   @State var icon = String()
   @State var optionname = String()
   @State var textColor = String()
@@ -32,11 +32,5 @@ struct settingsitem: View {
       )
     }
 
-  }
-}
-
-struct settingsitem_Previews: PreviewProvider {
-  static var previews: some View {
-    settingsitem(icon: "person.fill", optionname: "Account")
   }
 }

@@ -57,7 +57,6 @@ func login(name: String, password: String) -> String {  // функция вхо
     return "ERROR"
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
-  print(json)
   request.httpBody = httpBody
   request.timeoutInterval = 20
   var answ = "?????"
@@ -193,7 +192,6 @@ func saveCollection(collectionDatas: collectionData) {  // функция сох
     return
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
-  print(json)
   request.httpBody = httpBody
   request.timeoutInterval = 20
   let session = URLSession.shared
@@ -330,7 +328,6 @@ func updatearmy(army: Army) {  // функция обновления измен
     return
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
-  print(json)
   request.httpBody = httpBody
   request.timeoutInterval = 20
   let session = URLSession.shared
@@ -386,7 +383,6 @@ func deleteArmy(army: Army) {  // функция удаления армии с 
   let parameters: [String: Any] =
     [
       "name": army.name
-
     ]
   print(parameters)
   var request = URLRequest(url: serviceUrl)
@@ -400,7 +396,6 @@ func deleteArmy(army: Army) {  // функция удаления армии с 
     return
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
-  print(json)
   request.httpBody = httpBody
   request.timeoutInterval = 20
   var done = false
@@ -474,7 +469,6 @@ func forgotPassword(email: String) {  // функция восстановлен
     return
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
-  print(json)
   request.httpBody = httpBody
   request.timeoutInterval = 20
   let session = URLSession.shared

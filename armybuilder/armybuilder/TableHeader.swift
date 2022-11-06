@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TableHeader: View {
+struct TableHeader: View { // View с "заголовком" таблицы статистик юнитов в "режиме игры" при отображении всей армии
   var body: some View {
     HStack {
       HStack(alignment: .center, spacing: nil) {
@@ -34,11 +34,5 @@ struct TableHeader: View {
 
       }.padding()
     }.background(RoundedRectangle(cornerRadius: 10).fill(.green)).padding()
-  }
-}
-
-struct TableHeader_Previews: PreviewProvider {
-  static var previews: some View {
-    TableHeader()
   }
 }

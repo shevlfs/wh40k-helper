@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct modificationDisplay: View {
+struct modificationDisplay: View { // View отображающий модификацию уже на самом юните
   @State var mod: modification
   var body: some View {
     VStack {

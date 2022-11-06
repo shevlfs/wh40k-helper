@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct collectionAddUnits: View {
+struct collectionAddUnits: View { // View для добавления юнитов в коллекцию
   @State var factionfile = Int()
   @EnvironmentObject var collectionDatas: collectionData
   @State var searchText = String()
@@ -28,7 +28,7 @@ struct collectionAddUnits: View {
       }
     }
   }
-  var searchResults: [unit] {
+  var searchResults: [unit] { // результаты поиска
     if searchText.isEmpty {
       return globalstats[factionfile].units
     } else {
@@ -36,11 +36,5 @@ struct collectionAddUnits: View {
         $0.name.lowercased().contains(searchText.lowercased())
       }
     }
-  }
-}
-
-struct collectionAddUnits_Previews: PreviewProvider {
-  static var previews: some View {
-    collectionAddUnits()
   }
 }

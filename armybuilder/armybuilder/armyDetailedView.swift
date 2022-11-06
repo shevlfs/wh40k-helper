@@ -8,13 +8,12 @@
 import SwiftUI
 import UIKit
 
-struct armyDetailedView: View {
+struct armyDetailedView: View { // View отображающий дополнительную информацию об армии при нажатии на неё
   @State var id = Int()
   @State var editMode = false
   @EnvironmentObject var collectionDatas: collectionData
   @EnvironmentObject var armyControl: armyController
   @StateObject var pointTargetd = pointTarget()
-
   var body: some View {
     VStack {
       ScrollView {
@@ -100,10 +99,3 @@ struct armyDetailedView: View {
     }
   }
 }
-
-/* struct armyDetailedView_Previews: PreviewProvider {
-    static var previews: some View {
-        armyDetailedView().environmentObject(armyController()).environmentObject(collectionData())
-    }
-}
-} */

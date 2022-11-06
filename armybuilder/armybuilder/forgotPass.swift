@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct forgotPass: View {
+struct forgotPass: View { // View с меню восстановления пароля
   @State var login = String()
   @State var emailError = false
   @State var success = false
@@ -48,11 +48,5 @@ struct forgotPass: View {
         Spacer()
       }.navigationBarTitle("Forgot password")
     }
-  }
-}
-
-struct forgotPass_Previews: PreviewProvider {
-  static var previews: some View {
-    forgotPass()
   }
 }

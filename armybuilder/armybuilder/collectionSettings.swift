@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-struct collectionSettings: View {
+struct collectionSettings: View { // View предлагающий выбрать фракцию юнитов для изменения коллекции
   @EnvironmentObject var collectionDatas: collectionData
   var body: some View {
-
     ScrollView(.vertical) {
         HStack {
           Text("Add units to collection").font(.largeTitle).fontWeight(.semibold)
@@ -37,16 +36,8 @@ struct collectionSettings: View {
               }
             }
           }
-
         }
-
       }
     }.navigationViewStyle(.stack)
-  }
-}
-
-struct collectionSettings_Previews: PreviewProvider {
-  static var previews: some View {
-    collectionSettings()
   }
 }

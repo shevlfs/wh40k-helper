@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct tableUnitHeader: View {
+struct tableUnitHeader: View { // View с "заголовком" таблицы статистик модификаций юнита в "режиме игры" при отображении модификаций юнита
   @State var name = String()
   var body: some View {
     HStack {
@@ -33,11 +33,5 @@ struct tableUnitHeader: View {
             .font(.title2).frame(maxWidth: 120, alignment: .trailing).lineLimit(3).scaledToFit().minimumScaleFactor(0.01)
 
     }
-  }
-}
-
-struct tableUnitHeader_previews: PreviewProvider {
-  static var previews: some View {
-    tableUnitHeader()
   }
 }
