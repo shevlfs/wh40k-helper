@@ -14,7 +14,7 @@ struct armyGameView: View { // View для отображения армии в 
   @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
   @EnvironmentObject var armyControl: armyController
   var body: some View {
-      if (horizontalSizeClass == .regular && verticalSizeClass == .compact){
+      if (horizontalSizeClass == .regular){
           VStack {
               HStack {
                   TableHeader()

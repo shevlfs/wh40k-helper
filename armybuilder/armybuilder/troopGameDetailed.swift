@@ -14,7 +14,7 @@ struct troopGameDetailed: View { // View для отображения моди�
   @State var armyID: Int
   @State var unitID: Int
   var body: some View {
-      if (horizontalSizeClass == .regular && verticalSizeClass == .compact){
+      if (horizontalSizeClass == .regular){
           VStack {
               tableUnitHeader(name: globalstats[armyControl.armies[armyID].factionID].units[unitID].name)
               ScrollView {

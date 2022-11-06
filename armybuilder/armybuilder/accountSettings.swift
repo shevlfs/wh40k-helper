@@ -43,9 +43,7 @@ struct accountSettings: View { // View с меню настроек аккаун
             )
           }.padding()
         }
-      }.background(RoundedRectangle(cornerRadius: 12).fill(Color(UIColor.systemGray6))).frame(
-        maxWidth: 405
-      ).padding()
+      }.background(RoundedRectangle(cornerRadius: 12).fill(Color(UIColor.systemGray6))).padding()
       Spacer()
 
     }

@@ -34,7 +34,7 @@ struct appSettings: View {  // View с настройками приложени
           ) {
             settingsitem(icon: "archivebox.fill", optionname: "Collection").padding()
           }
-        }.frame(maxWidth: 405).padding(.vertical)
+        }.padding(.vertical)
           .background(RoundedRectangle(cornerRadius: 12).fill(Color(UIColor.systemGray6)))
       }.navigationViewStyle(.stack).padding()
       Spacer()
