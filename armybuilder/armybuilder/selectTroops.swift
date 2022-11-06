@@ -201,7 +201,7 @@ struct selectTroops: View { // View для выбора юнитов при со
         Button(action: {
           if armyControl.armies[armyControl.armies.count - 1].pointCount != 0 {
             if armyControl.armies[armyControl.armies.count - 1].pointCount
-              > pointTarget.pointTargetCount
+                > pointTarget.pointTargetCount && pointTarget.isPointTargetOn
             {
               emptyWarning = false
               pointTargetWarning = true
@@ -211,6 +211,7 @@ struct selectTroops: View { // View для выбора юнитов при со
             }
           } else {
             emptyWarning = true
+              pointTargetWarning = false
           }
         }) {
           Text("Done")
