@@ -22,10 +22,9 @@ struct forgotPass: View { // View с меню восстановления па�
           !success ? 0 : 1
         ).padding()
         HStack {
-          Text("Email").fontWeight(.semibold).font(.title3)
           Spacer()
-          TextField("", text: $login).padding().foregroundColor(.black)
-            .frame(maxWidth: 195, maxHeight: 10)
+          TextField("Email", text: $login).padding().foregroundColor(.black)
+            .frame(maxHeight: 20)
             .padding()
             .background(
               RoundedRectangle(cornerRadius: 8)
@@ -42,7 +41,9 @@ struct forgotPass: View { // View с меню восстановления па�
               forgotPassword(email: login)
             }
           }) {
-            Text("Confirm")
+              HStack{
+                  Text("Confirm").padding(.horizontal, 27).padding(.vertical, 12).foregroundColor(
+                    .white)}.background(RoundedRectangle(cornerRadius: 10).fill(.blue)).padding()
           }
         }
         Spacer()
