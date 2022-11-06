@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct armyCustomization: View {
+struct armyCustomization: View { // View с настройками армии
   @EnvironmentObject var armyControl: armyController
   @State var armyID: Int
   @State var sameNameWarn = false
@@ -81,7 +81,7 @@ struct armyCustomization: View {
       }
     }
   }
-    var sameNameCheck:Bool{
+    var sameNameCheck:Bool{ // Проверка на наличие армий с таким же названием (при изменении имени армии)
         for army in armyControl.armies {
           if army.name == temparmyName {
             return true

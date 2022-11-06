@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-struct addCustomMod: View {
+struct addCustomMod: View { // View, через который происходит добавление модификации вручным вводом характеристик и статистики
   @EnvironmentObject var armyControl: armyController
   @State var temppts = Int()
   @State var temptype = String()
@@ -29,7 +29,6 @@ struct addCustomMod: View {
   @State var D = String()
   @State var PTS = Int()
   @State var Count = 1
-
   var body: some View {
     ScrollView {
       VStack {
@@ -172,27 +171,28 @@ struct addCustomMod: View {
         }.background(RoundedRectangle(cornerRadius: 15).fill(.blue)).padding()
     }.navigationTitle("Add a custom mod")
   }
-    func limitNameText(_ upper: Int) {
+    // далее идут функции, которые ограничивают размер текста, который можно ввести в полях при создании собственной модификации
+    func limitNameText(_ upper: Int) { // функция ограничивающая размер имени модификации
             if Name.count > upper {
                 Name = String(Name.prefix(upper))
             }
         }
-    func limitDText(_ upper: Int) {
+    func limitDText(_ upper: Int) { // функция ограничивающая размер характеристики D модификации
             if D.count > upper {
                 D = String(D.prefix(upper))
             }
         }
-    func limitSText(_ upper: Int) {
+    func limitSText(_ upper: Int) { // функция ограничивающая характеристики S модификации
             if S.count > upper {
                 S = String(S.prefix(upper))
             }
         }
-    func limitTypeText(_ upper: Int) {
+    func limitTypeText(_ upper: Int) { // функция ограничивающая размер типа модификации
             if TypeM.count > upper {
                 TypeM = String(TypeM.prefix(upper))
             }
         }
-    func limitRangeText(_ upper: Int) {
+    func limitRangeText(_ upper: Int) { // функция ограничивающая размер характеристики Range модифицации
             if Range.count > upper {
                 Range = String(Range.prefix(upper))
             }
@@ -201,7 +201,7 @@ struct addCustomMod: View {
 
 extension addCustomMod {
   @ViewBuilder
-  private func pickerView() -> some View {
+  private func pickerView() -> some View { // Маленький View с кнопками выбора количества модификаций
     HStack {
       Button(action: {
         if Count != 1 {
@@ -225,11 +225,5 @@ extension addCustomMod {
           .background(RoundedRectangle(cornerRadius: 5).fill(Color(UIColor.systemGray6)))
       }
     }
-  }
-}
-
-struct addCustomMod_Previews: PreviewProvider {
-  static var previews: some View {
-    addCustomMod(armyID: 0, Unit: globalstats[0].units[0])
   }
 }

@@ -218,7 +218,7 @@ struct selectTroops: View { // View для выбора юнитов при со
       }
     }
   }
-  var searchResults: [unit] {
+  var searchResults: [unit] { // результаты поиска
     if searchText.isEmpty {
       return globalstats[factionfile].units
     } else {

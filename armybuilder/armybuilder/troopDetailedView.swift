@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct troopDetailedView: View {
-
+struct troopDetailedView: View { // View для отображения дополнительных сведений о юните
   @EnvironmentObject var collectionDatas: collectionData
   @State var Unit: unit
   @State var factionID: Int
@@ -90,16 +89,10 @@ struct troopDetailedView: View {
             ).padding()
 
           }
-        }  // if ends here
+        }
 
         Spacer()
       }
     }.navigationBarTitleDisplayMode(.inline)
   }
 }
-
-/*struct troopDetailedView_Previews: PreviewProvider {
-    static var previews: some View {
-        troopDetailedView(Unit: globalstats[0].units[0], factionID: 0).environmentObject(collectionData()).environmentObject(armyController())
-    }
-}*/

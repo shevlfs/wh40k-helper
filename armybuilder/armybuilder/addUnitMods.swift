@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct addUnitMods: View {
+struct addUnitMods: View { // View отображающий меню выбора модификаций 
   @EnvironmentObject var armyControl: armyController
   @State var searchBarMods = [String]()
   @State var armyID: Int
@@ -47,7 +47,7 @@ struct addUnitMods: View {
       }.navigationTitle("Add modifications")
     }
   }
-  var searchResults: [mod] {
+  var searchResults: [mod] { // результаты поиска 
     if searchText.isEmpty {
       return mods
     } else {

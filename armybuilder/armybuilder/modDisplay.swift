@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct modDisplay: View {
+struct modDisplay: View { // View отображающий модификацию
   @State var mod: mod
   var body: some View {
     VStack {
@@ -46,9 +46,3 @@ struct modDisplay: View {
     }.background(RoundedRectangle(cornerRadius: 15).fill(.mint)).padding()
   }
 }
-
-/*struct modDisplay_Previews: PreviewProvider {
-    static var previews: some View {
-        modDisplay(mod: mod())
-    }
-} */

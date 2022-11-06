@@ -1,13 +1,12 @@
 import Combine
 import SwiftUI
 
-struct addExistingMod: View {
+struct addExistingMod: View { // View, через который происходит добавление готовой модификации
   @EnvironmentObject var armyControl: armyController
   @State var temppts = Int()
   @State var temptype = String()
   @State var armyID: Int
   @State var Unit: unit
-
   @State var Name = String()
   @State var Range = String()
   @State var TypeM = String()
@@ -159,7 +158,7 @@ struct addExistingMod: View {
 
 extension addExistingMod {
   @ViewBuilder
-  private func pickerView() -> some View {
+  private func pickerView() -> some View {  // Маленький View с кнопками выбора количества модификаций
     HStack {
       Button(action: {
         if Count != 1 {
@@ -185,9 +184,3 @@ extension addExistingMod {
     }
   }
 }
-
-/*struct addExistingMod_Previews: PreviewProvider {
-    static var previews: some View {
-        addExistingMod(armyControl: mods[0], temppts: 0, temptype: globalstats[0].units[0])
-    }
-}*/
