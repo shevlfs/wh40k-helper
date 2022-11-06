@@ -10,7 +10,7 @@ import XCTest
 final class armybuilderUITests: XCTestCase {
 
     override func setUpWithError() throws {
-         continueAfterFailure = false
+         continueAfterFailure = false // чтобы не запускать другие тесты после одного проваленного
     }
 
     func testLogin() throws { // Тест авторизации
@@ -79,12 +79,29 @@ final class armybuilderUITests: XCTestCase {
         XCTAssertTrue(createdArmy.exists && scrollViewItemCount + 1 == app.scrollViews.buttons.count)
     }
     
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    func testLogout() throws { // Тест выхода из аккаунта
+        let app = XCUIApplication()
+        app.launch()
+        
+        let armiesLabel = app.scrollViews.otherElements.containing(.staticText, identifier:"Your armies").element
+        XCTAssertTrue(armiesLabel.exists)
+        
+        let mainMenuNavBar = app.navigationBars["_TtGC7SwiftUI19UIHosting"]
+        XCTAssertTrue(mainMenuNavBar.exists)
+        mainMenuNavBar.buttons["Settings"].tap()
+        
+        let accountSettingsButton = app.staticTexts["Account"]
+        XCTAssertTrue(accountSettingsButton.exists)
+        accountSettingsButton.tap()
+        
+        let emailLabel = app.staticTexts["shevl.fs@gmail.com"]
+        XCTAssertTrue(emailLabel.exists)
+        
+        let logoutButton = app.staticTexts["Log out"]
+        XCTAssertTrue(logoutButton.exists)
+        logoutButton.tap()
+        
+        let title = app.staticTexts["ArmyBuilder"]
+        XCTAssertTrue(title.exists)
     }
 }
