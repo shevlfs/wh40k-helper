@@ -53,7 +53,7 @@ struct registration: View { // View с экраном регистрации
                 .fill(Color(UIColor.systemGray6)))
         }.padding()
         HStack {
-          Text("Confirm password").fontWeight(.semibold).font(.title3).frame(maxWidth: 90)
+            Text("Confirm password").lineLimit(2).minimumScaleFactor(0.01).scaledToFit().fontWeight(.semibold).font(.title3).frame(maxWidth: 90)
           Spacer()
           SecureField("", text: $passConfirmation).padding().foregroundColor(.black)
             .frame(maxWidth: 195, maxHeight: 10)

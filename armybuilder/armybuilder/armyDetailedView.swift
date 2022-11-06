@@ -40,7 +40,7 @@ struct armyDetailedView: View { // View отображающий дополни�
                               Text("Battle size:").font(.title3)
                                   .fontWeight(.semibold)
                               Text("\(armyControl.armies[id-1].getBattleSize())").font(.title2)
-                                  .fontWeight(.semibold).padding(.bottom, 7)
+                                  .fontWeight(.semibold).padding(.bottom, 7).lineLimit(1).scaledToFit().minimumScaleFactor(0.01)
                               Text("CP: \(armyControl.armies[id-1].getCommandPoints())").font(.title3)
                                   .fontWeight(.regular)
                           }.foregroundColor(.white).padding(14)
