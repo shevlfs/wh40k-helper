@@ -195,8 +195,6 @@ def registration(): # функция регистрации нового пол�
         return 'passwordTooShort'
     elif password.lower() == password:
         return 'caseError'
-    print(name)
-    print(password)
     if not UserModel.find_by_username(name):
         user = UserModel(username=name, password=password)
         user.saveToDatabase()

@@ -22,7 +22,6 @@ func register(name: String, password: String) {  // функция регист�
     return
   }
   let json = NSString(data: httpBody, encoding: String.Encoding.utf8.rawValue)
-  print(json)
   request.httpBody = httpBody
   request.timeoutInterval = 20
   let session = URLSession.shared
