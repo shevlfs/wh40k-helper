@@ -101,9 +101,3 @@ struct ContentView: View {  // View с главным меню (отсюда ж�
     }
   }
 }
-
-/*struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environmentObject(collectionData()).environmentObject(armyController())
-    }
-}*/

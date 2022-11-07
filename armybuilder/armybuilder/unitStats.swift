@@ -1,10 +1,3 @@
-//
-//  unitStats.swift
-//  armybuilder
-//
-//  Created by ted on 6/21/22.
-//
-
 import SwiftUI
 
 struct unitStats: View { // View со статистикой конкретного юнита
@@ -63,11 +56,5 @@ struct unitStats: View { // View со статистикой конкретно�
 
       }.minimumScaleFactor(0.01).padding()
     }.minimumScaleFactor(0.01).background(RoundedRectangle(cornerRadius: 13).fill(.green))
-  }
-}
-
-struct unitStats_Previews: PreviewProvider {
-  static var previews: some View {
-    unitStats(Unit: globalstats[0].units[0])
   }
 }

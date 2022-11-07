@@ -1,10 +1,3 @@
-//
-//  modDisplay.swift
-//  armybuilder
-//
-//  Created by ted on 6/23/22.
-//
-
 import SwiftUI
 
 struct modDisplay: View { // View отображающий модификацию при добавлении её к юниту

@@ -1,10 +1,3 @@
-//
-//  addCustomMod.swift
-//  armybuilder
-//
-//  Created by ted on 6/24/22.
-//
-
 import Combine
 import SwiftUI
 

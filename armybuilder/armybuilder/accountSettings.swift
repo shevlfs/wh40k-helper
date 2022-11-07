@@ -1,10 +1,3 @@
-//
-//  accountSettings.swift
-//  armybuilder
-//
-//  Created by ted on 6/13/22.
-//
-
 import SwiftUI
 
 struct accountSettings: View { // View с меню настроек аккаунта (возможностью выхода из него)

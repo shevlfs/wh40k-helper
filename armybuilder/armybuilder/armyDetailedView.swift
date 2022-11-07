@@ -1,10 +1,3 @@
-//
-//  armyDetailedView.swift
-//  armybuilder
-//
-//  Created by ted on 24.02.2022.
-//
-
 import SwiftUI
 import UIKit
 

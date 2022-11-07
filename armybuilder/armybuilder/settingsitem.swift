@@ -1,10 +1,3 @@
-//
-//  settingsitem.swift
-//  armybuilder
-//
-//  Created by ted on 6/11/22.
-//
-
 import SwiftUI
 
 struct settingsitem: View { // View для отображения конкретной кнопки в меню настроек

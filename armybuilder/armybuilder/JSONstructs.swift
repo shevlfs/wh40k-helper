@@ -1,10 +1,3 @@
-//
-//  JSONstructs.swift
-//  armybuilder
-//
-//  Created by ted on 3/22/22.
-//
-
 import Foundation
 
 struct faction: Identifiable, Decodable {  // структура для фракции

@@ -1,10 +1,3 @@
-//
-//  troopDisplay.swift
-//  armybuilder
-//
-//  Created by ted on 6/18/22.
-//
-
 import SwiftUI
 
 struct troopDisplay: View { // View для отображения юнита при отображении армии

@@ -1,10 +1,3 @@
-//
-//  armyView.swift
-//  armybuilder
-//
-//  Created by ted on 21.02.2022.
-//
-
 import SwiftUI
 
 struct armyView: View { // View для отображения армий в главном меню

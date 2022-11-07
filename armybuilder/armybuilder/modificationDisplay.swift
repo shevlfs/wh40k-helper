@@ -39,9 +39,3 @@ struct modificationDisplay: View { // View отображающий модифи
     }.background(RoundedRectangle(cornerRadius: 15).fill(.mint)).padding()
   }
 }
-
-/*struct modDisplay_Previews: PreviewProvider {
-    static var previews: some View {
-        modDisplay(mod: mod())
-    }
-} */

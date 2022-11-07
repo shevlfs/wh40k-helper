@@ -1,10 +1,3 @@
-//
-//  armybuilderUITestsLaunchTests.swift
-//  armybuilderUITests
-//
-//  Created by ted on 11/6/22.
-//
-
 import XCTest
 
 final class armybuilderUITestsLaunchTests: XCTestCase {

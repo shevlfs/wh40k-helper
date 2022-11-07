@@ -1,10 +1,3 @@
-//
-//  modGameView.swift
-//  armybuilder
-//
-//  Created by ted on 6/28/22.
-//
-
 import SwiftUI
 
 struct modGameView: View { // View для отображения модификации в "режиме игры"

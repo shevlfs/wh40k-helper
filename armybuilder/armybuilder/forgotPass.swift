@@ -1,10 +1,3 @@
-//
-//  forgotPass.swift
-//  armybuilder
-//
-//  Created by ted on 7/16/22.
-//
-
 import SwiftUI
 
 struct forgotPass: View { // View с меню восстановления пароля

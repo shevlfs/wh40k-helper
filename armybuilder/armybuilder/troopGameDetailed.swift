@@ -1,10 +1,3 @@
-//
-//  troopGameDetailed.swift
-//  armybuilder
-//
-//  Created by ted on 6/28/22.
-//
-
 import SwiftUI
 
 struct troopGameDetailed: View { // View для отображения модификаций юнита в "режиме игры"

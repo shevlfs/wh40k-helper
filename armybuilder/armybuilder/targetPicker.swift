@@ -1,10 +1,3 @@
-//
-//  targetPicker.swift
-//  armybuilder
-//
-//  Created by ted on 6/14/22.
-//
-
 import Combine
 import SwiftUI
 
@@ -30,11 +23,5 @@ struct targetPicker: View { // View, который отображает нас�
             .fill(pointTarget.isPointTargetOn ? Color(UIColor.systemGray3):Color(UIColor.systemGray6))
         ).disabled(!pointTarget.isPointTargetOn)
     }.padding()
-  }
-}
-
-struct targetPicker_Previews: PreviewProvider {
-  static var previews: some View {
-    targetPicker().environmentObject(pointTarget())
   }
 }

@@ -1,10 +1,3 @@
-//
-//  unitGameView.swift
-//  armybuilder
-//
-//  Created by ted on 6/23/22.
-//
-
 import SwiftUI
 
 struct unitGameView: View { // View отображающий статистику конкретного юнита в "режиме игры"

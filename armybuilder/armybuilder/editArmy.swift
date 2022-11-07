@@ -1,10 +1,3 @@
-//
-//  selectTroops.swift
-//  armybuilder
-//
-//  Created by ted on 3/23/22.
-//
-
 import SwiftUI
 
 struct editArmy: View { // View отображающий меню изменения армии
@@ -211,9 +204,3 @@ struct editArmy: View { // View отображающий меню изменен
   }
 
 }
-
-/*struct editArmy_Previews: PreviewProvider {
-    static var previews: some View {
-        selectTroops(factionfile: 0, collectionShowcase: true).environmentObject(pointTarget()).environmentObject(collectionData())
-    }
-}*/

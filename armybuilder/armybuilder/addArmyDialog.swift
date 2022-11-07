@@ -63,9 +63,3 @@ struct addArmyDialog: View {  // View для выбора фракции при 
     }.navigationViewStyle(StackNavigationViewStyle()).navigationTitle("Add a new army!")
   }
 }
-
-/*struct addArmyDialog_Previews: PreviewProvider {
-    static var previews: some View {
-        addArmyDialog()
-    }
-}*/

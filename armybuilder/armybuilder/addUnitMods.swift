@@ -1,10 +1,3 @@
-//
-//  addUnitMods.swift
-//  armybuilder
-//
-//  Created by ted on 6/23/22.
-//
-
 import SwiftUI
 
 struct addUnitMods: View { // View отображающий меню выбора модификаций 
@@ -55,9 +48,3 @@ struct addUnitMods: View { // View отображающий меню выбор�
     }
   }
 }
-
-/*struct addUnitMods_Previews: PreviewProvider {
-    static var previews: some View {
-        addUnitMods(armyID: 0, Unit: globalstats[0].units[0], modID: 0).environmentObject(armyController())
-    }
-}*/

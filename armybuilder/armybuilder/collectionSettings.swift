@@ -1,10 +1,3 @@
-//
-//  collectionSettings.swift
-//  armybuilder
-//
-//  Created by ted on 6/13/22.
-//
-
 import SwiftUI
 
 struct collectionSettings: View { // View предлагающий выбрать фракцию юнитов для изменения коллекции

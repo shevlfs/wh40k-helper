@@ -1,10 +1,3 @@
-//
-//  troopDetailedView.swift
-//  armybuilder
-//
-//  Created by ted on 6/21/22.
-//
-
 import SwiftUI
 
 struct troopDetailedView: View { // View для отображения дополнительных сведений о юните

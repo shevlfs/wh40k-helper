@@ -1,10 +1,3 @@
-//
-//  appSettings.swift
-//  armybuilder
-//
-//  Created by ted on 3/21/22.
-//
-
 import SwiftUI
 
 struct appSettings: View {  // View с настройками приложения

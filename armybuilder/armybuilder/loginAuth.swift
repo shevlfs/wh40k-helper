@@ -1,10 +1,3 @@
-//
-//  loginAuth.swift
-//  armybuilder
-//
-//  Created by ted on 6/29/22.
-//
-
 import SwiftUI
 
 struct loginAuth: View {  // View с экраном авторизации

@@ -1,11 +1,5 @@
-//
-//  armyCustomization.swift
-//  armybuilder
-//
-//  Created by ted on 6/27/22.
-//
-
 import SwiftUI
+import Combine
 
 struct armyCustomization: View { // View с настройками армии
   @EnvironmentObject var armyControl: armyController
@@ -15,6 +9,7 @@ struct armyCustomization: View { // View с настройками армии
   @State var longNameWarn = false
   @State var savedAlert = false
   @State var temparmyName = String()
+  let nameLimit = 36
   var body: some View {
     VStack {
         HStack {
@@ -39,7 +34,7 @@ struct armyCustomization: View { // View с настройками армии
           "",
           text:
             $temparmyName
-        ).padding().foregroundColor(.black)
+        ).onReceive(Just(temparmyName)) { _ in limitNameText(nameLimit) }.padding().foregroundColor(.black)
           .frame(width: 150, height: 10)
           .padding()
           .background(
@@ -53,18 +48,11 @@ struct armyCustomization: View { // View с настройками армии
         Button(action: {
           if sameNameCheck == false {
               if (!temparmyName.trimmingCharacters(in: .whitespaces).isEmpty){
-                  if (temparmyName.count <= 64){
                       changearmyname(oldname: armyControl.armies[armyID].name, newname: temparmyName)
                       armyControl.armies[armyID].name = temparmyName
-                      longNameWarn = false
                       sameNameWarn = false
                       emptyNameWarn = false
                       savedAlert = true
-                  } else {
-                      longNameWarn = true
-                      sameNameWarn = false
-                      emptyNameWarn = false
-                  }
               } else {
                   emptyNameWarn = true
                   longNameWarn = false
@@ -89,4 +77,9 @@ struct armyCustomization: View { // View с настройками армии
         }
         return false
     }
+    func limitNameText(_ upper: Int) { // функция ограничивающая размер имени армии
+            if temparmyName.count > upper {
+                temparmyName = String(temparmyName.prefix(upper))
+            }
+        }
 }

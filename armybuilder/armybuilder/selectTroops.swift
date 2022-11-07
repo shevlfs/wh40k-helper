@@ -1,10 +1,3 @@
-//
-//  selectTroops.swift
-//  armybuilder
-//
-//  Created by ted on 3/23/22.
-//
-
 import SwiftUI
 
 class pointTarget: ObservableObject {  // объект для хранения цели по очкам

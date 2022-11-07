@@ -1,10 +1,3 @@
-//
-//  armyGameView.swift
-//  armybuilder
-//
-//  Created by ted on 6/21/22.
-//
-
 import SwiftUI
 
 

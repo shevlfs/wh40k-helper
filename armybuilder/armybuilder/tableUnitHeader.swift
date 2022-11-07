@@ -1,10 +1,3 @@
-//
-//  TableHeader.swift
-//  armybuilder
-//
-//  Created by ted on 6/23/22.
-//
-
 import SwiftUI
 
 struct tableUnitHeader: View { // View с "заголовком" таблицы статистик модификаций юнита в "режиме игры" при отображении модификаций юнита

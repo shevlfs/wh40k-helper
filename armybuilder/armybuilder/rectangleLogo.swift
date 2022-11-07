@@ -1,10 +1,3 @@
-//
-//  rectangleLogo.swift
-//  armybuilder
-//
-//  Created by ted on 6/29/22.
-//
-
 import SwiftUI
 
 struct rectangleLogo: View {  // View с анимированным логотипом приложения
@@ -28,11 +21,5 @@ struct rectangleLogo: View {  // View с анимированным логоти
 
         }
       }
-  }
-}
-
-struct rectangleLogo_Previews: PreviewProvider {
-  static var previews: some View {
-    rectangleLogo()
   }
 }
