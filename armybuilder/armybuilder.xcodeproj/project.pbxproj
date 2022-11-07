@@ -52,6 +52,7 @@
 		56883D1327A5DFA000349E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1227A5DFA000349E69 /* Assets.xcassets */; };
 		56883D1627A5DFA000349E69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56883D1527A5DFA000349E69 /* Preview Assets.xcassets */; };
 		56940119286BBC9F007841BB /* registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56940118286BBC9F007841BB /* registration.swift */; };
+		56B9051E2919164800B23DA9 /* armybuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B9051D2919164800B23DA9 /* armybuilderTests.swift */; };
 		56CD644627E92F40008478CD /* JSONstructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD644527E92F40008478CD /* JSONstructs.swift */; };
 		56E8A94A2917D3B1007443BE /* armybuilderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E8A9492917D3B1007443BE /* armybuilderUITests.swift */; };
 		56E8A94C2917D3B1007443BE /* armybuilderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E8A94B2917D3B1007443BE /* armybuilderUITestsLaunchTests.swift */; };
@@ -59,6 +60,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		56B9051F2919164800B23DA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56883D0327A5DF9F00349E69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56883D0A27A5DF9F00349E69;
+			remoteInfo = armybuilder;
+		};
 		56E8A94D2917D3B1007443BE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56883D0327A5DF9F00349E69 /* Project object */;
@@ -113,6 +121,8 @@
 		56883D1227A5DFA000349E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56883D1527A5DFA000349E69 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56940118286BBC9F007841BB /* registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registration.swift; sourceTree = "<group>"; };
+		56B9051B2919164800B23DA9 /* armybuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = armybuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56B9051D2919164800B23DA9 /* armybuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armybuilderTests.swift; sourceTree = "<group>"; };
 		56CD644527E92F40008478CD /* JSONstructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONstructs.swift; sourceTree = "<group>"; };
 		56E8A9472917D3B0007443BE /* armybuilderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = armybuilderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E8A9492917D3B1007443BE /* armybuilderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = armybuilderUITests.swift; sourceTree = "<group>"; };
@@ -127,6 +137,13 @@
 			files = (
 				562C1EFD2878AD820020788F /* Alamofire in Frameworks */,
 				562C1F022878B2970020788F /* Introspect in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56B905182919164800B23DA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +162,7 @@
 			children = (
 				56883D0D27A5DF9F00349E69 /* armybuilder */,
 				56E8A9482917D3B1007443BE /* armybuilderUITests */,
+				56B9051C2919164800B23DA9 /* armybuilderTests */,
 				56883D0C27A5DF9F00349E69 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -154,6 +172,7 @@
 			children = (
 				56883D0B27A5DF9F00349E69 /* armybuilder.app */,
 				56E8A9472917D3B0007443BE /* armybuilderUITests.xctest */,
+				56B9051B2919164800B23DA9 /* armybuilderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,6 +237,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		56B9051C2919164800B23DA9 /* armybuilderTests */ = {
+			isa = PBXGroup;
+			children = (
+				56B9051D2919164800B23DA9 /* armybuilderTests.swift */,
+			);
+			path = armybuilderTests;
+			sourceTree = "<group>";
+		};
 		56E8A9482917D3B1007443BE /* armybuilderUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +278,24 @@
 			productReference = 56883D0B27A5DF9F00349E69 /* armybuilder.app */;
 			productType = "com.apple.product-type.application";
 		};
+		56B9051A2919164800B23DA9 /* armybuilderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56B905232919164800B23DA9 /* Build configuration list for PBXNativeTarget "armybuilderTests" */;
+			buildPhases = (
+				56B905172919164800B23DA9 /* Sources */,
+				56B905182919164800B23DA9 /* Frameworks */,
+				56B905192919164800B23DA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56B905202919164800B23DA9 /* PBXTargetDependency */,
+			);
+			name = armybuilderTests;
+			productName = armybuilderTests;
+			productReference = 56B9051B2919164800B23DA9 /* armybuilderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		56E8A9462917D3B0007443BE /* armybuilderUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56E8A9512917D3B1007443BE /* Build configuration list for PBXNativeTarget "armybuilderUITests" */;
@@ -282,6 +327,10 @@
 					56883D0A27A5DF9F00349E69 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
+					56B9051A2919164800B23DA9 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 56883D0A27A5DF9F00349E69;
+					};
 					56E8A9462917D3B0007443BE = {
 						CreatedOnToolsVersion = 14.1;
 						TestTargetID = 56883D0A27A5DF9F00349E69;
@@ -308,6 +357,7 @@
 			targets = (
 				56883D0A27A5DF9F00349E69 /* armybuilder */,
 				56E8A9462917D3B0007443BE /* armybuilderUITests */,
+				56B9051A2919164800B23DA9 /* armybuilderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -322,6 +372,13 @@
 				56594CC82864BD6600D1A9C5 /* mods.json in Resources */,
 				56883D1327A5DFA000349E69 /* Assets.xcassets in Resources */,
 				5673660727E9E2C10088B805 /* factions.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56B905192919164800B23DA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +439,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56B905172919164800B23DA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56B9051E2919164800B23DA9 /* armybuilderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56E8A9432917D3B0007443BE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -394,6 +459,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		56B905202919164800B23DA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56883D0A27A5DF9F00349E69 /* armybuilder */;
+			targetProxy = 56B9051F2919164800B23DA9 /* PBXContainerItemProxy */;
+		};
 		56E8A94E2917D3B1007443BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 56883D0A27A5DF9F00349E69 /* armybuilder */;
@@ -588,6 +658,52 @@
 			};
 			name = Release;
 		};
+		56B905212919164800B23DA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PSQFU7KVDQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = shevlfs.armybuilderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/armybuilder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/armybuilder";
+			};
+			name = Debug;
+		};
+		56B905222919164800B23DA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PSQFU7KVDQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = shevlfs.armybuilderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/armybuilder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/armybuilder";
+			};
+			name = Release;
+		};
 		56E8A94F2917D3B1007443BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -649,6 +765,15 @@
 			buildConfigurations = (
 				56883D1A27A5DFA000349E69 /* Debug */,
 				56883D1B27A5DFA000349E69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56B905232919164800B23DA9 /* Build configuration list for PBXNativeTarget "armybuilderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56B905212919164800B23DA9 /* Debug */,
+				56B905222919164800B23DA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
