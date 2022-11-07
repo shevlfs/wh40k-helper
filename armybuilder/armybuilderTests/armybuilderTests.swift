@@ -14,6 +14,7 @@ final class armybuilderTests: XCTestCase {
     }
 
     func testArmyControl() throws { // Тест добавления армии
+        // Перед началом теста нужно войти в аккаунт!
         var armies = sut.armyControl.armies
         
         let countBefore = getArmyControl().count // Получаем количество армий с бэкенда
