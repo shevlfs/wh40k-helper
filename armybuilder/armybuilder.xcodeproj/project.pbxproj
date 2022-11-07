@@ -20,7 +20,6 @@
 		562A87AB27E8FB1B0076FB6A /* appSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87AA27E8FB1B0076FB6A /* appSettings.swift */; };
 		562A87AD27E8FB470076FB6A /* addArmyDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A87AC27E8FB470076FB6A /* addArmyDialog.swift */; };
 		562C1EFD2878AD820020788F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 562C1EFC2878AD820020788F /* Alamofire */; };
-		562C1F022878B2970020788F /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 562C1F012878B2970020788F /* Introspect */; };
 		5644884828577B0D00AB2273 /* accountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644884728577B0D00AB2273 /* accountSettings.swift */; };
 		5644884A28577B6600AB2273 /* collectionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644884928577B6600AB2273 /* collectionSettings.swift */; };
 		5644884E2857CE3B00AB2273 /* stats.json in Resources */ = {isa = PBXBuildFile; fileRef = 5644884D2857CE3B00AB2273 /* stats.json */; };
@@ -136,7 +135,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				562C1EFD2878AD820020788F /* Alamofire in Frameworks */,
-				562C1F022878B2970020788F /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +270,6 @@
 			name = armybuilder;
 			packageProductDependencies = (
 				562C1EFC2878AD820020788F /* Alamofire */,
-				562C1F012878B2970020788F /* Introspect */,
 			);
 			productName = armybuilder;
 			productReference = 56883D0B27A5DF9F00349E69 /* armybuilder.app */;
@@ -821,11 +818,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 56BFC54728731C620065A40D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		562C1F012878B2970020788F /* Introspect */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 562C1F002878B2970020788F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
-			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

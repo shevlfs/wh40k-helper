@@ -41,7 +41,6 @@ struct selectTroops: View {  // View для выбора юнитов при с�
                 if #available(iOS 16.0, *) {
                   targetPicker().environmentObject(pointTarget).presentationDetents([.medium])
                 } else {
-                  // Fallback on earlier versions
                   targetPicker().environmentObject(pointTarget)
                 }  // вызов меню выбора цели по очкам(в зависимости от версии ios она будет выглядеть по разному из-за нововведений swift)
               }
