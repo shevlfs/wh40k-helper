@@ -27,7 +27,6 @@ final class armybuilderUITests: XCTestCase {
         XCTAssertTrue(button.exists)
         button.tap()
         
-        Thread.sleep(forTimeInterval: 3)
         let armiesLabel = app.scrollViews.otherElements.containing(.staticText, identifier:"Your armies").element
         let exists = NSPredicate(format: "exists == true")
         expectation(for: exists, evaluatedWith: armiesLabel, handler: nil)

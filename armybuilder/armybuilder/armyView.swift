@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct armyView: View { // View для отображения армий в главном меню
+struct armyView: View {  // View для отображения армий в главном меню
   @State var id = Int()
   @State var faction = String()
   @EnvironmentObject var collectionDatas: collectionData
@@ -52,7 +52,7 @@ struct armyView: View { // View для отображения армий в гл
   }
 }
 
-struct ScaleableButtonStyle: ButtonStyle { // Реализация эффекта "сжимания" при нажатии на армию
+struct ScaleableButtonStyle: ButtonStyle {  // Реализация эффекта "сжимания" при нажатии на армию
   func makeBody(configuration: Configuration) -> some View {
     return configuration.label
       .scaleEffect(configuration.isPressed ? 0.98 : 1)

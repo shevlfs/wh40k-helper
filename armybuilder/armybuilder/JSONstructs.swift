@@ -90,7 +90,7 @@ struct stats: Identifiable, Decodable {  // структура для хране
     case id = "factid"
   }
 }
-var globalstats: [stats] = load("stats.json") // загрузка всей статистики из файла stats.json
+var globalstats: [stats] = load("stats.json")  // загрузка всей статистики из файла stats.json
 
 struct mod: Identifiable, Decodable {  // структура для модификации
   var id: Int
@@ -136,7 +136,7 @@ struct mod: Identifiable, Decodable {  // структура для модифи
   }
 
 }
-var mods: [mod] = load("mods.json") // загрузка модификаций из mods.json
+var mods: [mod] = load("mods.json")  // загрузка модификаций из mods.json
 func modNames() -> [String] {  // функция получения названий всех модификаций из json'a
   var answ = [String]()
   for mod in mods {

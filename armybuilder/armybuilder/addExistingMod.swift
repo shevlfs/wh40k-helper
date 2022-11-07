@@ -1,7 +1,7 @@
 import Combine
 import SwiftUI
 
-struct addExistingMod: View { // View, через который происходит добавление готовой модификации
+struct addExistingMod: View {  // View, через который происходит добавление готовой модификации
   @EnvironmentObject var armyControl: armyController
   @State var temppts = Int()
   @State var temptype = String()

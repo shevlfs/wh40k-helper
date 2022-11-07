@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct collectionSelection: View { // View отображающий конкретный юнит при изменении коллекции
+struct collectionSelection: View {  // View отображающий конкретный юнит при изменении коллекции
   @EnvironmentObject var collectionDatas: collectionData
   @State var factionID: Int
   @State var unitcount: Int
@@ -25,7 +25,7 @@ struct collectionSelection: View { // View отображающий конкре
 
 extension collectionSelection {
   @ViewBuilder
-  private func pickerView() -> some View { // Маленький View отображающий кнопки + и - для добавления или удаления юнита из коллекции, количество этого юнита в коллекции
+  private func pickerView() -> some View {  // Маленький View отображающий кнопки + и - для добавления или удаления юнита из коллекции, количество этого юнита в коллекции
     HStack {
       Button(action: {
         if collectionDatas.collectionDict[factionID]![unitID]! != 0 {

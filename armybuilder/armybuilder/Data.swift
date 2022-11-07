@@ -94,7 +94,7 @@ struct Army: Identifiable {  // структура для армии
     }
     return false
   }
-  
+
   func getCommandPoints() -> Int {  // функция для получения типа подразделения армии
     if self.pointCount == 0 {
       return 0
@@ -188,24 +188,24 @@ struct serverMod: Codable {  // временная структура для п�
   var count = Int()
 }
 
-class viewController: ObservableObject { // Объект для контроля sheet'а c добавлением армии (чтобы после создания армии sheet автоматически закрывался)
+class viewController: ObservableObject {  // Объект для контроля sheet'а c добавлением армии (чтобы после создания армии sheet автоматически закрывался)
   @Published var showingaddArmy = false
 }
 
-func isValidEmail(_ email: String) -> Bool { //  Функция для проверки корректности введеного пользователем email
+func isValidEmail(_ email: String) -> Bool {  //  Функция для проверки корректности введеного пользователем email
   let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
   let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
   return emailPred.evaluate(with: email)
 }
 
-class reloadController: ObservableObject { // Объект для контроля переменных и view связанных с аутентификация приложения
+class reloadController: ObservableObject {  // Объект для контроля переменных и view связанных с аутентификация приложения
   @Published var showLoginScreen = true
   @Published var logOutPerformed = false
   @Published var currentUser = String()
   @Published var userAlreadyLogged = false
   @Published var showSettings: Bool? = nil
-  init() { // инициализация
-    if loadCookies() { // если есть сохраненные Cookies, то тогда сразу запускать главное меню
+  init() {  // инициализация
+    if loadCookies() {  // если есть сохраненные Cookies, то тогда сразу запускать главное меню
       self.showLoginScreen = false
       self.userAlreadyLogged = true
     }
@@ -213,14 +213,14 @@ class reloadController: ObservableObject { // Объект для контрол
 }
 
 func fillCollectionInfo(collectionDatas: collectionData) -> collectionData {
-    // функция "заполнитель" коллекции с бэкенда
+  // функция "заполнитель" коллекции с бэкенда
   let tempCollection = getCollectionDatas()
   collectionDatas.collectionDict = tempCollection
   return collectionDatas
 }
 
 func fillArmyControlInfo(armyControl: armyController) -> armyController {
-    // функция "заполнитель" армий с бэкенда
+  // функция "заполнитель" армий с бэкенда
   let tempArmyList = getArmyControl()
   armyControl.armies = [Army]()
   for tempArmy in tempArmyList {
@@ -255,7 +255,7 @@ func fillArmyControlInfo(armyControl: armyController) -> armyController {
   return armyControl
 }
 
-extension Int { // дополнение для Int, которое позволяет кастовать его из String
+extension Int {  // дополнение для Int, которое позволяет кастовать его из String
   static func parse(from string: String) -> Int? {
     return Int(string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
   }

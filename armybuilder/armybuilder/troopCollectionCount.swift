@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct troopCollectionCount: View { // View для отображения юнитов состоящих в коллекции при создании армии
+struct troopCollectionCount: View {  // View для отображения юнитов состоящих в коллекции при создании армии
   @State var unitcount: Int
   @State var unitname = String()
   @State var pointcount = Int()
@@ -32,7 +32,7 @@ struct troopCollectionCount: View { // View для отображения юни
 
 extension troopCollectionCount {
   @ViewBuilder
-  private func pickerView() -> some View { // Маленький View отображающий кнопки + и - для добавления или удаления юнита, количество этого юнита и его цену в очках
+  private func pickerView() -> some View {  // Маленький View отображающий кнопки + и - для добавления или удаления юнита, количество этого юнита и его цену в очках
     HStack {
       Text("\(pointcount) pts").foregroundColor(.white)
         .padding(.vertical, 8).padding(.horizontal, 40)

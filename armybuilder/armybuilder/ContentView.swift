@@ -9,22 +9,22 @@ struct ContentView: View {  // View с главным меню (отсюда ж�
     NavigationView {
       ScrollView(.vertical) {
         HStack {
-            if (reloadControl.showLoginScreen == true){
-                EmptyView()
-            } else {
-                Text("Your armies").font(.largeTitle).fontWeight(.semibold).padding()
-            }
+          if reloadControl.showLoginScreen == true {
+            EmptyView()
+          } else {
+            Text("Your armies").font(.largeTitle).fontWeight(.semibold).padding()
+          }
           Spacer()
         }
         VStack {
 
           if armyControl.armies.isEmpty {
             Spacer()
-              if (reloadControl.showLoginScreen == true){
-                  EmptyView()
-              } else{
-                  Text("No armies! :(").fontWeight(.light).padding()
-              }
+            if reloadControl.showLoginScreen == true {
+              EmptyView()
+            } else {
+              Text("No armies! :(").fontWeight(.light).padding()
+            }
           } else {
             ForEach(armyControl.armies, id: \.id) { army in
               if !army.deleted {
@@ -60,7 +60,8 @@ struct ContentView: View {  // View с главным меню (отсюда ж�
             }
           }
           NavigationLink(
-            destination: appSettings().environmentObject(collectionDatas).environmentObject(reloadControl), tag: true, selection: $reloadControl.showSettings
+            destination: appSettings().environmentObject(collectionDatas).environmentObject(
+              reloadControl), tag: true, selection: $reloadControl.showSettings
           ) {
             EmptyView()  // вызов настроек приложения
           }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct editArmy: View { // View отображающий меню изменения армии
+struct editArmy: View {  // View отображающий меню изменения армии
   @State var factionfile = Int()
   @State var currentpoints = Int()
   @State var targetMenu = false
@@ -193,7 +193,7 @@ struct editArmy: View { // View отображающий меню изменен
       }
     }
   }
-  var searchResults: [unit] { // результаты поиска
+  var searchResults: [unit] {  // результаты поиска
     if searchText.isEmpty {
       return globalstats[factionfile].units
     } else {

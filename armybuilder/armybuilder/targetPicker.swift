@@ -1,7 +1,7 @@
 import Combine
 import SwiftUI
 
-struct targetPicker: View { // View, который отображает настройки цели по очкам
+struct targetPicker: View {  // View, который отображает настройки цели по очкам
   @EnvironmentObject var pointTarget: pointTarget
 
   var body: some View {
@@ -20,7 +20,8 @@ struct targetPicker: View { // View, который отображает нас�
         .padding()
         .background(
           RoundedRectangle(cornerRadius: 8)
-            .fill(pointTarget.isPointTargetOn ? Color(UIColor.systemGray3):Color(UIColor.systemGray6))
+            .fill(
+              pointTarget.isPointTargetOn ? Color(UIColor.systemGray3) : Color(UIColor.systemGray6))
         ).disabled(!pointTarget.isPointTargetOn)
     }.padding()
   }

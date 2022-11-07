@@ -66,7 +66,7 @@ func login(name: String, password: String) -> String {  // функция вхо
     "http://94.228.195.88:5000/login", method: .post, parameters: parameters,
     encoding: JSONEncoding.default
   ).responseString {
-      response in answ = response.value ?? "None"
+    response in answ = response.value ?? "None"
     done = true
   }.responseJSON {
     response in
@@ -167,7 +167,6 @@ func addArmy(army: Army) {  // функция добавления армии н
     }
   }.resume()
 }
-
 
 func saveCollection(collectionDatas: collectionData) {  // функция сохранения коллекции на бекенд
   let Url = String(format: "http://94.228.195.88:5000/savecollection")

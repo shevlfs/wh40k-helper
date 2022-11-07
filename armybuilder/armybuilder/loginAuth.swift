@@ -20,18 +20,22 @@ struct loginAuth: View {  // View с экраном авторизации
         }.padding()
         VStack {
           HStack {
-            TextField("Email", text: $userEmail).padding().foregroundColor(.black).frame(maxHeight: 20)
-              .padding()
-              .background(
-                RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray6)))
+            TextField("Email", text: $userEmail).padding().foregroundColor(.black).frame(
+              maxHeight: 20
+            )
+            .padding()
+            .background(
+              RoundedRectangle(cornerRadius: 8)
+                .fill(Color(UIColor.systemGray6)))
           }.padding()
           HStack {
-              SecureField("Password", text: $userPass).padding().foregroundColor(.black).frame(maxHeight: 20)
-              .padding()
-              .background(
-                RoundedRectangle(cornerRadius: 8)
-                  .fill(Color(UIColor.systemGray6)))
+            SecureField("Password", text: $userPass).padding().foregroundColor(.black).frame(
+              maxHeight: 20
+            )
+            .padding()
+            .background(
+              RoundedRectangle(cornerRadius: 8)
+                .fill(Color(UIColor.systemGray6)))
           }.padding()
           HStack {
             Button(action: {

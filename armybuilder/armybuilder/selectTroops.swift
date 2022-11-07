@@ -5,7 +5,7 @@ class pointTarget: ObservableObject {  // объект для хранения �
   @Published var isPointTargetOn = false
 }
 
-struct selectTroops: View { // View для выбора юнитов при создании армии
+struct selectTroops: View {  // View для выбора юнитов при создании армии
   @State var emptyWarning = false
   @State var pointTargetWarning = false
   @State var factionfile = Int()
@@ -194,7 +194,7 @@ struct selectTroops: View { // View для выбора юнитов при со
         Button(action: {
           if armyControl.armies[armyControl.armies.count - 1].pointCount != 0 {
             if armyControl.armies[armyControl.armies.count - 1].pointCount
-                > pointTarget.pointTargetCount && pointTarget.isPointTargetOn
+              > pointTarget.pointTargetCount && pointTarget.isPointTargetOn
             {
               emptyWarning = false
               pointTargetWarning = true
@@ -204,7 +204,7 @@ struct selectTroops: View { // View для выбора юнитов при со
             }
           } else {
             emptyWarning = true
-              pointTargetWarning = false
+            pointTargetWarning = false
           }
         }) {
           Text("Done")
@@ -212,7 +212,7 @@ struct selectTroops: View { // View для выбора юнитов при со
       }
     }
   }
-  var searchResults: [unit] { // результаты поиска
+  var searchResults: [unit] {  // результаты поиска
     if searchText.isEmpty {
       return globalstats[factionfile].units
     } else {

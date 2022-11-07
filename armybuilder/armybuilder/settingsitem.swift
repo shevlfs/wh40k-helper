@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct settingsitem: View { // View для отображения конкретной кнопки в меню настроек
+struct settingsitem: View {  // View для отображения конкретной кнопки в меню настроек
   @State var icon = String()
   @State var optionname = String()
   @State var textColor = String()

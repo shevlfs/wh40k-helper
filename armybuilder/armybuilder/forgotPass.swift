@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct forgotPass: View { // View с меню восстановления пароля
+struct forgotPass: View {  // View с меню восстановления пароля
   @State var login = String()
   @State var emailError = false
   @State var success = false
@@ -34,9 +34,10 @@ struct forgotPass: View { // View с меню восстановления па�
               forgotPassword(email: login)
             }
           }) {
-              HStack{
-                  Text("Confirm").padding(.horizontal, 27).padding(.vertical, 12).foregroundColor(
-                    .white)}.background(RoundedRectangle(cornerRadius: 10).fill(.blue)).padding()
+            HStack {
+              Text("Confirm").padding(.horizontal, 27).padding(.vertical, 12).foregroundColor(
+                .white)
+            }.background(RoundedRectangle(cornerRadius: 10).fill(.blue)).padding()
           }
         }
         Spacer()

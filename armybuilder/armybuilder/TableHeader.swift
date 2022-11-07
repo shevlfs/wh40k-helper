@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TableHeader: View { // View с "заголовком" таблицы статистик юнитов в "режиме игры" при отображении всей армии
+struct TableHeader: View {  // View с "заголовком" таблицы статистик юнитов в "режиме игры" при отображении всей армии
   var body: some View {
     HStack {
       HStack(alignment: .center, spacing: nil) {

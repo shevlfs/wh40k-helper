@@ -1,13 +1,13 @@
 import SwiftUI
 
-struct collectionSettings: View { // View предлагающий выбрать фракцию юнитов для изменения коллекции
+struct collectionSettings: View {  // View предлагающий выбрать фракцию юнитов для изменения коллекции
   @EnvironmentObject var collectionDatas: collectionData
   var body: some View {
     ScrollView(.vertical) {
-        HStack {
-          Text("Add units to collection").font(.largeTitle).fontWeight(.semibold)
-          Spacer()
-        }.padding()
+      HStack {
+        Text("Add units to collection").font(.largeTitle).fontWeight(.semibold)
+        Spacer()
+      }.padding()
       VStack {
         HStack {
           Text("Choose the faction of your units ").fontWeight(.regular).padding(

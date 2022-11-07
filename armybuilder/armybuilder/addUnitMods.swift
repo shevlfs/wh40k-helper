@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct addUnitMods: View { // View отображающий меню выбора модификаций 
+struct addUnitMods: View {  // View отображающий меню выбора модификаций
   @EnvironmentObject var armyControl: armyController
   @State var searchBarMods = [String]()
   @State var armyID: Int
@@ -21,11 +21,11 @@ struct addUnitMods: View { // View отображающий меню выбор�
             ) {
               EmptyView()
             }
-              Button(action: {self.addMod = true}){
-                  Text("Add custom...")
-                    .font(.title2).foregroundColor(.blue)
-                    .fontWeight(.semibold)
-              }
+            Button(action: { self.addMod = true }) {
+              Text("Add custom...")
+                .font(.title2).foregroundColor(.blue)
+                .fontWeight(.semibold)
+            }
           }.padding()
           ForEach(searchResults) { mod in
             NavigationLink(
@@ -40,7 +40,7 @@ struct addUnitMods: View { // View отображающий меню выбор�
       }.navigationTitle("Add modifications")
     }
   }
-  var searchResults: [mod] { // результаты поиска 
+  var searchResults: [mod] {  // результаты поиска
     if searchText.isEmpty {
       return mods
     } else {

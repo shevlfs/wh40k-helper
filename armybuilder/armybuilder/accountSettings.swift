@@ -1,12 +1,13 @@
 import SwiftUI
 
-struct accountSettings: View { // View с меню настроек аккаунта (возможностью выхода из него)
+struct accountSettings: View {  // View с меню настроек аккаунта (возможностью выхода из него)
   @EnvironmentObject var reloadControl: reloadController
   @Environment(\.dismiss) var dismiss
   var body: some View {
     VStack {
       HStack {
-          Text("\(reloadControl.currentUser)").font(.largeTitle).fontWeight(.semibold).lineLimit(1).minimumScaleFactor(0.01).scaledToFit()
+        Text("\(reloadControl.currentUser)").font(.largeTitle).fontWeight(.semibold).lineLimit(1)
+          .minimumScaleFactor(0.01).scaledToFit()
         Spacer()
       }.padding()
       VStack {

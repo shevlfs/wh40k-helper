@@ -34,4 +34,3 @@ struct appSettings: View {  // View с настройками приложени
     }
   }
 }
-

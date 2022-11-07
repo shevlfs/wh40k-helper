@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct registration: View { // View с экраном регистрации
+struct registration: View {  // View с экраном регистрации
   @State var userEmail = String()
   @State var userPass = String()
   @State var passConfirmation = String()
@@ -46,7 +46,8 @@ struct registration: View { // View с экраном регистрации
                 .fill(Color(UIColor.systemGray6)))
         }.padding()
         HStack {
-            Text("Confirm password").fontWeight(.semibold).lineLimit(2).minimumScaleFactor(0.01).scaledToFit().font(.title3).frame(maxWidth: 90)
+          Text("Confirm password").fontWeight(.semibold).lineLimit(2).minimumScaleFactor(0.01)
+            .scaledToFit().font(.title3).frame(maxWidth: 90)
           Spacer()
           SecureField("", text: $passConfirmation).padding().foregroundColor(.black)
             .frame(maxWidth: 195, maxHeight: 10)

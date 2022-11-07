@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct troopDetailedView: View { // View для отображения дополнительных сведений о юните
+struct troopDetailedView: View {  // View для отображения дополнительных сведений о юните
   @EnvironmentObject var collectionDatas: collectionData
   @State var Unit: unit
   @State var factionID: Int
