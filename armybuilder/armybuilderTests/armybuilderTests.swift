@@ -1,10 +1,3 @@
-//
-//  armybuilderTests.swift
-//  armybuilderTests
-//
-//  Created by ted on 11/7/22.
-//
-
 import XCTest
 @testable import armybuilder
     
@@ -31,11 +24,49 @@ final class armybuilderTests: XCTestCase {
         
         XCTAssertEqual(getArmyControl().count, countBefore + 1)
     }
+    
+    func testRegistration() throws {
+        let exp = expectation(description: "Registration")
+        let name = "test@example.com"
+        let password = "Happy7123"
+        let Url = String(format: "http://94.228.195.88:5000/registration")
+        guard let serviceUrl = URL(string: Url) else { return }
+        let parameters: [String: String] =
+          [
+
+            "name": name,
+            "password": password,
+
+          ]
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        guard
+          let httpBody = try? JSONSerialization.data(
+            withJSONObject: parameters, options: .fragmentsAllowed)
+        else {
+          print("something went wrong")
+          return
+        }
+        request.httpBody = httpBody
+        request.timeoutInterval = 20
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+
+          if let data = data {
+              do {
+                  print(String(data: data, encoding: .utf8)!)
+                  exp.fulfill()
+              }
+          }
+        }.resume()
+        waitForExpectations(timeout: 10)
+        
+        XCTAssertEqual(login(name: name,password: password), "verify your account")
+    }
 
     func testPerformanceExample() throws {
-        // This is an example of a performance test case.
         measure {
-            // Put the code you want to measure the time of here.
         }
     }
 
