@@ -1,3 +1,1 @@
-# Шевляков Фёдор ИВР
-
-# Приложение для составления армий в настольной игре Warhammer 40000
+# Native SwiftUI app for building Warhammer 40.000 armies
